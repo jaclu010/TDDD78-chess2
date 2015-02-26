@@ -32,7 +32,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 
 	for (int y = 0; y < ChessBoard.getHeight(); y++) {
 	    for (int x = 0; x < ChessBoard.getWidth(); x++) {
-		if ((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
+		if(chessBoard.getPiece(y,x) != null){
+		    g2d.setColor(Color.BLACK);
+		}else if ((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
 		    g2d.setColor(Color.LIGHT_GRAY);
 		} else {
 		    g2d.setColor(Color.DARK_GRAY);

@@ -1,6 +1,6 @@
 package chess2;
 
-public abstract class ChessPiece
+public abstract class ChessPiece implements PieceInterface
 {
     protected int y,x, hP;
     protected boolean player;
@@ -9,5 +9,21 @@ public abstract class ChessPiece
     public ChessPiece(final boolean player, final PieceType pieceType) {
 	this.player = player;
 	this.pieceType = pieceType;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getHP(){
+        return hP;
     }
 }

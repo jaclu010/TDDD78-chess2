@@ -2,5 +2,5 @@ package chess2;
 
 public enum PieceType
 {
-    KING, QUEEN, KNIGHT,ROOK, BISHOP, PAWN
+    KING, QUEEN, KNIGHT,ROOK, BISHOP, PAWN, OUTSIDE
 }
