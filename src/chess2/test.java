@@ -3,7 +3,7 @@ package chess2;
 public class test
 {
 
-    static void main(String[] args) {
+    static void main(Strg[] args) {
 
     }
 }
