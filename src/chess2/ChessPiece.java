@@ -11,18 +11,22 @@ public abstract class ChessPiece implements PieceInterface
 	this.pieceType = pieceType;
     }
 
+    @Override
     public PieceType getPieceType() {
         return pieceType;
     }
 
+    @Override
     public int getY(){
         return y;
     }
 
+    @Override
     public int getX(){
         return x;
     }
 
+    @Override
     public int getHP(){
         return hP;
     }

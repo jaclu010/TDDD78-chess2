@@ -5,11 +5,13 @@ import java.awt.*;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
 {
-    private ChessBoard chessBoard;
+    private ChessBoard cb;
     private static final int SQUARE_SIDE = 40;
+    private static final int LETTER_COMP_Y = 23;
+    private static final int LETTER_COMP_X = 16;
 
-    public ChessComponent(final ChessBoard chessBoard) {
-	this.chessBoard = chessBoard;
+    public ChessComponent(final ChessBoard cb) {
+	this.cb = cb;
     }
 
     @Override
@@ -32,15 +34,36 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 
 	for (int y = 0; y < ChessBoard.getHeight(); y++) {
 	    for (int x = 0; x < ChessBoard.getWidth(); x++) {
-		if(chessBoard.getPiece(y,x) != null){
+		if(cb.getPiece(y,x) != null){
 		    g2d.setColor(Color.BLACK);
+		    g2d.fill(new Rectangle(x*SQUARE_SIDE, y*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE));
+		    g2d.setColor(Color.WHITE);
+		    g2d.setFont(new Font("SansSerif", Font.BOLD, 12));
+		    if ((y != 0 && y != ChessBoard.getHeight()-1) || (x != 0 && x != ChessBoard.getWidth()-1)) {
+			g2d.drawString(getLetter(y, x), x * SQUARE_SIDE + LETTER_COMP_X, y * SQUARE_SIDE + LETTER_COMP_Y);
+		    }
 		}else if ((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
 		    g2d.setColor(Color.LIGHT_GRAY);
+		    g2d.fill(new Rectangle(x*SQUARE_SIDE, y*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE));
 		} else {
 		    g2d.setColor(Color.DARK_GRAY);
+		    g2d.fill(new Rectangle(x*SQUARE_SIDE, y*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE));
 		}
-		g2d.fill(new Rectangle(x*SQUARE_SIDE, y*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE));
+
 	    }
 	}
     }
+
+    public String getLetter(int y, int x){
+	if ((y == 0 || y == ChessBoard.getHeight()-1)){
+	    return Integer.toString(x);
+	} else if ((x == 0 || x == ChessBoard.getWidth()-1)){
+	    y += 64;
+	    char a = (char) y;
+	    return Character.toString(a);
+	}
+
+	return "L";
+    }
+
 }
