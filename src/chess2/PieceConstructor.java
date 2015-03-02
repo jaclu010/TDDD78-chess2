@@ -1,5 +1,7 @@
 package chess2;
 
+import chess2.Pieces.Outside;
+
 public class PieceConstructor
 {
     public static ChessPiece getPiece(PieceType pT){

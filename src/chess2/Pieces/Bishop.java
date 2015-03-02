@@ -1,4 +1,6 @@
-package chess2;
+package chess2.Pieces;
+
+import chess2.ChessPiece;
 
 import java.awt.Color;
 

@@ -1,5 +1,7 @@
 package chess2;
 
+import chess2.Pieces.Outside;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -58,7 +60,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	    for (int x = 1; x < ChessBoard.getWidth()-1; x++) {
 		if (cB.getPiece(y,x) != null || !(cB.getPiece(y, x) instanceof Outside)){
 		    g2.setColor(cB.getPiece(y,x).getColor());
-		    g2.fillOval(x*SQUARE_SIDE+10, y*SQUARE_SIDE+10, SQUARE_SIDE/2, SQUARE_SIDE/2);
+		    g2.fillOval(x * SQUARE_SIDE + 10, y * SQUARE_SIDE + 10, SQUARE_SIDE / 2, SQUARE_SIDE / 2);
 		}
 
 	    }

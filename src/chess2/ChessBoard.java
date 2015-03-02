@@ -1,5 +1,14 @@
 package chess2;
 
+import chess2.Pieces.Bishop;
+import chess2.Pieces.Empty;
+import chess2.Pieces.King;
+import chess2.Pieces.Knight;
+import chess2.Pieces.Outside;
+import chess2.Pieces.Pawn;
+import chess2.Pieces.Queen;
+import chess2.Pieces.Rook;
+
 import java.util.Random;
 
 public class ChessBoard
