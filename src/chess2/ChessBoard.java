@@ -9,13 +9,17 @@ import chess2.Pieces.Pawn;
 import chess2.Pieces.Queen;
 import chess2.Pieces.Rook;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.awt.event.MouseEvent;
 
 public class ChessBoard
 {
     private final static int WIDTH = 10, HEIGHT = 10;
     private ChessPiece[][] cB;
     private Random rnd = new Random();
+    private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
 
     public ChessBoard() {
 	cB = new ChessPiece[HEIGHT][WIDTH];
@@ -29,6 +33,20 @@ public class ChessBoard
                 }
             }
         }
+    }
+
+    public void addChessBoardListener(ChessBoardListener cBL){
+        chessBoardListeners.add(cBL);
+    }
+
+    public void notifyListeners(){
+        for (ChessBoardListener cBL : chessBoardListeners) {
+            cBL.chessBoardChanged();
+        }
+    }
+
+    public void checkMouseClick(MouseEvent e){
+        
     }
 
 

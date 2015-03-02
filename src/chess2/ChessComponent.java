@@ -79,4 +79,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	return "";
     }
 
+    public static int getSquareSide() {
+	return SQUARE_SIDE;
+    }
 }
