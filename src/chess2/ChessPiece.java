@@ -1,19 +1,21 @@
 package chess2;
 
+import java.awt.Color;
+
 public abstract class ChessPiece implements PieceInterface
 {
     protected int y,x, hP;
     protected boolean player;
-    protected PieceType pieceType;
+    protected Color color;
 
-    public ChessPiece(final boolean player, final PieceType pieceType) {
+    public ChessPiece(final boolean player, final Color color) {
 	this.player = player;
-	this.pieceType = pieceType;
+        this.color = color;
     }
 
     @Override
-    public PieceType getPieceType() {
-        return pieceType;
+    public Color getColor(){
+        return color;
     }
 
     @Override

@@ -11,7 +11,7 @@ public class PieceConstructor
     }
 
     public static ChessPiece typeO(){
-	ChessPiece newPiece = new Outside(false, PieceType.OUTSIDE);
+	ChessPiece newPiece = new Outside();
 	return newPiece;
     }
 }

@@ -1,9 +1,11 @@
 package chess2;
 
+import java.awt.Color;
+
 public class Outside extends ChessPiece
 {
-    public Outside(final boolean player, final PieceType pieceType) {
-	super(player, pieceType);
+    public Outside() {
+	super(true, Color.BLACK);
     }
 
 
