@@ -46,7 +46,14 @@ public class ChessBoard
     }
 
     public void checkMouseClick(MouseEvent e){
-        
+
+    }
+    
+    public void moveChessPiece(final int xFrom, final int yFrom, final int xTo, final int yTo){
+        ChessPiece chessPieceToMove = cB[yFrom][xFrom];
+        cB[yFrom][xFrom] = new Empty();
+        cB[yTo][xTo] = chessPieceToMove;
+        notifyListeners();
     }
 
 
