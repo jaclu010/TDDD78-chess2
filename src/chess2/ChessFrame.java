@@ -16,7 +16,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final JFrame frame = new JFrame("Chess 2");
 	cB.addChessBoardListener(gameArea);
-	frame.addMouseListener(this);
+	gameArea.addMouseListener(this);
 	frame.setLayout(new BorderLayout());
 	frame.add(gameArea, BorderLayout.CENTER);
 	createMenues(frame);
@@ -36,16 +36,16 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final JMenuItem exit = new JMenuItem("Exit", 'E');
 	file.add(newGame);
 	file.add(exit);
-
 	final ActionListener menuActions = new ActionListener(){
 	    public void actionPerformed(ActionEvent event){
 		if(event.getSource().equals(newGame)){
-		    System.out.println("Nytt spel");
+		    cB.clearBoard();
 		} else if(event.getSource().equals(exit)){
 		    System.exit(0);
 		}
 	    }
 	};
+	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
 
 	final JMenuBar menuBar = new JMenuBar();

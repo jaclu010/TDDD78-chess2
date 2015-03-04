@@ -7,6 +7,6 @@ import java.awt.*;
 public class Empty extends ChessPiece
 {
     public Empty() {
-	super(new Color(0,0,0,1));
+	super(true, new Color(0,0,0,1));
     }
 }

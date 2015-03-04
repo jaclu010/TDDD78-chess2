@@ -4,6 +4,10 @@
     <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessComponent.java" afterPath="$PROJECT_DIR$/src/chess2/ChessComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessFrame.java" afterPath="$PROJECT_DIR$/src/chess2/ChessFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessPiece.java" afterPath="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/Pieces/Empty.java" afterPath="$PROJECT_DIR$/src/chess2/Pieces/Empty.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/PieceInterface.java" afterPath="$PROJECT_DIR$/src/chess2/PieceInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
@@ -33,48 +37,61 @@
       <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="381" max-vertical-offset="1875">
-              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2460">
+              <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
               <folding>
-                <element signature="e#422#442#0" expanded="true" />
-                <element signature="e#900#901#0" expanded="true" />
-                <element signature="e#944#945#0" expanded="true" />
-                <element signature="e#3042#3043#0" expanded="true" />
-                <element signature="e#3063#3064#0" expanded="true" />
-                <element signature="e#3100#3101#0" expanded="true" />
-                <element signature="e#3122#3123#0" expanded="true" />
-                <element signature="e#3181#3182#0" expanded="true" />
-                <element signature="e#3212#3213#0" expanded="true" />
-                <element signature="e#3251#3252#0" expanded="true" />
-                <element signature="e#3282#3283#0" expanded="true" />
+                <element signature="e#459#479#0" expanded="true" />
+                <element signature="e#937#938#0" expanded="true" />
+                <element signature="e#981#982#0" expanded="true" />
+                <element signature="e#4374#4375#0" expanded="true" />
+                <element signature="e#4395#4396#0" expanded="true" />
+                <element signature="e#4432#4433#0" expanded="true" />
+                <element signature="e#4454#4455#0" expanded="true" />
+                <element signature="e#4513#4514#0" expanded="true" />
+                <element signature="e#4544#4545#0" expanded="true" />
+                <element signature="e#4583#4584#0" expanded="true" />
+                <element signature="e#4614#4615#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/ChessComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58360654" vertical-offset="426" max-vertical-offset="1425">
-              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1485">
+              <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
               <folding>
                 <element signature="e#534#535#0" expanded="true" />
                 <element signature="e#552#553#0" expanded="true" />
-                <element signature="e#2985#2986#0" expanded="true" />
-                <element signature="e#3012#3013#0" expanded="true" />
+                <element signature="e#3185#3186#0" expanded="true" />
+                <element signature="e#3212#3213#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Empty.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChessFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/chess2/ChessFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding>
+                <element signature="e#1095#1314#0" expanded="true" />
+                <element signature="e#1313#1314#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Empty.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Empty.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="270">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.2112676" vertical-offset="0" max-vertical-offset="639">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
               <folding>
                 <element signature="e#130#131#0" expanded="true" />
-                <element signature="e#164#165#0" expanded="true" />
+                <element signature="e#170#171#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,12 +100,9 @@
       <file leaf-file-name="Knight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Knight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="300">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#156#157#0" expanded="true" />
-                <element signature="e#190#191#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +110,7 @@
       <file leaf-file-name="Pawn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Pawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="240">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
               <folding />
             </state>
@@ -119,23 +133,13 @@
       <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="840">
-              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
               <folding>
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
-                <element signature="e#656#657#0" expanded="true" />
-                <element signature="e#680#681#0" expanded="true" />
-                <element signature="e#704#705#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#814#815#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#367#368#0" expanded="true" />
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#571#572#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,22 +158,9 @@
       <file leaf-file-name="PieceInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chess2/PieceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="360">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="King.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/King.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="270">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#152#153#0" expanded="true" />
-                <element signature="e#185#186#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -202,13 +193,13 @@
         <option value="$PROJECT_DIR$/src/chess2/PieceConstructor.java" />
         <option value="$PROJECT_DIR$/src/chess2/TestBoard.java" />
         <option value="$PROJECT_DIR$/src/chess2/Empty.java" />
-        <option value="$PROJECT_DIR$/src/chess2/ChessFrame.java" />
         <option value="$PROJECT_DIR$/src/chess2/Pieces/Knight.java" />
-        <option value="$PROJECT_DIR$/src/chess2/PieceInterface.java" />
-        <option value="$PROJECT_DIR$/src/chess2/Pieces/Empty.java" />
-        <option value="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
+        <option value="$PROJECT_DIR$/src/chess2/ChessFrame.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
+        <option value="$PROJECT_DIR$/src/chess2/PieceInterface.java" />
+        <option value="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessComponent.java" />
+        <option value="$PROJECT_DIR$/src/chess2/Pieces/Empty.java" />
       </list>
     </option>
   </component>
@@ -630,7 +621,7 @@
       <workItem from="1424944467477" duration="6291000" />
       <workItem from="1425287956671" duration="6277000" />
       <workItem from="1425463979477" duration="3020000" />
-      <workItem from="1425469094158" duration="2180000" />
+      <workItem from="1425469094158" duration="4368000" />
     </task>
     <task id="LOCAL-00001" summary="hej">
       <created>1424944720557</created>
@@ -686,11 +677,17 @@
       <option name="project" value="LOCAL" />
       <updated>1425466990708</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="början på att kunna flytta pjäser">
+      <created>1425471282504</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1425471282504</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17883000" />
+    <option name="totallyTimeSpent" value="20071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="24" y="18" width="1893" height="1034" extended-state="0" />
@@ -717,7 +714,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12520325" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29299363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29299363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -802,17 +799,17 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="950">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
-            <element signature="e#422#442#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3100#3101#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-            <element signature="e#3212#3213#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#459#479#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#4374#4375#0" expanded="true" />
+            <element signature="e#4395#4396#0" expanded="true" />
+            <element signature="e#4432#4433#0" expanded="true" />
+            <element signature="e#4454#4455#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4544#4545#0" expanded="true" />
+            <element signature="e#4583#4584#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -841,10 +838,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="836" max-vertical-offset="1045">
           <caret line="44" column="48" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
           <folding>
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -856,8 +853,8 @@
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3012#3013#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3212#3213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -875,20 +872,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -920,17 +907,17 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="595">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding>
-            <element signature="e#422#442#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3100#3101#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-            <element signature="e#3212#3213#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#459#479#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#4374#4375#0" expanded="true" />
+            <element signature="e#4395#4396#0" expanded="true" />
+            <element signature="e#4432#4433#0" expanded="true" />
+            <element signature="e#4454#4455#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4544#4545#0" expanded="true" />
+            <element signature="e#4583#4584#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -959,10 +946,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -974,8 +961,8 @@
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3012#3013#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3212#3213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -993,20 +980,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="493">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1038,17 +1015,17 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="779">
           <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
-            <element signature="e#422#442#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3100#3101#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-            <element signature="e#3212#3213#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#459#479#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#4374#4375#0" expanded="true" />
+            <element signature="e#4395#4396#0" expanded="true" />
+            <element signature="e#4432#4433#0" expanded="true" />
+            <element signature="e#4454#4455#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4544#4545#0" expanded="true" />
+            <element signature="e#4583#4584#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1077,10 +1054,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="475">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1092,8 +1069,8 @@
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3012#3013#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3212#3213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1111,20 +1088,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="665">
           <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1185,19 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1463">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1623#1624#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Rook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
@@ -1228,14 +1182,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Bishop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
@@ -1254,88 +1200,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Knight.java">
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
-            <element signature="e#156#157#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/PieceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Empty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding>
-            <element signature="e#130#131#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1095#1314#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="381" max-vertical-offset="1875">
-          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="2460">
+          <caret line="44" column="60" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
           <folding>
-            <element signature="e#422#442#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#3100#3101#0" expanded="true" />
-            <element signature="e#3122#3123#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
-            <element signature="e#3212#3213#0" expanded="true" />
-            <element signature="e#3251#3252#0" expanded="true" />
-            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#459#479#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#4374#4375#0" expanded="true" />
+            <element signature="e#4395#4396#0" expanded="true" />
+            <element signature="e#4432#4433#0" expanded="true" />
+            <element signature="e#4454#4455#0" expanded="true" />
+            <element signature="e#4513#4514#0" expanded="true" />
+            <element signature="e#4544#4545#0" expanded="true" />
+            <element signature="e#4583#4584#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/PieceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/ChessComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58360654" vertical-offset="426" max-vertical-offset="1425">
-          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="1485">
+          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3012#3013#0" expanded="true" />
+            <element signature="e#3185#3186#0" expanded="true" />
+            <element signature="e#3212#3213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/Pieces/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2112676" vertical-offset="0" max-vertical-offset="639">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#130#131#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
           </folding>
         </state>
       </provider>
