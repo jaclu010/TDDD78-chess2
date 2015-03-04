@@ -1,5 +1,6 @@
 package chess2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RuleList
@@ -12,7 +13,11 @@ public class RuleList
     }
 
     private RuleList() {
-        ruleList = new ArrayList<>();
+        ruleList = new ArrayList<Rule>();
         RuleFactory.getRules();
+    }
+
+    public List<Rule> getRules(String piece){
+
     }
 }

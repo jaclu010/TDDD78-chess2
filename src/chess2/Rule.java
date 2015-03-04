@@ -22,4 +22,8 @@ public class Rule
     public String getPiece() {
 	return piece;
     }
+
+    public Rule getRule(){
+        return this;
+    }
 }

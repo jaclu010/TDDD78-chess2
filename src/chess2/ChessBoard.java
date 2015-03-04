@@ -13,14 +13,15 @@ public class ChessBoard
     private boolean activePlayer;
     private Piece[][] cB;
     private Piece selected, wantToMoveTo;
-    private int selectedX,selectedY;
+    private int selectedX, selectedY;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
 
 
     public ChessBoard() {
-	this.cB = new AbstractPiece[HEIGHT][WIDTH];
+	this.cB = new Piece[HEIGHT][WIDTH];
         this.activePlayer = true;
+
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 if ((y == 0 || y == HEIGHT-1) || (x == 0 || x == WIDTH-1)){
