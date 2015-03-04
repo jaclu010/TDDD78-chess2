@@ -1,6 +1,6 @@
 package chess2;
 
-import chess2.Pieces.*;
+import chess2.pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +11,15 @@ public class ChessBoard
 {
     private final static int WIDTH = 10, HEIGHT = 10, CHAR_ADD = 64;
     private boolean activePlayer;
-    private ChessPiece[][] cB;
-    private ChessPiece selected, wantToMoveTo;
+    private Piece[][] cB;
+    private Piece selected, wantToMoveTo;
     private int selectedX,selectedY;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
 
 
     public ChessBoard() {
-	this.cB = new ChessPiece[HEIGHT][WIDTH];
+	this.cB = new AbstractPiece[HEIGHT][WIDTH];
         this.activePlayer = true;
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
@@ -91,7 +91,7 @@ public class ChessBoard
         notifyListeners();
     }
     public String pieceMovement(int y, int x){
-        return (selected.getClass().getName()+" From: "+ getLetter(selectedX)+ (HEIGHT-1-selectedY)+ " -> " + getLetter(x) + (HEIGHT-1-y));
+        return (selected.getClass().getSimpleName()+" From: "+ getLetter(selectedX)+ (HEIGHT-1-selectedY)+ " -> " + getLetter(x) + (HEIGHT-1-y));
     }
 
     public String getLetter(int n){
@@ -143,7 +143,7 @@ public class ChessBoard
         notifyListeners();
     }
 
-    public ChessPiece randPiece(int n){
+    public AbstractPiece randPiece(int n){
         switch(n){
             case 0: return new Bishop(true);
             case 1: return new King(true);
@@ -164,11 +164,11 @@ public class ChessBoard
 	return HEIGHT;
     }
 
-    public ChessPiece getPiece(final int y, final int x){
+    public Piece getPiece(final int y, final int x){
         return cB[y][x];
     }
 
-    public ChessPiece getSelected() {
+    public Piece getSelected() {
         return selected;
     }
 }

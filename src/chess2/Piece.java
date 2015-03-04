@@ -2,7 +2,7 @@ package chess2;
 
 import java.awt.Color;
 
-public interface PieceInterface
+public interface Piece
 {
     int getHP();
 

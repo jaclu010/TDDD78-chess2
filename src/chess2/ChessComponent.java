@@ -1,6 +1,6 @@
 package chess2;
 
-import chess2.Pieces.Outside;
+import chess2.pieces.Outside;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,20 +1,20 @@
 package chess2;
 
-import java.awt.Color;
+import java.awt.*;
 
-public abstract class ChessPiece implements PieceInterface
+public abstract class AbstractPiece implements Piece
 {
     protected int hP, lvl;
     protected boolean player;
     protected Color color;
 
-    public ChessPiece(final boolean player, final Color color) {
+    public AbstractPiece(final boolean player, final Color color) {
 	this.player = player;
         this.color = color;
         this.hP = 1;
     }
 
-    public ChessPiece(final Color color) {
+    public AbstractPiece(final Color color) {
         this.color = color;
     }
 
