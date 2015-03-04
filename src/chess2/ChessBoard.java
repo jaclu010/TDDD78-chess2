@@ -106,6 +106,16 @@ public class ChessBoard
         cB[HEIGHT-2][8] = new Rook(true);
     }
 
+    public void clearBoard() {
+        for (int y = 1; y < HEIGHT-1; y++) {
+            for (int x = 1; x < WIDTH-1; x++) {
+                cB[y][x] = new Empty();
+            }
+        }
+        fillBoard();
+        notifyListeners();
+    }
+
     public ChessPiece randPiece(int n){
         switch(n){
             case 0: return new Bishop(true);

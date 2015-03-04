@@ -43,12 +43,13 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final ActionListener menuActions = new ActionListener(){
 	    public void actionPerformed(ActionEvent event){
 		if(event.getSource().equals(newGame)){
-		    System.out.println("Nytt spel");
+		    cB.clearBoard();
 		} else if(event.getSource().equals(exit)){
 		    System.exit(0);
 		}
 	    }
 	};
+	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
 
 	final JMenuBar menuBar = new JMenuBar();
