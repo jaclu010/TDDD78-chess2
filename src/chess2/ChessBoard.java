@@ -47,11 +47,11 @@ public class ChessBoard
             movePiece(mouseY, mouseX);
         } else if(!(cB[mouseY][mouseX] instanceof Empty) && !(cB[mouseY][mouseX] instanceof Outside)){
             selected = cB[mouseY][mouseX];
+            System.out.println(selected);
             System.out.println(selected.getY()+" "+selected.getX());
         }
+        notifyListeners();
     }
-
-
 
 
  /*   private ChessPiece[][] cB;
@@ -70,12 +70,12 @@ public class ChessBoard
 */
     public void movePiece(int y, int x){
         wantToMoveTo = cB[y][x];
-        if (!(wantToMoveTo instanceof Empty) && !(wantToMoveTo instanceof Outside)){
+        if (wantToMoveTo instanceof Empty){
             cB[y][x] = selected;
             cB[selected.getY()][selected.getX()] = new Empty();
             selected = null;
-            notifyListeners();
         }
+        notifyListeners();
     }
 
     public void fillBoard(){
@@ -111,5 +111,9 @@ public class ChessBoard
 
     public ChessPiece getPiece(final int y, final int x){
         return cB[y][x];
+    }
+
+    public ChessPiece getSelected() {
+        return selected;
     }
 }
