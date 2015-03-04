@@ -10,4 +10,5 @@ public class Knight extends ChessPiece
 	super(player, Color.BLUE);
     }
 
+
 }

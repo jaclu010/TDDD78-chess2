@@ -1,13 +1,6 @@
 package chess2;
 
-import chess2.Pieces.Bishop;
-import chess2.Pieces.Empty;
-import chess2.Pieces.King;
-import chess2.Pieces.Knight;
-import chess2.Pieces.Outside;
-import chess2.Pieces.Pawn;
-import chess2.Pieces.Queen;
-import chess2.Pieces.Rook;
+import chess2.Pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +11,10 @@ public class ChessBoard
 {
     private final static int WIDTH = 10, HEIGHT = 10;
     private ChessPiece[][] cB;
+    private ChessPiece selected, wantToMoveTo;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
+
 
     public ChessBoard() {
 	cB = new ChessPiece[HEIGHT][WIDTH];
@@ -46,8 +41,17 @@ public class ChessBoard
     }
 
     public void checkMouseClick(MouseEvent e){
-        
+        int mouseY = e.getY()/ChessComponent.getSquareSide()-1;
+        int mouseX = e.getX()/ChessComponent.getSquareSide();
+        if (selected != null){
+            movePiece(mouseY, mouseX);
+        } else if(!(cB[mouseY][mouseX] instanceof Empty) && !(cB[mouseY][mouseX] instanceof Outside)){
+            selected = cB[mouseY][mouseX];
+            System.out.println(selected.getY()+" "+selected.getX());
+        }
     }
+
+
 
 
  /*   private ChessPiece[][] cB;
@@ -64,10 +68,22 @@ public class ChessBoard
         }
     }
 */
+    public void movePiece(int y, int x){
+        wantToMoveTo = cB[y][x];
+        if (!(wantToMoveTo instanceof Empty) && !(wantToMoveTo instanceof Outside)){
+            cB[y][x] = selected;
+            cB[selected.getY()][selected.getX()] = new Empty();
+            selected = null;
+            notifyListeners();
+        }
+    }
+
     public void fillBoard(){
         for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
                 cB[y][x] = randPiece(rnd.nextInt(7));
+                cB[y][x].setY(y);
+                cB[y][x].setX(x);
             }
         }
     }

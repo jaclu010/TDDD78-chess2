@@ -6,7 +6,11 @@ public interface PieceInterface
 {
     int getX();
 
+    void setX(final int x);
+
     int getY();
+
+    void setY(final int y);
 
     int getHP();
 

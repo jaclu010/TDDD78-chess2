@@ -8,28 +8,43 @@ public abstract class ChessPiece implements PieceInterface
     protected boolean player;
     protected Color color;
 
+    public ChessPiece(final boolean player, final Color color, final int y, final int x) {
+	this.player = player;
+        this.color = color;
+        this.y = y;
+        this.x = x;
+    }
+
     public ChessPiece(final boolean player, final Color color) {
 	this.player = player;
         this.color = color;
     }
 
-    @Override
+    public ChessPiece(final Color color) {
+        this.color = color;
+    }
+
     public Color getColor(){
         return color;
     }
 
-    @Override
     public int getY(){
         return y;
     }
 
-    @Override
     public int getX(){
         return x;
     }
 
-    @Override
     public int getHP(){
         return hP;
+    }
+
+    public void setY(final int y){
+        this.y = y;
+    }
+
+    public void setX(final int x){
+        this.x = x;
     }
 }
