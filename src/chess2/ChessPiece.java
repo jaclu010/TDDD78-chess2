@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public abstract class ChessPiece implements PieceInterface
 {
-    protected int hP;
+    protected int hP, lvl;
     protected boolean player;
     protected Color color;
 
@@ -30,5 +30,7 @@ public abstract class ChessPiece implements PieceInterface
         return player;
     }
 
-
+    @Override public String toString() {
+        return "ChessPiece{}";
+    }
 }

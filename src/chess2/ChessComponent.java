@@ -58,20 +58,23 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	}
 	for (int y = 1; y < ChessBoard.getHeight()-1; y++) {
 	    for (int x = 1; x < ChessBoard.getWidth()-1; x++) {
-
-		if (cB.getPiece(y,x) != null || !(cB.getPiece(y, x) instanceof Outside)){
-		    g2d.setColor(cB.getPiece(y,x).getColor());
-		    g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE/4, y * SQUARE_SIDE + SQUARE_SIDE/4, SQUARE_SIDE/2, SQUARE_SIDE/2);
+		if (cB.getPiece(y,x) != null) {
+		    if (!(cB.getPiece(y, x) instanceof Outside)) {
+			g2d.setColor(cB.getPiece(y, x).getColor());
+			g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE / 4, y * SQUARE_SIDE + SQUARE_SIDE / 4, SQUARE_SIDE / 2,
+				     SQUARE_SIDE / 2);
+		    }
+		    if (!cB.getPiece(y, x).getPlayer()) {
+			g2d.setColor(new Color(0, 0, 0, 150));
+			g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE / 4, y * SQUARE_SIDE + SQUARE_SIDE / 4, SQUARE_SIDE / 2,
+				     SQUARE_SIDE / 2);
+		    }
+		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
+			g2d.setColor(new Color(255, 255, 255, 200));
+			g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE / 4, y * SQUARE_SIDE + SQUARE_SIDE / 4, SQUARE_SIDE / 2,
+				     SQUARE_SIDE / 2);
+		    }
 		}
-		if (!cB.getPiece(y,x).getPlayer()){
-		    g2d.setColor(new Color(0,0,0,150));
-		    g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE/4, y * SQUARE_SIDE + SQUARE_SIDE/4, SQUARE_SIDE/2, SQUARE_SIDE/2);
-		}
-		if ((cB.getPiece(y,x)).equals(cB.getSelected())){
-		    g2d.setColor(new Color(255,255,255,200));
-		    g2d.fillOval(x * SQUARE_SIDE + SQUARE_SIDE/4, y * SQUARE_SIDE + SQUARE_SIDE/4, SQUARE_SIDE/2, SQUARE_SIDE/2);
-		}
-
 
 	    }
 	}

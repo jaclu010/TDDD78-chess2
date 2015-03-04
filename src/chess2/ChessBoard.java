@@ -9,7 +9,8 @@ import java.awt.event.MouseEvent;
 
 public class ChessBoard
 {
-    private final static int WIDTH = 10, HEIGHT = 10;
+    private final static int WIDTH = 10, HEIGHT = 10, CHAR_ADD = 64;
+    private boolean activePlayer;
     private ChessPiece[][] cB;
     private ChessPiece selected, wantToMoveTo;
     private int selectedX,selectedY;
@@ -18,14 +19,12 @@ public class ChessBoard
 
 
     public ChessBoard() {
-	cB = new ChessPiece[HEIGHT][WIDTH];
-
+	this.cB = new ChessPiece[HEIGHT][WIDTH];
+        this.activePlayer = true;
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 if ((y == 0 || y == HEIGHT-1) || (x == 0 || x == WIDTH-1)){
                     cB[y][x] = new Outside();
-                }else{
-                    cB[y][x] = new Empty();
                 }
             }
         }
@@ -44,19 +43,30 @@ public class ChessBoard
     public void checkMouseClick(MouseEvent e){
         int mouseY = e.getY()/ChessComponent.getSquareSide();
         int mouseX = e.getX()/ChessComponent.getSquareSide();
-        System.out.println(mouseY +" - " + mouseX);
-        if (mouseY < HEIGHT && mouseX < WIDTH) {
-            if (!(cB[mouseY][mouseX] instanceof Empty) && !(cB[mouseY][mouseX] instanceof Outside)) {
+        //System.out.println(mouseY +" - " + mouseX);
+        if (mouseY < HEIGHT && mouseX < WIDTH && !(cB[mouseY][mouseX] instanceof Outside)) {
+
+            if (selected == null && cB[mouseY][mouseX] != null) {
                 selected = cB[mouseY][mouseX];
                 selectedX = mouseX;
                 selectedY = mouseY;
-                System.out.println(selected);
-            } else if (selected != null) {
+                //System.out.println(selected);
+            } else if (selected != null && cB[mouseY][mouseX] == null){
+                movePiece(mouseY, mouseX);
+            } else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
+                selected = cB[mouseY][mouseX];
+                selectedX = mouseX;
+                selectedY = mouseY;
+                //System.out.println(selected);
+            } else if (cB[mouseY][mouseX] == null){
+            
+            } else {
                 movePiece(mouseY, mouseX);
             }
         }
         notifyListeners();
     }
+
 
 
  /*   private ChessPiece[][] cB;
@@ -74,23 +84,29 @@ public class ChessBoard
     }
 */
     public void movePiece(int y, int x){
-        wantToMoveTo = cB[y][x];
-        if (wantToMoveTo instanceof Empty){
-            cB[y][x] = selected;
-            cB[selectedY][selectedX] = new Empty();
-            selected = null;
-        }
+        cB[y][x] = selected;
+        cB[selectedY][selectedX] = null;
+        System.out.println(pieceMovement(y, x));
+        selected = null;
         notifyListeners();
+    }
+    public String pieceMovement(int y, int x){
+        return (selected.getClass().getName()+" From: "+ getLetter(selectedX)+ (HEIGHT-1-selectedY)+ " -> " + getLetter(x) + (HEIGHT-1-y));
+    }
+
+    public String getLetter(int n){
+        n += CHAR_ADD;
+        char a = (char) n;
+        return Character.toString(a);
     }
 
     public void fillBoard(){
         /*for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
                 cB[y][x] = randPiece(rnd.nextInt(7));
-                cB[y][x].setY(y);
-                cB[y][x].setX(x);
             }
         }*/
+
         //False = black piece
         //Adds the pawns at right position
         for (int x = 1; x < WIDTH-1; x++) {
@@ -101,8 +117,8 @@ public class ChessBoard
         cB[1][1] = new Rook(false);
         cB[1][2] = new Knight(false);
         cB[1][3] = new Bishop(false);
-        cB[1][4] = new King(false);
-        cB[1][5] = new Queen(false);
+        cB[1][4] = new Queen(false);
+        cB[1][5] = new King(false);
         cB[1][6] = new Bishop(false);
         cB[1][7] = new Knight(false);
         cB[1][8] = new Rook(false);
@@ -120,7 +136,7 @@ public class ChessBoard
     public void clearBoard() {
         for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
-                cB[y][x] = new Empty();
+                cB[y][x] = null;
             }
         }
         fillBoard();
