@@ -59,7 +59,7 @@ public class ChessBoard
                 selectedY = mouseY;
                 //System.out.println(selected);
             } else if (cB[mouseY][mouseX] == null){
-            
+
             } else {
                 movePiece(mouseY, mouseX);
             }

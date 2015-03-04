@@ -30,7 +30,4 @@ public abstract class ChessPiece implements PieceInterface
         return player;
     }
 
-    @Override public String toString() {
-        return "ChessPiece{}";
-    }
 }
