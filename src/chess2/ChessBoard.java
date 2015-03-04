@@ -72,11 +72,38 @@ public class ChessBoard
     }
 */
     public void fillBoard(){
+        /*
         for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
                 cB[y][x] = randPiece(rnd.nextInt(7));
             }
         }
+        */
+        //False = black piece
+        //Adds the pawns at right position
+        for (int x = 1; x < WIDTH-1; x++) {
+            cB[2][x] = new Pawn(false);
+            cB[HEIGHT-3][x] = new Pawn(true);
+        }
+        // Adds all black pieces
+        cB[1][1] = new Rook(false);
+        cB[1][2] = new Knight(false);
+        cB[1][3] = new Bishop(false);
+        cB[1][4] = new Queen(false);
+        cB[1][5] = new King(false);
+        cB[1][6] = new Bishop(false);
+        cB[1][7] = new Knight(false);
+        cB[1][8] = new Rook(false);
+
+        // Adds all white pieces
+        cB[HEIGHT-2][1] = new Rook(true);
+        cB[HEIGHT-2][2] = new Knight(true);
+        cB[HEIGHT-2][3] = new Bishop(true);
+        cB[HEIGHT-2][4] = new Queen(true);
+        cB[HEIGHT-2][5] = new King(true);
+        cB[HEIGHT-2][6] = new Bishop(true);
+        cB[HEIGHT-2][7] = new Knight(true);
+        cB[HEIGHT-2][8] = new Rook(true);
     }
 
     public ChessPiece randPiece(int n){
