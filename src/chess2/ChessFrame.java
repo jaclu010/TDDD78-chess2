@@ -18,7 +18,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	cB.addChessBoardListener(gameArea);
 	gameArea.addMouseListener(this);
 	frame.setLayout(new BorderLayout());
-	frame.add(gameArea, BorderLayout.CENTER);
+	frame.add(gameArea, BorderLayout.EAST);
 	createMenues(frame);
 
 	frame.pack();

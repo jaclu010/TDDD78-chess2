@@ -8,10 +8,6 @@ public class RuleList
     private static RuleList INSTANCE = new RuleList();
     private final List<Rule> ruleList;
 
-    public static RuleList getInstance() {
-	return INSTANCE;
-    }
-
     private RuleList() {
         ruleList = RuleFactory.getRules();
     }
@@ -38,5 +34,9 @@ public class RuleList
             }
         }
         return pieceRules;
+    }
+
+    public static RuleList getInstance() {
+	return INSTANCE;
     }
 }
