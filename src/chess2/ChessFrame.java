@@ -10,16 +10,19 @@ import java.awt.event.MouseEvent;
 public class ChessFrame extends JFrame implements MouseListener, ChessBoardListener
 {
     private ChessBoard cB;
+    private JTextArea activePlayerText;
 
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final JFrame frame = new JFrame("Chess 2");
 	cB.addChessBoardListener(gameArea);
+	cB.addChessBoardListener(this);
 	gameArea.addMouseListener(this);
 	frame.setLayout(new BorderLayout());
 	frame.add(gameArea, BorderLayout.CENTER);
 	createMenues(frame);
+	createActivePlayerTextArea(frame);
 
 	frame.pack();
 	frame.setVisible(true);
@@ -39,7 +42,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final ActionListener menuActions = new ActionListener(){
 	    public void actionPerformed(ActionEvent event){
 		if(event.getSource().equals(newGame)){
-		    cB.clearBoard();
+		    cB.resetBoard();
 		} else if(event.getSource().equals(exit)){
 		    System.exit(0);
 		}
@@ -53,9 +56,28 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	frame.setJMenuBar(menuBar);
     }
 
+    private void createActivePlayerTextArea(JFrame frame){
+	this.activePlayerText = new JTextArea("White players turn");
+	activePlayerText.setFont(new Font("Arial", Font.PLAIN, 30 ));
+	activePlayerText.setForeground(Color.GRAY);
+	activePlayerText.setEditable(false);
+	frame.add(activePlayerText, BorderLayout.PAGE_START);
+    }
+
+    private void changeActivePlayerTextArea(){
+	if(cB.getActivePlayer()){
+	    activePlayerText.setText("White players turn");
+	    activePlayerText.setForeground(Color.GRAY);
+	}else{
+	    activePlayerText.setText("Black players turn");
+	    activePlayerText.setForeground(Color.BLACK);
+	}
+    }
+
     @Override
     public void chessBoardChanged(){
-	repaint();
+	changeActivePlayerTextArea();
+	//repaint();
     }
 
     @Override

@@ -52,29 +52,38 @@ public class ChessBoard
     }
 
     public void testMovement(int mouseY, int mouseX){
-        if (selected == null && cB[mouseY][mouseX] != null) {
+        if (selected == null && cB[mouseY][mouseX] != null && cB[mouseY][mouseX].getPlayer() == activePlayer) {
+            // If no piece is selected, select a piece
             selected = cB[mouseY][mouseX];
             selectedX = mouseX;
             selectedY = mouseY;
 
         } else if (selected != null && cB[mouseY][mouseX] == null){
+            // If a piece is selected and wants to move to a empty place
             movePiece(mouseY, mouseX);
+            activePlayer = !activePlayer;
 
         } else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
+            // If a piece is selected, but a piece in the same team is clicked, select that piece instead
             selected = cB[mouseY][mouseX];
             selectedX = mouseX;
             selectedY = mouseY;
-        } else if (cB[mouseY][mouseX] instanceof King){
+
+        } else if (selected != null && cB[mouseY][mouseX] instanceof King){
+            // If you attack the enemy king
             movePiece(mouseY, mouseX);
             notifyListeners();
             gameOver();
-        } else if (cB[mouseY][mouseX] != null){
+
+        } else if (selected != null && cB[mouseY][mouseX] != null){
+            // If you attack a enemy piece
             movePiece(mouseY, mouseX);
+            activePlayer = !activePlayer;
         }
         notifyListeners();
     }
 
-    public void gameOver(){
+    private void gameOver(){
     	Object[] options = {"Yes", "No"};
     	int optionChosen = JOptionPane.showOptionDialog(
                 null,
@@ -86,7 +95,7 @@ public class ChessBoard
                 options,
                 options[0]);
     	if(optionChosen == 0){
-            clearBoard();
+            resetBoard();
     	} else if(optionChosen == 1){
             System.exit(0);
         }
@@ -146,13 +155,14 @@ public class ChessBoard
         cB[HEIGHT-2][7] = new Knight(true);
         cB[HEIGHT-2][8] = new Rook(true);
     }
-    public void clearBoard() {
+    public void resetBoard() {
         for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
                 cB[y][x] = null;
             }
         }
         fillBoard();
+        activePlayer = true;
         notifyListeners();
     }
 
@@ -183,5 +193,9 @@ public class ChessBoard
 
     public Piece getSelected() {
         return selected;
+    }
+
+    public boolean getActivePlayer() {
+        return activePlayer;
     }
 }
