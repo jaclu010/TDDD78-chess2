@@ -4,11 +4,21 @@ public class Rule
 {
     private int x, y;
     private String piece;
+    private Boolean untilBlockCollission, player;
 
-    public Rule(final int x, final int y, final String piece) {
+    public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission, Boolean player) {
 	this.x = x;
 	this.y = y;
 	this.piece = piece;
+        this.untilBlockCollission = untilBlockCollission;
+        this.player = player;
+    }
+
+    public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission) {
+	this.x = x;
+	this.y = y;
+	this.piece = piece;
+        this.untilBlockCollission = untilBlockCollission;
     }
 
     public int getX() {
@@ -25,5 +35,9 @@ public class Rule
 
     public Rule getRule(){
         return this;
+    }
+
+    public Boolean getPlayer() {
+        return player;
     }
 }

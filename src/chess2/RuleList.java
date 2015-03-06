@@ -13,11 +13,30 @@ public class RuleList
     }
 
     private RuleList() {
-        ruleList = new ArrayList<Rule>();
-        RuleFactory.getRules();
+        ruleList = RuleFactory.getRules();
     }
 
     public List<Rule> getRulesFor(String piece){
+        return extractRulesFor(piece);
+    }
 
+    public List<Rule> extractRulesFor(String piece){
+        List<Rule> pieceRules = new ArrayList<Rule>();
+        for (Rule rule : ruleList) {
+            if ((rule.getPiece()).equals(piece)){
+                pieceRules.add(rule);
+            }
+        }
+        return pieceRules;
+    }
+
+    public List<Rule> extractRulesForPawn(Boolean player){
+        List<Rule> pieceRules = new ArrayList<Rule>();
+        for (Rule rule : ruleList) {
+            if (rule.getPlayer() != null &&(rule.getPlayer()).equals(player)){
+                pieceRules.add(rule);
+            }
+        }
+        return pieceRules;
     }
 }

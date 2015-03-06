@@ -1,6 +1,7 @@
 package chess2;
 
 import java.awt.Color;
+import java.util.List;
 
 public interface Piece
 {
@@ -9,4 +10,8 @@ public interface Piece
     Color getColor();
 
     boolean getPlayer();
+
+    List<Rule> getPieceRules();
+
+    List<Rule> fetchRules();
 }
