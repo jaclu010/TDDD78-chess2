@@ -10,12 +10,9 @@ import java.awt.event.MouseEvent;
 public class ChessFrame extends JFrame implements MouseListener, ChessBoardListener
 {
     private ChessBoard cB;
-    private boolean chessPieceMarked;
-    private int xMovePieceFrom, yMovePieceFrom;
 
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
-	this.chessPieceMarked = false;
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final JFrame frame = new JFrame("Chess 2");
 	cB.addChessBoardListener(gameArea);
@@ -63,18 +60,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 
     @Override
     public void mouseClicked(MouseEvent e){
-	int squareSide = ChessComponent.getSquareSide();
-	int x = (e.getX() / squareSide), y = (e.getY() / squareSide);
-	if(x < ChessBoard.getWidth()-1 && x > 0 && y < ChessBoard.getHeight()-1 && y > 0) {
-	    if (chessPieceMarked) {
-		cB.moveChessPiece(xMovePieceFrom, yMovePieceFrom, x, y);
-		chessPieceMarked = false;
-	    } else {
-		xMovePieceFrom = x;
-		yMovePieceFrom = y;
-		chessPieceMarked = true;
-	    }
-	}
+	cB.checkMouseClick(e);
     }
     @Override
     public void mousePressed(MouseEvent e) {}
@@ -84,5 +70,4 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
     public void mouseExited(MouseEvent e) {}
     @Override
     public void mouseReleased(MouseEvent e) {}
-
 }

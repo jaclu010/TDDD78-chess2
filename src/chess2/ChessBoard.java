@@ -2,6 +2,7 @@ package chess2;
 
 import chess2.pieces.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -63,11 +64,32 @@ public class ChessBoard
             selected = cB[mouseY][mouseX];
             selectedX = mouseX;
             selectedY = mouseY;
-
+        } else if (cB[mouseY][mouseX] instanceof King){
+            movePiece(mouseY, mouseX);
+            notifyListeners();
+            gameOver();
         } else if (cB[mouseY][mouseX] != null){
             movePiece(mouseY, mouseX);
         }
         notifyListeners();
+    }
+
+    public void gameOver(){
+    	Object[] options = {"Yes", "No"};
+    	int optionChosen = JOptionPane.showOptionDialog(
+                null,
+                "Game Over!\n Play again?",
+                "Game over",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+    	if(optionChosen == 0){
+            clearBoard();
+    	} else if(optionChosen == 1){
+            System.exit(0);
+        }
     }
 
     public void checkByRules(){
