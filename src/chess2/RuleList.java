@@ -17,7 +17,7 @@ public class RuleList
         RuleFactory.getRules();
     }
 
-    public List<Rule> getRules(String piece){
+    public List<Rule> getRulesFor(String piece){
 
     }
 }

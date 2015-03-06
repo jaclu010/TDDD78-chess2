@@ -14,7 +14,7 @@ public abstract class AbstractPiece implements Piece
 	this.player = player;
         this.color = color;
         this.hP = 1;
-        this.ruleList = RuleList.getInstance().getRules(this.getClass().getSimpleName());
+        this.ruleList = RuleList.getInstance().getRulesFor(this.getClass().getSimpleName());
     }
 
     public AbstractPiece(final Color color) {

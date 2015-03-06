@@ -1,10 +1,11 @@
-package chess2.Pieces;
+package chess2.pieces;
 
-import chess2.ChessPiece;
+import chess2.AbstractPiece;
+
 
 import java.awt.Color;
 
-public class Pawn extends ChessPiece
+public class Pawn extends AbstractPiece
 {
     public Pawn(final boolean player) {
 	super(player, Color.YELLOW);

@@ -9,9 +9,10 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 {
     private ChessBoard cB;
     private static final int SQUARE_SIDE = 70;
+    private static final int CHAR_ADD = 64;
     private static final int LETTER_COMP_Y = SQUARE_SIDE/2 +4;
     private static final int LETTER_COMP_X = SQUARE_SIDE/2 -4;
-    private static final int CHAR_ADD = 64;
+
 
     public ChessComponent(final ChessBoard cB) {
 	this.cB = cB;
