@@ -1,13 +1,6 @@
 package chess2;
 
-import chess2.Pieces.Bishop;
-import chess2.Pieces.Empty;
-import chess2.Pieces.King;
-import chess2.Pieces.Knight;
-import chess2.Pieces.Outside;
-import chess2.Pieces.Pawn;
-import chess2.Pieces.Queen;
-import chess2.Pieces.Rook;
+import chess2.pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,20 +9,23 @@ import java.awt.event.MouseEvent;
 
 public class ChessBoard
 {
-    private final static int WIDTH = 10, HEIGHT = 10;
-    private ChessPiece[][] cB;
+    private final static int WIDTH = 10, HEIGHT = 10, CHAR_ADD = 64;
+    private boolean activePlayer;
+    private Piece[][] cB;
+    private Piece selected, wantToMoveTo;
+    private int selectedX, selectedY;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
 
+
     public ChessBoard() {
-	cB = new ChessPiece[HEIGHT][WIDTH];
+	this.cB = new Piece[HEIGHT][WIDTH];
+        this.activePlayer = true;
 
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 if ((y == 0 || y == HEIGHT-1) || (x == 0 || x == WIDTH-1)){
                     cB[y][x] = new Outside();
-                }else{
-                    cB[y][x] = new Empty();
                 }
             }
         }
@@ -46,39 +42,62 @@ public class ChessBoard
     }
 
     public void checkMouseClick(MouseEvent e){
+        int mouseY = e.getY()/ChessComponent.getSquareSide();
+        int mouseX = e.getX()/ChessComponent.getSquareSide();
 
+        if (mouseY < HEIGHT && mouseX < WIDTH && !(cB[mouseY][mouseX] instanceof Outside)) {
+            testMovement(mouseY, mouseX);
+        }
     }
-    
-    public void moveChessPiece(final int xFrom, final int yFrom, final int xTo, final int yTo){
-        ChessPiece chessPieceToMove = cB[yFrom][xFrom];
-        cB[yFrom][xFrom] = new Empty();
-        cB[yTo][xTo] = chessPieceToMove;
+
+    public void testMovement(int mouseY, int mouseX){
+        if (selected == null && cB[mouseY][mouseX] != null) {
+            selected = cB[mouseY][mouseX];
+            selectedX = mouseX;
+            selectedY = mouseY;
+
+        } else if (selected != null && cB[mouseY][mouseX] == null){
+            movePiece(mouseY, mouseX);
+
+        } else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
+            selected = cB[mouseY][mouseX];
+            selectedX = mouseX;
+            selectedY = mouseY;
+
+        } else if (cB[mouseY][mouseX] != null){
+            movePiece(mouseY, mouseX);
+        }
         notifyListeners();
     }
 
+    public void checkByRules(){
 
- /*   private ChessPiece[][] cB;
-
-    public ChessBoard() {
-	cB = new ChessPiece[HEIGHT][WIDTH];
-
-        for (int y = 0; y < HEIGHT; y++) {
-            for (int x = 0; x < WIDTH; x++) {
-                if ((y == 0 || y == HEIGHT-1) || (x == 0 || x == WIDTH-1)){
-                    cB[y][x] = PieceConstructor.getPiece(PieceType.OUTSIDE);
-                }
-            }
-        }
     }
-*/
+
+    public void movePiece(int y, int x){
+        cB[y][x] = selected;
+        cB[selectedY][selectedX] = null;
+        System.out.println(pieceMovement(y, x));
+        selected = null;
+        notifyListeners();
+    }
+    public String pieceMovement(int y, int x){
+        return (selected.getClass().getSimpleName()+" From: "+ getLetter(selectedX)+ (HEIGHT-1-selectedY)+ " -> " + getLetter(x) + (HEIGHT-1-y));
+    }
+
+    public String getLetter(int n){
+        n += CHAR_ADD;
+        char a = (char) n;
+        return Character.toString(a);
+    }
+
     public void fillBoard(){
-        /*
-        for (int y = 1; y < HEIGHT-1; y++) {
+        /*for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
                 cB[y][x] = randPiece(rnd.nextInt(7));
             }
-        }
-        */
+        }*/
+
         //False = black piece
         //Adds the pawns at right position
         for (int x = 1; x < WIDTH-1; x++) {
@@ -105,18 +124,17 @@ public class ChessBoard
         cB[HEIGHT-2][7] = new Knight(true);
         cB[HEIGHT-2][8] = new Rook(true);
     }
-
     public void clearBoard() {
         for (int y = 1; y < HEIGHT-1; y++) {
             for (int x = 1; x < WIDTH-1; x++) {
-                cB[y][x] = new Empty();
+                cB[y][x] = null;
             }
         }
         fillBoard();
         notifyListeners();
     }
 
-    public ChessPiece randPiece(int n){
+    public AbstractPiece randPiece(int n){
         switch(n){
             case 0: return new Bishop(true);
             case 1: return new King(true);
@@ -137,7 +155,11 @@ public class ChessBoard
 	return HEIGHT;
     }
 
-    public ChessPiece getPiece(final int y, final int x){
+    public Piece getPiece(final int y, final int x){
         return cB[y][x];
+    }
+
+    public Piece getSelected() {
+        return selected;
     }
 }
