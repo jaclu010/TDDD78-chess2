@@ -52,14 +52,14 @@ public class RuleFactory
         ruleList.add(new Rule(-1,0,"Rook", true));
 
         // Queen
-        ruleList.add(new Rule(1,2, "Queen", true));
-        ruleList.add(new Rule(-1,2, "Queen", true));
-        ruleList.add(new Rule(1,-2, "Queen", true));
-        ruleList.add(new Rule(-1,-2, "Queen", true));
-        ruleList.add(new Rule(2,1, "Queen", true));
-        ruleList.add(new Rule(-2,1, "Queen", true));
-        ruleList.add(new Rule(2,-1, "Queen", true));
-        ruleList.add(new Rule(-2,-1, "Queen", true));
+        ruleList.add(new Rule(1,1, "Queen", true));
+        ruleList.add(new Rule(1,-1, "Queen", true));
+        ruleList.add(new Rule(-1,-1, "Queen", true));
+        ruleList.add(new Rule(-1,-1, "Queen", true));
+        ruleList.add(new Rule(0,1, "Queen", true));
+        ruleList.add(new Rule(0,-1, "Queen", true));
+        ruleList.add(new Rule(1,0, "Queen", true));
+        ruleList.add(new Rule(-1,0, "Queen", true));
 
         // Special Rules
         // ToBeContinued.....

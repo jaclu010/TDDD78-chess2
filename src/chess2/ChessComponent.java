@@ -5,6 +5,7 @@ import jdk.nashorn.internal.objects.Global;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
 {
@@ -36,6 +37,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	//final Graphics2D g2 = (Graphics2D) g;
 
 	int squareSide = GlobalVars.getSquareSide();
+	ArrayList<Point> possibleMoves = cB.getPossibleMoves();
 
 
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
@@ -80,7 +82,12 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 
 	    }
 	}
-
+	g2d.setColor(new Color(0, 255, 0, 100));
+	if (possibleMoves != null) {
+	    for (Point possibleMove : possibleMoves) {
+		g2d.fill(new Rectangle(possibleMove.getX()*GlobalVars.getSquareSide(), possibleMove.getY()*GlobalVars.getSquareSide(), squareSide, squareSide));
+	    }
+	}
     }
 
     public String getLetter(int y, int x){

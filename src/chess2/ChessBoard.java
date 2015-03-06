@@ -1,4 +1,5 @@
 package chess2;
+
 import chess2.pieces.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +9,11 @@ public class ChessBoard
 {
     private boolean activePlayer;
     private Piece[][] cB;
-    private Piece selected, wantToMoveTo;
+    private Piece selected;
     private int selectedX, selectedY, height, width;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
+    private ArrayList<Point> possibleMoves = new ArrayList<Point>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
@@ -50,29 +52,48 @@ public class ChessBoard
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
+	    checkByRules();
 	} else if (selected != null && cB[mouseY][mouseX] == null){
-	    checkByRules(mouseY, mouseX);
+	    checkByRules();
+	    movePiece(mouseY, mouseX);
+
 	} else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
-	} else if (cB[mouseY][mouseX] != null){
-	    checkByRules(mouseY, mouseX);
+	    checkByRules();
+	} else if (cB[mouseY][mouseX] == null){
+
+	} else {
+	    checkByRules();
+	    movePiece(mouseY, mouseX);
 	}
 	notifyListeners();
     }
 
-    public void checkByRules(int y, int x){
-
-
+    public void checkByRules(){
+	possibleMoves.clear();
+	for (Rule rule : selected.fetchRules()) {
+	    int y = selectedY+rule.getPoint().getY();
+	    int x = selectedX+rule.getPoint().getX();
+	    if (y < height && x < width){ //&& !(cB[y][x] instanceof Outside) && cB[y][x].getPlayer() != selected.getPlayer()){
+		possibleMoves.add(new Point(y, x));
+	    }
+	}
     }
 
     public void movePiece(int y, int x){
-	cB[y][x] = selected;
-	cB[selectedY][selectedX] = null;
-	System.out.println(pieceMovement(y, x));
-	selected = null;
+	for (Point possibleMove : possibleMoves) {
+	    if (possibleMove.getY() == y && possibleMove.getX() == x){
+		cB[y][x] = selected;
+		cB[selectedY][selectedX] = null;
+		System.out.println(pieceMovement(y, x));
+		selected = null;
+	    }
+	}
+	possibleMoves.clear();
 	notifyListeners();
+
     }
 
     public String pieceMovement(int y, int x){
@@ -89,13 +110,13 @@ public class ChessBoard
 	cB[y][x] = randPiece(rnd.nextInt(7));
 	}
 	}*/
-    //False = black piece
-    //Adds the pawns at right position
+	//False = black piece
+	//Adds the pawns at right position
 
-	for (int x = 1; x < width-1; x++) {
-	cB[2][x] = new Pawn(false);
-	cB[height-3][x] = new Pawn(true);
-    }
+	//for (int x = 1; x < width-1; x++) {
+	//    cB[2][x] = new Pawn(false);
+	//cB[height-3][x] = new Pawn(true);
+    //}
 
     // Adds all black pieces
 	cB[1][1] = new Rook(false);
@@ -146,5 +167,9 @@ public class ChessBoard
 
     public Piece getSelected() {
 	return selected;
+    }
+
+    public ArrayList<Point> getPossibleMoves() {
+	return possibleMoves;
     }
 }

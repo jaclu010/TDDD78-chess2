@@ -12,10 +12,6 @@ public class RuleList
         ruleList = RuleFactory.getRules();
     }
 
-    public List<Rule> getRulesFor(String piece){
-        return extractRulesFor(piece);
-    }
-
     public List<Rule> extractRulesFor(String piece){
         List<Rule> pieceRules = new ArrayList<Rule>();
         for (Rule rule : ruleList) {
