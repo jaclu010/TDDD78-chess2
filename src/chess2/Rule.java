@@ -1,32 +1,29 @@
 package chess2;
 
+import javafx.geometry.Point2D;
+
 public class Rule
 {
-    private int x, y;
+
+    private Point2D point;
     private String piece;
     private Boolean untilBlockCollission, player;
 
     public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission, Boolean player) {
-	this.x = x;
-	this.y = y;
+	this.point = new Point2D(y, x);
 	this.piece = piece;
         this.untilBlockCollission = untilBlockCollission;
         this.player = player;
     }
 
     public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission) {
-	this.x = x;
-	this.y = y;
+	this.point = new Point2D(y, x);
 	this.piece = piece;
         this.untilBlockCollission = untilBlockCollission;
     }
 
-    public int getX() {
-	return x;
-    }
-
-    public int getY() {
-	return y;
+    public Point2D getPoint(){
+        return point;
     }
 
     public String getPiece() {

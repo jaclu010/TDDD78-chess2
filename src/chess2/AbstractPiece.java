@@ -8,13 +8,11 @@ public abstract class AbstractPiece implements Piece
     protected int hP, lvl;
     protected boolean player;
     protected Color color;
-    protected List<Rule> pieceRules;
 
     public AbstractPiece(final boolean player, final Color color) {
 	this.player = player;
         this.color = color;
         this.hP = 1;
-        this.pieceRules = fetchRules();
     }
 
     public AbstractPiece(final Color color) {
@@ -35,9 +33,5 @@ public abstract class AbstractPiece implements Piece
 
     public boolean getPlayer(){
         return player;
-    }
-
-    public List<Rule> getPieceRules() {
-        return pieceRules;
     }
 }

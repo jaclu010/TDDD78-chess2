@@ -44,46 +44,36 @@ public class ChessBoard
     public void checkMouseClick(MouseEvent e){
         int mouseY = e.getY()/ChessComponent.getSquareSide();
         int mouseX = e.getX()/ChessComponent.getSquareSide();
-        //System.out.println(mouseY +" - " + mouseX);
+
         if (mouseY < HEIGHT && mouseX < WIDTH && !(cB[mouseY][mouseX] instanceof Outside)) {
+            testMovement(mouseY, mouseX);
+        }
+    }
 
-            if (selected == null && cB[mouseY][mouseX] != null) {
-                selected = cB[mouseY][mouseX];
-                selectedX = mouseX;
-                selectedY = mouseY;
-                //System.out.println(selected);
-            } else if (selected != null && cB[mouseY][mouseX] == null){
-                movePiece(mouseY, mouseX);
-            } else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
-                selected = cB[mouseY][mouseX];
-                selectedX = mouseX;
-                selectedY = mouseY;
-                //System.out.println(selected);
-            } else if (cB[mouseY][mouseX] == null){
+    public void testMovement(int mouseY, int mouseX){
+        if (selected == null && cB[mouseY][mouseX] != null) {
+            selected = cB[mouseY][mouseX];
+            selectedX = mouseX;
+            selectedY = mouseY;
 
-            } else {
-                movePiece(mouseY, mouseX);
-            }
+        } else if (selected != null && cB[mouseY][mouseX] == null){
+            movePiece(mouseY, mouseX);
+
+        } else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
+            selected = cB[mouseY][mouseX];
+            selectedX = mouseX;
+            selectedY = mouseY;
+
+        } else if (cB[mouseY][mouseX] != null){
+            movePiece(mouseY, mouseX);
         }
         notifyListeners();
     }
 
+    public void checkByRules(){
 
-
- /*   private ChessPiece[][] cB;
-
-    public ChessBoard() {
-	cB = new ChessPiece[HEIGHT][WIDTH];
-
-        for (int y = 0; y < HEIGHT; y++) {
-            for (int x = 0; x < WIDTH; x++) {
-                if ((y == 0 || y == HEIGHT-1) || (x == 0 || x == WIDTH-1)){
-                    cB[y][x] = PieceConstructor.getPiece(PieceType.OUTSIDE);
-                }
-            }
-        }
     }
-*/
+
     public void movePiece(int y, int x){
         cB[y][x] = selected;
         cB[selectedY][selectedX] = null;

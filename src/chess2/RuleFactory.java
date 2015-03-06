@@ -10,12 +10,12 @@ public class RuleFactory
         List<Rule> ruleList = new ArrayList<Rule>();
 
         // White Pawn
-        ruleList.add(new Rule(0,1,"Pawn", false, true));
-        ruleList.add(new Rule(0,2,"Pawn", false, true));
+        ruleList.add(new Rule(0,-1,"Pawn", false, true));
+        ruleList.add(new Rule(0,-2,"Pawn", false, true));
 
         // Black Pawn
-        ruleList.add(new Rule(0,-1,"Pawn", false, false));
-        ruleList.add(new Rule(0,-2, "Pawn", false, false));
+        ruleList.add(new Rule(0,1,"Pawn", false, false));
+        ruleList.add(new Rule(0,2, "Pawn", false, false));
 
         // Knight
         ruleList.add(new Rule(1,2, "Knight", false));
@@ -62,7 +62,7 @@ public class RuleFactory
         ruleList.add(new Rule(-2,-1, "Queen", true));
 
         // Special Rules
-        // TBC.....
+        // ToBeContinued.....
 
         return ruleList;
     }

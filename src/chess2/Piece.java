@@ -11,7 +11,5 @@ public interface Piece
 
     boolean getPlayer();
 
-    List<Rule> getPieceRules();
-
     List<Rule> fetchRules();
 }
