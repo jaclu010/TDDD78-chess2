@@ -1,6 +1,6 @@
 package chess2;
 
-import chess2.pieces.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,18 +12,21 @@ public class ChessBoard
     private Piece selected;
     private int selectedX, selectedY, height, width;
     private Random rnd = new Random();
-    private List<ChessBoardListener> chessBoardListeners = new ArrayList<ChessBoardListener>();
-    private ArrayList<Point> possibleMoves = new ArrayList<Point>();
+    private List<ChessBoardListener> chessBoardListeners = new ArrayList<>();
+    private ArrayList<Point> possibleMoves = new ArrayList<>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
 	this.width = GlobalVars.getWidth();
 	this.cB = new Piece[height][width];
 	this.activePlayer = true;
+	this.selected = null;
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
 		if ((y == 0 || y == height-1) || (x == 0 || x == width -1)){
-		    cB[y][x] = new Outside();
+		    cB[y][x] = new AbstractPiece(PieceType.OUTSIDE);
+		} else {
+		    cB[y][x] = new AbstractPiece(PieceType.EMPTY);
 		}
 	    }
 	}
@@ -34,26 +37,24 @@ public class ChessBoard
     }
 
     public void notifyListeners(){
-	for (ChessBoardListener cBL : chessBoardListeners) {
-	    cBL.chessBoardChanged();
-	}
+	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
     }
 
     public void checkMouseClick(MouseEvent e){
 	int mouseY = e.getY()/GlobalVars.getSquareSide();
 	int mouseX = e.getX()/GlobalVars.getSquareSide();
-	if (mouseY < height && mouseX < width && !(cB[mouseY][mouseX] instanceof Outside)) {
+	if (mouseY < height && mouseX < width && cB[mouseY][mouseX].getPieceType() != PieceType.OUTSIDE) {
 	    testMovement(mouseY, mouseX);
 	}
     }
 
     public void testMovement(int mouseY, int mouseX){
-	if (selected == null && cB[mouseY][mouseX] != null) {
+	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
-	} else if (selected != null && cB[mouseY][mouseX] == null){
+	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    checkByRules();
 	    movePiece(mouseY, mouseX);
 
@@ -62,7 +63,7 @@ public class ChessBoard
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
-	} else if (cB[mouseY][mouseX] == null){
+	} else if (cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 
 	} else {
 	    checkByRules();
@@ -74,30 +75,53 @@ public class ChessBoard
     public void checkByRules(){
 	possibleMoves.clear();
 	for (Rule rule : selected.fetchRules()) {
-	    int y = selectedY+rule.getPoint().getY();
-	    int x = selectedX+rule.getPoint().getX();
-	    if (y < height && x < width){ //&& !(cB[y][x] instanceof Outside) && cB[y][x].getPlayer() != selected.getPlayer()){
-		possibleMoves.add(new Point(y, x));
+	    if(rule.getUntilBlockCollission()){
+		canMoveManySteps(rule);
+	    } else{
+		canMoveOneStep(rule);
 	    }
+	}
+	notifyListeners();
+    }
+
+    public void canMoveOneStep(Rule rule){
+	int y = selectedY+rule.getPoint().getY();
+	int x = selectedX+rule.getPoint().getX();
+	if (y < height && y > 0 && x < width && x > 0 &&
+	    cB[y][x].getPlayer() != selected.getPlayer()
+		&& cB[y][x].getPieceType() != PieceType.OUTSIDE){
+	    possibleMoves.add(new Point(y, x));
+	}
+    }
+
+    public void canMoveManySteps(Rule rule){
+	int tempY = selectedY+rule.getPoint().getY();
+	int tempX = selectedX+rule.getPoint().getX();
+	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
+	       (cB[tempY][tempX].getPieceType() != PieceType.OUTSIDE &&
+		cB[tempY][tempX].getPlayer() != selected.getPlayer()
+	       )){
+	    possibleMoves.add(new Point(tempY, tempX));
+	    tempY += rule.getPoint().getY();
+	    tempX += rule.getPoint().getX();
 	}
     }
 
     public void movePiece(int y, int x){
-	for (Point possibleMove : possibleMoves) {
-	    if (possibleMove.getY() == y && possibleMove.getX() == x){
+	for (Point possibleMove : possibleMoves){
+	    if (possibleMove.getX() == x && possibleMove.getY() == y){
 		cB[y][x] = selected;
-		cB[selectedY][selectedX] = null;
+		cB[selectedY][selectedX] = new AbstractPiece(PieceType.EMPTY);
 		System.out.println(pieceMovement(y, x));
 		selected = null;
 	    }
 	}
 	possibleMoves.clear();
 	notifyListeners();
-
     }
 
     public String pieceMovement(int y, int x){
-	return (selected.getClass().getSimpleName()+" From: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+	return (selected.getPieceType().name()+" From: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
     public String getLetter(int n){
 	n += GlobalVars.getCharAdd();
@@ -112,34 +136,36 @@ public class ChessBoard
 	}*/
 	//False = black piece
 	//Adds the pawns at right position
+/*
+	for (int x = 1; x < width-1; x++) {
+	    cB[2][x] = new AbstractPiece(false, PieceType.PAWN);
+	    cB[height-3][x] = new AbstractPiece(true, PieceType.PAWN);
+	}
+*/
+	// Adds all black pieces
+	cB[1][1] = new AbstractPiece(false, PieceType.ROOK);
+	cB[1][2] = new AbstractPiece(false, PieceType.KNIGHT);
+	cB[1][3] = new AbstractPiece(false, PieceType.BISHOP);
+	cB[1][4] = new AbstractPiece(false, PieceType.QUEEN);
+	cB[1][5] = new AbstractPiece(false, PieceType.KING);
+	cB[1][6] = new AbstractPiece(false, PieceType.BISHOP);
+	cB[1][7] = new AbstractPiece(false, PieceType.KNIGHT);
+	cB[1][8] = new AbstractPiece(false, PieceType.ROOK);
 
-	//for (int x = 1; x < width-1; x++) {
-	//    cB[2][x] = new Pawn(false);
-	//cB[height-3][x] = new Pawn(true);
-    //}
 
-    // Adds all black pieces
-	cB[1][1] = new Rook(false);
-	cB[1][2] = new Knight(false);
-	cB[1][3] = new Bishop(false);
-	cB[1][4] = new Queen(false);
-	cB[1][5] = new King(false);
-	cB[1][6] = new Bishop(false);
-	cB[1][7] = new Knight(false);
-	cB[1][8] = new Rook(false);
-
-    // Adds all white pieces
-	cB[height-2][1] = new Rook(true);
-	cB[height-2][2] = new Knight(true);
-	cB[height-2][3] = new Bishop(true);
-	cB[height-2][4] = new Queen(true);
-	cB[height-2][5] = new King(true);
-	cB[height-2][6] = new Bishop(true);
-	cB[height-2][7] = new Knight(true);
-	cB[height-2][8] = new Rook(true);
+	// Adds all white pieces
+	cB[height-2][1] = new AbstractPiece(true, PieceType.ROOK);
+	cB[height-2][2] = new AbstractPiece(true, PieceType.KNIGHT);
+	cB[height-2][3] = new AbstractPiece(true, PieceType.BISHOP);
+	cB[height-2][4] = new AbstractPiece(true, PieceType.QUEEN);
+	cB[height-2][5] = new AbstractPiece(true, PieceType.KING);
+	cB[height-2][6] = new AbstractPiece(true, PieceType.BISHOP);
+	cB[height-2][7] = new AbstractPiece(true, PieceType.KNIGHT);
+	cB[height-2][8] = new AbstractPiece(true, PieceType.ROOK);
     }
+
     public void clearBoard() {
-    	for (int y = 1; y < height-1; y++) {
+	for (int y = 1; y < height-1; y++) {
 	    for (int x = 1; x < width-1; x++) {
 		cB[y][x] = null;
 	    }
@@ -148,6 +174,7 @@ public class ChessBoard
 	notifyListeners();
     }
 
+    /*
     public AbstractPiece randPiece(int n){
 	switch(n){
 	    case 0: return new Bishop(true);
@@ -160,6 +187,7 @@ public class ChessBoard
 	    default: return null;
 	}
     }
+	*/
 
     public Piece getPiece(final int y, final int x){
 	return cB[y][x];

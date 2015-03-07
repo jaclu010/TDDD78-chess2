@@ -3,19 +3,19 @@ package chess2;
 public class Rule
 {
     private Point point;
-    private String piece;
+    private PieceType pT;
     private Boolean untilBlockCollission, player;
 
-    public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission, Boolean player) {
+    public Rule(final int x, final int y, final PieceType pT, Boolean untilBlockCollission, Boolean player) {
 	this.point = new Point(y, x);
-	this.piece = piece;
+	this.pT = pT;
         this.untilBlockCollission = untilBlockCollission;
         this.player = player;
     }
 
-    public Rule(final int x, final int y, final String piece, Boolean untilBlockCollission) {
+    public Rule(final int x, final int y, final PieceType pT, Boolean untilBlockCollission) {
 	this.point = new Point(y, x);
-	this.piece = piece;
+	this.pT = pT;
         this.untilBlockCollission = untilBlockCollission;
     }
 
@@ -23,8 +23,8 @@ public class Rule
         return point;
     }
 
-    public String getPiece() {
-	return piece;
+    public PieceType getPieceType() {
+	return pT;
     }
 
     public Boolean getPlayer() {

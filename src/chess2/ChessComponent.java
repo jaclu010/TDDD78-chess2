@@ -42,7 +42,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
 	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
-		if(cB.getPiece(y,x) instanceof Outside){
+		if(cB.getPiece(y,x).getPieceType() == PieceType.OUTSIDE){
 		    g2d.setColor(Color.BLACK);
 		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
 		    g2d.setColor(Color.WHITE);
@@ -62,9 +62,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	}
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
-		if (cB.getPiece(y,x) != null) {
-		    if (!(cB.getPiece(y, x) instanceof Outside)) {
-			g2d.setColor(cB.getPiece(y, x).getColor());
+		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
+		    if (cB.getPiece(y, x).getPieceType() != PieceType.OUTSIDE) {
+			g2d.setColor(colorPicker(cB.getPiece(y, x).getPieceType()));
 			g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
 				     squareSide / 2);
 		    }
@@ -79,7 +79,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 				     squareSide / 2);
 		    }
 		}
-
 	    }
 	}
 	g2d.setColor(new Color(0, 255, 0, 100));
@@ -100,4 +99,25 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	}
 	return "";
     }
+
+    public Color colorPicker(PieceType pT){
+	switch(pT){
+	    case BISHOP:
+		return Color.BLUE;
+	    case KING:
+		return Color.RED;
+	    case KNIGHT:
+		return Color.MAGENTA;
+	    case PAWN:
+		return Color.YELLOW;
+	    case QUEEN:
+		return Color.PINK;
+	    case ROOK:
+		return Color.GREEN;
+	    default:
+		return new Color(0,0,0,0);
+	}
+    }
+
+
 }

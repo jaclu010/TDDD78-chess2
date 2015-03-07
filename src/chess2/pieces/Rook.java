@@ -5,9 +5,9 @@ import chess2.AbstractPiece;
 
 import java.awt.Color;
 
-public class Rook extends AbstractPiece
+public class Rook
 {
     public Rook(final boolean player) {
-	super(player, Color.GREEN);
+
     }
 }

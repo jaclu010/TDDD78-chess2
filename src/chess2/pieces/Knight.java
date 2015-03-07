@@ -5,10 +5,10 @@ import chess2.AbstractPiece;
 
 import java.awt.Color;
 
-public class Knight extends AbstractPiece
+public class Knight
 {
     public Knight(final boolean player) {
-	super(player, Color.BLUE);
+
     }
 
     public void getRules(){
