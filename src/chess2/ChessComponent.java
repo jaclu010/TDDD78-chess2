@@ -1,7 +1,7 @@
 package chess2;
 
 import chess2.pieces.Outside;
-import jdk.nashorn.internal.objects.Global;
+
 
 import javax.swing.*;
 import java.awt.*;
