@@ -1,11 +1,12 @@
 package chess2;
 
-import chess2.pieces.Outside;
-
-
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
 {
@@ -39,7 +40,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	int squareSide = GlobalVars.getSquareSide();
 	ArrayList<Point> possibleMoves = cB.getPossibleMoves();
 
-
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
 	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
 		if(cB.getPiece(y,x).getPieceType() == PieceType.OUTSIDE){
@@ -64,19 +64,20 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
 		    if (cB.getPiece(y, x).getPieceType() != PieceType.OUTSIDE) {
-			g2d.setColor(colorPicker(cB.getPiece(y, x).getPieceType()));
-			g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
-				     squareSide / 2);
-		    }
-		    if (!cB.getPiece(y, x).getPlayer()) {
-			g2d.setColor(new Color(0, 0, 0, 150));
-			g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
-				     squareSide / 2);
+			//g2d.setColor(colorPicker(cB.getPiece(y, x).getPieceType()));
+			//g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
+			//	     squareSide / 2);
+			try {
+			    URL url = this.getClass().getResource("/resources/" +imgPicker(cB.getPiece(y,x))+".png");
+			    final BufferedImage image = ImageIO.read(url);
+			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
+			} catch (IOException e) {
+			    e.printStackTrace();
+			}
 		    }
 		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
-			g2d.setColor(new Color(255, 255, 255, 200));
-			g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
-				     squareSide / 2);
+			g2d.setColor(new Color(255, 50, 50, 90));
+			g2d.fill(new Rectangle(x * squareSide, y * squareSide, squareSide, squareSide));
 		    }
 		}
 	    }
@@ -100,23 +101,15 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	return "";
     }
 
-    public Color colorPicker(PieceType pT){
-	switch(pT){
-	    case BISHOP:
-		return Color.BLUE;
-	    case KING:
-		return Color.RED;
-	    case KNIGHT:
-		return Color.MAGENTA;
-	    case PAWN:
-		return Color.YELLOW;
-	    case QUEEN:
-		return Color.PINK;
-	    case ROOK:
-		return Color.GREEN;
-	    default:
-		return new Color(0,0,0,0);
+    public String imgPicker(Piece aP){
+	StringBuilder result = new StringBuilder();
+	if (aP.getPlayer()){
+	    result.append("W_");
+	} else {
+	    result.append("B_");
 	}
+	result.append(aP.getPieceType().name());
+	return result.toString();
     }
 
 

@@ -59,26 +59,18 @@ public class ChessBoard
 	    checkByRules();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    checkByRules();
-	    movePiece(mouseY, mouseX);
-
-
+	    pieceAction(mouseY, mouseX);
 	} else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
 	    possibleMoves.clear();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
-	/*} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.KING){
-	    // If you attack the enemy king
-	    checkByRules();
-	    movePiece(mouseY, mouseX);
-	    notifyListeners();
-	    gameOver();*/
 	} else if (cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 
 	} else if (selected != null) {
 	    checkByRules();
-	    movePiece(mouseY, mouseX);
+	    pieceAction(mouseY, mouseX);
 	}
 	notifyListeners();
     }
@@ -97,6 +89,7 @@ public class ChessBoard
 	}
 	notifyListeners();
     }
+
     private void gameOver(){
     	Object[] options = {"Yes", "No"};
     	int optionChosen = JOptionPane.showOptionDialog(
@@ -160,25 +153,53 @@ public class ChessBoard
 	}
     }
 
-    public void movePiece(int y, int x){
+    public void pieceAction(int y, int x){
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){
-		selected.setInitialPos(false);
-		cB[y][x] = selected;
-		cB[selectedY][selectedX] = new AbstractPiece(PieceType.EMPTY);
-		System.out.println(pieceMovement(y, x));
-		selected = null;
-		activePlayer = !activePlayer;
-		possibleMoves.clear();
-		break;
+		if (cB[y][x].getPieceType() != PieceType.EMPTY){
+		    hurtPiece(y, x, 1);
+		    break;
+		} else {
+		    movePiece(y, x);
+		    break;
+		}
+
 	    }
 	}
 	notifyListeners();
     }
 
+    public void movePiece(int y, int x){
+	selected.setInitialPos(false);
+	cB[y][x] = selected;
+	cB[selectedY][selectedX] = new AbstractPiece(PieceType.EMPTY);
+	System.out.println(printPieceMovement(y, x));
+	selected = null;
+	activePlayer = !activePlayer;
+	possibleMoves.clear();
+    }
 
-    public String pieceMovement(int y, int x){
-	return (selected.getPieceType().name()+" From: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+    public void hurtPiece(int y, int x, int dmg){
+	cB[y][x].doDMG(dmg);
+	if (cB[y][x].getHP() <= 0){
+	    System.out.println(printKill(y, x));
+	    movePiece(y, x);
+	} else {
+	    System.out.println(printDidDMG(y, x, dmg));
+	}
+    }
+
+    public String printDidDMG(int y, int x, int dmg){
+	return (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
+    }
+
+    public String printKill(int y, int x){
+	return (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
+    }
+
+
+    public String printPieceMovement(int y, int x){
+	return (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
     public String getLetter(int n){
 	n += GlobalVars.getCharAdd();

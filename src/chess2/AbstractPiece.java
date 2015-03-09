@@ -12,7 +12,7 @@ public class AbstractPiece implements Piece
     public AbstractPiece(final boolean player, final PieceType pT) {
 	this.player = player;
         this.pT = pT;
-        this.hP = 1;
+        this.hP = 3;
         this.initialPos = true;
     }
 
@@ -42,5 +42,9 @@ public class AbstractPiece implements Piece
 
     public void setInitialPos(final boolean initialPos) {
         this.initialPos = initialPos;
+    }
+
+    public void doDMG(int dmg){
+        this.hP -= dmg;
     }
 }

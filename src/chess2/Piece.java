@@ -15,4 +15,6 @@ public interface Piece
     void setInitialPos(final boolean initialPos);
 
     boolean isInitialPos();
+
+    void doDMG(int dmg);
 }
