@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
+
 public class ChessBoard
 {
     private boolean activePlayer;
@@ -49,7 +51,7 @@ public class ChessBoard
     }
 
     public void testMovement(int mouseY, int mouseX){
-	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
+	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY && cB[mouseY][mouseX].getPlayer() == activePlayer) {
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
@@ -57,17 +59,25 @@ public class ChessBoard
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    checkByRules();
 	    movePiece(mouseY, mouseX);
+	    activePlayer = !activePlayer;
 
 	} else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
+	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.KING){
+	    // If you attack the enemy king
+	    checkByRules();
+	    movePiece(mouseY, mouseX);
+	    notifyListeners();
+	    gameOver();
 	} else if (cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 
 	} else {
 	    checkByRules();
 	    movePiece(mouseY, mouseX);
+	    activePlayer = !activePlayer;
 	}
 	notifyListeners();
     }
@@ -82,6 +92,23 @@ public class ChessBoard
 	    }
 	}
 	notifyListeners();
+    }
+    private void gameOver(){
+    	Object[] options = {"Yes", "No"};
+    	int optionChosen = JOptionPane.showOptionDialog(
+                null,
+                "Game Over!\n Play again?",
+                "Game over",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+    	if(optionChosen == 0){
+            clearBoard();
+    	} else if(optionChosen == 1){
+            System.exit(0);
+        }
     }
 
     public void canMoveOneStep(Rule rule){
@@ -199,5 +226,9 @@ public class ChessBoard
 
     public ArrayList<Point> getPossibleMoves() {
 	return possibleMoves;
+    }
+
+    public boolean getActivePlayer() {
+	return activePlayer;
     }
 }
