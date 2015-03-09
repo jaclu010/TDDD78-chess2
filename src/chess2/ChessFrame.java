@@ -1,5 +1,7 @@
 package chess2;
 
+import javafx.scene.input.KeyEvent;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -37,15 +39,21 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final JMenu file = new JMenu("File");
 	final JMenuItem newGame = new JMenuItem("New Game", 'N');
 	final JMenuItem exit = new JMenuItem("Exit", 'E');
+	final JMenuItem changePlayer = new JMenuItem("Change active player", 'C');
+
 	file.add(newGame);
+	file.add(changePlayer);
 	file.add(exit);
 	final ActionListener menuActions = event -> {
 	    if(event.getSource().equals(newGame)){
 		cB.clearBoard();
 	    } else if(event.getSource().equals(exit)){
 		System.exit(0);
+	    } else if(event.getSource().equals(changePlayer)){
+		cB.setActivePlayer(!cB.getActivePlayer());
 	    }
 	};
+	changePlayer.addActionListener(menuActions);
 	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
 

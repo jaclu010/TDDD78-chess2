@@ -1,5 +1,6 @@
 package chess2;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +14,12 @@ public class RuleList
     }
 
     public List<Rule> extractRulesFor(PieceType pT){
-        List<Rule> pieceRules = ruleList.stream().filter(rule -> rule.getPieceType() == pT).collect(Collectors.toList());
+        List<Rule> pieceRules = new ArrayList<>();
+        for (Rule rule : ruleList){
+            if (rule.getPieceType() == pT){
+                pieceRules.add(rule);
+            }
+        }
         return pieceRules;
     }
 

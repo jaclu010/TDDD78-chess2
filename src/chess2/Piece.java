@@ -8,7 +8,11 @@ public interface Piece
 
     PieceType getPieceType();
 
-    boolean getPlayer();
+    Boolean getPlayer();
 
     List<Rule> fetchRules();
+
+    void setInitialPos(final boolean initialPos);
+
+    boolean isInitialPos();
 }
