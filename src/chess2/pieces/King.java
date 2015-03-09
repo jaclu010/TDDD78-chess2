@@ -5,9 +5,9 @@ import chess2.AbstractPiece;
 
 import java.awt.Color;
 
-public class King extends AbstractPiece
+public class King
 {
     public King(final boolean player) {
-	super(player, Color.RED);
+
     }
 }

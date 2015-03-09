@@ -4,9 +4,8 @@ import chess2.AbstractPiece;
 
 import java.awt.Color;
 
-public class Queen extends AbstractPiece
+public class Queen
 {
     public Queen(final boolean player) {
-	super(player, Color.PINK);
     }
 }

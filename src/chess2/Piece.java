@@ -1,13 +1,12 @@
 package chess2;
 
-import java.awt.Color;
 import java.util.List;
 
 public interface Piece
 {
     int getHP();
 
-    Color getColor();
+    PieceType getPieceType();
 
     boolean getPlayer();
 

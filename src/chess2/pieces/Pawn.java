@@ -7,14 +7,12 @@ import chess2.RuleList;
 import java.awt.Color;
 import java.util.List;
 
-public class Pawn extends AbstractPiece
+public class Pawn
 {
     public Pawn(final boolean player) {
-	super(player, Color.YELLOW);
+
     }
 
-    @Override
-    public List<Rule> fetchRules(){
-        return RuleList.getInstance().extractRulesForPawn(player);
-    }
+
+
 }

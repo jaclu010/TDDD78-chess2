@@ -1,30 +1,25 @@
 package chess2;
 
-import java.awt.Color;
 import java.util.List;
 
-public abstract class AbstractPiece implements Piece
+public class AbstractPiece implements Piece
 {
     protected int hP, lvl;
     protected boolean player;
-    protected Color color;
+    protected PieceType pT;
 
-    public AbstractPiece(final boolean player, final Color color) {
+    public AbstractPiece(final boolean player, final PieceType pT) {
 	this.player = player;
-        this.color = color;
+        this.pT = pT;
         this.hP = 1;
     }
 
-    public AbstractPiece(final Color color) {
-        this.color = color;
+    public AbstractPiece(final PieceType pT) {
+        this.pT= pT;
     }
 
     public List<Rule> fetchRules(){
-        return RuleList.getInstance().extractRulesFor(this.getClass().getSimpleName());
-    }
-
-    public Color getColor(){
-        return color;
+        return RuleList.getInstance().extractRulesFor(pT);
     }
 
     public int getHP(){
@@ -33,5 +28,9 @@ public abstract class AbstractPiece implements Piece
 
     public boolean getPlayer(){
         return player;
+    }
+
+    public PieceType getPieceType() {
+        return pT;
     }
 }

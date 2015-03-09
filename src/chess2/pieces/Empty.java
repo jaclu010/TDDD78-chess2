@@ -5,9 +5,9 @@ import chess2.AbstractPiece;
 
 import java.awt.*;
 
-public class Empty extends AbstractPiece
+public class Empty
 {
     public Empty() {
-	super(true, new Color(0,0,0,1));
+
     }
 }

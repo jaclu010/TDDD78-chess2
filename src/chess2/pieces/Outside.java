@@ -5,10 +5,10 @@ import chess2.AbstractPiece;
 
 import java.awt.Color;
 
-public class Outside extends AbstractPiece
+public class Outside
 {
     public Outside() {
-	super(Color.BLACK);
+
     }
 
 
