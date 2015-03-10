@@ -13,10 +13,10 @@ public class ChessBoard
     private boolean gameOver;
     private Piece[][] cB;
     private Piece selected;
+    private String logMsg = "";
     private int selectedX, selectedY, height, width, turn;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<>();
-    private List<TextLogListener> textLogListeners = new ArrayList<>();
     private ArrayList<Point> possibleMoves = new ArrayList<>();
 
     public ChessBoard() {
@@ -46,15 +46,6 @@ public class ChessBoard
     	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
         }
 
-    public void addTextLogListener(TextLogListener tLL){
-	textLogListeners.add(tLL);
-     }
-
-     public void notifyTextLogListeners(String text){
-	 for (TextLogListener textLogListener : textLogListeners) {
-	     textLogListener.textLogChanged(text);
-	 }
-     }
 
     public void checkMouseClick(MouseEvent e){
 	int mouseY = e.getY()/GlobalVars.getSquareSide();
@@ -177,7 +168,6 @@ public class ChessBoard
 		    movePiece(y, x);
 		    break;
 		}
-
 	    }
 	}
 	notifyListeners();
@@ -187,7 +177,7 @@ public class ChessBoard
 	selected.setInitialPos(false);
 	cB[y][x] = selected;
 	cB[selectedY][selectedX] = new AbstractPiece(PieceType.EMPTY);
-	System.out.println(printPieceMovement(y, x));
+	printPieceMovement(y, x);
 	selected = null;
 	activePlayer = !activePlayer;
 	possibleMoves.clear();
@@ -197,10 +187,10 @@ public class ChessBoard
     public void hurtPiece(int y, int x, int dmg){
 	cB[y][x].doDMG(dmg);
 	if (cB[y][x].getHP() <= 0){
-	    System.out.println(printKill(y, x));
+	    printKill(y, x);
 	    movePiece(y, x);
 	} else {
-	    System.out.println(printDidDMG(y, x, dmg));
+	    printDidDMG(y, x, dmg);
 	    selected.setLvl(1);
 	    selected = null;
 	    activePlayer = !activePlayer;
@@ -209,20 +199,17 @@ public class ChessBoard
 	}
     }
 
-    public String printDidDMG(int y, int x, int dmg){
-	notifyTextLogListeners((selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y));
-	return (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
+    public void printDidDMG(int y, int x, int dmg){
+	logMsg = (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
     }
 
-    public String printKill(int y, int x){
-	notifyTextLogListeners(selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
-	return (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
+    public void printKill(int y, int x){
+	logMsg = (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
     }
 
 
-    public String printPieceMovement(int y, int x){
-	notifyTextLogListeners(selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
-	return (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+    public void printPieceMovement(int y, int x){
+	logMsg = (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
 
     public String getLetter(int n){
@@ -319,5 +306,9 @@ public class ChessBoard
 
     public int getTurn() {
 	return turn;
+    }
+
+    public String getLogMsg() {
+	return logMsg;
     }
 }

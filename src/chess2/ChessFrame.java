@@ -1,10 +1,7 @@
 package chess2;
 
-import javafx.scene.input.KeyEvent;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
@@ -17,21 +14,28 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
 
-
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final StatusComponent statusArea = new StatusComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
-	final JScrollPane logScroll = new JScrollPane(logArea);
-
+	final JScrollPane logScroll = new JScrollPane();
 	final JFrame frame = new JFrame("Chess 2");
+
+	final JViewport logScrollHeader = new JViewport();
+	logScrollHeader.setView(new JLabel("Log: "));
+
+	logScroll.setViewportView(logArea);
+	logScroll.setColumnHeader(logScrollHeader);
 	cB.addChessBoardListener(gameArea);
 	cB.addChessBoardListener(statusArea);
-	cB.addTextLogListener(logArea);
+	cB.addChessBoardListener(logArea);
 	cB.addChessBoardListener(this);
 	gameArea.addMouseListener(this);
 	statusArea.addMouseListener(this);
+
+	logScroll.createVerticalScrollBar();
+
 	frame.setLayout(new BorderLayout());
-	frame.add(gameArea, BorderLayout.WEST);
+	frame.add(gameArea, BorderLayout.CENTER);
 	frame.add(statusArea, BorderLayout.EAST);
 	frame.add(logScroll, BorderLayout.SOUTH);
 	createMenues(frame);

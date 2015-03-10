@@ -3,24 +3,28 @@ package chess2;
 import javax.swing.*;
 import java.awt.*;
 
-public class LogComponent extends JComponent implements TextLogListener
+public class LogComponent extends JTextArea implements ChessBoardListener
 {
     private ChessBoard cB;
     private int squareSide = GlobalVars.getSquareSide();
-    private String latestMsg = "";
+    private String latestMsg = "", oldMsg = "";
 
     public LogComponent(ChessBoard cB) {
 	this.cB = cB;
-
+	this.setFont(new Font("Sans Serif", Font.BOLD, 12));
+	this.setEditable(false);
     }
 
     @Override
-    public void textLogChanged(String text){
-	latestMsg = text;
-	repaint();
+    public void chessBoardChanged(){
+	oldMsg = latestMsg;
+	latestMsg = cB.getLogMsg();
+	if (!oldMsg.equals(latestMsg)){
+	    this.append(latestMsg+"\n");
+	}
     }
 
-    @Override public Dimension getPreferredSize(){
+    @Override public Dimension getPreferredScrollableViewportSize(){
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
@@ -31,10 +35,4 @@ public class LogComponent extends JComponent implements TextLogListener
 	return new Dimension(GlobalVars.getWidth()*GlobalVars.getSquareSide(), 2*GlobalVars.getSquareSide());
     }
 
-    @Override protected void paintComponent(Graphics g) {
-	super.paintComponent(g);
-	final Graphics2D g2d = (Graphics2D) g;
-	g2d.setFont(new Font("SansSerif", Font.BOLD, 12));
-	g2d.drawString(latestMsg, 0,0);
-    }
 }
