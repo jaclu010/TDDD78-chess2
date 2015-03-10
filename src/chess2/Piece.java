@@ -17,4 +17,8 @@ public interface Piece
     boolean isInitialPos();
 
     void doDMG(int dmg);
+
+    void setLvl(final int lvl);
+
+    int getLvl();
 }

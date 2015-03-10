@@ -24,12 +24,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     }
 
     @Override public Dimension getPreferredSize(){
+	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
 	int compWidth = (int)(screenSize.getWidth()* percentOfScreenWidth);
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
-	return preferredSize;
+	return preferredSize;*/
+	return new Dimension(GlobalVars.getWidth()*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide());
     }
     
     @Override protected void paintComponent(Graphics g) {
@@ -64,16 +66,17 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
 		    if (cB.getPiece(y, x).getPieceType() != PieceType.OUTSIDE) {
-			//g2d.setColor(colorPicker(cB.getPiece(y, x).getPieceType()));
-			//g2d.fillOval(x * squareSide + squareSide / 4, y * squareSide + squareSide / 4, squareSide / 2,
-			//	     squareSide / 2);
 			try {
-			    URL url = this.getClass().getResource("/resources/" +imgPicker(cB.getPiece(y,x))+".png");
+			    URL url = this.getClass().getResource("/resources/" +GlobalVars.imgPicker(cB.getPiece(y,x))+".png");
 			    final BufferedImage image = ImageIO.read(url);
 			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
 			} catch (IOException e) {
 			    e.printStackTrace();
 			}
+			g2d.setColor(Color.LIGHT_GRAY);
+			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
+			g2d.setColor(Color.RED);
+			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/3)*cB.getPiece(y, x).getHP(), squareSide/9));
 		    }
 		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
 			g2d.setColor(new Color(255, 50, 50, 90));
@@ -101,16 +104,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	return "";
     }
 
-    public String imgPicker(Piece aP){
-	StringBuilder result = new StringBuilder();
-	if (aP.getPlayer()){
-	    result.append("W_");
-	} else {
-	    result.append("B_");
-	}
-	result.append(aP.getPieceType().name());
-	return result.toString();
-    }
+
 
 
 }

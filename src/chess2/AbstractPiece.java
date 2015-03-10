@@ -13,6 +13,7 @@ public class AbstractPiece implements Piece
 	this.player = player;
         this.pT = pT;
         this.hP = 3;
+        this.lvl = 0;
         this.initialPos = true;
     }
 
@@ -26,6 +27,10 @@ public class AbstractPiece implements Piece
 
     public int getHP(){
         return hP;
+    }
+
+    public int getLvl() {
+        return lvl;
     }
 
     public Boolean getPlayer(){
@@ -46,5 +51,9 @@ public class AbstractPiece implements Piece
 
     public void doDMG(int dmg){
         this.hP -= dmg;
+    }
+
+    public void setLvl(final int lvl) {
+        this.lvl += lvl;
     }
 }

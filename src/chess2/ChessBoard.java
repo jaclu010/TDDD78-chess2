@@ -10,11 +10,13 @@ import javax.swing.JOptionPane;
 public class ChessBoard
 {
     private Boolean activePlayer;
+    private boolean gameOver;
     private Piece[][] cB;
     private Piece selected;
-    private int selectedX, selectedY, height, width;
+    private int selectedX, selectedY, height, width, turn;
     private Random rnd = new Random();
     private List<ChessBoardListener> chessBoardListeners = new ArrayList<>();
+    private List<TextLogListener> textLogListeners = new ArrayList<>();
     private ArrayList<Point> possibleMoves = new ArrayList<>();
 
     public ChessBoard() {
@@ -23,6 +25,8 @@ public class ChessBoard
 	this.cB = new Piece[height][width];
 	this.activePlayer = true;
 	this.selected = null;
+	this.gameOver = false;
+	this.turn = 1;
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
 		if ((y == 0 || y == height-1) || (x == 0 || x == width -1)){
@@ -35,12 +39,22 @@ public class ChessBoard
     }
 
     public void addChessBoardListener(ChessBoardListener cBL){
-	chessBoardListeners.add(cBL);
-    }
+    	chessBoardListeners.add(cBL);
+        }
 
-    public void notifyListeners(){
-	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
-    }
+        public void notifyListeners(){
+    	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
+        }
+
+    public void addTextLogListener(TextLogListener tLL){
+	textLogListeners.add(tLL);
+     }
+
+     public void notifyTextLogListeners(String text){
+	 for (TextLogListener textLogListener : textLogListeners) {
+	     textLogListener.textLogChanged(text);
+	 }
+     }
 
     public void checkMouseClick(MouseEvent e){
 	int mouseY = e.getY()/GlobalVars.getSquareSide();
@@ -177,6 +191,7 @@ public class ChessBoard
 	selected = null;
 	activePlayer = !activePlayer;
 	possibleMoves.clear();
+	turn += 1;
     }
 
     public void hurtPiece(int y, int x, int dmg){
@@ -186,21 +201,30 @@ public class ChessBoard
 	    movePiece(y, x);
 	} else {
 	    System.out.println(printDidDMG(y, x, dmg));
+	    selected.setLvl(1);
+	    selected = null;
+	    activePlayer = !activePlayer;
+	    possibleMoves.clear();
+	    turn+=1;
 	}
     }
 
     public String printDidDMG(int y, int x, int dmg){
+	notifyTextLogListeners((selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y));
 	return (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
     }
 
     public String printKill(int y, int x){
+	notifyTextLogListeners(selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
 	return (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
     }
 
 
     public String printPieceMovement(int y, int x){
+	notifyTextLogListeners(selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
 	return (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
+
     public String getLetter(int n){
 	n += GlobalVars.getCharAdd();
 	char a = (char) n;
@@ -287,5 +311,13 @@ public class ChessBoard
 
     public void setActivePlayer(final boolean activePlayer) {
 	this.activePlayer = activePlayer;
+    }
+
+    public boolean isGameOver() {
+	return gameOver;
+    }
+
+    public int getTurn() {
+	return turn;
     }
 }

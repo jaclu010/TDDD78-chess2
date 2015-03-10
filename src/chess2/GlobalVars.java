@@ -21,4 +21,15 @@ public class GlobalVars
     public static int getHeight() {
 	return HEIGHT;
     }
+
+    public static String imgPicker(Piece aP){
+	StringBuilder result = new StringBuilder();
+	if (aP.getPlayer()){
+	    result.append("W_");
+	} else {
+	    result.append("B_");
+	}
+	result.append(aP.getPieceType().name());
+	return result.toString();
+    }
 }

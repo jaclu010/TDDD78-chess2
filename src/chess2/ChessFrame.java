@@ -16,20 +16,31 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
+
+
 	final ChessComponent gameArea = new ChessComponent(cB);
+	final StatusComponent statusArea = new StatusComponent(cB);
+	final LogComponent logArea = new LogComponent(cB);
+	final JScrollPane logScroll = new JScrollPane(logArea);
+
 	final JFrame frame = new JFrame("Chess 2");
 	cB.addChessBoardListener(gameArea);
+	cB.addChessBoardListener(statusArea);
+	cB.addTextLogListener(logArea);
 	cB.addChessBoardListener(this);
 	gameArea.addMouseListener(this);
+	statusArea.addMouseListener(this);
 	frame.setLayout(new BorderLayout());
-	frame.add(gameArea, BorderLayout.CENTER);
+	frame.add(gameArea, BorderLayout.WEST);
+	frame.add(statusArea, BorderLayout.EAST);
+	frame.add(logScroll, BorderLayout.SOUTH);
 	createMenues(frame);
 	createActivePlayerTextArea(frame);
 
 	frame.pack();
 	frame.setVisible(true);
-
 	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
     }
 
     /**
@@ -63,8 +74,8 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
     }
 
     private void createActivePlayerTextArea(JFrame frame){
-	this.activePlayerText = new JTextArea("White players turn");
-	activePlayerText.setFont(new Font("Arial", Font.PLAIN, 30 ));
+	this.activePlayerText = new JTextArea("White players turn        Turn: " + cB.getTurn());
+	activePlayerText.setFont(new Font("Sans Serif", Font.PLAIN, 30 ));
 	activePlayerText.setForeground(Color.GRAY);
 	activePlayerText.setEditable(false);
 	frame.add(activePlayerText, BorderLayout.PAGE_START);
@@ -72,10 +83,10 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 
     private void changeActivePlayerTextArea(){
 	if(cB.getActivePlayer()){
-	    activePlayerText.setText("White players turn");
+	    activePlayerText.setText("White players turn        Turn: " + cB.getTurn());
 	    activePlayerText.setForeground(Color.GRAY);
 	}else{
-	    activePlayerText.setText("Black players turn");
+	    activePlayerText.setText("Black players turn        Turn: " + cB.getTurn());
 	    activePlayerText.setForeground(Color.BLACK);
 	}
     }
@@ -84,7 +95,6 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
     public void chessBoardChanged(){
 	changeActivePlayerTextArea();
     }
-
     @Override
     public void mouseClicked(MouseEvent e){
 	cB.checkMouseClick(e);
