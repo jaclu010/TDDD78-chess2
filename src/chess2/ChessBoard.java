@@ -290,8 +290,16 @@ public class ChessBoard
 	return selected;
     }
 
+    public void setSelected(final Piece selected) {
+	this.selected = selected;
+    }
+
     public ArrayList<Point> getPossibleMoves() {
 	return possibleMoves;
+    }
+
+    public void clearPossibleMoves() {
+	possibleMoves.clear();
     }
 
     public boolean getActivePlayer() {
