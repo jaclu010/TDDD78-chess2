@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class AbstractPiece implements Piece
 {
-    protected int hP, lvl;
+    protected int hP, lvl, startHP;
     protected Boolean player = null;
     protected PieceType pT;
     protected boolean initialPos;
@@ -16,6 +16,7 @@ public class AbstractPiece implements Piece
 	this.player = player;
         this.pT = pT;
         this.hP = 3;
+        this.startHP = hP;
         this.lvl = 0;
         this.initialPos = true;
     }
@@ -30,6 +31,10 @@ public class AbstractPiece implements Piece
 
     public int getHP(){
         return hP;
+    }
+
+    public int getStartHP() {
+        return startHP;
     }
 
     public int getLvl() {

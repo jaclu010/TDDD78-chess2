@@ -81,7 +81,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 			g2d.setColor(Color.LIGHT_GRAY);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
 			g2d.setColor(Color.RED);
-			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/3)*cB.getPiece(y, x).getHP(), squareSide/9));
+			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/cB.getPiece(y, x).getStartHP())*cB.getPiece(y, x).getHP(), squareSide/9));
 		    }
 		    // Makes the selected piece red
 		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
