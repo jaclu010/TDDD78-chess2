@@ -15,13 +15,25 @@ public class AbstractPiece implements Piece
     public AbstractPiece(final boolean player, final PieceType pT) {
 	this.player = player;
         this.pT = pT;
-        this.hP = 3;
+        this.hP = decideHP(pT);
         this.lvl = 0;
         this.initialPos = true;
     }
 
     public AbstractPiece(final PieceType pT) {
         this.pT= pT;
+    }
+
+    private int decideHP(PieceType pT){
+        switch(pT){
+            case PAWN: return 2;
+            case BISHOP: return 3;
+            case KNIGHT: return 3;
+            case ROOK: return 3;
+            case QUEEN: return 4;
+            case KING: return 5;
+            default: return 0;
+        }
     }
 
     public List<Rule> fetchRules(){
