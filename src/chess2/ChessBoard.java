@@ -2,6 +2,7 @@ package chess2;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -17,8 +18,8 @@ public class ChessBoard
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn;
     private Random rnd = new Random();
-    private List<ChessBoardListener> chessBoardListeners = new ArrayList<>();
-    private ArrayList<Point> possibleMoves = new ArrayList<>();
+    private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
+    private List<Point> possibleMoves = new ArrayList<>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
@@ -294,7 +295,7 @@ public class ChessBoard
 	this.selected = selected;
     }
 
-    public ArrayList<Point> getPossibleMoves() {
+    public Iterable<Point> getPossibleMoves() {
 	return possibleMoves;
     }
 

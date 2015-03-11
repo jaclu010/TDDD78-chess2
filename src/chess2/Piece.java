@@ -6,6 +6,8 @@ public interface Piece
 {
     int getHP();
 
+    int getStartHP();
+
     PieceType getPieceType();
 
     Boolean getPlayer();
