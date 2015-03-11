@@ -3,11 +3,13 @@ package chess2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RuleFactory
+public final class RuleFactory
 {
+    private RuleFactory() {}
+
     // Create Rules
     public static List<Rule> getRules(){
-        List<Rule> ruleList = new ArrayList<Rule>();
+        List<Rule> ruleList = new ArrayList<>();
 
         // White Pawn
         ruleList.add(new Rule(0,-1, PieceType.PAWN, false, false, true, false));

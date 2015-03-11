@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.awt.image.BufferedImage;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
@@ -40,20 +39,22 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	//final Graphics2D g2 = (Graphics2D) g;
 
 	int squareSide = GlobalVars.getSquareSide();
-	ArrayList<Point> possibleMoves = cB.getPossibleMoves();
+	Iterable<Point> possibleMoves = cB.getPossibleMoves();
 
+	// Paints the emptyBoard
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
 	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
 		if(cB.getPiece(y,x).getPieceType() == PieceType.OUTSIDE){
 		    g2d.setColor(Color.BLACK);
 		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
 		    g2d.setColor(Color.WHITE);
-		    g2d.setFont(new Font("SansSerif", Font.BOLD, 12));
+		    final int fontSizeSideLetter = 12;
+		    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSizeSideLetter));
 		    if ((y != 0 && y != GlobalVars.getHeight()-1) || (x != 0 && x != GlobalVars.getWidth()-1)) {
 			g2d.drawString(getLetter(y, x), x * squareSide + LETTER_COMP_X, y * squareSide + LETTER_COMP_Y);
 		    }
 
-		}else if ((y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1)){
+		}else if ((Math.abs(y) % 2 == 0 && Math.abs(x) % 2 == 0) || (y % 2 != 0 && x % 2 != 0)){
 		    g2d.setColor(Color.LIGHT_GRAY);
 		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
 		} else {
@@ -62,6 +63,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		}
 	    }
 	}
+
+	// Paints the chesspieces
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
@@ -73,11 +76,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 			} catch (IOException e) {
 			    e.printStackTrace();
 			}
+
+			// Creates the healthbars
 			g2d.setColor(Color.LIGHT_GRAY);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
 			g2d.setColor(Color.RED);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/3)*cB.getPiece(y, x).getHP(), squareSide/9));
 		    }
+		    // Makes the selected piece red
 		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
 			g2d.setColor(new Color(255, 50, 50, 90));
 			g2d.fill(new Rectangle(x * squareSide, y * squareSide, squareSide, squareSide));
@@ -85,6 +91,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		}
 	    }
 	}
+	// Colors the possible places for the selected piece to move
 	g2d.setColor(new Color(0, 255, 0, 100));
 	if (possibleMoves != null) {
 	    for (Point possibleMove : possibleMoves) {

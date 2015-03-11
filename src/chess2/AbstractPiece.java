@@ -2,10 +2,13 @@ package chess2;
 
 import java.util.List;
 
+/**
+ * This class creates a abstract representation of a chesspiece
+ */
 public class AbstractPiece implements Piece
 {
     protected int hP, lvl;
-    protected Boolean player;
+    protected Boolean player = null;
     protected PieceType pT;
     protected boolean initialPos;
 

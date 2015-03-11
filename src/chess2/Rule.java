@@ -5,7 +5,7 @@ public class Rule
     private Point point;
     private PieceType pT;
     private boolean untilBlockCollission, hurtMove, requiresInitialPos;
-    private Boolean player;
+    private Boolean player = null;
 
     public Rule(final int x, final int y, final PieceType pT, boolean untilBlockCollission, boolean hurtMove, Boolean player, boolean requiresInitialPos) {
 	this.point = new Point(y, x);

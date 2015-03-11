@@ -3,6 +3,7 @@ package chess2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -42,7 +43,7 @@ public class ChessBoard
     	chessBoardListeners.add(cBL);
         }
 
-        public void notifyListeners(){
+    public void notifyListeners(){
     	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
         }
 
@@ -56,7 +57,8 @@ public class ChessBoard
     }
 
     public void testMovement(int mouseY, int mouseX){
-	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY && cB[mouseY][mouseX].getPlayer() == activePlayer) {
+	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY &&
+	    Objects.equals(cB[mouseY][mouseX].getPlayer(), activePlayer)) {
 	    possibleMoves.clear();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
@@ -65,15 +67,13 @@ public class ChessBoard
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    checkByRules();
 	    pieceAction(mouseY, mouseX);
-	} else if (selected != null && cB[mouseY][mouseX].getPlayer() == selected.getPlayer()) {
+	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
 	    possibleMoves.clear();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
-	} else if (cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
-
-	} else if (selected != null) {
+	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
 	    checkByRules();
 	    pieceAction(mouseY, mouseX);
 	}
@@ -84,11 +84,11 @@ public class ChessBoard
 	if (possibleMoves.isEmpty()) {
 	    for (Rule rule : selected.fetchRules()) {
 		if (selected.getPieceType() == PieceType.PAWN){
-		    canPawnMove(rule);
+		    pawnAbleToMove(rule);
 		} else if (rule.getUntilBlockCollission()) {
-		    canMoveManySteps(rule);
+		    ableToMoveManySteps(rule);
 		} else {
-		    canMoveOneStep(rule);
+		    ableToMoveOneStep(rule);
 		}
 	    }
 	}
@@ -113,11 +113,11 @@ public class ChessBoard
         }
     }
 
-    public void canPawnMove(Rule rule){
+    public void pawnAbleToMove(Rule rule){
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (selected.getPlayer().equals(rule.getPlayer())){
-	    if (cB[y][x].getPieceType() != PieceType.OUTSIDE && cB[y][x].getPlayer() != selected.getPlayer()){
+	    if (cB[y][x].getPieceType() != PieceType.OUTSIDE && !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())){
 		if (rule.doRequiresInitialPos() && selected.isInitialPos()
 		    && cB[y][x].getPieceType() == PieceType.EMPTY &&
 		    cB[y-(rule.getPoint().getY()/Math.abs(rule.getPoint().getY()))][x].getPieceType() == PieceType.EMPTY){
@@ -131,20 +131,20 @@ public class ChessBoard
 	}
     }
 
-    public void canMoveOneStep(Rule rule){
+    public void ableToMoveOneStep(Rule rule){
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (y < height && y > 0 && x < width && x > 0 &&
-	    cB[y][x].getPlayer() != selected.getPlayer() && cB[y][x].getPieceType() != PieceType.OUTSIDE) {
+	    !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer()) && cB[y][x].getPieceType() != PieceType.OUTSIDE) {
 	    possibleMoves.add(new Point(y, x));
 	}
     }
 
-    public void canMoveManySteps(Rule rule){
+    public void ableToMoveManySteps(Rule rule){
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
 	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
-	       cB[tempY][tempX].getPlayer() != selected.getPlayer() &&
+	       !Objects.equals(cB[tempY][tempX].getPlayer(), selected.getPlayer()) &&
 	       cB[tempY][tempX].getPieceType() != PieceType.OUTSIDE){
 	    if (cB[tempY][tempX].getPlayer() == null){
 		possibleMoves.add(new Point(tempY, tempX));
@@ -188,6 +188,7 @@ public class ChessBoard
 	cB[y][x].doDMG(dmg);
 	if (cB[y][x].getHP() <= 0){
 	    printKill(y, x);
+	    selected.setLvl(1);
 	    movePiece(y, x);
 	} else {
 	    printDidDMG(y, x, dmg);
@@ -260,6 +261,7 @@ public class ChessBoard
 	    }
 	}
 	activePlayer = true;
+	possibleMoves.clear();
 	selected = null;
 	fillBoard();
 	notifyListeners();

@@ -1,10 +1,12 @@
 package chess2;
 
-public class GlobalVars
+public final class GlobalVars
 {
     private static final int SQUARE_SIDE = 70;
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
+
+    private GlobalVars() {}
 
     public static int getSquareSide() {
 	return SQUARE_SIDE;

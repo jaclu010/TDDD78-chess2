@@ -37,7 +37,8 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	final Graphics2D g2d = (Graphics2D) g;
 
 	if (cB.getSelected() != null) {
-	    g2d.setFont(new Font("SansSerif", Font.BOLD, 12));
+	    final int fontSize = 12;
+	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);
 
 	    try {
@@ -66,8 +67,6 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    }
 
 	    g2d.drawString("LVL: " + cB.getSelected().getLvl(), squareSide,squareSide*2+squareSide/2+squareSide/4);
-
-
 	}
 
     }

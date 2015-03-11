@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RuleList
+public final class RuleList
 {
-    private static RuleList INSTANCE = new RuleList();
+    private static  final RuleList INSTANCE = new RuleList();
     private final List<Rule> ruleList;
 
     private RuleList() {

@@ -11,7 +11,8 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 
     public LogComponent(ChessBoard cB) {
 	this.cB = cB;
-	this.setFont(new Font("Sans Serif", Font.BOLD, 12));
+	final int fontSize = 12;
+	this.setFont(new Font("Sans Serif", Font.BOLD, fontSize));
 	this.setEditable(false);
     }
 
