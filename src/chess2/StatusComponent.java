@@ -52,21 +52,21 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    try {
 		URL url = this.getClass().getResource("/resources/hp.png");
 		final BufferedImage image = ImageIO.read(url);
-		g2d.drawImage(image, squareSide/2,squareSide*2, squareSide/3, squareSide/3, this);
+		g2d.drawImage(image, squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    g2d.drawString("HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/5);
+	    g2d.drawString("    HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/3);
 
 	    try {
 		URL url = this.getClass().getResource("/resources/lvl.png");
 		final BufferedImage image = ImageIO.read(url);
-		g2d.drawImage(image, squareSide/2,squareSide*2+squareSide/2, squareSide/3, squareSide/3, this);
+		g2d.drawImage(image, squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
 
-	    g2d.drawString("LVL: " + cB.getSelected().getLvl(), squareSide,squareSide*2+squareSide/2+squareSide/4);
+	    g2d.drawString("    LVL: " + cB.getSelected().getLvl(), squareSide,squareSide*2+squareSide/2+squareSide/3);
 	}
 
     }
