@@ -16,10 +16,11 @@ public class ChessBoard
     private Piece[][] cB;
     private Piece selected;
     private String logMsg = "";
-    private int selectedX, selectedY, height, width, turn;
+    private int selectedX, selectedY, height, width, turn, blackKills, whiteKills;
     private Random rnd = new Random();
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
+    private List<Piece> killedPieces = new ArrayList<>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
@@ -29,6 +30,8 @@ public class ChessBoard
 	this.selected = null;
 	this.gameOver = false;
 	this.turn = 1;
+	this.whiteKills = 0;
+	this.blackKills = 0;
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
 		if ((y == 0 || y == height-1) || (x == 0 || x == width -1)){
@@ -188,9 +191,18 @@ public class ChessBoard
     public void hurtPiece(int y, int x, int dmg){
 	cB[y][x].doDMG(dmg);
 	if (cB[y][x].getHP() <= 0){
+	    killedPieces.add(cB[y][x]);
+	    if (cB[y][x].getPlayer()){
+		whiteKills += 1;
+	    } else {
+		blackKills += 1;
+	    }
 	    printKill(y, x);
 	    selected.setLvl(1);
 	    movePiece(y, x);
+	    if(cB[y][x].getPieceType() == PieceType.KING){
+		gameOver = true;
+	    }
 	} else {
 	    printDidDMG(y, x, dmg);
 	    selected.setLvl(1);
@@ -322,5 +334,17 @@ public class ChessBoard
 
     public String getLogMsg() {
 	return logMsg;
+    }
+
+    public List<Piece> getKilledPieces() {
+	return killedPieces;
+    }
+
+    public int getWhiteKills() {
+	return whiteKills;
+    }
+
+    public int getBlackKills() {
+	return blackKills;
     }
 }

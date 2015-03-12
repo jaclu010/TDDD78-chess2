@@ -21,6 +21,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final StatusComponent statusArea = new StatusComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
+	final KilledPiecesComponent killedPiecesArea= new KilledPiecesComponent(cB);
 	final JScrollPane logScroll = new JScrollPane();
 	final JFrame frame = new JFrame("Chess 2");
 
@@ -29,6 +30,8 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 
 	logScroll.setViewportView(logArea);
 	logScroll.setColumnHeader(logScrollHeader);
+
+	cB.addChessBoardListener(killedPiecesArea);
 	cB.addChessBoardListener(gameArea);
 	cB.addChessBoardListener(statusArea);
 	cB.addChessBoardListener(logArea);
@@ -50,6 +53,7 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 
 	frame.setLayout(new BorderLayout());
 	frame.add(gameArea, BorderLayout.CENTER);
+	frame.add(killedPiecesArea, BorderLayout.WEST);
 	frame.add(statusArea, BorderLayout.EAST);
 	frame.add(logScroll, BorderLayout.SOUTH);
 	createMenues(frame);
