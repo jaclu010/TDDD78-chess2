@@ -207,6 +207,7 @@ public class ChessBoard
 
     public void printKill(int y, int x){
 	logMsg = (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
+	notifyListeners();
     }
 
 
