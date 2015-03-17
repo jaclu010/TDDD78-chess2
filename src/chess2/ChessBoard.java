@@ -20,7 +20,8 @@ public class ChessBoard
     private Random rnd = new Random();
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
-    private List<Piece> killedPieces = new ArrayList<>();
+    private List<Piece> killedBlackPieces = new ArrayList<>();
+    private List<Piece> killedWhitePieces = new ArrayList<>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
@@ -191,11 +192,12 @@ public class ChessBoard
     public void hurtPiece(int y, int x, int dmg){
 	cB[y][x].doDMG(dmg);
 	if (cB[y][x].getHP() <= 0){
-	    killedPieces.add(cB[y][x]);
 	    if (cB[y][x].getPlayer()){
 		whiteKills += 1;
+		killedWhitePieces.add(cB[y][x]);
 	    } else {
 		blackKills += 1;
+		killedBlackPieces.add(cB[y][x]);
 	    }
 	    printKill(y, x);
 	    selected.setLvl(1);
@@ -336,15 +338,10 @@ public class ChessBoard
 	return logMsg;
     }
 
-    public List<Piece> getKilledPieces() {
-	return killedPieces;
+    public List<Piece> getKilledWhitePieces() {
+	return killedWhitePieces;
     }
-
-    public int getWhiteKills() {
-	return whiteKills;
-    }
-
-    public int getBlackKills() {
-	return blackKills;
+    public List<Piece> getKilledBlackPieces() {
+	return killedBlackPieces;
     }
 }

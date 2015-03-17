@@ -10,32 +10,33 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class ChessFrame extends JFrame implements MouseListener, ChessBoardListener
+public class ChessFrame extends JFrame implements MouseListener
 {
     private ChessBoard cB;
-    private JTextArea activePlayerText;
+
 
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
 
+	final JFrame frame = new JFrame("Chess 2");
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final StatusComponent statusArea = new StatusComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
 	final KilledPiecesComponent killedPiecesArea= new KilledPiecesComponent(cB);
-	final JScrollPane logScroll = new JScrollPane();
-	final JFrame frame = new JFrame("Chess 2");
+	final TopBarComponent topBar = new TopBarComponent(cB);
 
+	final JScrollPane logScroll = new JScrollPane();
 	final JViewport logScrollHeader = new JViewport();
 	logScrollHeader.setView(new JLabel("Log: "));
-
 	logScroll.setViewportView(logArea);
 	logScroll.setColumnHeader(logScrollHeader);
 
+	cB.addChessBoardListener(topBar);
 	cB.addChessBoardListener(killedPiecesArea);
 	cB.addChessBoardListener(gameArea);
 	cB.addChessBoardListener(statusArea);
 	cB.addChessBoardListener(logArea);
-	cB.addChessBoardListener(this);
+
 	gameArea.addMouseListener(this);
 	statusArea.addMouseListener(this);
 
@@ -46,23 +47,21 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	    URL url = this.getClass().getResource("/resources/W_ROOK.png");
 	    final BufferedImage image = ImageIO.read(url);
 	    frame.setIconImage(image);
-
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
 
 	frame.setLayout(new BorderLayout());
+	frame.add(topBar, BorderLayout.PAGE_START);
 	frame.add(gameArea, BorderLayout.CENTER);
 	frame.add(killedPiecesArea, BorderLayout.WEST);
 	frame.add(statusArea, BorderLayout.EAST);
 	frame.add(logScroll, BorderLayout.SOUTH);
 	createMenues(frame);
-	createActivePlayerTextArea(frame);
 
 	frame.pack();
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
     }
 
     /**
@@ -98,32 +97,6 @@ public class ChessFrame extends JFrame implements MouseListener, ChessBoardListe
 	frame.setJMenuBar(menuBar);
     }
 
-    private void createActivePlayerTextArea(JFrame frame){
-	this.activePlayerText = new JTextArea("White players turn        Turn: " + cB.getTurn());
-	final int fontSizeActivePlayerText = 30;
-	activePlayerText.setFont(new Font("Sans Serif", Font.PLAIN, fontSizeActivePlayerText));
-	activePlayerText.setBackground(Color.BLACK);
-	activePlayerText.setForeground(Color.WHITE);
-	activePlayerText.setEditable(false);
-	frame.add(activePlayerText, BorderLayout.PAGE_START);
-    }
-
-    private void changeActivePlayerTextArea(){
-	if(cB.getActivePlayer()){
-	    activePlayerText.setText("White players turn        Turn: " + cB.getTurn());
-	    activePlayerText.setBackground(Color.BLACK);
-	    activePlayerText.setForeground(Color.WHITE);
-	}else{
-	    activePlayerText.setText("Black players turn        Turn: " + cB.getTurn());
-	    activePlayerText.setBackground(Color.WHITE);
-	    activePlayerText.setForeground(Color.BLACK);
-	}
-    }
-
-    @Override
-    public void chessBoardChanged(){
-	changeActivePlayerTextArea();
-    }
     @Override
     public void mouseClicked(MouseEvent e){
 	cB.checkMouseClick(e);

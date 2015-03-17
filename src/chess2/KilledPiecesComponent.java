@@ -40,28 +40,44 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	super.paintComponent(g);
 	final Graphics2D g2d = (Graphics2D) g;
 
-	Iterable<Piece> killedPieces = cB.getKilledPieces();
+	Iterable<Piece> killedWhitePieces = cB.getKilledWhitePieces();
+	Iterable<Piece> killedBlackPieces = cB.getKilledBlackPieces();
 
-	if (killedPieces != null) {
+	if (killedWhitePieces != null) {
 	    final int fontSize = 12;
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
 	    int i = 0;
-	    for (Piece killedPiece : killedPieces) {
+	    for (Piece killedWhitePiece : killedWhitePieces) {
 		i += 1;
 		try {
-		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedPiece) + ".png");
+		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedWhitePiece) + ".png");
 		    final BufferedImage image = ImageIO.read(url);
 		    g2d.drawImage(image, squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
-
 	    }
-	    int whiteKills = cB.getWhiteKills();
-	    int blackKills = cB.getBlackKills();
-	    g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/2,squareSide*GlobalVars.getHeight()-squareSide);
 	}
-
+	if (killedBlackPieces != null) {
+	    final int fontSize = 12;
+	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
+	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
+	    int i = 0;
+	    for (Piece killedBlackPiece : killedBlackPieces) {
+		i += 1;
+		try {
+		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
+		    final BufferedImage image = ImageIO.read(url);
+		    g2d.drawImage(image, squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+	    }
+	}
+	
+	int whiteKills = cB.getKilledWhitePieces().size();
+	int blackKills = cB.getKilledBlackPieces().size();
+	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/2,squareSide*GlobalVars.getHeight()-squareSide);
     }
 }
