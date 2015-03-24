@@ -13,20 +13,22 @@ public class ChessBoard
 {
     private Boolean activePlayer;
     private boolean gameOver;
-    private Piece[][] cB;
-    private Piece selected;
+    private ChessPiece[][] cB;
+    private ChessPiece selected;
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn, blackKills, whiteKills;
     private Random rnd = new Random();
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
-    private List<Piece> killedBlackPieces = new ArrayList<>();
-    private List<Piece> killedWhitePieces = new ArrayList<>();
+    private List<Point> healingMoves = new ArrayList<>();
+    private List<Point> abilityMoves = new ArrayList<>();
+    private List<ChessPiece> killedBlackPieces = new ArrayList<>();
+    private List<ChessPiece> killedWhitePieces = new ArrayList<>();
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
 	this.width = GlobalVars.getWidth();
-	this.cB = new Piece[height][width];
+	this.cB = new ChessPiece[height][width];
 	this.activePlayer = true;
 	this.selected = null;
 	this.gameOver = false;
@@ -36,9 +38,9 @@ public class ChessBoard
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
 		if ((y == 0 || y == height-1) || (x == 0 || x == width -1)){
-		    cB[y][x] = new AbstractPiece(PieceType.OUTSIDE);
+		    cB[y][x] = new ChessPiece(PieceType.OUTSIDE);
 		} else {
-		    cB[y][x] = new AbstractPiece(PieceType.EMPTY);
+		    cB[y][x] = new ChessPiece(PieceType.EMPTY);
 		}
 	    }
 	}
@@ -52,6 +54,11 @@ public class ChessBoard
     	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
         }
 
+    public void clearMoveLists(){
+	healingMoves.clear();
+	abilityMoves.clear();
+	possibleMoves.clear();
+    }
 
     public void checkMouseClick(MouseEvent e){
 	int mouseY = e.getY()/GlobalVars.getSquareSide();
@@ -64,22 +71,26 @@ public class ChessBoard
     public void testMovement(int mouseY, int mouseX){
 	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY &&
 	    Objects.equals(cB[mouseY][mouseX].getPlayer(), activePlayer)) {
-	    possibleMoves.clear();
+	    clearMoveLists();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
+	    checkByAbility();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    checkByRules();
+	    checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
-	    possibleMoves.clear();
+	    clearMoveLists();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkByRules();
+	    checkByAbility();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
 	    checkByRules();
+	    checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	}
 	notifyListeners();
@@ -100,6 +111,34 @@ public class ChessBoard
 	notifyListeners();
     }
 
+    public void checkByAbility(){
+	if(selected.getaP() >= selected.getAbility().getCost()) {
+	    switch (selected.getAbility().getAC()) {
+		case OFFENSIVE:
+		    checkByPossibleMoves();
+		    break;
+		case DEFENSIVE:
+		    copyHealingMoves();
+		    break;
+		case SPECIAL:
+		    break;
+	    }
+	}
+	notifyListeners();
+    }
+
+    public void checkByPossibleMoves(){
+	for (Point possibleMove : possibleMoves) {
+	    if (cB[possibleMove.getY()][possibleMove.getX()].getPlayer() != null){
+		abilityMoves.add(possibleMove);
+	    }
+	}
+    }
+
+    public void copyHealingMoves(){
+	abilityMoves = new ArrayList<>(healingMoves);
+    }
+
     private void gameOver(){
     	Object[] options = {"Yes", "No"};
     	int optionChosen = JOptionPane.showOptionDialog(
@@ -118,18 +157,20 @@ public class ChessBoard
         }
     }
 
-    public void pawnAbleToMove(Rule rule){
-	int y = selectedY+rule.getPoint().getY();
-	int x = selectedX+rule.getPoint().getX();
-	if (selected.getPlayer().equals(rule.getPlayer())){
-	    if (cB[y][x].getPieceType() != PieceType.OUTSIDE && !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())){
-		if (rule.doRequiresInitialPos() && selected.isInitialPos()
-		    && cB[y][x].getPieceType() == PieceType.EMPTY &&
-		    cB[y-(rule.getPoint().getY()/Math.abs(rule.getPoint().getY()))][x].getPieceType() == PieceType.EMPTY){
+    public void pawnAbleToMove(Rule rule) {
+	int y = selectedY + rule.getPoint().getY();
+	int x = selectedX + rule.getPoint().getX();
+
+	if (selected.getPlayer().equals(rule.getPlayer())) {
+	    if (cB[y][x].getPieceType() != PieceType.OUTSIDE && !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())) {
+
+		if (rule.doRequiresInitialPos() && selected.isInitialPos() && cB[y][x].getPieceType() == PieceType.EMPTY &&
+		    cB[y - (rule.getPoint().getY() / Math.abs(rule.getPoint().getY()))][x].getPieceType() == PieceType.EMPTY) {
 		    possibleMoves.add(new Point(y, x));
 
-		} else if ((rule.isHurtMove() && cB[y][x].getPieceType() != PieceType.EMPTY)
-		    || (!rule.isHurtMove() && cB[y][x].getPieceType() == PieceType.EMPTY && !rule.doRequiresInitialPos())){
+		} else if ((rule.isHurtMove() && cB[y][x].getPieceType() != PieceType.EMPTY) ||
+			   (!rule.isHurtMove() && cB[y][x].getPieceType() == PieceType.EMPTY && !rule.doRequiresInitialPos())) {
+
 		    possibleMoves.add(new Point(y, x));
 		}
 	    }
@@ -140,8 +181,12 @@ public class ChessBoard
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (y < height && y > 0 && x < width && x > 0 &&
-	    !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer()) && cB[y][x].getPieceType() != PieceType.OUTSIDE) {
-	    possibleMoves.add(new Point(y, x));
+	     cB[y][x].getPieceType() != PieceType.OUTSIDE) {
+	    if (!Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())) {
+		possibleMoves.add(new Point(y, x));
+	    } else {
+		healingMoves.add(new Point(y, x));
+	    }
 	}
     }
 
@@ -149,14 +194,18 @@ public class ChessBoard
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
 	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
-	       !Objects.equals(cB[tempY][tempX].getPlayer(), selected.getPlayer()) &&
 	       cB[tempY][tempX].getPieceType() != PieceType.OUTSIDE){
 	    if (cB[tempY][tempX].getPlayer() == null){
 		possibleMoves.add(new Point(tempY, tempX));
 		tempY += rule.getPoint().getY();
 		tempX += rule.getPoint().getX();
 	    } else {
-		possibleMoves.add(new Point(tempY, tempX));
+		if (!Objects.equals(cB[tempY][tempX].getPlayer(), selected.getPlayer())){
+		    possibleMoves.add(new Point(tempY, tempX));
+		} else {
+		    healingMoves.add(new Point(tempY, tempX));
+		}
+
 		break;
 	    }
 
@@ -181,11 +230,11 @@ public class ChessBoard
     public void movePiece(int y, int x){
 	selected.setInitialPos(false);
 	cB[y][x] = selected;
-	cB[selectedY][selectedX] = new AbstractPiece(PieceType.EMPTY);
+	cB[selectedY][selectedX] = new ChessPiece(PieceType.EMPTY);
 	printPieceMovement(y, x);
 	selected = null;
 	activePlayer = !activePlayer;
-	possibleMoves.clear();
+	clearMoveLists();
 	turn += 1;
     }
 
@@ -200,17 +249,17 @@ public class ChessBoard
 		killedBlackPieces.add(cB[y][x]);
 	    }
 	    printKill(y, x);
-	    selected.setLvl(1);
+	    selected.setaP(1);
 	    movePiece(y, x);
 	    if(cB[y][x].getPieceType() == PieceType.KING){
 		gameOver = true;
 	    }
 	} else {
 	    printDidDMG(y, x, dmg);
-	    selected.setLvl(1);
+	    selected.setaP(1);
 	    selected = null;
 	    activePlayer = !activePlayer;
-	    possibleMoves.clear();
+	    clearMoveLists();
 	    turn+=1;
 	}
     }
@@ -223,7 +272,6 @@ public class ChessBoard
 	logMsg = (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
 	notifyListeners();
     }
-
 
     public void printPieceMovement(int y, int x){
 	logMsg = (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
@@ -244,40 +292,40 @@ public class ChessBoard
 	//Adds the pawns at right position
 
 	for (int x = 1; x < width-1; x++) {
-	    cB[2][x] = new AbstractPiece(false, PieceType.PAWN);
-	    cB[height-3][x] = new AbstractPiece(true, PieceType.PAWN);
+	    cB[2][x] = new ChessPiece(false, PieceType.PAWN);
+	    cB[height-3][x] = new ChessPiece(true, PieceType.PAWN);
 	}
 
 	// Adds all black pieces
-	cB[1][1] = new AbstractPiece(false, PieceType.ROOK);
-	cB[1][2] = new AbstractPiece(false, PieceType.KNIGHT);
-	cB[1][3] = new AbstractPiece(false, PieceType.BISHOP);
-	cB[1][4] = new AbstractPiece(false, PieceType.QUEEN);
-	cB[1][5] = new AbstractPiece(false, PieceType.KING);
-	cB[1][6] = new AbstractPiece(false, PieceType.BISHOP);
-	cB[1][7] = new AbstractPiece(false, PieceType.KNIGHT);
-	cB[1][8] = new AbstractPiece(false, PieceType.ROOK);
+	cB[1][1] = new ChessPiece(false, PieceType.ROOK);
+	cB[1][2] = new ChessPiece(false, PieceType.KNIGHT);
+	cB[1][3] = new ChessPiece(false, PieceType.BISHOP);
+	cB[1][4] = new ChessPiece(false, PieceType.QUEEN);
+	cB[1][5] = new ChessPiece(false, PieceType.KING);
+	cB[1][6] = new ChessPiece(false, PieceType.BISHOP);
+	cB[1][7] = new ChessPiece(false, PieceType.KNIGHT);
+	cB[1][8] = new ChessPiece(false, PieceType.ROOK);
 
 
 	// Adds all white pieces
-	cB[height-2][1] = new AbstractPiece(true, PieceType.ROOK);
-	cB[height-2][2] = new AbstractPiece(true, PieceType.KNIGHT);
-	cB[height-2][3] = new AbstractPiece(true, PieceType.BISHOP);
-	cB[height-2][4] = new AbstractPiece(true, PieceType.QUEEN);
-	cB[height-2][5] = new AbstractPiece(true, PieceType.KING);
-	cB[height-2][6] = new AbstractPiece(true, PieceType.BISHOP);
-	cB[height-2][7] = new AbstractPiece(true, PieceType.KNIGHT);
-	cB[height-2][8] = new AbstractPiece(true, PieceType.ROOK);
+	cB[height-2][1] = new ChessPiece(true, PieceType.ROOK);
+	cB[height-2][2] = new ChessPiece(true, PieceType.KNIGHT);
+	cB[height-2][3] = new ChessPiece(true, PieceType.BISHOP);
+	cB[height-2][4] = new ChessPiece(true, PieceType.QUEEN);
+	cB[height-2][5] = new ChessPiece(true, PieceType.KING);
+	cB[height-2][6] = new ChessPiece(true, PieceType.BISHOP);
+	cB[height-2][7] = new ChessPiece(true, PieceType.KNIGHT);
+	cB[height-2][8] = new ChessPiece(true, PieceType.ROOK);
     }
 
     public void clearBoard() {
 	for (int y = 1; y < height-1; y++) {
 	    for (int x = 1; x < width-1; x++) {
-		cB[y][x] = new AbstractPiece(PieceType.EMPTY);
+		cB[y][x] = new ChessPiece(PieceType.EMPTY);
 	    }
 	}
 	activePlayer = true;
-	possibleMoves.clear();
+	clearMoveLists();
 	selected = null;
 	fillBoard();
 	notifyListeners();
@@ -298,15 +346,15 @@ public class ChessBoard
     }
 	*/
 
-    public Piece getPiece(final int y, final int x){
+    public ChessPiece getPiece(final int y, final int x){
 	return cB[y][x];
     }
 
-    public Piece getSelected() {
+    public ChessPiece getSelected() {
 	return selected;
     }
 
-    public void setSelected(final Piece selected) {
+    public void setSelected(final ChessPiece selected) {
 	this.selected = selected;
     }
 
@@ -315,7 +363,7 @@ public class ChessBoard
     }
 
     public void clearPossibleMoves() {
-	possibleMoves.clear();
+	clearMoveLists();
     }
 
     public boolean getActivePlayer() {
@@ -338,10 +386,15 @@ public class ChessBoard
 	return logMsg;
     }
 
-    public List<Piece> getKilledWhitePieces() {
+    public List<ChessPiece> getKilledWhitePieces() {
 	return killedWhitePieces;
     }
-    public List<Piece> getKilledBlackPieces() {
+
+    public List<ChessPiece> getKilledBlackPieces() {
 	return killedBlackPieces;
+    }
+
+    public List<Point> getAbilityMoves() {
+	return abilityMoves;
     }
 }

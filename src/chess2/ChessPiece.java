@@ -5,22 +5,26 @@ import java.util.List;
 /**
  * This class creates a abstract representation of a chesspiece
  */
-public class AbstractPiece implements Piece
+public class ChessPiece
 {
-    protected int hP, lvl;
-    protected Boolean player = null;
-    protected PieceType pT;
+    private int hP, aP, freezeTime;
+    private Boolean player = null;
+    private PieceType pT;
+    private Ability ability;
+
     protected boolean initialPos;
 
-    public AbstractPiece(final boolean player, final PieceType pT) {
+    public ChessPiece(final boolean player, final PieceType pT) {
 	this.player = player;
         this.pT = pT;
         this.hP = decideHP(pT);
-        this.lvl = 0;
+        this.aP = 0;
         this.initialPos = true;
+        this.ability = Ability.getAbility(pT);
+        this.freezeTime = 0;
     }
 
-    public AbstractPiece(final PieceType pT) {
+    public ChessPiece(final PieceType pT) {
         this.pT= pT;
     }
 
@@ -44,8 +48,8 @@ public class AbstractPiece implements Piece
         return hP;
     }
 
-    public int getLvl() {
-        return lvl;
+    public int getaP() {
+        return aP;
     }
 
     public Boolean getPlayer(){
@@ -68,7 +72,11 @@ public class AbstractPiece implements Piece
         this.hP -= dmg;
     }
 
-    public void setLvl(final int lvl) {
-        this.lvl += lvl;
+    public void setaP(final int aP) {
+        this.aP += aP;
+    }
+
+    public Ability getAbility() {
+        return ability;
     }
 }

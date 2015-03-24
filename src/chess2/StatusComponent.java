@@ -66,7 +66,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 		e.printStackTrace();
 	    }
 
-	    g2d.drawString("    LVL: " + cB.getSelected().getLvl(), squareSide,squareSide*2+squareSide/2+squareSide/3);
+	    g2d.drawString("    AP: " + cB.getSelected().getaP(), squareSide,squareSide*2+squareSide/2+squareSide/3);
 	}
 
     }

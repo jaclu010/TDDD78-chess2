@@ -15,6 +15,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     private int letterCompX = squareSide/2 -4;
     private static final Color GREEN_TRANSPARENT = new Color(0, 255, 0, 100);
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
+    private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
 
     public ChessComponent(final ChessBoard cB) {
 	this.cB = cB;
@@ -43,6 +44,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	drawBG(g2d);
 
 	Iterable<Point> possibleMoves = cB.getPossibleMoves();
+	Iterable<Point> abilityMoves = cB.getAbilityMoves();
 
 	// Paints the chesspieces
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
@@ -76,6 +78,12 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	if (possibleMoves != null) {
 	    for (Point possibleMove : possibleMoves) {
 		g2d.fill(new Rectangle(possibleMove.getX()*GlobalVars.getSquareSide(), possibleMove.getY()*GlobalVars.getSquareSide(), squareSide, squareSide));
+	    }
+	}
+	g2d.setColor(BLUE_TRANSPARENT);
+	if (abilityMoves != null) {
+	    for (Point abilityMove : abilityMoves) {
+		g2d.fill(new Rectangle(abilityMove.getX()*GlobalVars.getSquareSide(), abilityMove.getY()*GlobalVars.getSquareSide(), squareSide, squareSide));
 	    }
 	}
     }

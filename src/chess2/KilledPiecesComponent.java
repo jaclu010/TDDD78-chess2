@@ -40,15 +40,15 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	super.paintComponent(g);
 	final Graphics2D g2d = (Graphics2D) g;
 
-	Iterable<Piece> killedWhitePieces = cB.getKilledWhitePieces();
-	Iterable<Piece> killedBlackPieces = cB.getKilledBlackPieces();
+	Iterable<ChessPiece> killedWhitePieces = cB.getKilledWhitePieces();
+	Iterable<ChessPiece> killedBlackPieces = cB.getKilledBlackPieces();
 
 	if (killedWhitePieces != null) {
 	    final int fontSize = 12;
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
 	    int i = 0;
-	    for (Piece killedWhitePiece : killedWhitePieces) {
+	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
 		try {
 		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedWhitePiece) + ".png");
@@ -64,7 +64,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
 	    int i = 0;
-	    for (Piece killedBlackPiece : killedBlackPieces) {
+	    for (ChessPiece killedBlackPiece : killedBlackPieces) {
 		i += 1;
 		try {
 		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
@@ -78,6 +78,6 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	
 	int whiteKills = cB.getKilledWhitePieces().size();
 	int blackKills = cB.getKilledBlackPieces().size();
-	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/2,squareSide*GlobalVars.getHeight()-squareSide);
+	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/5,squareSide*GlobalVars.getHeight()-squareSide);
     }
 }

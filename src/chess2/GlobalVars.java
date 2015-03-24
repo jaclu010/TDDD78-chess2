@@ -24,7 +24,7 @@ public final class GlobalVars
 	return HEIGHT;
     }
 
-    public static String imgPicker(Piece aP){
+    public static String imgPicker(ChessPiece aP){
 	StringBuilder result = new StringBuilder();
 	if (aP.getPlayer()){
 	    result.append("W_");
