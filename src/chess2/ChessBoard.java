@@ -71,6 +71,7 @@ public class ChessBoard
     public void testMovement(int mouseY, int mouseX){
 	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY &&
 	    Objects.equals(cB[mouseY][mouseX].getPlayer(), activePlayer)) {
+	    // Select a chesspiece
 	    clearMoveLists();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
@@ -78,10 +79,13 @@ public class ChessBoard
 	    checkByRules();
 	    checkByAbility();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
+	    // Press on a empty piece
+	    System.out.println("Hej");
 	    checkByRules();
 	    checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
+	    // Press on a piece of same player
 	    clearMoveLists();
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
@@ -89,8 +93,9 @@ public class ChessBoard
 	    checkByRules();
 	    checkByAbility();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
-	    checkByRules();
-	    checkByAbility();
+	    // Press on a enemy piece
+	    //checkByRules();
+	    //checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	}
 	notifyListeners();
@@ -112,7 +117,7 @@ public class ChessBoard
     }
 
     public void checkByAbility(){
-	if(selected.getaP() >= selected.getAbility().getCost()) {
+	if(selected.getaP() >= selected.getAbility().getCost() && abilityMoves.isEmpty()) {
 	    switch (selected.getAbility().getAC()) {
 		case OFFENSIVE:
 		    checkByPossibleMoves();
@@ -242,6 +247,32 @@ public class ChessBoard
 	}
     }
 
+    public void useAbility(int y, int x) {
+	for (Point possibleAbilityMove : abilityMoves) {
+	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
+		switch (selected.getAbility().getAC()) {
+		    case OFFENSIVE:
+			hurtPiece(y, x, selected.getAbility().getDmg());
+			break;
+		    case DEFENSIVE:
+			healPiece(y, x, selected.getAbility().getHeal());
+			break;
+		    case SPECIAL:
+			if (selected.getPieceType() == PieceType.KING) {
+
+			} else {
+
+			}
+			break;
+		}
+	    }
+
+	}
+    }
+
+    public void healPiece(int y, int x, int health){
+
+    }
     public void pieceAction(int y, int x){
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){
@@ -280,10 +311,12 @@ public class ChessBoard
 	    }
 	    printKill(y, x);
 	    selected.setaP(1);
-	    movePiece(y, x);
 	    if(cB[y][x].getPieceType() == PieceType.KING){
-		gameOver = true;
+		//movePiece(y, x);
+	    	gameOver = true;
+		gameOver();
 	    }
+	    movePiece(y, x);
 	} else {
 	    printDidDMG(y, x, dmg);
 	    selected.setaP(1);
