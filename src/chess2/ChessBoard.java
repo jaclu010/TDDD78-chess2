@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
 
 public class ChessBoard
 {
@@ -17,7 +15,6 @@ public class ChessBoard
     private ChessPiece selected;
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn, blackKills, whiteKills;
-    private Random rnd = new Random();
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
     private List<Point> healingMoves = new ArrayList<>();
@@ -58,6 +55,13 @@ public class ChessBoard
 	healingMoves.clear();
 	abilityMoves.clear();
 	possibleMoves.clear();
+    }
+
+    public void clearKills(){
+	whiteKills = 0;
+	blackKills = 0;
+	killedBlackPieces.clear();
+	killedWhitePieces.clear();
     }
 
     public void checkMouseClick(MouseEvent e){
@@ -326,11 +330,6 @@ public class ChessBoard
     }
 
     public void fillBoard(){
-	/*for (int y = 1; y < HEIGHT-1; y++) {
-	for (int x = 1; x < WIDTH-1; x++) {
-	cB[y][x] = randPiece(rnd.nextInt(7));
-	}
-	}*/
 	//False = black piece
 	//Adds the pawns at right position
 
@@ -370,6 +369,7 @@ public class ChessBoard
 	activePlayer = true;
 	turn = 1;
 	clearMoveLists();
+	clearKills();
 	selected = null;
 	fillBoard();
 	notifyListeners();
@@ -381,21 +381,6 @@ public class ChessBoard
 	clearMoveLists();
 	notifyListeners();
     }
-
-    /*
-    public AbstractPiece randPiece(int n){
-	switch(n){
-	    case 0: return new Bishop(true);
-	    case 1: return new King(true);
-	    case 2: return new Queen(true);
-	    case 3: return new Knight(true);
-	    case 4: return new Rook(true);
-	    case 5: return new Pawn(true);
-	    case 6: return new Empty();
-	    default: return null;
-	}
-    }
-	*/
 
     public ChessPiece getPiece(final int y, final int x){
 	return cB[y][x];

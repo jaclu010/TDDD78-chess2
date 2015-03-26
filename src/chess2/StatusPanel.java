@@ -90,15 +90,17 @@ private final class ButtonAction implements ActionListener
 	    cB.changeActivePlayer();
 
 	} else if (button.getText().equals("Switch move/ability")){
-	    if (GlobalVars.isShowRegularMoves()){
-		GlobalVars.setShowRegularMoves(false);
-		GlobalVars.setShowAbilityMoves(true);
-	    } else {
+	    if(cB.getSelected() != null) {
+		if (GlobalVars.isShowRegularMoves()) {
+		    GlobalVars.setShowRegularMoves(false);
+		    GlobalVars.setShowAbilityMoves(true);
+		} else {
 
-		GlobalVars.setShowRegularMoves(true);
-		GlobalVars.setShowAbilityMoves(false);
+		    GlobalVars.setShowRegularMoves(true);
+		    GlobalVars.setShowAbilityMoves(false);
+		}
+		cB.checkRules();
 	    }
-	    cB.checkRules();
 	}
     }
 

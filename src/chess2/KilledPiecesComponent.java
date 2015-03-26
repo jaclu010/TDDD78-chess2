@@ -69,7 +69,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 		try {
 		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
 		    final BufferedImage image = ImageIO.read(url);
-		    g2d.drawImage(image, squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
+		    g2d.drawImage(image, squareSide*2,squareSide/2*i, squareSide/3, squareSide/3, this);
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
