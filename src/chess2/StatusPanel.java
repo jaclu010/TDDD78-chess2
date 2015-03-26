@@ -87,8 +87,8 @@ private final class ButtonAction implements ActionListener
 	} else if (button.getText().equals("Use ability")){
 
 	} else if (button.getText().equals("Change player")){
-	    cB.setActivePlayer(!cB.getActivePlayer());
-	    cB.notifyListeners();
+	    cB.changeActivePlayer();
+
 	} else if (button.getText().equals("Switch move/ability")){
 	    if (GlobalVars.isShowRegularMoves()){
 		GlobalVars.setShowRegularMoves(false);
@@ -98,7 +98,7 @@ private final class ButtonAction implements ActionListener
 		GlobalVars.setShowRegularMoves(true);
 		GlobalVars.setShowAbilityMoves(false);
 	    }
-	    cB.notifyListeners();
+	    cB.checkRules();
 	}
     }
 

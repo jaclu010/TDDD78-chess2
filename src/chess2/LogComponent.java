@@ -18,11 +18,15 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 
     @Override
     public void chessBoardChanged(){
+	if (cB.getTurn() == 1){
+	    clearLog();
+	}
 	oldMsg = latestMsg;
 	latestMsg = cB.getLogMsg();
 	if (!oldMsg.equals(latestMsg)){
 	    this.append(latestMsg+"\n");
 	}
+
     }
 
     @Override public Dimension getPreferredScrollableViewportSize(){
@@ -36,4 +40,7 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 	return new Dimension(GlobalVars.getWidth()*GlobalVars.getSquareSide(), 2*GlobalVars.getSquareSide());
     }
 
+    public void clearLog(){
+	this.setText("");
+    }
 }

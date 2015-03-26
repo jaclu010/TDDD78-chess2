@@ -80,14 +80,11 @@ public class ChessFrame extends JFrame implements MouseListener
 	file.add(exit);
 	final ActionListener menuActions = event -> {
 	    if(event.getSource().equals(newGame)){
-		cB.clearBoard();
+		cB.newGame();
 	    } else if(event.getSource().equals(exit)){
 		System.exit(0);
 	    } else if(event.getSource().equals(changePlayer)){
-		cB.setActivePlayer(!cB.getActivePlayer());
-		cB.setSelected(null);
-		cB.clearPossibleMoves();
-		cB.notifyListeners();
+		cB.changeActivePlayer();
 	    }
 	};
 	changePlayer.addActionListener(menuActions);

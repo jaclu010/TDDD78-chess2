@@ -25,6 +25,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     @Override
     public void chessBoardChanged(){
 	repaint();
+	if(cB.isGameOver()){
+	    gameOver();
+	}
     }
 
     @Override public Dimension getPreferredSize(){
@@ -127,6 +130,24 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	    return Character.toString(a);
 	}
 	return "";
+    }
+    private void gameOver(){
+
+    	int optionChosen = JOptionPane.showOptionDialog(
+                this,
+                "Game Over,"+ cB.getActivePlayer()+"\n Play again?",
+                "Game over",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+		null,
+		null,
+		null);
+
+    	if(optionChosen == 0){
+            cB.newGame();
+    	} else if(optionChosen == 1){
+            System.exit(0);
+        }
     }
 
 }

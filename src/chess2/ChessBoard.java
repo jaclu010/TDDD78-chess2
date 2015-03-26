@@ -76,13 +76,10 @@ public class ChessBoard
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
-	    checkByRules();
-	    checkByAbility();
+	    checkRules();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
 	    // Press on a empty piece
-	    System.out.println("Hej");
-	    checkByRules();
-	    checkByAbility();
+	    checkRules();
 	    pieceAction(mouseY, mouseX);
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
 	    // Press on a piece of same player
@@ -90,14 +87,19 @@ public class ChessBoard
 	    selected = cB[mouseY][mouseX];
 	    selectedX = mouseX;
 	    selectedY = mouseY;
-	    checkByRules();
-	    checkByAbility();
+	    checkRules();
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
 	    // Press on a enemy piece
 	    //checkByRules();
 	    //checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	}
+	notifyListeners();
+    }
+
+    public void checkRules(){
+	checkByRules();
+	checkByAbility();
 	notifyListeners();
     }
 
@@ -173,24 +175,6 @@ public class ChessBoard
 
     public void copyHealingMoves(){
 	abilityMoves = new ArrayList<>(healingMoves);
-    }
-
-    private void gameOver(){
-    	Object[] options = {"Yes", "No"};
-    	int optionChosen = JOptionPane.showOptionDialog(
-                null,
-                "Game Over!\n Play again?",
-                "Game over",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]);
-    	if(optionChosen == 0){
-            clearBoard();
-    	} else if(optionChosen == 1){
-            System.exit(0);
-        }
     }
 
     public void pawnAbleToMove(Rule rule) {
@@ -293,9 +277,7 @@ public class ChessBoard
 	cB[y][x] = selected;
 	cB[selectedY][selectedX] = new ChessPiece(PieceType.EMPTY);
 	printPieceMovement(y, x);
-	selected = null;
-	activePlayer = !activePlayer;
-	clearMoveLists();
+	changeActivePlayer();
 	turn += 1;
     }
 
@@ -314,15 +296,12 @@ public class ChessBoard
 	    if(cB[y][x].getPieceType() == PieceType.KING){
 		//movePiece(y, x);
 	    	gameOver = true;
-		gameOver();
 	    }
 	    movePiece(y, x);
 	} else {
 	    printDidDMG(y, x, dmg);
 	    selected.setaP(1);
-	    selected = null;
-	    activePlayer = !activePlayer;
-	    clearMoveLists();
+	    changeActivePlayer();
 	    turn+=1;
 	}
     }
@@ -382,16 +361,24 @@ public class ChessBoard
 	cB[height-2][8] = new ChessPiece(true, PieceType.ROOK);
     }
 
-    public void clearBoard() {
+    public void newGame() {
 	for (int y = 1; y < height-1; y++) {
 	    for (int x = 1; x < width-1; x++) {
 		cB[y][x] = new ChessPiece(PieceType.EMPTY);
 	    }
 	}
 	activePlayer = true;
+	turn = 1;
 	clearMoveLists();
 	selected = null;
 	fillBoard();
+	notifyListeners();
+    }
+
+    public void changeActivePlayer(){
+	activePlayer = !activePlayer;
+	selected = null;
+	clearMoveLists();
 	notifyListeners();
     }
 
@@ -430,16 +417,12 @@ public class ChessBoard
 	clearMoveLists();
     }
 
-    public boolean getActivePlayer() {
-	return activePlayer;
-    }
-
-    public void setActivePlayer(final boolean activePlayer) {
-	this.activePlayer = activePlayer;
-    }
-
     public boolean isGameOver() {
 	return gameOver;
+    }
+
+    public Boolean getActivePlayer() {
+	return activePlayer;
     }
 
     public int getTurn() {
