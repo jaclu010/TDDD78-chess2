@@ -121,15 +121,50 @@ public class ChessBoard
 		    copyHealingMoves();
 		    break;
 		case SPECIAL:
+		    if(selected.getPieceType() == PieceType.KING){
+			checkFreePositionsAroundKing();
+		    } else {
+			checkTargetForLaser();
+		    }
 		    break;
 	    }
 	}
 	notifyListeners();
     }
 
+    public void checkTargetForLaser(){
+	final int laserLenght = 2;
+	int startY = selectedY-laserLenght;
+	int startX = selectedX-laserLenght;
+	int endY = selectedY+laserLenght;
+	int endX = selectedX+laserLenght;
+	System.out.println("hej");
+	for(int y = startY; y <= endY; y++){
+	    for (int x = startX; x <= endX; x++) {
+		System.out.println(x);
+		System.out.println("---");
+		System.out.println(y);
+		if(y > 1 && y < height-1 && x > 1 && x < width-1){
+		    if(cB[y][x].getPlayer() == selected.getPlayer()){
+			abilityMoves.add(new Point(y, x));
+		    }
+		}
+	    }
+	}
+
+    }
+
     public void checkByPossibleMoves(){
 	for (Point possibleMove : possibleMoves) {
 	    if (cB[possibleMove.getY()][possibleMove.getX()].getPlayer() != null){
+		abilityMoves.add(possibleMove);
+	    }
+	}
+    }
+
+    public void checkFreePositionsAroundKing(){
+	for (Point possibleMove : possibleMoves) {
+	    if (cB[possibleMove.getY()][possibleMove.getX()].getPieceType() == PieceType.EMPTY){
 		abilityMoves.add(possibleMove);
 	    }
 	}
@@ -205,7 +240,6 @@ public class ChessBoard
 		} else {
 		    healingMoves.add(new Point(tempY, tempX));
 		}
-
 		break;
 	    }
 
