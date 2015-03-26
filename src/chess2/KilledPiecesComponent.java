@@ -75,7 +75,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 		}
 	    }
 	}
-	
+
 	int whiteKills = cB.getKilledWhitePieces().size();
 	int blackKills = cB.getKilledBlackPieces().size();
 	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/5,squareSide*GlobalVars.getHeight()-squareSide);

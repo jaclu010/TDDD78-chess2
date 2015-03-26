@@ -19,11 +19,13 @@ public class ChessFrame extends JFrame implements MouseListener
 	this.cB = cB;
 
 	final JFrame frame = new JFrame("Chess 2");
+	final JPanel statusPanel = new JPanel(new BorderLayout());
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final StatusComponent statusArea = new StatusComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
 	final KilledPiecesComponent killedPiecesArea= new KilledPiecesComponent(cB);
 	final TopBarComponent topBar = new TopBarComponent(cB);
+	final StatusFrame statusFrame = new StatusFrame(cB);
 
 	final JScrollPane logScroll = new JScrollPane();
 	final JViewport logScrollHeader = new JViewport();
@@ -42,7 +44,6 @@ public class ChessFrame extends JFrame implements MouseListener
 
 	logScroll.createVerticalScrollBar();
 
-
 	try {
 	    URL url = this.getClass().getResource("/resources/W_ROOK.png");
 	    final BufferedImage image = ImageIO.read(url);
@@ -51,11 +52,13 @@ public class ChessFrame extends JFrame implements MouseListener
 	    e.printStackTrace();
 	}
 
+	statusPanel.add(statusArea);
 	frame.setLayout(new BorderLayout());
+	frame.add(statusPanel);
 	frame.add(topBar, BorderLayout.PAGE_START);
 	frame.add(gameArea, BorderLayout.CENTER);
 	frame.add(killedPiecesArea, BorderLayout.WEST);
-	frame.add(statusArea, BorderLayout.EAST);
+
 	frame.add(logScroll, BorderLayout.SOUTH);
 	createMenues(frame);
 

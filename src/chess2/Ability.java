@@ -1,7 +1,5 @@
 package chess2;
 
-import java.util.List;
-
 public class Ability
 {
     private int cost, dmg, freezeTime, heal, knockBack;
@@ -10,63 +8,54 @@ public class Ability
     private AbilityType aT;
 
 
-    public Ability(AbilityType aT) {
-        setVars(aT);
+    public Ability(PieceType pT) {
+        setVars(pT);
     }
 
-    public void setVars(AbilityType aT){
-        switch(aT){
-            case DOUBLE_DAMAGE:
+    public void setVars(PieceType pT){
+        switch(pT){
+            case PAWN:
                 cost = 2;
                 dmg = 2;
+                aT = AbilityType.DOUBLE_DAMAGE;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
-            case HEAL:
+            case BISHOP:
                 cost = 2;
                 heal = 2;
+                aT = AbilityType.HEAL;
                 aC = AbilityCharacteristic.DEFENSIVE;
                 break;
-            case PUSH_BACK:
+            case KNIGHT:
                 cost = 2;
                 knockBack = 2;
+                aT = AbilityType.PUSH_BACK;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
-            case FREEZE:
+            case ROOK:
                 cost = 2;
                 freezeTime = 4;
+                aT = AbilityType.FREEZE;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
-            case LASER:
+            case QUEEN:
                 cost = 3;
                 dmg = 3;
                 knockBack = 1;
+                aT = AbilityType.LASER;
                 aC = AbilityCharacteristic.SPECIAL;
                 break;
-            case SUMMON_DEFENCE:
+            case KING:
                 cost = 3;
                 summonDefence = true;
+                aT = AbilityType.SUMMON_DEFENCE;
                 aC = AbilityCharacteristic.SPECIAL;
                 break;
         }
     }
 
     public static Ability getAbility(PieceType pT){
-        switch (pT){
-            case PAWN:
-                return new Ability(AbilityType.DOUBLE_DAMAGE);
-            case ROOK:
-                return new Ability(AbilityType.FREEZE);
-            case BISHOP:
-                return new Ability(AbilityType.HEAL);
-            case KNIGHT:
-                return new Ability(AbilityType.PUSH_BACK);
-            case QUEEN:
-                return new Ability(AbilityType.LASER);
-            case KING:
-                return new Ability(AbilityType.SUMMON_DEFENCE);
-            default:
-                return null;
-        }
+        return new Ability(pT);
     }
 
     public AbilityCharacteristic getAC() {

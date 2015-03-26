@@ -282,6 +282,7 @@ public class ChessBoard
 	char a = (char) n;
 	return Character.toString(a);
     }
+
     public void fillBoard(){
 	/*for (int y = 1; y < HEIGHT-1; y++) {
 	for (int x = 1; x < WIDTH-1; x++) {
