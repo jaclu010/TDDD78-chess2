@@ -29,7 +29,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(3*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide());
+	return new Dimension(3*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide()/2);
     }
 
     @Override protected void paintComponent(Graphics g) {

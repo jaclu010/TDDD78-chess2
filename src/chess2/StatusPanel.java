@@ -1,8 +1,6 @@
 package chess2;
 
-
-import javafx.event.ActionEvent;
-
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
@@ -14,18 +12,18 @@ public class StatusPanel extends JPanel
     public StatusPanel(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
 
-
-	final JButton useAbility = new JButton("UseAbility");
+	final JPanel buttonPanel = new JPanel(new BorderLayout());
+	final JButton useAbility = new JButton("Use ability");
 	final JButton lvlupSelected = new JButton("Upgrade selected");
 	final StatusComponent statusArea = new StatusComponent(cB);
 	cB.addChessBoardListener(statusArea);
 
-	this.add(lvlupSelected);
-	this.add(useAbility);
+	buttonPanel.add(lvlupSelected, BorderLayout.NORTH);
+	buttonPanel.add(useAbility, BorderLayout.CENTER);
+
 	this.add(statusArea);
-
+	this.add(buttonPanel);
 	//this.setLayout(new BorderLayout());
-
 	//this.add(buttonPanel, BorderLayout.SOUTH);
 
 	this.setVisible(true);
@@ -35,7 +33,6 @@ public class StatusPanel extends JPanel
 
 	useAbility.addActionListener(abilityAction);
 	lvlupSelected.addActionListener(lvlUpAction);
-
     }
 
     @Override public Dimension getPreferredSize(){
@@ -58,13 +55,16 @@ private final class ButtonAction implements ActionListener
     {
 	button = b;
     }
-    public void actionPerformed(java.awt.event.ActionEvent e){
+
+    public void actionPerformed(ActionEvent e){
 	if (button.getText().equals("Upgrade selected")){
+	    if(cB.getSelected() != null) {
 		cB.getSelected().setaP(5);
+		cB.notifyListeners();
+	    }
 
 
-
-	} else {
+	} else if (button.getText().equals("Use ability")){
 
 	}
     }
