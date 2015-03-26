@@ -35,7 +35,7 @@ public class ChessFrame extends JFrame implements MouseListener
 	cB.addChessBoardListener(topBar);
 	cB.addChessBoardListener(killedPiecesArea);
 	cB.addChessBoardListener(gameArea);
-
+	cB.addChessBoardListener(statusPanel);
 	cB.addChessBoardListener(logArea);
 
 	gameArea.addMouseListener(this);

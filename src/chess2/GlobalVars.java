@@ -5,6 +5,8 @@ public final class GlobalVars
     private static final int SQUARE_SIDE = 70;
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
+    private static boolean showRegularMoves = true;
+    private static boolean showAbilityMoves = false;
 
     private GlobalVars() {}
 
@@ -33,5 +35,21 @@ public final class GlobalVars
 	}
 	result.append(aP.getPieceType().name());
 	return result.toString();
+    }
+
+    public static boolean isShowRegularMoves() {
+        return showRegularMoves;
+    }
+
+    public static void setShowRegularMoves(final boolean showRegularMoves) {
+        GlobalVars.showRegularMoves = showRegularMoves;
+    }
+
+    public static boolean isShowAbilityMoves() {
+        return showAbilityMoves;
+    }
+
+    public static void setShowAbilityMoves(final boolean showAbilityMoves) {
+        GlobalVars.showAbilityMoves = showAbilityMoves;
     }
 }

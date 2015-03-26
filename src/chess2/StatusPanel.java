@@ -5,34 +5,56 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
 
-public class StatusPanel extends JPanel
+public class StatusPanel extends JPanel implements ChessBoardListener
 {
     private ChessBoard cB;
+    private final JButton useAbility = new JButton("Use ability");
+    private final JButton showPossible = new JButton("Switch move/ability");
 
     public StatusPanel(ChessBoard cB) throws HeadlessException {
 	this.cB = cB;
 
-	final JPanel buttonPanel = new JPanel(new BorderLayout());
-	final JButton useAbility = new JButton("Use ability");
+	final JPanel buttonPanel = new JPanel();
 	final JButton lvlupSelected = new JButton("Upgrade selected");
+	final JButton changePlayer = new JButton("Change player");
+	buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
 	final StatusComponent statusArea = new StatusComponent(cB);
+
 	cB.addChessBoardListener(statusArea);
 
-	buttonPanel.add(lvlupSelected, BorderLayout.NORTH);
-	buttonPanel.add(useAbility, BorderLayout.CENTER);
+
+	buttonPanel.add(lvlupSelected);
+	buttonPanel.add(showPossible);
+	buttonPanel.add(changePlayer);
+	buttonPanel.add(useAbility);
 
 	this.add(statusArea);
 	this.add(buttonPanel);
 	//this.setLayout(new BorderLayout());
 	//this.add(buttonPanel, BorderLayout.SOUTH);
 
+	useAbility.setVisible(false);
 	this.setVisible(true);
 
+	ButtonAction showAction = new ButtonAction(showPossible);
+	ButtonAction changePAction = new ButtonAction(changePlayer);
 	ButtonAction abilityAction = new ButtonAction(useAbility);
 	ButtonAction lvlUpAction = new ButtonAction(lvlupSelected);
 
+	showPossible.addActionListener(showAction);
+	changePlayer.addActionListener(changePAction);
 	useAbility.addActionListener(abilityAction);
 	lvlupSelected.addActionListener(lvlUpAction);
+    }
+
+    public void chessBoardChanged(){
+	ChessPiece selected = cB.getSelected();
+
+	if(selected != null && selected.getPieceType() != PieceType.KING){
+	    useAbility.setVisible(false);
+	} else if (selected != null){
+	    useAbility.setVisible(true);
+	}
     }
 
     @Override public Dimension getPreferredSize(){
@@ -62,10 +84,21 @@ private final class ButtonAction implements ActionListener
 		cB.getSelected().setaP(5);
 		cB.notifyListeners();
 	    }
-
-
 	} else if (button.getText().equals("Use ability")){
 
+	} else if (button.getText().equals("Change player")){
+	    cB.setActivePlayer(!cB.getActivePlayer());
+	    cB.notifyListeners();
+	} else if (button.getText().equals("Switch move/ability")){
+	    if (GlobalVars.isShowRegularMoves()){
+		GlobalVars.setShowRegularMoves(false);
+		GlobalVars.setShowAbilityMoves(true);
+	    } else {
+
+		GlobalVars.setShowRegularMoves(true);
+		GlobalVars.setShowAbilityMoves(false);
+	    }
+	    cB.notifyListeners();
 	}
     }
 
