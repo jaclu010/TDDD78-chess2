@@ -138,14 +138,10 @@ public class ChessBoard
 	int startX = selectedX-laserLenght;
 	int endY = selectedY+laserLenght;
 	int endX = selectedX+laserLenght;
-	System.out.println("hej");
 	for(int y = startY; y <= endY; y++){
 	    for (int x = startX; x <= endX; x++) {
-		System.out.println(x);
-		System.out.println("---");
-		System.out.println(y);
 		if(y > 1 && y < height-1 && x > 1 && x < width-1){
-		    if(cB[y][x].getPlayer() == selected.getPlayer()){
+		    if(cB[y][x].getPieceType() != PieceType.EMPTY && cB[y][x].getPlayer() == !selected.getPlayer()){
 			abilityMoves.add(new Point(y, x));
 		    }
 		}

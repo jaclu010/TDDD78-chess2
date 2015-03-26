@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
+    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="tarted on queen&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessPiece.java" afterPath="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.ipr" afterPath="$PROJECT_DIR$/TDDD78-chess2.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
@@ -33,11 +31,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5816263">
       <split-first>
         <leaf>
-          <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="7448">
-                  <caret line="149" column="18" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
+                <state vertical-scroll-proportion="0.39930555" vertical-offset="1992" max-vertical-offset="7372">
+                  <caret line="127" column="21" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
                   <folding>
                     <element signature="method#gameOver#0;class#ChessBoard#0" expanded="false" />
                   </folding>
@@ -130,10 +128,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.59521097" vertical-offset="86" max-vertical-offset="1254">
+                <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="1254">
                   <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
                   <folding />
                 </state>
@@ -218,8 +216,8 @@
         <option value="$PROJECT_DIR$/src/chess2/StatusComponent.java" />
         <option value="$PROJECT_DIR$/src/chess2/StatusFrame.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessFrame.java" />
-        <option value="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
+        <option value="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
       </list>
     </option>
   </component>
@@ -667,7 +665,7 @@
       <workItem from="1427188291612" duration="6583000" />
       <workItem from="1427367784196" duration="3788000" />
       <workItem from="1427371619761" duration="3325000" />
-      <workItem from="1427374972972" duration="59000" />
+      <workItem from="1427374972972" duration="775000" />
     </task>
     <task id="LOCAL-00001" summary="hej">
       <created>1424944720557</created>
@@ -819,11 +817,17 @@
       <option name="project" value="LOCAL" />
       <updated>1426177187669</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="king ability movement and started on queen&#10;">
+      <created>1427375064525</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1427375064525</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76061000" />
+    <option name="totallyTimeSpent" value="76777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="11" width="1918" height="1164" extended-state="0" />
@@ -887,7 +891,8 @@
     <MESSAGE value="Small fixes of bugs and analyse problems" />
     <MESSAGE value="fixed bug with change player in menu" />
     <MESSAGE value="some cleaning&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="some cleaning&#10;" />
+    <MESSAGE value="king ability movement and started on queen&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="king ability movement and started on queen&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1271,21 +1276,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="7448">
-          <caret line="149" column="18" selection-start-line="149" selection-start-column="18" selection-end-line="149" selection-end-column="18" />
-          <folding>
-            <element signature="method#gameOver#0;class#ChessBoard#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="86" max-vertical-offset="1254">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessPiece.java">
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59521097" vertical-offset="86" max-vertical-offset="1254">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding />
+        <state vertical-scroll-proportion="0.39930555" vertical-offset="1992" max-vertical-offset="7372">
+          <caret line="127" column="21" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
+          <folding>
+            <element signature="method#gameOver#0;class#ChessBoard#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
