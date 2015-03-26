@@ -14,9 +14,6 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 
     public StatusComponent(ChessBoard cB) {
 	this.cB = cB;
-	JButton button = new JButton("UseAbility");
-	this.add(button);
-
     }
 
     @Override
