@@ -87,11 +87,15 @@ public class ChessBoard
 	    pieceAction(mouseY, mouseX);
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
 	    // Press on a piece of same player
-	    clearMoveLists();
-	    selected = cB[mouseY][mouseX];
-	    selectedX = mouseX;
-	    selectedY = mouseY;
-	    checkRules();
+	    if (GlobalVars.isShowAbilityMoves()){
+		useAbility(mouseY, mouseX);
+	    } else {
+		clearMoveLists();
+		selected = cB[mouseY][mouseX];
+		selectedX = mouseX;
+		selectedY = mouseY;
+		checkRules();
+	    }
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
 	    // Press on a enemy piece
 	    //checkByRules();
@@ -158,7 +162,6 @@ public class ChessBoard
 		}
 	    }
 	}
-
     }
 
     public void checkByPossibleMoves(){
@@ -256,20 +259,26 @@ public class ChessBoard
 	    }
 
 	}
+	changeActivePlayer();
+	notifyListeners();
     }
 
-    public void healPiece(int y, int x, int health){
-
+    public void healPiece(int y, int x, int heal){
+	cB[y][x].doHEAL(heal);
     }
     public void pieceAction(int y, int x){
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){
-		if (cB[y][x].getPieceType() != PieceType.EMPTY){
-		    hurtPiece(y, x, 1);
-		    break;
+		if(GlobalVars.isShowRegularMoves()) {
+		    if (cB[y][x].getPieceType() != PieceType.EMPTY) {
+			hurtPiece(y, x, 1);
+			break;
+		    } else {
+			movePiece(y, x);
+			break;
+		    }
 		} else {
-		    movePiece(y, x);
-		    break;
+		    useAbility(y, x);
 		}
 	    }
 	}

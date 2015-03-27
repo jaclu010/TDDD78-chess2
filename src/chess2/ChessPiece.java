@@ -72,6 +72,10 @@ public class ChessPiece
         this.hP -= dmg;
     }
 
+    public void doHEAL(int heal){
+        this.hP += heal;
+    }
+
     public void setaP(final int aP) {
         this.aP += aP;
     }
