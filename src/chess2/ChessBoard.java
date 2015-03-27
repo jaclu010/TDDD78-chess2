@@ -241,6 +241,8 @@ public class ChessBoard
     public void useAbility(int y, int x) {
 	for (Point possibleAbilityMove : abilityMoves) {
 	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
+		payCost();
+
 		switch (selected.getAbility().getAC()) {
 		    case OFFENSIVE:
 			hurtPiece(y, x, selected.getAbility().getDmg());
@@ -256,16 +258,29 @@ public class ChessBoard
 			}
 			break;
 		}
+
+		changeActivePlayer();
+		notifyListeners();
 	    }
 
 	}
-	changeActivePlayer();
-	notifyListeners();
+
+    }
+
+    public void spawnProtectionForKing(){
+	for (Point abilityMove : abilityMoves) {
+	    cB[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
+	}
+    }
+
+    public void payCost(){
+	selected.setaP(-selected.getAbility().getCost());
     }
 
     public void healPiece(int y, int x, int heal){
 	cB[y][x].doHEAL(heal);
     }
+
     public void pieceAction(int y, int x){
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){

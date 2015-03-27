@@ -85,7 +85,7 @@ private final class ButtonAction implements ActionListener
 		cB.notifyListeners();
 	    }
 	} else if (button.getText().equals("Use ability")){
-
+		cB.spawnProtectionForKing();
 	} else if (button.getText().equals("Change player")){
 	    cB.changeActivePlayer();
 
