@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" afterPath="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/B_BISHOP.png" afterPath="$PROJECT_DIR$/src/troll/B_BISHOP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/B_KNIGHT.png" afterPath="$PROJECT_DIR$/src/troll/B_KNIGHT.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/B_PAWN.png" afterPath="$PROJECT_DIR$/src/troll/B_PAWN.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/B_QUEEN.png" afterPath="$PROJECT_DIR$/src/troll/B_QUEEN.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/B_ROOK.png" afterPath="$PROJECT_DIR$/src/troll/B_ROOK.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/W_BISHOP.png" afterPath="$PROJECT_DIR$/src/troll/W_BISHOP.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/W_KNIGHT.png" afterPath="$PROJECT_DIR$/src/troll/W_KNIGHT.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/W_PAWN.png" afterPath="$PROJECT_DIR$/src/troll/W_PAWN.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/W_QUEEN.png" afterPath="$PROJECT_DIR$/src/troll/W_QUEEN.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/troll/W_ROOK.png" afterPath="$PROJECT_DIR$/src/troll/W_ROOK.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
@@ -839,7 +847,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427829166285</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="some debug">
+      <created>1427830424077</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1427830424077</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -859,7 +873,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838982" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18195719" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18195719" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13867188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -915,7 +929,8 @@
     <MESSAGE value="fixed buttonlistener, added easter egg" />
     <MESSAGE value="chesscomponent now shows AP over piece" />
     <MESSAGE value="you can now set guiTheme in global vars, reference to unique folder with all pics" />
-    <option name="LAST_COMMIT_MESSAGE" value="you can now set guiTheme in global vars, reference to unique folder with all pics" />
+    <MESSAGE value="some debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="some debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
