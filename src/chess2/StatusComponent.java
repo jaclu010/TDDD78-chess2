@@ -42,7 +42,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);
 
 	    try {
-		URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(cB.getSelected()) + ".png");
+		URL url = this.getClass().getResource("/troll/" + GlobalVars.imgPicker(cB.getSelected()) + ".png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, 2*squareSide,squareSide/2, squareSide, squareSide, this);
 	    } catch (IOException e) {

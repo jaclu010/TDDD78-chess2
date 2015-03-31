@@ -56,7 +56,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
 		    if (cB.getPiece(y, x).getPieceType() != PieceType.OUTSIDE) {
 			try {
-			    URL url = this.getClass().getResource("/resources/" +GlobalVars.imgPicker(cB.getPiece(y,x))+".png");
+			    URL url = this.getClass().getResource("/troll/" +GlobalVars.imgPicker(cB.getPiece(y,x))+".png");
 			    final BufferedImage image = ImageIO.read(url);
 			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
 			} catch (IOException e) {
