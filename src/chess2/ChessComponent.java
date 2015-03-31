@@ -6,6 +6,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.awt.image.BufferedImage;
+import java.awt.geom.Ellipse2D;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
 {
@@ -53,10 +54,11 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	// Paints the chesspieces
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
-		if (cB.getPiece(y, x).getPieceType() != PieceType.EMPTY) {
-		    if (cB.getPiece(y, x).getPieceType() != PieceType.OUTSIDE) {
+		ChessPiece currentPiece = cB.getPiece(y, x);
+		if (currentPiece.getPieceType() != PieceType.EMPTY) {
+		    if (currentPiece.getPieceType() != PieceType.OUTSIDE) {
 			try {
-			    URL url = this.getClass().getResource("/troll/" +GlobalVars.imgPicker(cB.getPiece(y,x))+".png");
+			    URL url = this.getClass().getResource("/troll/" +GlobalVars.imgPicker(currentPiece)+".png");
 			    final BufferedImage image = ImageIO.read(url);
 			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
 			} catch (IOException e) {
@@ -67,10 +69,18 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 			g2d.setColor(Color.LIGHT_GRAY);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
 			g2d.setColor(Color.RED);
-			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*cB.getPiece(y, x).getHP(), squareSide/9));
+			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
+
+			// Create Ability Points symbol
+
+			g2d.setColor(Color.YELLOW);
+			g2d.fill(new Ellipse2D.Double(x*squareSide+(double)squareSide/8, y*squareSide+(double)squareSide/6, (double)squareSide/6, (double)squareSide/6));
+
+			g2d.setColor(Color.BLACK);
+			g2d.drawString(Integer.toString(currentPiece.getaP()), x*squareSide+squareSide/6, y*squareSide+squareSide/3);
 		    }
 		    // Makes the selected piece red
-		    if ((cB.getPiece(y, x)).equals(cB.getSelected())) {
+		    if ((currentPiece).equals(cB.getSelected())) {
 			g2d.setColor(RED_TRANSPARENT);
 			g2d.fill(new Rectangle(x * squareSide, y * squareSide, squareSide, squareSide));
 		    }
