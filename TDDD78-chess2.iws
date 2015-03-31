@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/ChessComponent.java" afterPath="$PROJECT_DIR$/src/chess2/ChessComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/GlobalVars.java" afterPath="$PROJECT_DIR$/src/chess2/GlobalVars.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" afterPath="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/StatusComponent.java" afterPath="$PROJECT_DIR$/src/chess2/StatusComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/chess2/StatusPanel.java" afterPath="$PROJECT_DIR$/src/chess2/StatusPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
@@ -28,7 +33,7 @@
     <favorites_list name="TDDD78-schack2" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7424036">
+    <splitter split-orientation="horizontal" split-proportion="0.4707483">
       <split-first>
         <leaf>
           <file leaf-file-name="RuleFactory.java" pinned="false" current-in-tab="false">
@@ -44,28 +49,32 @@
           <file leaf-file-name="GlobalVars.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/chess2/GlobalVars.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-                  <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-                  <folding />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+                  <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+                  <folding>
+                    <element signature="e#1408#1409#0" expanded="true" />
+                    <element signature="e#1469#1470#0" expanded="true" />
+                    <element signature="e#1515#1516#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StatusComponent.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="StatusComponent.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/chess2/StatusComponent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1275">
-                  <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+                <state vertical-scroll-proportion="0.9462572" vertical-offset="0" max-vertical-offset="1292">
+                  <caret line="62" column="68" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/chess2/ChessComponent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.0489444" vertical-offset="165" max-vertical-offset="2839">
-                  <caret line="76" column="122" selection-start-line="76" selection-start-column="122" selection-end-line="76" selection-end-column="122" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2856">
+                  <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
@@ -112,9 +121,12 @@
           <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="4232" max-vertical-offset="7259">
-                  <caret line="271" column="86" selection-start-line="271" selection-start-column="86" selection-end-line="271" selection-end-column="86" />
-                  <folding />
+                <state vertical-scroll-proportion="0.0" vertical-offset="5061" max-vertical-offset="7327">
+                  <caret line="405" column="24" selection-start-line="405" selection-start-column="24" selection-end-line="405" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#12047#12048#0" expanded="true" />
+                    <element signature="e#12075#12076#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -145,11 +157,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StatusPanel.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="StatusPanel.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/chess2/StatusPanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.016520893" vertical-offset="0" max-vertical-offset="1666">
-                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1666">
+                  <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -168,11 +180,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="KilledPiecesComponent.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="KilledPiecesComponent.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1445">
-                  <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+                <state vertical-scroll-proportion="0.26103646" vertical-offset="0" max-vertical-offset="1462">
+                  <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
@@ -235,15 +247,15 @@
         <option value="$PROJECT_DIR$/src/chess2/AbilityCharacteristic.java" />
         <option value="$PROJECT_DIR$/src/chess2/Ability.java" />
         <option value="$PROJECT_DIR$/src/chess2/StatusFrame.java" />
-        <option value="$PROJECT_DIR$/src/chess2/GlobalVars.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessFrame.java" />
         <option value="$PROJECT_DIR$/src/chess2/LogComponent.java" />
-        <option value="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessPiece.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/chess2/StatusPanel.java" />
-        <option value="$PROJECT_DIR$/src/chess2/StatusComponent.java" />
+        <option value="$PROJECT_DIR$/src/chess2/GlobalVars.java" />
         <option value="$PROJECT_DIR$/src/chess2/ChessComponent.java" />
+        <option value="$PROJECT_DIR$/src/chess2/StatusComponent.java" />
+        <option value="$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java" />
       </list>
     </option>
   </component>
@@ -817,7 +829,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427826352091</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="chesscomponent now shows AP over piece">
+      <created>1427828161006</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1427828161006</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -891,7 +909,8 @@
     <MESSAGE value="add buttons" />
     <MESSAGE value="is possible to heal" />
     <MESSAGE value="fixed buttonlistener, added easter egg" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed buttonlistener, added easter egg" />
+    <MESSAGE value="chesscomponent now shows AP over piece" />
+    <option name="LAST_COMMIT_MESSAGE" value="chesscomponent now shows AP over piece" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1224,14 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="503" max-vertical-offset="1275">
-          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/Ability.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1200">
@@ -1256,26 +1267,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4232" max-vertical-offset="7259">
-          <caret line="271" column="86" selection-start-line="271" selection-start-column="86" selection-end-line="271" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/AbilityType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/StatusPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.016520893" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1290,26 +1285,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5061" max-vertical-offset="7327">
+          <caret line="405" column="24" selection-start-line="405" selection-start-column="24" selection-end-line="405" selection-end-column="24" />
+          <folding>
+            <element signature="e#12047#12048#0" expanded="true" />
+            <element signature="e#12075#12076#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/GlobalVars.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding>
+            <element signature="e#1408#1409#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1515#1516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/ChessComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2856">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/chess2/StatusComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="1275">
-          <caret line="44" column="61" selection-start-line="44" selection-start-column="61" selection-end-line="44" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.9462572" vertical-offset="0" max-vertical-offset="1292">
+          <caret line="62" column="68" selection-start-line="62" selection-start-column="68" selection-end-line="62" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/chess2/ChessComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/chess2/StatusPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0489444" vertical-offset="165" max-vertical-offset="2839">
-          <caret line="76" column="122" selection-start-line="76" selection-start-column="122" selection-end-line="76" selection-end-column="122" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1666">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chess2/KilledPiecesComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26103646" vertical-offset="0" max-vertical-offset="1462">
+          <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
           <folding />
         </state>
       </provider>

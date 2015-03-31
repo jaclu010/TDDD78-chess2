@@ -14,6 +14,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     private int squareSide = GlobalVars.getSquareSide();
     private int letterCompY = squareSide/2 +4;
     private int letterCompX = squareSide/2 -4;
+    private String guiTheme = GlobalVars.getGuiTheme();
     private static final Color GREEN_TRANSPARENT = new Color(0, 255, 0, 100);
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
     private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
@@ -58,7 +59,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		if (currentPiece.getPieceType() != PieceType.EMPTY) {
 		    if (currentPiece.getPieceType() != PieceType.OUTSIDE) {
 			try {
-			    URL url = this.getClass().getResource("/troll/" +GlobalVars.imgPicker(currentPiece)+".png");
+			    URL url = this.getClass().getResource("/"+guiTheme+"/" +GlobalVars.imgPicker(currentPiece)+".png");
 			    final BufferedImage image = ImageIO.read(url);
 			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
 			} catch (IOException e) {

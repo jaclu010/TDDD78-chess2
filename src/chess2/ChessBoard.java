@@ -271,6 +271,8 @@ public class ChessBoard
 	for (Point abilityMove : abilityMoves) {
 	    cB[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
 	}
+	changeActivePlayer();
+	notifyListeners();
     }
 
     public void payCost(){

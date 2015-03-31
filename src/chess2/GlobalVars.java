@@ -7,6 +7,7 @@ public final class GlobalVars
     private static final int WIDTH = 10, HEIGHT = 10;
     private static boolean showRegularMoves = true;
     private static boolean showAbilityMoves = false;
+    private static String guiTheme = "troll";
 
     private GlobalVars() {}
 
@@ -51,5 +52,13 @@ public final class GlobalVars
 
     public static void setShowAbilityMoves(final boolean showAbilityMoves) {
         GlobalVars.showAbilityMoves = showAbilityMoves;
+    }
+
+    public static String getGuiTheme() {
+        return guiTheme;
+    }
+
+    public static void setGuiTheme(final String guiTheme) {
+        GlobalVars.guiTheme = guiTheme;
     }
 }

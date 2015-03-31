@@ -14,6 +14,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 
     private ChessBoard cB;
     private int squareSide = GlobalVars.getSquareSide();
+    private String guiTheme = GlobalVars.getGuiTheme();
 
 
     public KilledPiecesComponent(ChessBoard cB) {
@@ -51,7 +52,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
 		try {
-		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedWhitePiece) + ".png");
+		    URL url = this.getClass().getResource("/"+guiTheme+"/" + GlobalVars.imgPicker(killedWhitePiece) + ".png");
 		    final BufferedImage image = ImageIO.read(url);
 		    g2d.drawImage(image, squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
 		} catch (IOException e) {
@@ -67,7 +68,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    for (ChessPiece killedBlackPiece : killedBlackPieces) {
 		i += 1;
 		try {
-		    URL url = this.getClass().getResource("/resources/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
+		    URL url = this.getClass().getResource("/"+guiTheme+"/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
 		    final BufferedImage image = ImageIO.read(url);
 		    g2d.drawImage(image, squareSide*2,squareSide/2*i, squareSide/3, squareSide/3, this);
 		} catch (IOException e) {

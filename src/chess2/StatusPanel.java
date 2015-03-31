@@ -72,10 +72,10 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
 
-	if(selected != null && selected.getPieceType() != PieceType.KING){
-	    useAbility.setVisible(false);
-	} else if (selected != null){
+	if(selected != null && selected.getPieceType() == PieceType.KING){
 	    useAbility.setVisible(true);
+	} else {
+	    useAbility.setVisible(false);
 	}
     }
 

@@ -10,6 +10,7 @@ import java.net.URL;
 public class StatusComponent extends JComponent implements ChessBoardListener
 {
     private ChessBoard cB;
+    private String guiTheme = GlobalVars.getGuiTheme();
     private int squareSide = GlobalVars.getSquareSide();
 
     public StatusComponent(ChessBoard cB) {
@@ -42,7 +43,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);
 
 	    try {
-		URL url = this.getClass().getResource("/troll/" + GlobalVars.imgPicker(cB.getSelected()) + ".png");
+		URL url = this.getClass().getResource("/"+guiTheme+"/" + GlobalVars.imgPicker(cB.getSelected()) + ".png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, 2*squareSide,squareSide/2, squareSide, squareSide, this);
 	    } catch (IOException e) {
@@ -50,7 +51,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    }
 
 	    try {
-		URL url = this.getClass().getResource("/resources/hp.png");
+		URL url = this.getClass().getResource("/"+guiTheme+"/hp.png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
@@ -59,7 +60,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.drawString("    HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/3);
 
 	    try {
-		URL url = this.getClass().getResource("/resources/lvl.png");
+		URL url = this.getClass().getResource("/"+guiTheme+"/lvl.png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
