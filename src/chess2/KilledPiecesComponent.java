@@ -6,8 +6,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-
 
 public class KilledPiecesComponent extends JComponent implements ChessBoardListener
 {

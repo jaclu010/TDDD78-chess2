@@ -252,18 +252,17 @@ public class ChessBoard
 			break;
 		    case SPECIAL:
 			if (selected.getPieceType() == PieceType.KING) {
-
+			    spawnProtectionForKing();
 			} else {
 
 			}
 			break;
 		}
-
-		changeActivePlayer();
-		notifyListeners();
 	    }
 
 	}
+	changeActivePlayer();
+	notifyListeners();
 
     }
 
@@ -294,7 +293,7 @@ public class ChessBoard
 			movePiece(y, x);
 			break;
 		    }
-		} else {
+		} else if (cB[y][x].getPieceType() != PieceType.KING && selected.getPieceType() != PieceType.KING){
 		    useAbility(y, x);
 		}
 	    }
