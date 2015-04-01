@@ -43,13 +43,7 @@ public class ChessFrame extends JFrame implements MouseListener
 
 	logScroll.createVerticalScrollBar();
 
-	try {
-	    URL url = this.getClass().getResource("/resources/W_ROOK.png");
-	    final BufferedImage image = ImageIO.read(url);
-	    frame.setIconImage(image);
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
+	//frame.setIconImage(GlobalVars.getImage("W_ROOK"));
 
 
 	frame.setLayout(new BorderLayout());

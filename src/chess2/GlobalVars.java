@@ -1,5 +1,12 @@
 package chess2;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
 public final class GlobalVars
 {
     private static final int SQUARE_SIDE = 70;
@@ -61,4 +68,34 @@ public final class GlobalVars
     public static void setGuiTheme(final String guiTheme) {
         GlobalVars.guiTheme = guiTheme;
     }
+
+    public static BufferedImage getImage(ChessPiece cP){
+        try {
+            final BufferedImage image = ImageIO.read(new File("assets/theme/"+guiTheme+"/"+imgPicker(cP)+"/.png"));
+
+            return image;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+/*
+    public static BufferedImage getImage(String object){
+        try {
+            final BufferedImage image = ImageIO.read(new File("assets/theme/"+guiTheme+"/"+object+"/.png"));
+
+            return image;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }*/
+    public static ImageIcon getImage(){
+        return new ImageIcon("assets/theme/troll/W_KING.png");
+    }
+
+
 }

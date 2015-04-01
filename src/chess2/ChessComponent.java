@@ -59,13 +59,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		ChessPiece currentPiece = cB.getPiece(y, x);
 		if (currentPiece.getPieceType() != PieceType.EMPTY) {
 		    if (currentPiece.getPieceType() != PieceType.OUTSIDE) {
-			try {
-			    URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/" +GlobalVars.imgPicker(currentPiece)+".png");
-			    final BufferedImage image = ImageIO.read(url);
-			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
-			} catch (IOException e) {
-			    e.printStackTrace();
-			}
+
+			g2d.drawImage((GlobalVars.getImage()).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 
 			// Creates the healthbars
 			g2d.setColor(Color.LIGHT_GRAY);
