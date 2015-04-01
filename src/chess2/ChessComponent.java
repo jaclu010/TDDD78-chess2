@@ -17,6 +17,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     private String guiTheme = GlobalVars.getGuiTheme();
     private static final Color GREEN_TRANSPARENT = new Color(0, 255, 0, 100);
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
+    private static final Color YELLOW_TRANSPARENT = new Color(255, 255, 0, 90);
     private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
 
 
@@ -73,7 +74,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
 
 			// Create Ability Points symbol
-
 			g2d.setColor(Color.YELLOW);
 			g2d.fill(new Ellipse2D.Double(x*squareSide+(double)squareSide/8, y*squareSide+(double)squareSide/6, (double)squareSide/6, (double)squareSide/6));
 
@@ -83,6 +83,11 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		    // Makes the selected piece red
 		    if ((currentPiece).equals(cB.getSelected())) {
 			g2d.setColor(RED_TRANSPARENT);
+			g2d.fill(new Rectangle(x * squareSide, y * squareSide, squareSide, squareSide));
+		    }
+		    // Makes frozen pieces blue
+		    if(cB.getFrozenPieces().contains(currentPiece)){
+			g2d.setColor(BLUE_TRANSPARENT);
 			g2d.fill(new Rectangle(x * squareSide, y * squareSide, squareSide, squareSide));
 		    }
 		}
@@ -97,8 +102,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		}
 	    }
 	}
+	// Colors the possible places for the selected piece to use ability on
 	if(GlobalVars.isShowAbilityMoves()) {
-	    g2d.setColor(BLUE_TRANSPARENT);
+	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
 		for (Point abilityMove : abilityMoves) {
 		    g2d.fill(new Rectangle(abilityMove.getX() * GlobalVars.getSquareSide(), abilityMove.getY() * GlobalVars.getSquareSide(), squareSide, squareSide));

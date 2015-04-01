@@ -83,4 +83,15 @@ public class ChessPiece
     public Ability getAbility() {
         return ability;
     }
+
+    public int getFreezeTime() {
+        return freezeTime;
+    }
+
+    public void setFreezeTime(final int frezzeTime){
+        this.freezeTime = frezzeTime;
+    }
+    public void reduceFreezeTime(final int freezeTime) {
+        this.freezeTime -= freezeTime;
+    }
 }

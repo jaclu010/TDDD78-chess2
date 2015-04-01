@@ -3,7 +3,6 @@ package chess2;
 public class Ability
 {
     private int cost, dmg, freezeTime, heal, knockBack;
-    private boolean summonDefence;
     private AbilityCharacteristic aC;
     private AbilityType aT;
 
@@ -12,11 +11,13 @@ public class Ability
         setVars(pT);
     }
 
-    public void setVars(PieceType pT){
-        switch(pT){
+    public void setVars(PieceType pT) {
+        switch (pT) {
             case PAWN:
                 cost = 2;
                 dmg = 2;
+                knockBack = 0;
+                freezeTime = 0;
                 aT = AbilityType.DOUBLE_DAMAGE;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
@@ -28,12 +29,16 @@ public class Ability
                 break;
             case KNIGHT:
                 cost = 2;
+                dmg = 0;
                 knockBack = 2;
+                freezeTime = 0;
                 aT = AbilityType.PUSH_BACK;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
             case ROOK:
                 cost = 2;
+                dmg = 0;
+                knockBack = 0;
                 freezeTime = 4;
                 aT = AbilityType.FREEZE;
                 aC = AbilityCharacteristic.OFFENSIVE;
@@ -47,14 +52,13 @@ public class Ability
                 break;
             case KING:
                 cost = 3;
-                summonDefence = true;
                 aT = AbilityType.SUMMON_DEFENCE;
                 aC = AbilityCharacteristic.SPECIAL;
                 break;
         }
     }
 
-    public static Ability getAbility(PieceType pT){
+    public static Ability getAbility(PieceType pT) {
         return new Ability(pT);
     }
 
@@ -82,7 +86,4 @@ public class Ability
         return knockBack;
     }
 
-    public boolean isSummonDefence() {
-        return summonDefence;
-    }
 }

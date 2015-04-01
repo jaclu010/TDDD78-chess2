@@ -19,6 +19,7 @@ public class ChessBoard
     private List<Point> possibleMoves = new ArrayList<>();
     private List<Point> healingMoves = new ArrayList<>();
     private List<Point> abilityMoves = new ArrayList<>();
+    private List<ChessPiece> frozenPieces = new ArrayList<>();
     private List<ChessPiece> killedBlackPieces = new ArrayList<>();
     private List<ChessPiece> killedWhitePieces = new ArrayList<>();
 
@@ -81,7 +82,7 @@ public class ChessBoard
 	    selectedX = mouseX;
 	    selectedY = mouseY;
 	    checkRules();
-	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY){
+	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY && !frozenPieces.contains(selected)){
 	    // Press on a empty piece
 	    checkRules();
 	    pieceAction(mouseY, mouseX);
@@ -96,7 +97,7 @@ public class ChessBoard
 		selectedY = mouseY;
 		checkRules();
 	    }
-	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY) {
+	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
 	    // Press on a enemy piece
 	    //checkByRules();
 	    //checkByAbility();
@@ -106,9 +107,11 @@ public class ChessBoard
     }
 
     public void checkRules(){
-	checkByRules();
-	checkByAbility();
-	notifyListeners();
+	if(!frozenPieces.contains(selected)) {
+	    checkByRules();
+	    checkByAbility();
+	    notifyListeners();
+	}
     }
 
     public void checkByRules(){
@@ -155,7 +158,7 @@ public class ChessBoard
 	int endX = selectedX+laserLenght;
 	for(int y = startY; y <= endY; y++){
 	    for (int x = startX; x <= endX; x++) {
-		if(y > 1 && y < height-1 && x > 1 && x < width-1){
+		if(y > 0 && y < height-1 && x > 0 && x < width-1){
 		    if(cB[y][x].getPieceType() != PieceType.EMPTY && cB[y][x].getPlayer() == !selected.getPlayer()){
 			abilityMoves.add(new Point(y, x));
 		    }
@@ -242,9 +245,11 @@ public class ChessBoard
 	for (Point possibleAbilityMove : abilityMoves) {
 	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
 		payCost();
-
 		switch (selected.getAbility().getAC()) {
 		    case OFFENSIVE:
+			if(selected.getAbility().getFreezeTime() > 0){
+			    freezePiece(y, x, selected.getAbility().getFreezeTime());
+			}
 			hurtPiece(y, x, selected.getAbility().getDmg());
 			break;
 		    case DEFENSIVE:
@@ -254,18 +259,25 @@ public class ChessBoard
 			if (selected.getPieceType() == PieceType.KING) {
 			    spawnProtectionForKing();
 			} else {
-
+			    useLaser(y, x, selected.getAbility().getDmg());
 			}
 			break;
 		}
+		return;
+
 	    }
 
 	}
-	changeActivePlayer();
-	notifyListeners();
-
     }
 
+    private void freezePiece(int y, int x, int freezeTime){
+	cB[y][x].setFreezeTime(freezeTime);
+	frozenPieces.add(cB[y][x]);
+    }
+
+    private void useLaser(int y, int x, int dmg){
+	hurtPiece(y, x, dmg);
+    }
     public void spawnProtectionForKing(){
 	for (Point abilityMove : abilityMoves) {
 	    cB[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
@@ -280,21 +292,24 @@ public class ChessBoard
 
     public void healPiece(int y, int x, int heal){
 	cB[y][x].doHEAL(heal);
+	changeActivePlayer();
+	notifyListeners();
     }
 
     public void pieceAction(int y, int x){
+	if(GlobalVars.isShowAbilityMoves()){
+	    useAbility(y, x);
+	    notifyListeners();
+	    return;
+	}
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){
-		if(GlobalVars.isShowRegularMoves()) {
-		    if (cB[y][x].getPieceType() != PieceType.EMPTY) {
-			hurtPiece(y, x, 1);
-			break;
-		    } else {
-			movePiece(y, x);
-			break;
-		    }
-		} else if (cB[y][x].getPieceType() != PieceType.KING && selected.getPieceType() != PieceType.KING){
-		    useAbility(y, x);
+		if (cB[y][x].getPieceType() != PieceType.EMPTY) {
+		    hurtPiece(y, x, 1);
+		    break;
+		} else {
+		    movePiece(y, x);
+		    break;
 		}
 	    }
 	}
@@ -307,7 +322,6 @@ public class ChessBoard
 	cB[selectedY][selectedX] = new ChessPiece(PieceType.EMPTY);
 	printPieceMovement(y, x);
 	changeActivePlayer();
-	turn += 1;
     }
 
     public void hurtPiece(int y, int x, int dmg){
@@ -331,7 +345,6 @@ public class ChessBoard
 	    printDidDMG(y, x, dmg);
 	    selected.setaP(1);
 	    changeActivePlayer();
-	    turn+=1;
 	}
     }
 
@@ -400,7 +413,19 @@ public class ChessBoard
 	notifyListeners();
     }
 
+    private void updateFrozenPieces(){
+	// Reduces the freezetime for all frozen chessPieces by 1
+	for (ChessPiece frozenPiece: frozenPieces){
+	    frozenPiece.reduceFreezeTime(1);
+	    if(frozenPiece.getFreezeTime() == 0){
+		frozenPieces.remove(frozenPiece);
+	    }
+	}
+    }
+
     public void changeActivePlayer(){
+	updateFrozenPieces();
+	turn+=1;
 	activePlayer = !activePlayer;
 	selected = null;
 	clearMoveLists();
@@ -453,5 +478,9 @@ public class ChessBoard
 
     public List<Point> getAbilityMoves() {
 	return abilityMoves;
+    }
+
+    public List<ChessPiece> getFrozenPieces() {
+	return frozenPieces;
     }
 }
