@@ -52,7 +52,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 
 	    // Shows the health symbol and healthpoints
 	    try {
-		URL url = this.getClass().getResource("/"+guiTheme+"/hp.png");
+		URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/hp.png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
@@ -62,7 +62,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 
 	    // Shows the ability symbol and abiltypoints
 	    try {
-		URL url = this.getClass().getResource("/"+guiTheme+"/lvl.png");
+		URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/lvl.png");
 		final BufferedImage image = ImageIO.read(url);
 		g2d.drawImage(image, squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
 	    } catch (IOException e) {
@@ -72,7 +72,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 
 	    if(cB.getFrozenPieces().contains(cB.getSelected())){
 		try {
-		    URL url = this.getClass().getResource("/"+guiTheme+"/frozen.png");
+		    URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/frozen.png");
 		    final BufferedImage image = ImageIO.read(url);
 		    g2d.drawImage(image, squareSide/2,squareSide*2+squareSide, squareSide/2, squareSide/2, this);
 		} catch (IOException e) {

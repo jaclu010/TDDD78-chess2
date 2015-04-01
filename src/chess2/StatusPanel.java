@@ -3,6 +3,7 @@ package chess2;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class StatusPanel extends JPanel implements ChessBoardListener
 {
@@ -19,11 +20,14 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	final JButton lvlupSelected = new JButton("Upgrade selected");
 	final JButton changePlayer = new JButton("Change player");
  	final JButton showPossible = new JButton("Switch move/ability");
+ 	final JButton changeGUI = new JButton("Switch GUI");
+
 
 	final StatusComponent statusArea = new StatusComponent(cB);
 
 	cB.addChessBoardListener(statusArea);
 
+	buttonPanel.add(changeGUI);
 	buttonPanel.add(lvlupSelected);
 	buttonPanel.add(showPossible);
 	buttonPanel.add(changePlayer);
@@ -59,9 +63,17 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	   		}
 	   		cB.checkRules();
 	   	    }
-	   	}
+	   	} else if (event.getSource().equals(changeGUI)){
+			if (Objects.equals(GlobalVars.getGuiTheme(), "troll")){
+			    GlobalVars.setGuiTheme("resources");
+			} else {
+			    GlobalVars.setGuiTheme("troll");
+			}
+			cB.notifyListeners();
+	    }
 	};
 
+	changeGUI.addActionListener(buttonListener);
 	showPossible.addActionListener(buttonListener);
 	changePlayer.addActionListener(buttonListener);
 	useAbility.addActionListener(buttonListener);
