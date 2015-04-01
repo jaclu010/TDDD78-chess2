@@ -283,6 +283,7 @@ public class ChessBoard
 	for (Point abilityMove : abilityMoves) {
 	    cB[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
 	}
+	printProtectionMSG(selectedY, selectedX);
 	changeActivePlayer();
 	notifyListeners();
     }
@@ -360,6 +361,14 @@ public class ChessBoard
 
     public void printPieceMovement(int y, int x){
 	logMsg = (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+    }
+
+    public void printProtectionMSG(int y, int x){
+	logMsg = (PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
+    }
+
+    public void printFreezeMSG(int y, int x){
+	
     }
 
     public String getLetter(int n){
