@@ -278,6 +278,7 @@ public class ChessBoard
     private void useLaser(int y, int x, int dmg){
 	hurtPiece(y, x, dmg);
     }
+
     public void spawnProtectionForKing(){
 	for (Point abilityMove : abilityMoves) {
 	    cB[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
@@ -415,18 +416,22 @@ public class ChessBoard
 
     private void updateFrozenPieces(){
 	// Reduces the freezetime for all frozen chessPieces by 1
+	ArrayList<ChessPiece> stillFrozen = new ArrayList<>();
 	for (ChessPiece frozenPiece: frozenPieces){
 	    frozenPiece.reduceFreezeTime(1);
-	    if(frozenPiece.getFreezeTime() == 0){
-		frozenPieces.remove(frozenPiece);
+	    if(frozenPiece.getFreezeTime()>0){
+		stillFrozen.add(frozenPiece);
 	    }
 	}
+	frozenPieces = stillFrozen;
     }
 
     public void changeActivePlayer(){
 	updateFrozenPieces();
 	turn+=1;
 	activePlayer = !activePlayer;
+	GlobalVars.setShowAbilityMoves(false);
+	GlobalVars.setShowRegularMoves(true);
 	selected = null;
 	clearMoveLists();
 	notifyListeners();

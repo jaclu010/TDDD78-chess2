@@ -50,6 +50,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 		e.printStackTrace();
 	    }
 
+	    // Shows the health symbol and healthpoints
 	    try {
 		URL url = this.getClass().getResource("/"+guiTheme+"/hp.png");
 		final BufferedImage image = ImageIO.read(url);
@@ -59,6 +60,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    }
 	    g2d.drawString("    HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/3);
 
+	    // Shows the ability symbol and abiltypoints
 	    try {
 		URL url = this.getClass().getResource("/"+guiTheme+"/lvl.png");
 		final BufferedImage image = ImageIO.read(url);
@@ -66,8 +68,18 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-
 	    g2d.drawString("    AP: " + cB.getSelected().getaP(), squareSide,squareSide*2+squareSide/2+squareSide/3);
+
+	    if(cB.getFrozenPieces().contains(cB.getSelected())){
+		try {
+		    URL url = this.getClass().getResource("/"+guiTheme+"/frozen.png");
+		    final BufferedImage image = ImageIO.read(url);
+		    g2d.drawImage(image, squareSide/2,squareSide*2+squareSide, squareSide/2, squareSide/2, this);
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		g2d.drawString("    Frozen for: " + cB.getSelected().getFreezeTime() + " turns", squareSide,squareSide*2+squareSide/2+squareSide/3+squareSide/2);
+	    }
 	}
 
     }
