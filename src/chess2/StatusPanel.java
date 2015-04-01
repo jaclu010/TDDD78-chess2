@@ -64,10 +64,10 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	   		cB.checkRules();
 	   	    }
 	   	} else if (event.getSource().equals(changeGUI)){
-			if (Objects.equals(GlobalVars.getGuiTheme(), "assets/theme/troll")){
-			    GlobalVars.setGuiTheme("assets/theme/original");
+			if (Objects.equals(GlobalVars.getGuiTheme(), "troll")){
+			    GlobalVars.setGuiTheme("original");
 			} else {
-			    GlobalVars.setGuiTheme("assets/theme/troll");
+			    GlobalVars.setGuiTheme("troll");
 			}
 			cB.notifyListeners();
 	    }

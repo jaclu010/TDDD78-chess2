@@ -368,7 +368,7 @@ public class ChessBoard
     }
 
     public void printFreezeMSG(int y, int x){
-	
+
     }
 
     public String getLetter(int n){

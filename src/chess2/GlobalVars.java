@@ -1,11 +1,6 @@
 package chess2;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
 public final class GlobalVars
 {
@@ -68,10 +63,10 @@ public final class GlobalVars
     public static void setGuiTheme(final String guiTheme) {
         GlobalVars.guiTheme = guiTheme;
     }
-
+/*
     public static BufferedImage getImage(ChessPiece cP){
         try {
-            final BufferedImage image = ImageIO.read(new File("assets/theme/"+guiTheme+"/"+imgPicker(cP)+"/.png"));
+            final BufferedImage image = ImageIO.read(new File("resources/"+imgPicker(cP)+"/.png"));
 
             return image;
 
@@ -81,7 +76,7 @@ public final class GlobalVars
         return null;
     }
 
-/*
+
     public static BufferedImage getImage(String object){
         try {
             final BufferedImage image = ImageIO.read(new File("assets/theme/"+guiTheme+"/"+object+"/.png"));
@@ -93,8 +88,11 @@ public final class GlobalVars
         }
         return null;
     }*/
-    public static ImageIcon getImage(){
-        return new ImageIcon("assets/theme/troll/W_KING.png");
+    public static ImageIcon getIMG(ChessPiece cP){
+        return new ImageIcon("assets/theme/"+guiTheme+"/"+imgPicker(cP)+".png");
+    }
+    public static ImageIcon getIMG(String s){
+        return new ImageIcon("assets/theme/"+guiTheme+"/"+s+".png");
     }
 
 

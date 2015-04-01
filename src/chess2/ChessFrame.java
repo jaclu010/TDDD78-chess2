@@ -1,14 +1,10 @@
 package chess2;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
 public class ChessFrame extends JFrame implements MouseListener
 {
@@ -43,7 +39,7 @@ public class ChessFrame extends JFrame implements MouseListener
 
 	logScroll.createVerticalScrollBar();
 
-	//frame.setIconImage(GlobalVars.getImage("W_ROOK"));
+	frame.setIconImage(GlobalVars.getIMG("W_ROOK").getImage());
 
 
 	frame.setLayout(new BorderLayout());

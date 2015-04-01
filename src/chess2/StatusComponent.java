@@ -1,11 +1,7 @@
 package chess2;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
 public class StatusComponent extends JComponent implements ChessBoardListener
 {
@@ -42,42 +38,24 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);
 
-	    try {
-		URL url = this.getClass().getResource("/"+guiTheme+"/" + GlobalVars.imgPicker(cB.getSelected()) + ".png");
-		final BufferedImage image = ImageIO.read(url);
-		g2d.drawImage(image, 2*squareSide,squareSide/2, squareSide, squareSide, this);
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
+
+	    g2d.drawImage((GlobalVars.getIMG(cB.getSelected())).getImage(), 2*squareSide,squareSide/2, squareSide, squareSide, this);
+
 
 	    // Shows the health symbol and healthpoints
-	    try {
-		URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/hp.png");
-		final BufferedImage image = ImageIO.read(url);
-		g2d.drawImage(image, squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
+	    g2d.drawImage((GlobalVars.getIMG("hp")).getImage(), squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
+
 	    g2d.drawString("    HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/3);
 
 	    // Shows the ability symbol and abiltypoints
-	    try {
-		URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/lvl.png");
-		final BufferedImage image = ImageIO.read(url);
-		g2d.drawImage(image, squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
-	    } catch (IOException e) {
-		e.printStackTrace();
-	    }
+	    g2d.drawImage((GlobalVars.getIMG("lvl")).getImage(), squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
+
 	    g2d.drawString("    AP: " + cB.getSelected().getaP(), squareSide,squareSide*2+squareSide/2+squareSide/3);
 
 	    if(cB.getFrozenPieces().contains(cB.getSelected())){
-		try {
-		    URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/frozen.png");
-		    final BufferedImage image = ImageIO.read(url);
-		    g2d.drawImage(image, squareSide/2,squareSide*2+squareSide, squareSide/2, squareSide/2, this);
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+
+		g2d.drawImage((GlobalVars.getIMG("frozen")).getImage(), squareSide/2,squareSide*2+squareSide, squareSide/2, squareSide/2, this);
+
 		g2d.drawString("    Frozen for: " + cB.getSelected().getFreezeTime() + " turns", squareSide,squareSide*2+squareSide/2+squareSide/3+squareSide/2);
 	    }
 	}
