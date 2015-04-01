@@ -19,7 +19,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 
 	final JButton lvlupSelected = new JButton("Upgrade selected");
 	final JButton changePlayer = new JButton("Change player");
- 	final JButton showPossible = new JButton("Switch move/ability");
+ 	final JButton showPossible = new JButton("Switch move/abilit");
  	final JButton changeGUI = new JButton("Switch GUI");
 
 
