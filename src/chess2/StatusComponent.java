@@ -62,12 +62,12 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    }
 
 	    g2d.drawImage(GlobalVars.getIMG(selectedAbility.getAT().name()).getImage(), squareSide, squareSide*4, squareSide, squareSide, this);
-	    g2d.drawString("Ability: " + selectedAbility.getAT().name(), squareSide / 2, squareSide * 5 + (squareSide / 6));
-	    g2d.drawString("Cost: "+selectedAbility.getCost(),squareSide / 2, squareSide * 5 + (squareSide / 6)*2);
-	    g2d.drawString("Damage: "+selectedAbility.getDmg(),squareSide / 2, squareSide * 5 + (squareSide / 6)*3);
-	    g2d.drawString("Heal: "+selectedAbility.getHeal(),squareSide / 2, squareSide * 5 + (squareSide / 6)*4);
-	    g2d.drawString("Freeze time: " + selectedAbility.getFreezeTime(),squareSide / 2, squareSide * 5 + (squareSide / 6)*5);
-	    g2d.drawString("Knockback: " + selectedAbility.getKnockBack(),squareSide / 2, squareSide * 5 + (squareSide / 6)*6);
+	    g2d.drawString("Ability: " + selectedAbility.getAT().name(), squareSide / 2, squareSide * 5 + (squareSide / 5));
+	    g2d.drawString("Cost: "+selectedAbility.getCost(),squareSide / 2, squareSide * 5 + (squareSide / 5)*2);
+	    g2d.drawString("Damage: "+selectedAbility.getDmg(),squareSide / 2, squareSide * 5 + (squareSide / 5)*3);
+	    g2d.drawString("Heal: "+selectedAbility.getHeal(),squareSide / 2, squareSide * 5 + (squareSide / 5)*4);
+	    g2d.drawString("Freeze time: " + selectedAbility.getFreezeTime(),squareSide / 2, squareSide * 5 + (squareSide / 5)*5);
+	    g2d.drawString("Knockback: " + selectedAbility.getKnockBack(),squareSide / 2, squareSide * 5 + (squareSide / 5)*6);
 	}
 
     }
