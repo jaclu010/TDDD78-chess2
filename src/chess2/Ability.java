@@ -32,14 +32,14 @@ public class Ability
                 dmg = 0;
                 knockBack = 2;
                 freezeTime = 0;
-                aT = AbilityType.PUSH_BACK;
+                aT = AbilityType.KNOCK_BACK;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
             case ROOK:
                 cost = 2;
                 dmg = 0;
                 knockBack = 0;
-                freezeTime = 4;
+                freezeTime = 6;
                 aT = AbilityType.FREEZE;
                 aC = AbilityCharacteristic.OFFENSIVE;
                 break;
@@ -64,6 +64,10 @@ public class Ability
 
     public AbilityCharacteristic getAC() {
         return aC;
+    }
+
+    public AbilityType getAT() {
+        return aT;
     }
 
     public int getCost() {

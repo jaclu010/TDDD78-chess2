@@ -1,11 +1,8 @@
 package chess2;
 
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
 public class KilledPiecesComponent extends JComponent implements ChessBoardListener
 {
@@ -49,13 +46,8 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    int i = 0;
 	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
-		try {
-		    URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/" + GlobalVars.imgPicker(killedWhitePiece) + ".png");
-		    final BufferedImage image = ImageIO.read(url);
-		    g2d.drawImage(image, squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+		g2d.drawImage(GlobalVars.getIMG(killedWhitePiece).getImage(), squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
+
 	    }
 	}
 	if (killedBlackPieces != null) {
@@ -65,13 +57,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    int i = 0;
 	    for (ChessPiece killedBlackPiece : killedBlackPieces) {
 		i += 1;
-		try {
-		    URL url = this.getClass().getResource("/"+GlobalVars.getGuiTheme()+"/" + GlobalVars.imgPicker(killedBlackPiece) + ".png");
-		    final BufferedImage image = ImageIO.read(url);
-		    g2d.drawImage(image, squareSide*2,squareSide/2*i, squareSide/3, squareSide/3, this);
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+		g2d.drawImage(GlobalVars.getIMG(killedBlackPiece).getImage(), squareSide*2,squareSide/2*i, squareSide/3, squareSide/3, this);
 	    }
 	}
 

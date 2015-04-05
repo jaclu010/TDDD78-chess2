@@ -134,6 +134,9 @@ public class ChessBoard
 	    switch (selected.getAbility().getAC()) {
 		case OFFENSIVE:
 		    checkByPossibleMoves();
+		    if(selected.getAbility().getAT().equals(AbilityType.KNOCK_BACK)){
+			checkForKnockBack();
+		    }
 		    break;
 		case DEFENSIVE:
 		    copyHealingMoves();
@@ -171,6 +174,19 @@ public class ChessBoard
 	for (Point possibleMove : possibleMoves) {
 	    if (cB[possibleMove.getY()][possibleMove.getX()].getPlayer() != null){
 		abilityMoves.add(possibleMove);
+	    }
+	}
+    }
+
+    public void checkForKnockBack(){
+	Iterable<Point> temp = new ArrayList<>(abilityMoves);
+	abilityMoves.clear();
+	int kB = selected.getAbility().getKnockBack();
+	for (Point tempMove : temp) {
+	    if(activePlayer && cB[tempMove.getY()-kB][tempMove.getX()].getPieceType() == PieceType.EMPTY){
+		abilityMoves.add(tempMove);
+	    } else if (!activePlayer && cB[tempMove.getY()+kB][tempMove.getX()].getPieceType() == PieceType.EMPTY){
+		abilityMoves.add(tempMove);
 	    }
 	}
     }
@@ -249,8 +265,11 @@ public class ChessBoard
 		    case OFFENSIVE:
 			if(selected.getAbility().getFreezeTime() > 0){
 			    freezePiece(y, x, selected.getAbility().getFreezeTime());
+			} else if (selected.getAbility().getKnockBack() > 0){
+			    knockBack(y, x, selected.getAbility().getKnockBack());
+			} else {
+			    hurtPiece(y, x, selected.getAbility().getDmg());
 			}
-			hurtPiece(y, x, selected.getAbility().getDmg());
 			break;
 		    case DEFENSIVE:
 			healPiece(y, x, selected.getAbility().getHeal());
@@ -268,6 +287,17 @@ public class ChessBoard
 	    }
 
 	}
+    }
+
+    private void knockBack(int y, int x, int knockBack){
+	if (activePlayer){
+	    cB[y-knockBack][x] = cB[y][x];
+	} else {
+	    cB[y+knockBack][x] = cB[y][x];
+	}
+	cB[y][x] = new ChessPiece(PieceType.EMPTY);
+	changeActivePlayer();
+	notifyListeners();
     }
 
     private void freezePiece(int y, int x, int freezeTime){
@@ -350,6 +380,18 @@ public class ChessBoard
 	}
     }
 
+    private void updateFrozenPieces(){
+	// Reduces the freezetime for all frozen chessPieces by 1
+	ArrayList<ChessPiece> stillFrozen = new ArrayList<>();
+	for (ChessPiece frozenPiece: frozenPieces){
+	    frozenPiece.reduceFreezeTime(1);
+	    if(frozenPiece.getFreezeTime()>0){
+		stillFrozen.add(frozenPiece);
+	    }
+	}
+	frozenPieces = stillFrozen;
+    }
+
     public void printDidDMG(int y, int x, int dmg){
 	logMsg = (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
     }
@@ -421,18 +463,6 @@ public class ChessBoard
 	selected = null;
 	fillBoard();
 	notifyListeners();
-    }
-
-    private void updateFrozenPieces(){
-	// Reduces the freezetime for all frozen chessPieces by 1
-	ArrayList<ChessPiece> stillFrozen = new ArrayList<>();
-	for (ChessPiece frozenPiece: frozenPieces){
-	    frozenPiece.reduceFreezeTime(1);
-	    if(frozenPiece.getFreezeTime()>0){
-		stillFrozen.add(frozenPiece);
-	    }
-	}
-	frozenPieces = stillFrozen;
     }
 
     public void changeActivePlayer(){

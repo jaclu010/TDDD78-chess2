@@ -6,7 +6,6 @@ import java.awt.*;
 public class StatusComponent extends JComponent implements ChessBoardListener
 {
     private ChessBoard cB;
-    private String guiTheme = GlobalVars.getGuiTheme();
     private int squareSide = GlobalVars.getSquareSide();
 
     public StatusComponent(ChessBoard cB) {
