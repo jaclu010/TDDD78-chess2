@@ -1,11 +1,7 @@
 package chess2;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
-import java.awt.image.BufferedImage;
 import java.awt.geom.Ellipse2D;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
@@ -14,7 +10,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener
     private int squareSide = GlobalVars.getSquareSide();
     private int letterCompY = squareSide/2 +4;
     private int letterCompX = squareSide/2 -4;
-    private String guiTheme = GlobalVars.getGuiTheme();
     private static final Color GREEN_TRANSPARENT = new Color(0, 255, 0, 100);
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
     private static final Color YELLOW_TRANSPARENT = new Color(255, 255, 0, 90);
