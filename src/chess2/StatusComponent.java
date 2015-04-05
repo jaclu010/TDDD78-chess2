@@ -25,38 +25,49 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(3*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide()/2);
+	return new Dimension(3*squareSide, squareSide*7);
     }
 
     @Override protected void paintComponent(Graphics g) {
 	super.paintComponent(g);
 	final Graphics2D g2d = (Graphics2D) g;
+	ChessPiece selected = cB.getSelected();
 
-	if (cB.getSelected() != null) {
+
+	if (selected != null) {
+	    Ability selectedAbility = selected.getAbility();
 	    final int fontSize = 12;
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);
 
 
-	    g2d.drawImage((GlobalVars.getIMG(cB.getSelected())).getImage(), 2*squareSide,squareSide/2, squareSide, squareSide, this);
+	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), 2*squareSide,squareSide/2, squareSide, squareSide, this);
 
 
 	    // Shows the health symbol and healthpoints
 	    g2d.drawImage((GlobalVars.getIMG("hp")).getImage(), squareSide/2,squareSide*2, squareSide/2, squareSide/2, this);
 
-	    g2d.drawString("    HP: " + cB.getSelected().getHP(), squareSide,squareSide*2+squareSide/3);
+	    g2d.drawString("    HP: " + selected.getHP(), squareSide,squareSide*2+squareSide/3);
 
 	    // Shows the ability symbol and abiltypoints
 	    g2d.drawImage((GlobalVars.getIMG("lvl")).getImage(), squareSide/2,squareSide*2+squareSide/2, squareSide/2, squareSide/2, this);
 
-	    g2d.drawString("    AP: " + cB.getSelected().getaP(), squareSide,squareSide*2+squareSide/2+squareSide/3);
+	    g2d.drawString("    AP: " + selected.getaP(), squareSide,squareSide*2+squareSide/2+squareSide/3);
 
-	    if(cB.getFrozenPieces().contains(cB.getSelected())){
+	    if(cB.getFrozenPieces().contains(selected)){
 
 		g2d.drawImage((GlobalVars.getIMG("frozen")).getImage(), squareSide/2,squareSide*2+squareSide, squareSide/2, squareSide/2, this);
 
-		g2d.drawString("    Frozen for: " + cB.getSelected().getFreezeTime() + " turns", squareSide,squareSide*2+squareSide/2+squareSide/3+squareSide/2);
+		g2d.drawString("    Frozen for: " + selected.getFreezeTime() + " turns", squareSide,squareSide*2+squareSide/2+squareSide/3+squareSide/2);
 	    }
+
+	    g2d.drawImage(GlobalVars.getIMG(selectedAbility.getAT().name()).getImage(), squareSide, squareSide*4, squareSide, squareSide, this);
+	    g2d.drawString("Ability: " + selectedAbility.getAT().name(), squareSide / 2, squareSide * 5 + (squareSide / 6));
+	    g2d.drawString("Cost: "+selectedAbility.getCost(),squareSide / 2, squareSide * 5 + (squareSide / 6)*2);
+	    g2d.drawString("Damage: "+selectedAbility.getDmg(),squareSide / 2, squareSide * 5 + (squareSide / 6)*3);
+	    g2d.drawString("Heal: "+selectedAbility.getHeal(),squareSide / 2, squareSide * 5 + (squareSide / 6)*4);
+	    g2d.drawString("Freeze time: " + selectedAbility.getFreezeTime(),squareSide / 2, squareSide * 5 + (squareSide / 6)*5);
+	    g2d.drawString("Knockback: " + selectedAbility.getKnockBack(),squareSide / 2, squareSide * 5 + (squareSide / 6)*6);
 	}
 
     }
