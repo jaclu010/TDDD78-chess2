@@ -68,6 +68,9 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.drawString("Heal: "+selectedAbility.getHeal(),squareSide / 2, squareSide * 5 + (squareSide / 5)*4);
 	    g2d.drawString("Freeze time: " + selectedAbility.getFreezeTime(),squareSide / 2, squareSide * 5 + (squareSide / 5)*5);
 	    g2d.drawString("Knockback: " + selectedAbility.getKnockBack(),squareSide / 2, squareSide * 5 + (squareSide / 5)*6);
+	    if(selected.getPieceType() == PieceType.KING) {
+		g2d.drawString("'Use Ability' to use",squareSide / 2, squareSide * 5 + (squareSide / 5)*7);
+	    }
 	}
 
     }
