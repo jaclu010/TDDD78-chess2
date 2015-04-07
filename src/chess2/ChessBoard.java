@@ -287,15 +287,17 @@ public class ChessBoard
 	    }
 
 	}
+	notifyListeners();
     }
 
     private void knockBack(int y, int x, int knockBack){
-	if (activePlayer){
-	    cB[y-knockBack][x] = cB[y][x];
-	} else {
-	    cB[y+knockBack][x] = cB[y][x];
-	}
+	int i = 1;
+	if(activePlayer) i = -1;
+
+	cB[y+i*knockBack][x] = cB[y][x];
 	cB[y][x] = new ChessPiece(PieceType.EMPTY);
+
+	printKnockBackMSG(y, x, i, knockBack);
 	changeActivePlayer();
 	notifyListeners();
     }
@@ -303,6 +305,8 @@ public class ChessBoard
     private void freezePiece(int y, int x, int freezeTime){
 	cB[y][x].setFreezeTime(freezeTime);
 	frozenPieces.add(cB[y][x]);
+	printFreezeMSG(y, x);
+	changeActivePlayer();
     }
 
     private void useLaser(int y, int x, int dmg){
@@ -410,7 +414,11 @@ public class ChessBoard
     }
 
     public void printFreezeMSG(int y, int x){
+	logMsg = (selected.getPieceType().name()+" froze "+cB[y][x].getPieceType().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
+    }
 
+    public void printKnockBackMSG(int y, int x, int i, int knockBack){
+	logMsg = (selected.getPieceType().name()+" knocked back "+cB[y+i*knockBack][x].getPieceType().name()+" to "+ getLetter(x)+(height-1-y+i*knockBack));
     }
 
     public String getLetter(int n){
