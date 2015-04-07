@@ -17,6 +17,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	repaint();
     }
 
+
     @Override public Dimension getPreferredSize(){
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

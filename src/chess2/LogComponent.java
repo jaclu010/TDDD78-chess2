@@ -6,7 +6,6 @@ import java.awt.*;
 public class LogComponent extends JTextArea implements ChessBoardListener
 {
     private ChessBoard cB;
-    private int squareSide = GlobalVars.getSquareSide();
     private String latestMsg = "", oldMsg = "";
 
     public LogComponent(ChessBoard cB) {
@@ -28,6 +27,7 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 	}
 
     }
+
 
     @Override public Dimension getPreferredScrollableViewportSize(){
 	/*

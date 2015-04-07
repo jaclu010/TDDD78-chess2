@@ -24,6 +24,11 @@ public class TopBarComponent extends JTextArea implements ChessBoardListener
 	changeActivePlayerTextArea();
     }
 
+    @Override
+    public void chessBoardMovement(){
+
+    }
+
     private void changeActivePlayerTextArea(){
 	if(cB.getActivePlayer()){
 	    this.setText("                                White players turn        Turn: " + cB.getTurn());

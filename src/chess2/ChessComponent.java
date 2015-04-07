@@ -8,7 +8,7 @@ import java.awt.geom.Ellipse2D;
 import java.io.IOException;
 import java.net.URL;
 
-public class ChessComponent extends JComponent implements ChessBoardListener
+public class ChessComponent extends JComponent implements ChessBoardListener, AnimationListener
 {
     private ChessBoard cB;
     private int squareSide = GlobalVars.getSquareSide();
@@ -30,6 +30,11 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 	if(cB.isGameOver()){
 	    gameOver();
 	}
+    }
+
+    @Override
+    public void animateAction(){
+
     }
 
     @Override public Dimension getPreferredSize(){

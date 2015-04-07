@@ -21,6 +21,8 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	repaint();
     }
 
+
+
     @Override public Dimension getPreferredSize(){
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

@@ -16,6 +16,7 @@ public class ChessBoard
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn, blackKills, whiteKills;
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
+    private Collection<AnimationListener> animationListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
     private List<Point> healingMoves = new ArrayList<>();
     private List<Point> abilityMoves = new ArrayList<>();
@@ -44,6 +45,10 @@ public class ChessBoard
 	}
     }
 
+    public void addAnimationListener(AnimationListener aL){
+	animationListeners.add(aL);
+    }
+
     public void addChessBoardListener(ChessBoardListener cBL){
     	chessBoardListeners.add(cBL);
         }
@@ -51,6 +56,10 @@ public class ChessBoard
     public void notifyListeners(){
     	chessBoardListeners.forEach(ChessBoardListener::chessBoardChanged);
         }
+
+    public void notifyAnimationListeners(){
+	animationListeners.forEach(AnimationListener::animateAction);
+    }
 
     public void clearMoveLists(){
 	healingMoves.clear();
@@ -284,7 +293,7 @@ public class ChessBoard
 		}
 		return;
 
-		
+
 	    }
 
 	}
