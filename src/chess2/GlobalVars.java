@@ -89,10 +89,10 @@ public final class GlobalVars
         return null;
     }*/
     public static ImageIcon getIMG(ChessPiece cP){
-        return new ImageIcon("assets/theme/"+guiTheme+"/"+imgPicker(cP)+".png");
+        return new ImageIcon("assets/theme/" +guiTheme+"/"+imgPicker(cP)+".png");
     }
     public static ImageIcon getIMG(String s){
-        return new ImageIcon("assets/theme/"+guiTheme+"/"+s+".png");
+        return new ImageIcon("assets/theme/" +guiTheme+"/"+s+".png");
     }
 
 

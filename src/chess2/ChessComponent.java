@@ -1,8 +1,12 @@
 package chess2;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.geom.Ellipse2D;
+import java.io.IOException;
+import java.net.URL;
 
 public class ChessComponent extends JComponent implements ChessBoardListener
 {
@@ -56,6 +60,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener
 		    if (currentPiece.getPieceType() != PieceType.OUTSIDE) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
+			/*
+			try {
+			    URL url = this.getClass().getResource("assets/"+GlobalVars.getGuiTheme()+"/" +GlobalVars.imgPicker(currentPiece)+".png");
+			    final BufferedImage image = ImageIO.read(url);
+			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
+			} catch (IOException e) {
+			    e.printStackTrace();
+			}*/
 
 			// Creates the healthbars
 			g2d.setColor(Color.LIGHT_GRAY);
