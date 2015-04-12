@@ -24,7 +24,7 @@ public class TopBarComponent extends JTextArea implements ChessBoardListener
 	changeActivePlayerTextArea();
     }
 
-    @Override
+    //@Override
     public void chessBoardMovement(){
 
     }

@@ -1,11 +1,15 @@
 package chess2;
 
 
+import javafx.event.ActionEvent;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.TimeUnit;
 
 public class ChessBoard
 {
@@ -14,7 +18,7 @@ public class ChessBoard
     private ChessPiece[][] cB;
     private ChessPiece selected;
     private String logMsg = "";
-    private int selectedX, selectedY, height, width, turn, blackKills, whiteKills;
+    private int selectedX, selectedY, height, width, turn, blackKills, whiteKills, targetX, targetY;
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private Collection<AnimationListener> animationListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
@@ -60,6 +64,7 @@ public class ChessBoard
     public void notifyAnimationListeners(){
 	animationListeners.forEach(AnimationListener::animateAction);
     }
+
 
     public void clearMoveLists(){
 	healingMoves.clear();
@@ -270,6 +275,8 @@ public class ChessBoard
 	for (Point possibleAbilityMove : abilityMoves) {
 	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
 		payCost();
+		targetX = x;
+		targetY = y;
 		switch (selected.getAbility().getAC()) {
 		    case OFFENSIVE:
 			if(selected.getAbility().getFreezeTime() > 0){
@@ -320,8 +327,10 @@ public class ChessBoard
     }
 
     private void useLaser(int y, int x, int dmg){
-	hurtPiece(y, x, dmg);
+	notifyAnimationListeners();
+	//hurtPiece(y, x, dmg);
     }
+
 
     public void spawnProtectionForKing(){
 	for (Point abilityMove : abilityMoves) {
@@ -343,6 +352,7 @@ public class ChessBoard
     }
 
     public void pieceAction(int y, int x){
+
 	if(GlobalVars.isShowAbilityMoves()){
 	    useAbility(y, x);
 	    notifyListeners();
@@ -500,6 +510,22 @@ public class ChessBoard
 
     public ChessPiece getSelected() {
 	return selected;
+    }
+
+    public int getSelectedX() {
+	return selectedX;
+    }
+
+    public int getSelectedY() {
+    	return selectedY;
+    }
+
+    public int getTargetX() {
+	return targetX;
+    }
+
+    public int getTargetY() {
+	return targetY;
     }
 
     public void setSelected(final ChessPiece selected) {

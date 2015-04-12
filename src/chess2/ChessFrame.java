@@ -90,7 +90,9 @@ public class ChessFrame extends JFrame implements MouseListener
 
     @Override
     public void mouseClicked(MouseEvent e){
-	cB.checkMouseClick(e);
+	if(!GlobalVars.isAnimationRunning()) {
+	    cB.checkMouseClick(e);
+	}
     }
     @Override
     public void mousePressed(MouseEvent e) {}

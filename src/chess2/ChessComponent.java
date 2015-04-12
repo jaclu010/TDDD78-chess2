@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.awt.geom.Ellipse2D;
 import java.io.IOException;
 import java.net.URL;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ChessComponent extends JComponent implements ChessBoardListener, AnimationListener
 {
@@ -18,6 +20,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
     private static final Color YELLOW_TRANSPARENT = new Color(255, 255, 0, 90);
     private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
+    private AnimateHandler animateHandler;
 
 
     public ChessComponent(final ChessBoard cB) {
@@ -32,9 +35,10 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
     }
 
+
     @Override
     public void animateAction(){
-
+	animateHandler = new AnimateHandler(this, cB);
     }
 
     @Override public Dimension getPreferredSize(){
@@ -118,6 +122,10 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		}
 	    }
 	}
+
+	if(GlobalVars.isAnimationRunning()){
+	    drawAnimation(g2d);
+	}
     }
 
     public void drawBG(Graphics2D g2d){
@@ -155,6 +163,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
 	return "";
     }
+
+    private void drawAnimation(Graphics2D g2d){
+	g2d.setColor(Color.BLUE);
+	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getSquareSide()) + GlobalVars.getSquareSide()/2;
+	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getSquareSide() + GlobalVars.getSquareSide()/2);
+	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));
+    }
+
     private void gameOver(){
 
     	int optionChosen = JOptionPane.showOptionDialog(
@@ -174,4 +190,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
         }
     }
 
+    public void setAnimateHandler(final AnimateHandler animateHandler) {
+	this.animateHandler = animateHandler;
+    }
 }

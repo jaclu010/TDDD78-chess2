@@ -4,12 +4,14 @@ import javax.swing.*;
 
 public final class GlobalVars
 {
-    private static final int SQUARE_SIDE = 70;
+    //private static final int SQUARE_SIDE = 70;
+    private static final int SQUARE_SIDE = 60;
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
     private static boolean showRegularMoves = true;
     private static boolean showAbilityMoves = false;
     private static String guiTheme = "troll";
+    private static boolean animationRunning = false;
 
     private GlobalVars() {}
 
@@ -95,5 +97,11 @@ public final class GlobalVars
         return new ImageIcon("assets/theme/" +guiTheme+"/"+s+".png");
     }
 
+    public static boolean isAnimationRunning() {
+        return animationRunning;
+    }
 
+    public static void setAnimationRunning(final boolean animationRunning) {
+        GlobalVars.animationRunning = animationRunning;
+    }
 }
