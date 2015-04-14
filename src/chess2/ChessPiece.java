@@ -9,6 +9,7 @@ public class ChessPiece
 {
     private int hP, aP, freezeTime;
     private Boolean player = null;
+    private boolean underAnimation = false;
     private PieceType pT;
     private Ability ability;
 
@@ -93,5 +94,13 @@ public class ChessPiece
     }
     public void reduceFreezeTime(final int freezeTime) {
         this.freezeTime -= freezeTime;
+    }
+
+    public boolean isUnderAnimation() {
+        return underAnimation;
+    }
+
+    public void setUnderAnimation(final boolean underAnimation) {
+        this.underAnimation = underAnimation;
     }
 }

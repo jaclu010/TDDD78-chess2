@@ -92,32 +92,36 @@ public class ChessBoard
 	    Objects.equals(cB[mouseY][mouseX].getPlayer(), activePlayer)) {
 	    // Select a chesspiece
 	    clearMoveLists();
-	    selected = cB[mouseY][mouseX];
-	    selectedX = mouseX;
-	    selectedY = mouseY;
+	    select(mouseY, mouseX);
 	    checkRules();
+
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY && !frozenPieces.contains(selected)){
 	    // Press on a empty piece
 	    checkRules();
 	    pieceAction(mouseY, mouseX);
+
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
 	    // Press on a piece of same player
 	    if (GlobalVars.isShowAbilityMoves()){
+		updateTarget(mouseY, mouseX);
 		useAbility(mouseY, mouseX);
 	    } else {
 		clearMoveLists();
-		selected = cB[mouseY][mouseX];
-		selectedX = mouseX;
-		selectedY = mouseY;
+		select(mouseY, mouseX);
 		checkRules();
 	    }
+
 	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
 	    // Press on a enemy piece
-	    //checkByRules();
-	    //checkByAbility();
 	    pieceAction(mouseY, mouseX);
 	}
 	notifyListeners();
+    }
+
+    public void select(int y, int x){
+	selected = cB[y][x];
+	selectedX = x;
+	selectedY = y;
     }
 
     public void checkRules(){
@@ -275,8 +279,7 @@ public class ChessBoard
 	for (Point possibleAbilityMove : abilityMoves) {
 	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
 		payCost();
-		targetX = x;
-		targetY = y;
+
 		switch (selected.getAbility().getAC()) {
 		    case OFFENSIVE:
 			if(selected.getAbility().getFreezeTime() > 0){
@@ -351,8 +354,13 @@ public class ChessBoard
 	notifyListeners();
     }
 
-    public void pieceAction(int y, int x){
+    public void updateTarget(int y, int x){
+	targetX = x;
+	targetY = y;
+    }
 
+    public void pieceAction(int y, int x){
+	updateTarget(y, x);
 	if(GlobalVars.isShowAbilityMoves()){
 	    useAbility(y, x);
 	    notifyListeners();

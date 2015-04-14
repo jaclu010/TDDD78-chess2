@@ -11,9 +11,12 @@ public class AnimateHandler
     private Timer timer;
     private ChessComponent gameArea;
     private ChessBoard cB;
+    private AnimateAction action;
+    private boolean regMo= GlobalVars.isShowRegularMoves();
+
 
     private static final int DELAY = 100;
-    private static final int STEPS_TO_MOVE_EVERY_ANIMATION_ADJUSTER = 20;
+    private static final int PPF = 20;
 
     public AnimateHandler(ChessComponent gameArea, ChessBoard cB) {
         this.gameArea = gameArea;
@@ -28,15 +31,26 @@ public class AnimateHandler
         targetX = cB.getTargetX();
         targetY = cB.getTargetY();
 
-        moveX = (targetX-(double)selectedX)/STEPS_TO_MOVE_EVERY_ANIMATION_ADJUSTER;
-        moveY = (targetY-(double)selectedY)/STEPS_TO_MOVE_EVERY_ANIMATION_ADJUSTER;
+        moveX = (targetX-(double)selectedX)/ PPF;
+        moveY = (targetY-(double)selectedY)/ PPF;
 
-        timer = new Timer(DELAY, doAnimationTowardsTarget);
+        timer = new Timer(DELAY, pickAction());
         timer.setCoalesce(true);
         timer.start();
         GlobalVars.setAnimationRunning(true);
 
     }
+
+    public Action pickAction(){
+        if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
+            return doAnimationTowardsTarget;
+        } else if (regMo){
+            
+        }
+    }
+
+
+
 
     private final Action doAnimationTowardsTarget = new AbstractAction() {
         public void actionPerformed(ActionEvent e) {

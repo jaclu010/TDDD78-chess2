@@ -165,7 +165,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawAnimation(Graphics2D g2d){
-	g2d.setColor(Color.BLUE);
+	g2d.setColor(Color.RED);
 	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getSquareSide()) + GlobalVars.getSquareSide()/2;
 	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getSquareSide() + GlobalVars.getSquareSide()/2);
 	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));
@@ -188,9 +188,5 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     	} else if(optionChosen == 1){
             System.exit(0);
         }
-    }
-
-    public void setAnimateHandler(final AnimateHandler animateHandler) {
-	this.animateHandler = animateHandler;
     }
 }
