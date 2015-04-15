@@ -1,5 +1,7 @@
 package chess2;
 
+import sun.awt.Graphics2Delegate;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -66,7 +68,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		ChessPiece currentPiece = cB.getPiece(y, x);
 		if (currentPiece.getPieceType() != PieceType.EMPTY) {
-		    if (currentPiece.getPieceType() != PieceType.OUTSIDE) {
+		    if (currentPiece.getPieceType() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 			/*
@@ -79,11 +81,13 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 			}*/
 
 			// Creates the healthbars
+			drawHealthbar(g2d, currentPiece, x, y);
+			/*
 			g2d.setColor(Color.LIGHT_GRAY);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
 			g2d.setColor(Color.RED);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
-
+			*/
 			// Create Ability Points symbol
 			g2d.setColor(Color.YELLOW);
 			g2d.fill(new Ellipse2D.Double(x*squareSide+(double)squareSide/8, y*squareSide+(double)squareSide/6, (double)squareSide/6, (double)squareSide/6));
@@ -153,6 +157,13 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
     }
 
+    private void drawHealthbar(Graphics2D g2d, ChessPiece currentPiece, int x, int y){
+	g2d.setColor(Color.LIGHT_GRAY);
+	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
+	g2d.setColor(Color.RED);
+	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
+    }
+
     public String getLetter(int y, int x){
 	if ((x == 0 || x == GlobalVars.getWidth()-1)){
 	    return Integer.toString(9-y);
@@ -165,10 +176,26 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawAnimation(Graphics2D g2d){
+	/*
 	g2d.setColor(Color.RED);
 	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getSquareSide()) + GlobalVars.getSquareSide()/2;
 	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getSquareSide() + GlobalVars.getSquareSide()/2);
-	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));
+	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));*/
+
+	int targetY = cB.getTargetY();
+	int targetX = cB.getTargetX();
+	int realYPosition = (int)(animateHandler.getAnimationY()*squareSide);
+	int realXPosition = (int)(animateHandler.getAnimationX()*squareSide);
+	boolean regMo= GlobalVars.isShowRegularMoves();
+	ChessPiece selected = cB.getSelected();
+
+	if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
+	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
+	    
+	    drawHealthbar(g2d, selected, realXPosition, realYPosition);
+	} else if (regMo){
+	    //cB.hurtPiece(targetY, targetX, 1);
+	}
     }
 
     private void gameOver(){

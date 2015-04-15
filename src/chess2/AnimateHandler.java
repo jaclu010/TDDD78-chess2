@@ -15,8 +15,8 @@ public class AnimateHandler
     private boolean regMo= GlobalVars.isShowRegularMoves();
 
 
-    private static final int DELAY = 100;
-    private static final int PPF = 20;
+    private static final int DELAY = 50;
+    private static final int PPF = 50;
 
     public AnimateHandler(ChessComponent gameArea, ChessBoard cB) {
         this.gameArea = gameArea;
@@ -34,20 +34,23 @@ public class AnimateHandler
         moveX = (targetX-(double)selectedX)/ PPF;
         moveY = (targetY-(double)selectedY)/ PPF;
 
-        timer = new Timer(DELAY, pickAction());
+        timer = new Timer(DELAY, doAnimationTowardsTarget);
         timer.setCoalesce(true);
         timer.start();
         GlobalVars.setAnimationRunning(true);
-
+        selected.setUnderAnimation(true);
     }
 
+    /*
     public Action pickAction(){
         if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
-            return doAnimationTowardsTarget;
+            return doMoveAnimation;
         } else if (regMo){
-            
+            return doHurtAnimationTowardsTarget;
         }
+        return doMoveAnimation;
     }
+    */
 
 
 
@@ -60,13 +63,13 @@ public class AnimateHandler
                 // Animation moving uppward
                 if (animationY <= targetY) {
                     stopAnimation();
-                    cB.hurtPiece(targetY, targetX, 2);
+                    chooseEndAction();
                 }
             } else if (moveY > 0){
                 // Animation moving downward
                 if (animationY >= targetY) {
                     stopAnimation();
-                    cB.hurtPiece(targetY, targetX, 2);
+                    chooseEndAction();
                 }
             } else{
                 // Animation moving sideways
@@ -74,13 +77,13 @@ public class AnimateHandler
                     // Animation moving to the right
                     if(animationX >= targetX){
                         stopAnimation();
-                        cB.hurtPiece(targetY, targetX, 2);
+                        chooseEndAction();
                     }
                 }else{
                     // Animation moving to the left
                     if(animationX <= targetX){
                         stopAnimation();
-                        cB.hurtPiece(targetY, targetX, 2);
+                        chooseEndAction();
                     }
                 }
             }
@@ -88,9 +91,19 @@ public class AnimateHandler
         }
     };
 
+
     private void stopAnimation(){
         timer.stop();
         GlobalVars.setAnimationRunning(false);
+        selected.setUnderAnimation(false);
+    }
+
+    private void chooseEndAction(){
+        if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
+            cB.movePiece(targetY, targetX);
+        } else if (regMo){
+            cB.hurtPiece(targetY, targetX, 1);
+        }
     }
 
     public double getAnimationX() {

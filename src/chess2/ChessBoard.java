@@ -368,6 +368,8 @@ public class ChessBoard
 	}
 	for (Point possibleMove : possibleMoves){
 	    if (possibleMove.getX() == x && possibleMove.getY() == y){
+		notifyAnimationListeners();
+		/*
 		if (cB[y][x].getPieceType() != PieceType.EMPTY) {
 		    hurtPiece(y, x, 1);
 		    break;
@@ -375,6 +377,7 @@ public class ChessBoard
 		    movePiece(y, x);
 		    break;
 		}
+		*/
 	    }
 	}
 	notifyListeners();
