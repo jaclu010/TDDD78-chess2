@@ -1,5 +1,9 @@
 package chess2;
 
+/**
+ * Defines a rule for a ChessPiece
+ * @author jaclu010, carfo452
+ */
 public class Rule
 {
     private Point point;
@@ -28,7 +32,7 @@ public class Rule
         return point;
     }
 
-    public PieceType getPieceType() {
+    public PieceType getpT() {
 	return pT;
     }
 

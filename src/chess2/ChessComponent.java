@@ -4,11 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.util.Random;
 
+/**
+ * The component that paints the Chessboard
+ * @author jaclu010, carfo452
+ */
 public class ChessComponent extends JComponent implements ChessBoardListener, AnimationListener
 {
     private ChessBoard cB;
-    private int squareSide = GlobalVars.getSquareSide();
+    private int squareSide = GlobalVars.getsquareside();
     private int letterCompY = squareSide/2 +4;
     private int letterCompX = squareSide/2 -4;
     private static final Color GREEN_TRANSPARENT = new Color(0, 255, 0, 100);
@@ -43,7 +48,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(GlobalVars.getWidth()*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide());
+	return new Dimension(GlobalVars.getWidth()*GlobalVars.getsquareside(), GlobalVars.getHeight()*GlobalVars.getsquareside());
     }
     
     @Override protected void paintComponent(Graphics g) {
@@ -59,8 +64,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		ChessPiece currentPiece = cB.getPiece(y, x);
-		if (currentPiece.getPieceType() != PieceType.EMPTY) {
-		    if ((currentPiece.getPieceType() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || currentPiece.getPieceType() == PieceType.QUEEN) {
+		if (currentPiece.getpT() != PieceType.EMPTY) {
+		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getpT() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves())) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 			/*
@@ -129,7 +134,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	// Paints the emptyBoard
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
 	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
-		if(cB.getPiece(y,x).getPieceType() == PieceType.OUTSIDE){
+		if(cB.getPiece(y,x).getpT() == PieceType.OUTSIDE){
 		    g2d.setColor(Color.BLACK);
 		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
 		    g2d.setColor(Color.WHITE);
@@ -165,7 +170,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	if ((x == 0 || x == GlobalVars.getWidth()-1)){
 	    return Integer.toString(9-y);
 	} else if ((y == 0 || y == GlobalVars.getHeight()-1)){
-	    x += GlobalVars.getCharAdd();
+	    x += GlobalVars.getcharadd();
 	    char a = (char) x;
 	    return Character.toString(a);
 	}
@@ -175,8 +180,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     private void drawAnimation(Graphics2D g2d){
 	/*
 	g2d.setColor(Color.RED);
-	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getSquareSide()) + GlobalVars.getSquareSide()/2;
-	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getSquareSide() + GlobalVars.getSquareSide()/2);
+	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getsquareside()) + GlobalVars.getsquareside()/2;
+	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getsquareside() + GlobalVars.getsquareside()/2);
 	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));*/
 
 
@@ -187,28 +192,41 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
 	if (regMo || selected.getAbility().getAC() != AbilityCharacteristic.SPECIAL) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
-	} else if(selected.getPieceType() == PieceType.QUEEN){
+	} else if(selected.getpT() == PieceType.QUEEN){
 	    drawLaser(realYPosition, realXPosition, g2d);
 	}
     }
 
     private void drawLaser(int realYPosition, int realXPosition, Graphics2D g2d){
-	ChessPiece selected = cB.getSelected();
 	int targetY = cB.getTargetY();
 	int targetX = cB.getTargetX();
 	int selectY = cB.getSelectedY();
 	int selectX = cB.getSelectedX();
 
 	g2d.setColor(Color.RED);
-	g2d.fill(new Ellipse2D.Double(targetX*squareSide, targetY * squareSide, squareSide, squareSide));
-	g2d.setStroke(new BasicStroke(squareSide / 2));
-	g2d.draw(new Line2D.Double(selectX * squareSide + squareSide / 2, selectY * squareSide + squareSide / 2,
-				  targetX * squareSide + squareSide / 2, targetY * squareSide + squareSide / 2));
+	g2d.fill(new Ellipse2D.Double(targetX * squareSide, targetY * squareSide, squareSide, squareSide));
+	g2d.setStroke(new BasicStroke((float)squareSide/2));
+	g2d.draw(new Line2D.Double(selectX * squareSide + (double)squareSide / 2, selectY * squareSide + (double)squareSide / 2,
+				  targetX * squareSide + (double)squareSide / 2, targetY * squareSide + (double)squareSide / 2));
 	g2d.setColor(Color.WHITE);
-	g2d.setStroke(new BasicStroke(squareSide/4));
-	g2d.draw(new Line2D.Double(selectX * squareSide + squareSide / 2, selectY * squareSide + squareSide / 2,
-				  targetX * squareSide + squareSide/2, targetY * squareSide + squareSide/2));
+	g2d.setStroke(new BasicStroke((float)squareSide/4));
+	g2d.draw(new Line2D.Double(selectX * squareSide + (double)squareSide / 2, selectY * squareSide + (double)squareSide / 2,
+				  targetX * squareSide + (double)squareSide/2, targetY * squareSide + (double)squareSide/2));
 
+	g2d.setColor(Color.RED);
+
+	Random rnd = new Random();
+	for(int i = 0; i < 10; i++){
+	    int modX = rnd.nextInt(12)-6;
+	    int modY = rnd.nextInt(500)-250;
+	    int modTar = rnd.nextInt(50)-50;
+	    int modTar2 = rnd.nextInt(50)-50;
+	    g2d.fillRect(squareSide/2+realXPosition+modX, squareSide/2+realYPosition+modY, 3,3);
+
+
+	    g2d.fillRect(squareSide+targetX*squareSide+modTar, squareSide+targetY*squareSide+modTar2, 3,3);
+
+	}
     }
 
     private void gameOver(){

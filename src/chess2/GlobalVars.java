@@ -2,6 +2,10 @@ package chess2;
 
 import javax.swing.*;
 
+/**
+ * Global variables
+ * @author jaclu010, carfo452
+ */
 public final class GlobalVars
 {
     private static final int SQUARE_SIDE = 70;
@@ -15,11 +19,11 @@ public final class GlobalVars
 
     private GlobalVars() {}
 
-    public static int getSquareSide() {
+    public static int getsquareside() {
 	return SQUARE_SIDE;
     }
 
-    public static int getCharAdd() {
+    public static int getcharadd() {
 	return CHAR_ADD;
     }
 
@@ -38,7 +42,7 @@ public final class GlobalVars
 	} else {
 	    result.append("B_");
 	}
-	result.append(aP.getPieceType().name());
+	result.append(aP.getpT().name());
 	return result.toString();
     }
 

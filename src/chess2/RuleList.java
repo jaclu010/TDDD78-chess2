@@ -1,8 +1,13 @@
 package chess2;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Singleton class for the rules of movement
+ * @author jaclu010, carfo452
+ */
 public final class RuleList
 {
     private static final RuleList INSTANCE = new RuleList();
@@ -13,12 +18,7 @@ public final class RuleList
     }
 
     public List<Rule> extractRulesFor(PieceType pT){
-        List<Rule> pieceRules = new ArrayList<>();
-        for (Rule rule : ruleList){
-            if (rule.getPieceType() == pT){
-                pieceRules.add(rule);
-            }
-        }
+        List<Rule> pieceRules = ruleList.stream().filter(rule -> rule.getpT() == pT).collect(Collectors.toList());
         return pieceRules;
     }
 

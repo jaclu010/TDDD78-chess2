@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: chess2.TestBoard
+Main-Class: chess2.Main
 

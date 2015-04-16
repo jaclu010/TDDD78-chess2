@@ -3,10 +3,14 @@ package chess2;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Prints the log of events
+ * @author jaclu010, carfo452
+ */
 public class LogComponent extends JTextArea implements ChessBoardListener
 {
     private ChessBoard cB;
-    private String latestMsg = "", oldMsg = "";
+    private String latestMsg = "";
 
     public LogComponent(ChessBoard cB) {
 	this.cB = cB;
@@ -20,7 +24,7 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 	if (cB.getTurn() == 1){
 	    clearLog();
 	}
-	oldMsg = latestMsg;
+	String oldMsg = latestMsg;
 	latestMsg = cB.getLogMsg();
 	if (!oldMsg.equals(latestMsg)){
 	    this.append(latestMsg+"\n");
@@ -37,7 +41,7 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(GlobalVars.getWidth()*GlobalVars.getSquareSide(), 2*GlobalVars.getSquareSide());
+	return new Dimension(GlobalVars.getWidth()*GlobalVars.getsquareside(), 2*GlobalVars.getsquareside());
     }
 
     public void clearLog(){

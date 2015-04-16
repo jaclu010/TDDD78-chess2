@@ -5,6 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+/**
+ * A holder for {@link chess2.StatusComponent} and ingame buttons
+ * @author jaclu010, carfo452
+ */
 public class StatusPanel extends JPanel implements ChessBoardListener
 {
     private ChessBoard cB;
@@ -83,7 +87,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
 
-	if(selected != null && selected.getPieceType() == PieceType.KING && GlobalVars.isShowAbilityMoves()){
+	if(selected != null && selected.getpT() == PieceType.KING && GlobalVars.isShowAbilityMoves()){
 	    useAbility.setVisible(true);
 	} else {
 	    useAbility.setVisible(false);
@@ -98,6 +102,6 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(3*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide());
+	return new Dimension(3*GlobalVars.getsquareside(), GlobalVars.getHeight()*GlobalVars.getsquareside());
     }
 }

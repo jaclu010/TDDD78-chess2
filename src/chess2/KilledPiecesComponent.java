@@ -8,7 +8,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 {
 
     private ChessBoard cB;
-    private int squareSide = GlobalVars.getSquareSide();
+    private int squareSide = GlobalVars.getsquareside();
 
 
     public KilledPiecesComponent(ChessBoard cB) {
@@ -28,7 +28,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
 	Dimension preferredSize = new Dimension(compWidth, compHeight);
 	return preferredSize;*/
-	return new Dimension(3*GlobalVars.getSquareSide(), GlobalVars.getHeight()*GlobalVars.getSquareSide());
+	return new Dimension(3*GlobalVars.getsquareside(), GlobalVars.getHeight()*GlobalVars.getsquareside());
     }
 
     @Override protected void paintComponent(Graphics g) {

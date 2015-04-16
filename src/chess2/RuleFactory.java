@@ -3,11 +3,14 @@ package chess2;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Create all the rules for regular movement
+ * @author jaclu010, carfo452
+ */
 public final class RuleFactory
 {
     private RuleFactory() {}
 
-    // Create Rules
     public static List<Rule> getRules(){
         List<Rule> ruleList = new ArrayList<>();
 
@@ -68,7 +71,7 @@ public final class RuleFactory
         ruleList.add(new Rule(-1,0, PieceType.QUEEN, true, true));
 
         // Special Rules
-        // ToBeContinued.....
+        // ToBeContinued..... (e.g castling)
 
         return ruleList;
     }

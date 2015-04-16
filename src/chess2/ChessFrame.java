@@ -6,6 +6,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 
+/**
+ * The frame that holds the game
+ * @author jaclu010, carfo452
+ */
 public class ChessFrame extends JFrame implements MouseListener
 {
     private ChessBoard cB;

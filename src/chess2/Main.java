@@ -1,8 +1,12 @@
 package chess2;
 
-public final class TestBoard
+/**
+ * Starts the game
+ * @author jaclu010, carfo452
+ */
+public final class Main
 {
-    private TestBoard() {}
+    private Main() {}
 
     public static void main(String[] args) {
 	ChessBoard cb = new ChessBoard();

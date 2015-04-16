@@ -3,6 +3,10 @@ package chess2;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Displays active player and # of the turn
+ * @author jaclu010, carfo452
+ */
 public class TopBarComponent extends JTextArea implements ChessBoardListener
 {
 
@@ -22,11 +26,6 @@ public class TopBarComponent extends JTextArea implements ChessBoardListener
     @Override
     public void chessBoardChanged(){
 	changeActivePlayerTextArea();
-    }
-
-    //@Override
-    public void chessBoardMovement(){
-
     }
 
     private void changeActivePlayerTextArea(){

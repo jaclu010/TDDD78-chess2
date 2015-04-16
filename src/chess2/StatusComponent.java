@@ -3,10 +3,14 @@ package chess2;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Displays info about the selected piece
+ * @author jaclu010, carfo452
+ */
 public class StatusComponent extends JComponent implements ChessBoardListener
 {
     private ChessBoard cB;
-    private int squareSide = GlobalVars.getSquareSide();
+    private int squareSide = GlobalVars.getsquareside();
 
     public StatusComponent(ChessBoard cB) {
 	this.cB = cB;
@@ -69,7 +73,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	    g2d.drawString("Heal: "+selectedAbility.getHeal(),squareSide / 2, squareSide * 5 + (squareSide / 5)*4);
 	    g2d.drawString("Freeze time: " + selectedAbility.getFreezeTime(),squareSide / 2, squareSide * 5 + (squareSide / 5)*5);
 	    g2d.drawString("Knockback: " + selectedAbility.getKnockBack(),squareSide / 2, squareSide * 5 + (squareSide / 5)*6);
-	    if(selected.getPieceType() == PieceType.KING) {
+	    if(selected.getpT() == PieceType.KING) {
 		g2d.drawString("'Use Ability' to use",squareSide / 2, squareSide * 5 + (squareSide / 5)*7);
 	    }
 	}

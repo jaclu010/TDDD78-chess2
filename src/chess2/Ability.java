@@ -1,5 +1,9 @@
 package chess2;
 
+/**
+ * Defines the special ability, depending on PieceType
+ * @author jaclu010, carfo452
+ */
 public class Ability
 {
     private int cost, dmg, freezeTime, heal, knockBack;
@@ -46,7 +50,7 @@ public class Ability
             case QUEEN:
                 cost = 3;
                 dmg = 3;
-                knockBack = 1;
+                knockBack = 0;
                 aT = AbilityType.LASER;
                 aC = AbilityCharacteristic.SPECIAL;
                 break;
@@ -54,6 +58,10 @@ public class Ability
                 cost = 3;
                 aT = AbilityType.SUMMON_DEFENCE;
                 aC = AbilityCharacteristic.SPECIAL;
+                break;
+            case EMPTY:
+                break;
+            case OUTSIDE:
                 break;
         }
     }

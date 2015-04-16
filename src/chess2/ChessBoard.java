@@ -5,7 +5,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.awt.event.MouseEvent;
+import java.util.stream.Collectors;
 
+/**
+ * The engine class that 'is' the game
+ * @author jaclu010, carfo452
+ */
 public class ChessBoard
 {
     private Boolean activePlayer;
@@ -71,22 +76,22 @@ public class ChessBoard
     }
 
     public void checkMouseClick(MouseEvent e){
-	int mouseY = e.getY()/GlobalVars.getSquareSide();
-	int mouseX = e.getX()/GlobalVars.getSquareSide();
-	if (mouseY < height && mouseX < width && cB[mouseY][mouseX].getPieceType() != PieceType.OUTSIDE) {
+	int mouseY = e.getY()/GlobalVars.getsquareside();
+	int mouseX = e.getX()/GlobalVars.getsquareside();
+	if (mouseY < height && mouseX < width && cB[mouseY][mouseX].getpT() != PieceType.OUTSIDE) {
 	    testMovement(mouseY, mouseX);
 	}
     }
 
     public void testMovement(int mouseY, int mouseX){
-	if (selected == null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY &&
+	if (selected == null && cB[mouseY][mouseX].getpT() != PieceType.EMPTY &&
 	    Objects.equals(cB[mouseY][mouseX].getPlayer(), activePlayer)) {
 	    // Select a chesspiece
 	    clearMoveLists();
 	    select(mouseY, mouseX);
 	    checkRules();
 
-	} else if (selected != null && cB[mouseY][mouseX].getPieceType() == PieceType.EMPTY && !frozenPieces.contains(selected)){
+	} else if (selected != null && cB[mouseY][mouseX].getpT() == PieceType.EMPTY && !frozenPieces.contains(selected)){
 	    // Press on a empty piece
 	    checkRules();
 	    pieceAction(mouseY, mouseX);
@@ -102,7 +107,7 @@ public class ChessBoard
 		checkRules();
 	    }
 
-	} else if (selected != null && cB[mouseY][mouseX].getPieceType() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
+	} else if (selected != null && cB[mouseY][mouseX].getpT() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
 	    // Press on a enemy piece
 	    pieceAction(mouseY, mouseX);
 	}
@@ -126,7 +131,7 @@ public class ChessBoard
     public void checkByRules(){
 	if (possibleMoves.isEmpty()) {
 	    for (Rule rule : selected.fetchRules()) {
-		if (selected.getPieceType() == PieceType.PAWN){
+		if (selected.getpT() == PieceType.PAWN){
 		    pawnAbleToMove(rule);
 		} else if (rule.getUntilBlockCollission()) {
 		    ableToMoveManySteps(rule);
@@ -151,7 +156,7 @@ public class ChessBoard
 		    copyHealingMoves();
 		    break;
 		case SPECIAL:
-		    if(selected.getPieceType() == PieceType.KING){
+		    if(selected.getpT() == PieceType.KING){
 			checkFreePositionsAroundKing();
 		    } else {
 			checkTargetForLaser();
@@ -163,7 +168,7 @@ public class ChessBoard
     }
 
     public void checkTargetForLaser(){
-	final int laserLenght = 8;
+	final int laserLenght = 2;
 	int startY = selectedY-laserLenght;
 	int startX = selectedX-laserLenght;
 	int endY = selectedY+laserLenght;
@@ -171,7 +176,7 @@ public class ChessBoard
 	for(int y = startY; y <= endY; y++){
 	    for (int x = startX; x <= endX; x++) {
 		if(y > 0 && y < height-1 && x > 0 && x < width-1){
-		    if(cB[y][x].getPieceType() != PieceType.EMPTY && cB[y][x].getPlayer() == !selected.getPlayer()){
+		    if(cB[y][x].getpT() != PieceType.EMPTY && cB[y][x].getPlayer() == !selected.getPlayer()){
 			abilityMoves.add(new Point(y, x));
 		    }
 		}
@@ -180,11 +185,9 @@ public class ChessBoard
     }
 
     public void checkByPossibleMoves(){
-	for (Point possibleMove : possibleMoves) {
-	    if (cB[possibleMove.getY()][possibleMove.getX()].getPlayer() != null){
-		abilityMoves.add(possibleMove);
-	    }
-	}
+	abilityMoves.addAll(possibleMoves.stream()
+				    .filter(possibleMove -> cB[possibleMove.getY()][possibleMove.getX()].getPlayer() != null)
+				    .collect(Collectors.toList()));
     }
 
     public void checkForKnockBack(){
@@ -192,20 +195,18 @@ public class ChessBoard
 	abilityMoves.clear();
 	int kB = selected.getAbility().getKnockBack();
 	for (Point tempMove : temp) {
-	    if(activePlayer && cB[tempMove.getY()-kB][tempMove.getX()].getPieceType() == PieceType.EMPTY){
-		abilityMoves.add(tempMove);
-	    } else if (!activePlayer && cB[tempMove.getY()+kB][tempMove.getX()].getPieceType() == PieceType.EMPTY){
+	    if((activePlayer && cB[tempMove.getY()-kB][tempMove.getX()].getpT() == PieceType.EMPTY)
+	       || (!activePlayer && cB[tempMove.getY()+kB][tempMove.getX()].getpT() == PieceType.EMPTY)){
+
 		abilityMoves.add(tempMove);
 	    }
 	}
     }
 
     public void checkFreePositionsAroundKing(){
-	for (Point possibleMove : possibleMoves) {
-	    if (cB[possibleMove.getY()][possibleMove.getX()].getPieceType() == PieceType.EMPTY){
-		abilityMoves.add(possibleMove);
-	    }
-	}
+	abilityMoves.addAll(possibleMoves.stream()
+				    .filter(possibleMove -> cB[possibleMove.getY()][possibleMove.getX()].getpT() ==
+							    PieceType.EMPTY).collect(Collectors.toList()));
     }
 
     public void copyHealingMoves(){
@@ -217,14 +218,14 @@ public class ChessBoard
 	int x = selectedX + rule.getPoint().getX();
 
 	if (selected.getPlayer().equals(rule.getPlayer())) {
-	    if (cB[y][x].getPieceType() != PieceType.OUTSIDE && !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())) {
+	    if (cB[y][x].getpT() != PieceType.OUTSIDE && !Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())) {
 
-		if (rule.doRequiresInitialPos() && selected.isInitialPos() && cB[y][x].getPieceType() == PieceType.EMPTY &&
-		    cB[y - (rule.getPoint().getY() / Math.abs(rule.getPoint().getY()))][x].getPieceType() == PieceType.EMPTY) {
+		if (rule.doRequiresInitialPos() && selected.isInitialPos() && cB[y][x].getpT() == PieceType.EMPTY &&
+		    cB[y - (rule.getPoint().getY() / Math.abs(rule.getPoint().getY()))][x].getpT() == PieceType.EMPTY) {
 		    possibleMoves.add(new Point(y, x));
 
-		} else if ((rule.isHurtMove() && cB[y][x].getPieceType() != PieceType.EMPTY) ||
-			   (!rule.isHurtMove() && cB[y][x].getPieceType() == PieceType.EMPTY && !rule.doRequiresInitialPos())) {
+		} else if ((rule.isHurtMove() && cB[y][x].getpT() != PieceType.EMPTY) ||
+			   (!rule.isHurtMove() && cB[y][x].getpT() == PieceType.EMPTY && !rule.doRequiresInitialPos())) {
 
 		    possibleMoves.add(new Point(y, x));
 		}
@@ -236,7 +237,7 @@ public class ChessBoard
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (y < height && y > 0 && x < width && x > 0 &&
-	     cB[y][x].getPieceType() != PieceType.OUTSIDE) {
+	     cB[y][x].getpT() != PieceType.OUTSIDE) {
 	    if (!Objects.equals(cB[y][x].getPlayer(), selected.getPlayer())) {
 		possibleMoves.add(new Point(y, x));
 	    } else {
@@ -249,7 +250,7 @@ public class ChessBoard
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
 	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
-	       cB[tempY][tempX].getPieceType() != PieceType.OUTSIDE){
+	       cB[tempY][tempX].getpT() != PieceType.OUTSIDE){
 	    if (cB[tempY][tempX].getPlayer() == null){
 		possibleMoves.add(new Point(tempY, tempX));
 		tempY += rule.getPoint().getY();
@@ -267,18 +268,17 @@ public class ChessBoard
     }
 
     public void useAbility(int y, int x) {
-	for (Point possibleAbilityMove : abilityMoves) {
-	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
-		payCost();
-		notifyAnimationListeners();
-	    }
-	}
+	abilityMoves.stream().filter(possibleAbilityMove -> possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y)
+		.forEach(possibleAbilityMove -> {
+		    payCost();
+		    notifyAnimationListeners();
+		});
 	notifyListeners();
     }
 
     public void chooseEndAction(){
     	if (GlobalVars.isShowRegularMoves()) {
-	    if (cB[targetY][targetX].getPieceType() == PieceType.EMPTY) {
+	    if (cB[targetY][targetX].getpT() == PieceType.EMPTY) {
 		movePiece(targetY, targetX);
 	    } else {
 		hurtPiece(targetY, targetX, 1);
@@ -299,7 +299,7 @@ public class ChessBoard
 		    healPiece(targetY, targetX, selected.getAbility().getHeal());
 		    break;
 		case SPECIAL:
-		    if (selected.getPieceType() == PieceType.KING) {
+		    if (selected.getpT() == PieceType.KING) {
 			spawnProtectionForKing();
 		    } else {
 			useLaser();
@@ -364,11 +364,20 @@ public class ChessBoard
 	    notifyListeners();
 	    return;
 	}
-	for (Point possibleMove : possibleMoves){
-	    if (possibleMove.getX() == x && possibleMove.getY() == y){
-		notifyAnimationListeners();
+	/*
+	if (cB[y][x].getpT() != PieceType.EMPTY) {
+	    hurtPiece(y, x, 1);
+	    break;
+	} else {
+	    movePiece(y, x);
+	    break;
+	}
+	*/
+	possibleMoves.stream().filter(possibleMove -> possibleMove.getX() == x && possibleMove.getY() == y)
+		.forEach(possibleMove -> {
+		    notifyAnimationListeners();
 		/*
-		if (cB[y][x].getPieceType() != PieceType.EMPTY) {
+		if (cB[y][x].getpT() != PieceType.EMPTY) {
 		    hurtPiece(y, x, 1);
 		    break;
 		} else {
@@ -376,8 +385,7 @@ public class ChessBoard
 		    break;
 		}
 		*/
-	    }
-	}
+		});
 	notifyListeners();
     }
 
@@ -402,11 +410,11 @@ public class ChessBoard
 	    }
 	    printKill(y, x);
 
-	    if(cB[y][x].getPieceType() == PieceType.KING){
+	    if(cB[y][x].getpT() == PieceType.KING){
 		//movePiece(y, x);
 	    	gameOver = true;
 	    }
-	    if(selected.getPieceType() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves()) {
+	    if(selected.getpT() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves()) {
 		cB[y][x] = new ChessPiece(PieceType.EMPTY);
 		changeActivePlayer();
 	    } else {
@@ -420,7 +428,7 @@ public class ChessBoard
 
     private void updateFrozenPieces(){
 	// Reduces the freezetime for all frozen chessPieces by 1
-	ArrayList<ChessPiece> stillFrozen = new ArrayList<>();
+	List<ChessPiece> stillFrozen = new ArrayList<>();
 	for (ChessPiece frozenPiece: frozenPieces){
 	    frozenPiece.reduceFreezeTime(1);
 	    if(frozenPiece.getFreezeTime()>0){
@@ -431,16 +439,16 @@ public class ChessBoard
     }
 
     public void printDidDMG(int y, int x, int dmg){
-	logMsg = (selected.getPieceType().name()+ " did "+dmg+" damage to "+ cB[y][x].getPieceType().name())+ " at "+ getLetter(x) + (height-1-y);
+	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ cB[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y);
     }
 
     public void printKill(int y, int x){
-	logMsg = (selected.getPieceType().name()+ " killed "+cB[y][x].getPieceType().name());
+	logMsg = (selected.getpT().name()+ " killed "+cB[y][x].getpT().name());
 	notifyListeners();
     }
 
     public void printPieceMovement(int y, int x){
-	logMsg = (selected.getPieceType().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
 
     public void printProtectionMSG(int y, int x){
@@ -448,15 +456,15 @@ public class ChessBoard
     }
 
     public void printFreezeMSG(int y, int x){
-	logMsg = (selected.getPieceType().name()+" froze "+cB[y][x].getPieceType().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
+	logMsg = (selected.getpT().name()+" froze "+cB[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
     }
 
     public void printKnockBackMSG(int y, int x, int i, int knockBack){
-	logMsg = (selected.getPieceType().name()+" knocked back "+cB[y+i*knockBack][x].getPieceType().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
+	logMsg = (selected.getpT().name()+" knocked back "+cB[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
     }
 
     public String getLetter(int n){
-	n += GlobalVars.getCharAdd();
+	n += GlobalVars.getcharadd();
 	char a = (char) n;
 	return Character.toString(a);
     }
@@ -543,16 +551,8 @@ public class ChessBoard
 	return targetY;
     }
 
-    public void setSelected(final ChessPiece selected) {
-	this.selected = selected;
-    }
-
     public Iterable<Point> getPossibleMoves() {
 	return possibleMoves;
-    }
-
-    public void clearPossibleMoves() {
-	clearMoveLists();
     }
 
     public boolean isGameOver() {

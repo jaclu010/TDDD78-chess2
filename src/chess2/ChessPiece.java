@@ -3,7 +3,8 @@ package chess2;
 import java.util.List;
 
 /**
- * This class creates a abstract representation of a chesspiece
+ * Creates a Chesspiece with variables depending on PieceType
+ * @author jaclu010, carfo452
  */
 public class ChessPiece
 {
@@ -37,6 +38,8 @@ public class ChessPiece
             case ROOK: return 3;
             case QUEEN: return 4;
             case KING: return 5;
+            case EMPTY: return 0;
+            case OUTSIDE: return 0;
             default: return 0;
         }
     }
@@ -57,7 +60,7 @@ public class ChessPiece
         return player;
     }
 
-    public PieceType getPieceType() {
+    public PieceType getpT() {
         return pT;
     }
 
