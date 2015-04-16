@@ -9,7 +9,6 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 
     private ChessBoard cB;
     private int squareSide = GlobalVars.getSquareSide();
-    private String guiTheme = GlobalVars.getGuiTheme();
 
 
     public KilledPiecesComponent(ChessBoard cB) {
@@ -20,8 +19,6 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
     public void chessBoardChanged(){
 	repaint();
     }
-
-
 
     @Override public Dimension getPreferredSize(){
 	/*

@@ -16,7 +16,7 @@ public class AnimateHandler
 
 
     private static final int DELAY = 50;
-    private static final int PPF = 50;
+    private static final int PPF = 10;
 
     public AnimateHandler(ChessComponent gameArea, ChessBoard cB) {
         this.gameArea = gameArea;
@@ -52,9 +52,6 @@ public class AnimateHandler
     }
     */
 
-
-
-
     private final Action doAnimationTowardsTarget = new AbstractAction() {
         public void actionPerformed(ActionEvent e) {
             animationY+=moveY;
@@ -63,13 +60,13 @@ public class AnimateHandler
                 // Animation moving uppward
                 if (animationY <= targetY) {
                     stopAnimation();
-                    chooseEndAction();
+                    cB.chooseEndAction();
                 }
             } else if (moveY > 0){
                 // Animation moving downward
                 if (animationY >= targetY) {
                     stopAnimation();
-                    chooseEndAction();
+                    cB.chooseEndAction();
                 }
             } else{
                 // Animation moving sideways
@@ -77,13 +74,13 @@ public class AnimateHandler
                     // Animation moving to the right
                     if(animationX >= targetX){
                         stopAnimation();
-                        chooseEndAction();
+                        cB.chooseEndAction();
                     }
                 }else{
                     // Animation moving to the left
                     if(animationX <= targetX){
                         stopAnimation();
-                        chooseEndAction();
+                        cB.chooseEndAction();
                     }
                 }
             }
@@ -96,14 +93,6 @@ public class AnimateHandler
         timer.stop();
         GlobalVars.setAnimationRunning(false);
         selected.setUnderAnimation(false);
-    }
-
-    private void chooseEndAction(){
-        if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
-            cB.movePiece(targetY, targetX);
-        } else if (regMo){
-            cB.hurtPiece(targetY, targetX, 1);
-        }
     }
 
     public double getAnimationX() {

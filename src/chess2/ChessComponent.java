@@ -1,16 +1,8 @@
 package chess2;
 
-import sun.awt.Graphics2Delegate;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.awt.geom.Ellipse2D;
-import java.io.IOException;
-import java.net.URL;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class ChessComponent extends JComponent implements ChessBoardListener, AnimationListener
 {
@@ -36,7 +28,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    gameOver();
 	}
     }
-
 
     @Override
     public void animateAction(){
@@ -113,7 +104,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    g2d.setColor(GREEN_TRANSPARENT);
 	    if (possibleMoves != null) {
 		for (Point possibleMove : possibleMoves) {
-		    g2d.fill(new Rectangle(possibleMove.getX() * GlobalVars.getSquareSide(), possibleMove.getY() * GlobalVars.getSquareSide(), squareSide, squareSide));
+		    g2d.fill(new Rectangle(possibleMove.getX() * squareSide, possibleMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
 	}
@@ -122,7 +113,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
 		for (Point abilityMove : abilityMoves) {
-		    g2d.fill(new Rectangle(abilityMove.getX() * GlobalVars.getSquareSide(), abilityMove.getY() * GlobalVars.getSquareSide(), squareSide, squareSide));
+		    g2d.fill(new Rectangle(abilityMove.getX() * squareSide, abilityMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
 	}
@@ -186,15 +177,12 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	int targetX = cB.getTargetX();
 	int realYPosition = (int)(animateHandler.getAnimationY()*squareSide);
 	int realXPosition = (int)(animateHandler.getAnimationX()*squareSide);
-	boolean regMo= GlobalVars.isShowRegularMoves();
+	boolean regMo = GlobalVars.isShowRegularMoves();
 	ChessPiece selected = cB.getSelected();
 
-	if (regMo && cB.getPiece(targetY, targetX).getPieceType() == PieceType.EMPTY) {
+	if (regMo || selected.getAbility().getAC() != AbilityCharacteristic.SPECIAL) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
-	    
-	    drawHealthbar(g2d, selected, realXPosition, realYPosition);
-	} else if (regMo){
-	    //cB.hurtPiece(targetY, targetX, 1);
+
 	}
     }
 

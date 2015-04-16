@@ -1,15 +1,10 @@
 package chess2;
 
-
-import javafx.event.ActionEvent;
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.awt.event.MouseEvent;
-import java.util.concurrent.TimeUnit;
 
 public class ChessBoard
 {
@@ -18,7 +13,7 @@ public class ChessBoard
     private ChessPiece[][] cB;
     private ChessPiece selected;
     private String logMsg = "";
-    private int selectedX, selectedY, height, width, turn, blackKills, whiteKills, targetX, targetY;
+    private int selectedX, selectedY, height, width, turn, targetX, targetY;
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private Collection<AnimationListener> animationListeners = new ArrayList<>();
     private List<Point> possibleMoves = new ArrayList<>();
@@ -36,8 +31,6 @@ public class ChessBoard
 	this.selected = null;
 	this.gameOver = false;
 	this.turn = 1;
-	this.whiteKills = 0;
-	this.blackKills = 0;
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
 		if ((y == 0 || y == height-1) || (x == 0 || x == width -1)){
@@ -73,8 +66,6 @@ public class ChessBoard
     }
 
     public void clearKills(){
-	whiteKills = 0;
-	blackKills = 0;
 	killedBlackPieces.clear();
 	killedWhitePieces.clear();
     }
@@ -279,35 +270,43 @@ public class ChessBoard
 	for (Point possibleAbilityMove : abilityMoves) {
 	    if(possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y) {
 		payCost();
-
-		switch (selected.getAbility().getAC()) {
-		    case OFFENSIVE:
-			if(selected.getAbility().getFreezeTime() > 0){
-			    freezePiece(y, x, selected.getAbility().getFreezeTime());
-			} else if (selected.getAbility().getKnockBack() > 0){
-			    knockBack(y, x, selected.getAbility().getKnockBack());
-			} else {
-			    hurtPiece(y, x, selected.getAbility().getDmg());
-			}
-			break;
-		    case DEFENSIVE:
-			healPiece(y, x, selected.getAbility().getHeal());
-			break;
-		    case SPECIAL:
-			if (selected.getPieceType() == PieceType.KING) {
-			    spawnProtectionForKing();
-			} else {
-			    useLaser(y, x, selected.getAbility().getDmg());
-			}
-			break;
-		}
-		return;
-
-
+		notifyAnimationListeners();
 	    }
-
 	}
 	notifyListeners();
+    }
+
+    public void chooseEndAction(){
+    	if (GlobalVars.isShowRegularMoves()) {
+	    if (cB[targetY][targetX].getPieceType() == PieceType.EMPTY) {
+		movePiece(targetY, targetX);
+	    } else {
+		hurtPiece(targetY, targetX, 1);
+	    }
+	} else {
+
+	    switch (selected.getAbility().getAC()) {
+		case OFFENSIVE:
+		    if (selected.getAbility().getFreezeTime() > 0) {
+			freezePiece(targetY, targetX, selected.getAbility().getFreezeTime());
+		    } else if (selected.getAbility().getKnockBack() > 0) {
+			knockBack(targetY, targetX, selected.getAbility().getKnockBack());
+		    } else {
+			hurtPiece(targetY, targetX, selected.getAbility().getDmg());
+		    }
+		    break;
+		case DEFENSIVE:
+		    healPiece(targetY, targetX, selected.getAbility().getHeal());
+		    break;
+		case SPECIAL:
+		    if (selected.getPieceType() == PieceType.KING) {
+			spawnProtectionForKing();
+		    } else {
+			useLaser();
+		    }
+		    break;
+	    }
+	}
     }
 
     private void knockBack(int y, int x, int knockBack){
@@ -329,7 +328,7 @@ public class ChessBoard
 	changeActivePlayer();
     }
 
-    private void useLaser(int y, int x, int dmg){
+    private void useLaser(){
 	notifyAnimationListeners();
 	//hurtPiece(y, x, dmg);
     }
@@ -395,10 +394,8 @@ public class ChessBoard
 	cB[y][x].doDMG(dmg);
 	if (cB[y][x].getHP() <= 0){
 	    if (cB[y][x].getPlayer()){
-		whiteKills += 1;
 		killedWhitePieces.add(cB[y][x]);
 	    } else {
-		blackKills += 1;
 		killedBlackPieces.add(cB[y][x]);
 	    }
 	    printKill(y, x);
@@ -500,6 +497,7 @@ public class ChessBoard
 	clearMoveLists();
 	clearKills();
 	selected = null;
+	gameOver = false;
 	fillBoard();
 	notifyListeners();
     }

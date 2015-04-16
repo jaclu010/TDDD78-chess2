@@ -92,6 +92,7 @@ public class ChessPiece
     public void setFreezeTime(final int frezzeTime){
         this.freezeTime = frezzeTime;
     }
+
     public void reduceFreezeTime(final int freezeTime) {
         this.freezeTime -= freezeTime;
     }
