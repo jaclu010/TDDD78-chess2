@@ -3,6 +3,7 @@ package chess2;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 
 public class ChessComponent extends JComponent implements ChessBoardListener, AnimationListener
 {
@@ -59,7 +60,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		ChessPiece currentPiece = cB.getPiece(y, x);
 		if (currentPiece.getPieceType() != PieceType.EMPTY) {
-		    if (currentPiece.getPieceType() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) {
+		    if ((currentPiece.getPieceType() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || currentPiece.getPieceType() == PieceType.QUEEN) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 			/*
@@ -79,6 +80,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 			g2d.setColor(Color.RED);
 			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
 			*/
+
 			// Create Ability Points symbol
 			g2d.setColor(Color.YELLOW);
 			g2d.fill(new Ellipse2D.Double(x*squareSide+(double)squareSide/8, y*squareSide+(double)squareSide/6, (double)squareSide/6, (double)squareSide/6));
@@ -149,10 +151,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawHealthbar(Graphics2D g2d, ChessPiece currentPiece, int x, int y){
+	int hp = currentPiece.getHP();
+	if (hp > 5){
+	    hp = 5;
+	}
 	g2d.setColor(Color.LIGHT_GRAY);
 	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
 	g2d.setColor(Color.RED);
-	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
+	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*hp, squareSide/9));
     }
 
     public String getLetter(int y, int x){
@@ -173,8 +179,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getSquareSide() + GlobalVars.getSquareSide()/2);
 	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));*/
 
-	int targetY = cB.getTargetY();
-	int targetX = cB.getTargetX();
+
 	int realYPosition = (int)(animateHandler.getAnimationY()*squareSide);
 	int realXPosition = (int)(animateHandler.getAnimationX()*squareSide);
 	boolean regMo = GlobalVars.isShowRegularMoves();
@@ -182,8 +187,28 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
 	if (regMo || selected.getAbility().getAC() != AbilityCharacteristic.SPECIAL) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
-
+	} else if(selected.getPieceType() == PieceType.QUEEN){
+	    drawLaser(realYPosition, realXPosition, g2d);
 	}
+    }
+
+    private void drawLaser(int realYPosition, int realXPosition, Graphics2D g2d){
+	ChessPiece selected = cB.getSelected();
+	int targetY = cB.getTargetY();
+	int targetX = cB.getTargetX();
+	int selectY = cB.getSelectedY();
+	int selectX = cB.getSelectedX();
+
+	g2d.setColor(Color.RED);
+	g2d.fill(new Ellipse2D.Double(targetX*squareSide, targetY * squareSide, squareSide, squareSide));
+	g2d.setStroke(new BasicStroke(squareSide / 2));
+	g2d.draw(new Line2D.Double(selectX * squareSide + squareSide / 2, selectY * squareSide + squareSide / 2,
+				  targetX * squareSide + squareSide / 2, targetY * squareSide + squareSide / 2));
+	g2d.setColor(Color.WHITE);
+	g2d.setStroke(new BasicStroke(squareSide/4));
+	g2d.draw(new Line2D.Double(selectX * squareSide + squareSide / 2, selectY * squareSide + squareSide / 2,
+				  targetX * squareSide + squareSide/2, targetY * squareSide + squareSide/2));
+
     }
 
     private void gameOver(){

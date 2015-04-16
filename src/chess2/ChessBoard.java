@@ -163,7 +163,7 @@ public class ChessBoard
     }
 
     public void checkTargetForLaser(){
-	final int laserLenght = 2;
+	final int laserLenght = 8;
 	int startY = selectedY-laserLenght;
 	int startX = selectedX-laserLenght;
 	int endY = selectedY+laserLenght;
@@ -329,8 +329,7 @@ public class ChessBoard
     }
 
     private void useLaser(){
-	notifyAnimationListeners();
-	//hurtPiece(y, x, dmg);
+	hurtPiece(targetY, targetX, selected.getAbility().getDmg());
     }
 
 
@@ -392,6 +391,9 @@ public class ChessBoard
 
     public void hurtPiece(int y, int x, int dmg){
 	cB[y][x].doDMG(dmg);
+	if(GlobalVars.isShowRegularMoves()){
+	    selected.setaP(1);
+	}
 	if (cB[y][x].getHP() <= 0){
 	    if (cB[y][x].getPlayer()){
 		killedWhitePieces.add(cB[y][x]);
@@ -399,15 +401,19 @@ public class ChessBoard
 		killedBlackPieces.add(cB[y][x]);
 	    }
 	    printKill(y, x);
-	    selected.setaP(1);
+
 	    if(cB[y][x].getPieceType() == PieceType.KING){
 		//movePiece(y, x);
 	    	gameOver = true;
 	    }
-	    movePiece(y, x);
+	    if(selected.getPieceType() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves()) {
+		cB[y][x] = new ChessPiece(PieceType.EMPTY);
+		changeActivePlayer();
+	    } else {
+		movePiece(y, x);
+	    }
 	} else {
 	    printDidDMG(y, x, dmg);
-	    selected.setaP(1);
 	    changeActivePlayer();
 	}
     }
@@ -446,7 +452,7 @@ public class ChessBoard
     }
 
     public void printKnockBackMSG(int y, int x, int i, int knockBack){
-	logMsg = (selected.getPieceType().name()+" knocked back "+cB[y+i*knockBack][x].getPieceType().name()+" to "+ getLetter(x)+(height-1-y+i*knockBack));
+	logMsg = (selected.getPieceType().name()+" knocked back "+cB[y+i*knockBack][x].getPieceType().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
     }
 
     public String getLetter(int n){
