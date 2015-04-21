@@ -107,7 +107,6 @@ public class ChessFrame extends JFrame implements MouseListener
 	    cB.checkMouseClick(e);
 	}
 	statusPanel.checkCoordsForCheat(e);
-
     }
     @Override
     public void mousePressed(MouseEvent e) {}

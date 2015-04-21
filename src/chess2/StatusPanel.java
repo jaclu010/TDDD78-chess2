@@ -108,7 +108,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     public void checkCoordsForCheat(MouseEvent e){
 	if(e.getClickCount() > 1 && e.getPoint().getX() < GlobalVars.getsquareside() && e.getPoint().getY() < GlobalVars.getsquareside()){
 	    cheatClicks++;
-	    if(cheatClicks > 4){
+	    if(cheatClicks > 8){
 		enterGodMode();
 	    }
 	}

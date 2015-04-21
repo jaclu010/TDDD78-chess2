@@ -16,6 +16,7 @@ public final class GlobalVars
     private static boolean showAbilityMoves = false;
     private static String guiTheme = "troll";
     private static boolean animationRunning = false;
+    private static boolean endAnimRunning = false;
 
     private GlobalVars() {}
 
@@ -107,5 +108,13 @@ public final class GlobalVars
 
     public static void setAnimationRunning(final boolean animationRunning) {
         GlobalVars.animationRunning = animationRunning;
+    }
+
+    public static boolean isEndAnimRunning() {
+        return endAnimRunning;
+    }
+
+    public static void setEndAnimRunning(final boolean endAnimRunning) {
+        GlobalVars.endAnimRunning = endAnimRunning;
     }
 }

@@ -20,7 +20,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
     private static final Color YELLOW_TRANSPARENT = new Color(255, 255, 0, 90);
     private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
-    private AnimateHandler animateHandler;
+    private AnimateMovement animateMovement;
+    private AnimateAbilityImpact endAnim;
 
 
     public ChessComponent(final ChessBoard cB) {
@@ -37,7 +38,11 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     @Override
     public void animateAction(){
-	animateHandler = new AnimateHandler(this, cB);
+	if(!GlobalVars.isShowAbilityMoves()) {
+	    endAnim = new AnimateAbilityImpact(this, cB);
+	}
+	animateMovement = new AnimateMovement(this, cB, endAnim);
+
     }
 
     @Override public Dimension getPreferredSize(){
@@ -56,16 +61,49 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	final Graphics2D g2d = (Graphics2D) g;
 
 	drawBG(g2d);
+	drawPieces(g2d);
+	drawPossibleMoves(g2d);
 
-	Iterable<Point> possibleMoves = cB.getPossibleMoves();
-	Iterable<Point> abilityMoves = cB.getAbilityMoves();
+	if(GlobalVars.isAnimationRunning()){
+	    drawAnimation(g2d);
+	}
 
-	// Paints the chesspieces
+	if(GlobalVars.isEndAnimRunning()){
+	    drawImpactAnimation(g2d);
+	}
+    }
+
+    public void drawBG(Graphics2D g2d){
+	// Paints the emptyBoard
+	for (int y = 0; y < GlobalVars.getHeight(); y++) {
+	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
+		if(cB.getPiece(y,x).getpT() == PieceType.OUTSIDE){
+		    g2d.setColor(Color.BLACK);
+		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
+		    g2d.setColor(Color.WHITE);
+		    final int fontSizeSideLetter = 12;
+		    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSizeSideLetter));
+		    if ((y != 0 && y != GlobalVars.getHeight()-1) || (x != 0 && x != GlobalVars.getWidth()-1)) {
+			g2d.drawString(getLetter(y, x), x * squareSide + letterCompX, y * squareSide + letterCompY);
+		    }
+
+		}else if ((Math.abs(y) % 2 == 0 && Math.abs(x) % 2 == 0) || (y % 2 != 0 && x % 2 != 0)){
+		    g2d.setColor(Color.LIGHT_GRAY);
+		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
+		} else {
+		    g2d.setColor(Color.DARK_GRAY);
+		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
+		}
+	    }
+	}
+    }
+
+    public void drawPieces(Graphics2D g2d){
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		ChessPiece currentPiece = cB.getPiece(y, x);
 		if (currentPiece.getpT() != PieceType.EMPTY) {
-		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getpT() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves())) {
+		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves())) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 			/*
@@ -106,6 +144,12 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		}
 	    }
 	}
+    }
+
+    private void drawPossibleMoves(Graphics2D g2d){
+	Iterable<Point> possibleMoves = cB.getPossibleMoves();
+	Iterable<Point> abilityMoves = cB.getAbilityMoves();
+
 	// Colors the possible places for the selected piece to move
 	if(GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(GREEN_TRANSPARENT);
@@ -115,41 +159,13 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		}
 	    }
 	}
+
 	// Colors the possible places for the selected piece to use ability on
 	if(GlobalVars.isShowAbilityMoves()) {
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
 		for (Point abilityMove : abilityMoves) {
 		    g2d.fill(new Rectangle(abilityMove.getX() * squareSide, abilityMove.getY() * squareSide, squareSide, squareSide));
-		}
-	    }
-	}
-
-	if(GlobalVars.isAnimationRunning()){
-	    drawAnimation(g2d);
-	}
-    }
-
-    public void drawBG(Graphics2D g2d){
-	// Paints the emptyBoard
-	for (int y = 0; y < GlobalVars.getHeight(); y++) {
-	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
-		if(cB.getPiece(y,x).getpT() == PieceType.OUTSIDE){
-		    g2d.setColor(Color.BLACK);
-		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
-		    g2d.setColor(Color.WHITE);
-		    final int fontSizeSideLetter = 12;
-		    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSizeSideLetter));
-		    if ((y != 0 && y != GlobalVars.getHeight()-1) || (x != 0 && x != GlobalVars.getWidth()-1)) {
-			g2d.drawString(getLetter(y, x), x * squareSide + letterCompX, y * squareSide + letterCompY);
-		    }
-
-		}else if ((Math.abs(y) % 2 == 0 && Math.abs(x) % 2 == 0) || (y % 2 != 0 && x % 2 != 0)){
-		    g2d.setColor(Color.LIGHT_GRAY);
-		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
-		} else {
-		    g2d.setColor(Color.DARK_GRAY);
-		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
 		}
 	    }
 	}
@@ -166,17 +182,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*hp, squareSide/9));
     }
 
-    public String getLetter(int y, int x){
-	if ((x == 0 || x == GlobalVars.getWidth()-1)){
-	    return Integer.toString(9-y);
-	} else if ((y == 0 || y == GlobalVars.getHeight()-1)){
-	    x += GlobalVars.getcharadd();
-	    char a = (char) x;
-	    return Character.toString(a);
-	}
-	return "";
-    }
-
     private void drawAnimation(Graphics2D g2d){
 	/*
 	g2d.setColor(Color.RED);
@@ -185,8 +190,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));*/
 
 
-	int realYPosition = (int)(animateHandler.getAnimationY()*squareSide);
-	int realXPosition = (int)(animateHandler.getAnimationX()*squareSide);
+	int realYPosition = (int)(animateMovement.getAnimationY()*squareSide);
+	int realXPosition = (int)(animateMovement.getAnimationX()*squareSide);
 	boolean regMo = GlobalVars.isShowRegularMoves();
 	ChessPiece selected = cB.getSelected();
 
@@ -195,6 +200,16 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	} else if(selected.getpT() == PieceType.QUEEN){
 	    drawLaser(realYPosition, realXPosition, g2d);
 	}
+    }
+
+    private void drawImpactAnimation(Graphics2D g2d){
+	String ability = endAnim.getAbility();
+	int animationY = (int)endAnim.getAnimationY()*squareSide;
+
+	System.out.println(endAnim.getOpacity());
+	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, endAnim.getOpacity()));
+	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
+	g2d.dispose();
     }
 
     private void drawLaser(int realYPosition, int realXPosition, Graphics2D g2d){
@@ -227,6 +242,17 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    g2d.fillRect(squareSide+targetX*squareSide+modTar, squareSide+targetY*squareSide+modTar2, 3,3);
 
 	}
+    }
+
+    public String getLetter(int y, int x){
+	if ((x == 0 || x == GlobalVars.getWidth()-1)){
+	    return Integer.toString(9-y);
+	} else if ((y == 0 || y == GlobalVars.getHeight()-1)){
+	    x += GlobalVars.getcharadd();
+	    char a = (char) x;
+	    return Character.toString(a);
+	}
+	return "";
     }
 
     private void gameOver(){
