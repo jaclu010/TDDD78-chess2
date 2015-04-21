@@ -13,6 +13,8 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 {
     private ChessBoard cB;
     private final JButton useAbility = new JButton("Use ability");
+    private final JButton lvlupSelected = new JButton("Upgrade selected");
+    private final JButton changePlayer = new JButton("Change player");
 
 
     public StatusPanel(ChessBoard cB) throws HeadlessException {
@@ -21,8 +23,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	final JPanel buttonPanel = new JPanel();
 	buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
 
-	final JButton lvlupSelected = new JButton("Upgrade selected");
-	final JButton changePlayer = new JButton("Change player");
+
  	final JButton showPossible = new JButton("Switch move/ability");
  	final JButton changeGUI = new JButton("Switch GUI");
 
@@ -36,6 +37,9 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	buttonPanel.add(showPossible);
 	buttonPanel.add(changePlayer);
 	buttonPanel.add(useAbility);
+
+	lvlupSelected.setVisible(false);
+	changePlayer.setVisible(false);
 
 	this.add(statusArea);
 	this.add(buttonPanel);
@@ -82,6 +86,11 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	changePlayer.addActionListener(buttonListener);
 	useAbility.addActionListener(buttonListener);
 	lvlupSelected.addActionListener(buttonListener);
+    }
+
+    public void enterGodMode(){
+	lvlupSelected.setVisible(true);
+	changePlayer.setVisible(true);
     }
 
     public void chessBoardChanged(){
