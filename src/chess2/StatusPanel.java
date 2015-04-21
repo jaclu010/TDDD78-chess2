@@ -1,6 +1,7 @@
 package chess2;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
@@ -12,6 +13,7 @@ import java.util.Objects;
 public class StatusPanel extends JPanel implements ChessBoardListener
 {
     private ChessBoard cB;
+    private int cheatClicks = 0;
     private final JButton useAbility = new JButton("Use ability");
     private final JButton lvlupSelected = new JButton("Upgrade selected");
     private final JButton changePlayer = new JButton("Change player");
@@ -100,6 +102,15 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	    useAbility.setVisible(true);
 	} else {
 	    useAbility.setVisible(false);
+	}
+    }
+
+    public void checkCoordsForCheat(MouseEvent e){
+	if(e.getClickCount() > 1 && e.getPoint().getX() < GlobalVars.getsquareside() && e.getPoint().getY() < GlobalVars.getsquareside()){
+	    cheatClicks++;
+	    if(cheatClicks > 4){
+		enterGodMode();
+	    }
 	}
     }
 

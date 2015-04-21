@@ -9,7 +9,7 @@ import java.awt.event.*;
  * The frame that holds the game
  * @author jaclu010, carfo452
  */
-public class ChessFrame extends JFrame implements MouseListener, KeyListener
+public class ChessFrame extends JFrame implements MouseListener
 {
     private ChessBoard cB;
     private StatusPanel statusPanel;
@@ -42,7 +42,6 @@ public class ChessFrame extends JFrame implements MouseListener, KeyListener
 
 	gameArea.addMouseListener(this);
 	//statusPanel.addMouseListener(this);
-	gameArea.addKeyListener(this);
 
 	logScroll.createVerticalScrollBar();
 
@@ -61,48 +60,44 @@ public class ChessFrame extends JFrame implements MouseListener, KeyListener
 	frame.pack();
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-	this.setFocusTraversalKeysEnabled(false);
-	this.setFocusable(true);
     }
 
     /**
      * Creates the menues
      */
     private void createMenues(JFrame frame){
+	final JMenu help = new JMenu("Help");
 	final JMenu file = new JMenu("File");
 	final JMenuItem newGame = new JMenuItem("New Game", KeyEvent.VK_N);
 	final JMenuItem exit = new JMenuItem("Exit", KeyEvent.VK_E);
-	final JMenuItem chMode = new JMenuItem("Secret");
-
-
-	chMode.setAccelerator(KeyStroke.getKeyStroke(
-	        KeyEvent.VK_F, InputEvent.ALT_DOWN_MASK));
 
 	file.setMnemonic(KeyEvent.VK_F);
+	help.setMnemonic(KeyEvent.VK_H);
 
-	file.add(chMode);
+
 	file.add(newGame);
 	file.add(exit);
 
-	chMode.setVisible(false);
 	final ActionListener menuActions = event -> {
 	    if(event.getSource().equals(newGame)){
 		cB.newGame();
 	    } else if(event.getSource().equals(exit)){
 		System.exit(0);
-	    } else if(event.getSource().equals(chMode)){
-		statusPanel.enterGodMode();
+	    } else if(event.getSource().equals(help)){
+		//Show help box
+		//
+		//
+		//
+		//
 	    }
 	};
 
 	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
-	chMode.addActionListener(menuActions);
-
 
 	final JMenuBar menuBar = new JMenuBar();
 	menuBar.add(file);
+	menuBar.add(help);
 	frame.setJMenuBar(menuBar);
     }
 
@@ -111,6 +106,8 @@ public class ChessFrame extends JFrame implements MouseListener, KeyListener
 	if(!GlobalVars.isAnimationRunning()) {
 	    cB.checkMouseClick(e);
 	}
+	statusPanel.checkCoordsForCheat(e);
+
     }
     @Override
     public void mousePressed(MouseEvent e) {}
@@ -120,29 +117,4 @@ public class ChessFrame extends JFrame implements MouseListener, KeyListener
     public void mouseExited(MouseEvent e) {}
     @Override
     public void mouseReleased(MouseEvent e) {}
-
-    @Override
-    public void keyReleased(KeyEvent e){
-	if (e.getSource().equals(KeyEvent.VK_P)){
-	    statusPanel.enterGodMode();
-	}
-	System.out.println("hej");
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-	if (e.getSource().equals(KeyEvent.VK_P)){
-	    statusPanel.enterGodMode();
-	}
-	System.out.println("hej");
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-	if (e.getSource().equals(KeyEvent.VK_P)){
-	    statusPanel.enterGodMode();
-	}
-	System.out.println("hej");
-
-    }
 }
