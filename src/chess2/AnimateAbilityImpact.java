@@ -12,7 +12,7 @@ public class AnimateAbilityImpact
 
     private static final int DELAY = 10;
     private static final int PPF = 10;
-    private static final float OPF = 0.08f;
+    private static final float OPF = 0.1f;
 
     public AnimateAbilityImpact(ChessComponent gameArea, ChessBoard cB) {
         animationY = cB.getTargetY();
@@ -20,6 +20,7 @@ public class AnimateAbilityImpact
 
         final Action doEndAnim = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
+                stopAnimation();
                 animationY+=PPF;
                 opacity -=OPF;
                 if(opacity>0) {

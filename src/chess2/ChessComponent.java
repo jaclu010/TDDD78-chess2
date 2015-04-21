@@ -206,7 +206,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	String ability = endAnim.getAbility();
 	int animationY = (int)endAnim.getAnimationY()*squareSide;
 
-	System.out.println(endAnim.getOpacity());
+	//System.out.println(endAnim.getOpacity());
 	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, endAnim.getOpacity()));
 	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
 	g2d.dispose();
