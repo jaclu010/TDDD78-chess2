@@ -284,7 +284,6 @@ public class ChessBoard
 		hurtPiece(targetY, targetX, 1);
 	    }
 	} else {
-
 	    switch (selected.getAbility().getAC()) {
 		case OFFENSIVE:
 		    if (selected.getAbility().getFreezeTime() > 0) {

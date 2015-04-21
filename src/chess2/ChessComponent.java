@@ -230,9 +230,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void gameOver(){
-	String winner = "Black player";
+	String winner = "White player";
 	if(cB.getActivePlayer()){
-	    winner = "White player";
+	    winner = "Black player";
 	}
     	int optionChosen = JOptionPane.showOptionDialog(
                 this,
