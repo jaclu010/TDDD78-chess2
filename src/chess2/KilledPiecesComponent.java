@@ -45,7 +45,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    int i = 0;
 	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
-		g2d.drawImage(GlobalVars.getIMG(killedWhitePiece).getImage(), squareSide,squareSide/2*i, squareSide/3, squareSide/3, this);
+		g2d.drawImage(GlobalVars.getIMG(killedWhitePiece).getImage(), squareSide,squareSide/2*i, 2*squareSide/3, 2*squareSide/3, this);
 
 	    }
 	}
@@ -56,7 +56,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    int i = 0;
 	    for (ChessPiece killedBlackPiece : killedBlackPieces) {
 		i += 1;
-		g2d.drawImage(GlobalVars.getIMG(killedBlackPiece).getImage(), squareSide*2,squareSide/2*i, squareSide/3, squareSide/3, this);
+		g2d.drawImage(GlobalVars.getIMG(killedBlackPiece).getImage(), squareSide*2,squareSide/2*i, 2*squareSide/3, 2*squareSide/3, this);
 	    }
 	}
 

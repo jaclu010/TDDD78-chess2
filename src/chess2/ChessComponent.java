@@ -38,7 +38,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     @Override
     public void animateAction(){
-	if(!GlobalVars.isShowAbilityMoves()) {
+	endAnim = null;
+	if(!GlobalVars.isShowRegularMoves()) {
 	    endAnim = new AnimateAbilityImpact(this, cB);
 	}
 	animateMovement = new AnimateMovement(this, cB, endAnim);
