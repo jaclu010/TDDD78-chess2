@@ -11,7 +11,7 @@ import java.awt.event.*;
  * The frame that holds the game
  * @author jaclu010, carfo452
  */
-public class ChessFrame extends JFrame implements MouseListener, MenuListener
+public class ChessFrame extends JFrame implements MouseListener
 {
     private ChessBoard cB;
     private StatusPanel statusPanel;
@@ -69,28 +69,33 @@ public class ChessFrame extends JFrame implements MouseListener, MenuListener
      */
     private void createMenues(JFrame frame){
 	final JMenu file = new JMenu("File");
-	final JMenu help = new JMenu("Help");
+	file.setMnemonic(KeyEvent.VK_F);
 	final JMenuItem newGame = new JMenuItem("New Game", KeyEvent.VK_N);
 	final JMenuItem exit = new JMenuItem("Exit", KeyEvent.VK_E);
-
-	file.setMnemonic(KeyEvent.VK_F);
-	help.setMnemonic(KeyEvent.VK_H);
-
 	file.add(newGame);
 	file.add(exit);
+
+
+	final JMenu help = new JMenu("Help");
+	help.setMnemonic(KeyEvent.VK_H);
+	final JMenuItem howToPlay = new JMenuItem("How to play", KeyEvent.VK_H);
+	help.add(howToPlay);
+
 
 	final ActionListener menuActions = event -> {
 	    if(event.getSource().equals(newGame)){
 		cB.newGame();
 	    } else if(event.getSource().equals(exit)){
 		System.exit(0);
+	    }else if(event.getSource().equals(howToPlay)){
+		HelpFrame helpFrame = new HelpFrame();
+		helpFrame.setAlwaysOnTop(true);
 	    }
 	};
 
 	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
-
-	help.addMenuListener(this);
+	howToPlay.addActionListener(menuActions);
 
 	final JMenuBar menuBar = new JMenuBar();
 	menuBar.add(file);
@@ -113,15 +118,4 @@ public class ChessFrame extends JFrame implements MouseListener, MenuListener
     public void mouseExited(MouseEvent e) {}
     @Override
     public void mouseReleased(MouseEvent e) {}
-
-    @Override
-    public void menuSelected(MenuEvent e) {
-	HelpFrame helpFrame = new HelpFrame();
-    }
-    @Override
-    public void menuDeselected(MenuEvent e) {
-    }
-    @Override
-    public void menuCanceled(MenuEvent e) {
-    }
 }

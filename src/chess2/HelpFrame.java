@@ -15,30 +15,18 @@ public class HelpFrame extends JFrame
     public HelpFrame() throws HeadlessException {
 	super("Help");
 	JTextArea textArea = new JTextArea();
-	final int fontSize = 12;
+	final int fontSize = 16;
 	textArea.setFont(new Font("Sans Serif", Font.PLAIN, fontSize));
 	textArea.setEditable(false);
 	writeTextToTextArea(textArea);
-
-	this.setLayout(new BorderLayout());
+	
 	this.add(textArea);
-
 	this.pack();
 	this.setVisible(true);
 	this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
     }
 
-    @Override public Dimension getPreferredSize(){
-   	/*
-   	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-   	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
-   	int compWidth = (int)(screenSize.getWidth()* percentOfScreenWidth);
-   	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
-   	Dimension preferredSize = new Dimension(compWidth, compHeight);
-   	return preferredSize;*/
-   	return new Dimension(GlobalVars.getWidth()*GlobalVars.getsquareside(), GlobalVars.getHeight()*GlobalVars.getsquareside());
-    }
 
     private void writeTextToTextArea(JTextArea textArea){
 	String text = null;

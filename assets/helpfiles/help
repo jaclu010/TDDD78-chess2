@@ -1,2 +1,19 @@
-This is a 
-test
+		Welcome to Chess 2!
+
+	This is a two player game that is almost as the original chess but
+	much better.
+
+	The game i controlled by the mouse and to move the chess pieces
+	you press on one of them to select it, then you can move to any of the
+	light up green squares, by pressing on it.
+
+	This game also features special abilities for the different chess pieces.
+	E.g can the queen use a laser to damage the enemys pieces. To be able to
+	use the abilitys the piece has to gain AP which it does by damaging
+	enemy pieces. If a piece has enought AP to use an ability, you can press
+	on the "Switch move/abilty" button to change to ability mode and then
+	press on one of the light up yellow squares to use the ability.
+
+	You can change the size of the game by changing the static
+	int SQUARE_SIDE in the class GlobalVars.
+
