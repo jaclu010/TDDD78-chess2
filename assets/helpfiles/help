@@ -17,3 +17,5 @@
 	You can change the size of the game by changing the static
 	int SQUARE_SIDE in the class GlobalVars.
 
+	The game ends when you kill the enemy's king.
+
