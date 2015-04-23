@@ -1,6 +1,8 @@
 package chess2;
 
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -9,7 +11,7 @@ import java.awt.event.*;
  * The frame that holds the game
  * @author jaclu010, carfo452
  */
-public class ChessFrame extends JFrame implements MouseListener
+public class ChessFrame extends JFrame implements MouseListener, MenuListener
 {
     private ChessBoard cB;
     private StatusPanel statusPanel;
@@ -66,14 +68,13 @@ public class ChessFrame extends JFrame implements MouseListener
      * Creates the menues
      */
     private void createMenues(JFrame frame){
-	final JMenu help = new JMenu("Help");
 	final JMenu file = new JMenu("File");
+	final JMenu help = new JMenu("Help");
 	final JMenuItem newGame = new JMenuItem("New Game", KeyEvent.VK_N);
 	final JMenuItem exit = new JMenuItem("Exit", KeyEvent.VK_E);
 
 	file.setMnemonic(KeyEvent.VK_F);
 	help.setMnemonic(KeyEvent.VK_H);
-
 
 	file.add(newGame);
 	file.add(exit);
@@ -83,17 +84,13 @@ public class ChessFrame extends JFrame implements MouseListener
 		cB.newGame();
 	    } else if(event.getSource().equals(exit)){
 		System.exit(0);
-	    } else if(event.getSource().equals(help)){
-		//Show help box
-		//
-		//
-		//
-		//
 	    }
 	};
 
 	newGame.addActionListener(menuActions);
 	exit.addActionListener(menuActions);
+
+	help.addMenuListener(this);
 
 	final JMenuBar menuBar = new JMenuBar();
 	menuBar.add(file);
@@ -116,4 +113,15 @@ public class ChessFrame extends JFrame implements MouseListener
     public void mouseExited(MouseEvent e) {}
     @Override
     public void mouseReleased(MouseEvent e) {}
+
+    @Override
+    public void menuSelected(MenuEvent e) {
+	HelpFrame helpFrame = new HelpFrame();
+    }
+    @Override
+    public void menuDeselected(MenuEvent e) {
+    }
+    @Override
+    public void menuCanceled(MenuEvent e) {
+    }
 }
