@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.Objects;
 
 /**
- * A holder for {@link chess2.StatusComponent} and ingame buttons
+ * A holder for {@link se.liu.ida.jaclu010carfo452.tddd78.chess2.StatusComponent} and ingame buttons
  * @author jaclu010, carfo452
  */
 public class StatusPanel extends JPanel implements ChessBoardListener

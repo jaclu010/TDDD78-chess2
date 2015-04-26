@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 /**
  * Starts the game

@@ -1,3 +1,4 @@
+
 		Welcome to Chess 2!
 
 	This is a two player game that is almost as the original chess but
