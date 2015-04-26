@@ -3,6 +3,10 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * An Animation object that is used to show for the player that an ability was used
+ * @author jaclu010, carfo452
+ */
 public class AnimateAbilityImpact
 {
     private int animationY;

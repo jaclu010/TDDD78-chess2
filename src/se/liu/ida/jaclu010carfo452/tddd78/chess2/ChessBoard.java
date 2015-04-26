@@ -98,7 +98,7 @@ public class ChessBoard
 
 	} else if (selected != null && Objects.equals(cB[mouseY][mouseX].getPlayer(), selected.getPlayer())) {
 	    // Press on a piece of same player
-	    if (GlobalVars.isShowAbilityMoves()){
+	    if (!GlobalVars.isShowRegularMoves()){
 		updateTarget(mouseY, mouseX);
 		useAbility(mouseY, mouseX);
 	    } else {
@@ -358,33 +358,13 @@ public class ChessBoard
 
     public void pieceAction(int y, int x){
 	updateTarget(y, x);
-	if(GlobalVars.isShowAbilityMoves()){
+	if(!GlobalVars.isShowRegularMoves()){
 	    useAbility(y, x);
 	    notifyListeners();
 	    return;
 	}
-	/*
-	if (cB[y][x].getpT() != PieceType.EMPTY) {
-	    hurtPiece(y, x, 1);
-	    break;
-	} else {
-	    movePiece(y, x);
-	    break;
-	}
-	*/
 	possibleMoves.stream().filter(possibleMove -> possibleMove.getX() == x && possibleMove.getY() == y)
-		.forEach(possibleMove -> {
-		    notifyAnimationListeners();
-		/*
-		if (cB[y][x].getpT() != PieceType.EMPTY) {
-		    hurtPiece(y, x, 1);
-		    break;
-		} else {
-		    movePiece(y, x);
-		    break;
-		}
-		*/
-		});
+		.forEach(possibleMove -> notifyAnimationListeners());
 	notifyListeners();
     }
 
@@ -413,7 +393,7 @@ public class ChessBoard
 		//movePiece(y, x);
 	    	gameOver = true;
 	    }
-	    if(selected.getpT() == PieceType.QUEEN && GlobalVars.isShowAbilityMoves()) {
+	    if(selected.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves()) {
 		cB[y][x] = new ChessPiece(PieceType.EMPTY);
 		changeActivePlayer();
 	    } else {
@@ -519,7 +499,6 @@ public class ChessBoard
 	updateFrozenPieces();
 	turn+=1;
 	activePlayer = !activePlayer;
-	GlobalVars.setShowAbilityMoves(false);
 	GlobalVars.setShowRegularMoves(true);
 	selected = null;
 	clearMoveLists();

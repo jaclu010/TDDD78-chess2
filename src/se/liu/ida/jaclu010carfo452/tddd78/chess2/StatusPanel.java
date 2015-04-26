@@ -65,11 +65,9 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	   	    if(cB.getSelected() != null) {
 	   		if (GlobalVars.isShowRegularMoves()) {
 	   		    GlobalVars.setShowRegularMoves(false);
-	   		    GlobalVars.setShowAbilityMoves(true);
 	   		} else {
-
 	   		    GlobalVars.setShowRegularMoves(true);
-	   		    GlobalVars.setShowAbilityMoves(false);
+
 	   		}
 	   		cB.checkRules();
 	   	    }
@@ -98,7 +96,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
 
-	if(selected != null && selected.getpT() == PieceType.KING && GlobalVars.isShowAbilityMoves()){
+	if(selected != null && selected.getpT() == PieceType.KING && !GlobalVars.isShowRegularMoves()){
 	    useAbility.setVisible(true);
 	} else {
 	    useAbility.setVisible(false);

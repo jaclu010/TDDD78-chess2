@@ -13,7 +13,6 @@ public final class GlobalVars
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
     private static boolean showRegularMoves = true;
-    private static boolean showAbilityMoves = false;
     private static String guiTheme = "troll";
     private static boolean animationRunning = false;
     private static boolean endAnimRunning = false;
@@ -53,14 +52,6 @@ public final class GlobalVars
 
     public static void setShowRegularMoves(final boolean showRegularMoves) {
         GlobalVars.showRegularMoves = showRegularMoves;
-    }
-
-    public static boolean isShowAbilityMoves() {
-        return showAbilityMoves;
-    }
-
-    public static void setShowAbilityMoves(final boolean showAbilityMoves) {
-        GlobalVars.showAbilityMoves = showAbilityMoves;
     }
 
     public static String getGuiTheme() {
