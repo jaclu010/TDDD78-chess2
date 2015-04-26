@@ -20,7 +20,7 @@ public class ChessPiece
 	this.player = player;
         this.pT = pT;
         this.hP = decideHP(pT);
-        this.aP = 0;
+        this.aP = 5;
         this.initialPos = true;
         this.ability = Ability.getAbility(pT);
         this.freezeTime = 0;

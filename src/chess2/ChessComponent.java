@@ -205,9 +205,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     private void drawImpactAnimation(Graphics2D g2d){
 	String ability = endAnim.getAbility();
-	int animationY = (int)endAnim.getAnimationY()*squareSide;
+	int animationY = (int)endAnim.getAnimationY();
 
-	//System.out.println(endAnim.getOpacity());
 	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, endAnim.getOpacity()));
 	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
 	g2d.dispose();

@@ -11,16 +11,16 @@ public class AnimateAbilityImpact
     private String ability;
 
     private static final int DELAY = 50;
-    private static final int PPF = 50;
+    private static final int PPF = 5;
     private static final float OPF = 0.05f;
 
     public AnimateAbilityImpact(ChessComponent gameArea, ChessBoard cB) {
-        animationY = cB.getTargetY();
+        animationY = cB.getTargetY()*GlobalVars.getsquareside();
         ability = cB.getSelected().getAbility().getAT().name();
 
         final Action doEndAnim = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
-                //stopAnimation();
+
                 animationY-=PPF;
 
                 if(opacity-OPF>0) {
