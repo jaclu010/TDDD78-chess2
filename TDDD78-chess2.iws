@@ -6,18 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="changed directory for class files (for marius)&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogMsg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/theme/original/DOUBLE_DAMAGE.png" afterPath="$PROJECT_DIR$/assets/theme/original/DOUBLE_DAMAGE.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/theme/troll/DOUBLE_DAMAGE.png" afterPath="$PROJECT_DIR$/assets/theme/troll/DOUBLE_DAMAGE.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/theme/original/HEAL.png" afterPath="$PROJECT_DIR$/assets/theme/original/HEAL.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/theme/troll/HEAL.png" afterPath="$PROJECT_DIR$/assets/theme/troll/HEAL.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/AnimateAbilityImpact.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/AnimateAbilityImpact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessComponent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/GlobalVars.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/GlobalVars.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/StatusPanel.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/StatusPanel.java" />
+    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
@@ -104,11 +95,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LogMsg.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="LogMsg.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogMsg.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-                  <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+                <state vertical-scroll-proportion="0.04557641" vertical-offset="0" max-vertical-offset="746">
+                  <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -134,11 +125,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ChessPiece.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.30746847" vertical-offset="57" max-vertical-offset="1394">
-                  <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="1394">
+                  <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -158,10 +149,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Rule.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Rule.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Rule.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.066797644" vertical-offset="0" max-vertical-offset="1018">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
                   <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
                   <folding />
                 </state>
@@ -178,11 +169,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="KilledPiecesComponent.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="KilledPiecesComponent.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="1173">
-                  <caret line="54" column="74" selection-start-line="54" selection-start-column="74" selection-end-line="54" selection-end-column="74" />
+                <state vertical-scroll-proportion="-0.20873123" vertical-offset="306" max-vertical-offset="1241">
+                  <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -201,8 +192,8 @@
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-                  <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+                  <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -273,8 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/chess2/pieces/Rook.java" />
-        <option value="$PROJECT_DIR$/src/chess2/pieces/Outside.java" />
         <option value="$PROJECT_DIR$/src/chess2/pieces/Pawn.java" />
         <option value="$PROJECT_DIR$/src/chess2/AbstractRule.java" />
         <option value="$PROJECT_DIR$/src/chess2/TextLogListener.java" />
@@ -324,6 +313,8 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogMsg.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java" />
       </list>
     </option>
   </component>
@@ -757,12 +748,6 @@
       <workItem from="1429603981639" duration="6388000" />
       <workItem from="1429786738821" duration="5004000" />
     </task>
-    <task id="LOCAL-00010" summary="början på att kunna flytta pjäser">
-      <created>1425471282504</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1425471282504</updated>
-    </task>
     <task id="LOCAL-00011" summary="början på att kunna flytta pjäser">
       <created>1425473470124</created>
       <option name="number" value="00011" />
@@ -1051,7 +1036,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430048861784</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="started cleaning up chessboard etc.">
+      <created>1430049951062</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1430049951062</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1079,7 +1070,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3271028" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1090,12 +1081,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39880952" sideWeight="0.500271" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298887" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39766538" sideWeight="0.499729" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837301" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17587548" sideWeight="0.49864498" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17587548" sideWeight="0.49864498" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17170112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291829" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32606438" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1107,9 +1100,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39771548" sideWeight="0.499729" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32606438" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1157,7 +1148,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="&#10;" />
     <MESSAGE value="&#10;hej" />
     <MESSAGE value="add buttons" />
     <MESSAGE value="is possible to heal" />
@@ -1182,7 +1172,8 @@
     <MESSAGE value="added helpframe" />
     <MESSAGE value="impact animation now works properly" />
     <MESSAGE value="changed directory for class files (for marius)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed directory for class files (for marius)&#10;" />
+    <MESSAGE value="started cleaning up chessboard etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="started cleaning up chessboard etc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1379,6 +1370,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1257">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,26 +1470,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="1311">
-          <caret line="54" column="74" selection-start-line="54" selection-start-column="74" selection-end-line="54" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
           <caret line="26" column="11" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="418">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1513,14 +1489,6 @@
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.066797644" vertical-offset="0" max-vertical-offset="1018">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
@@ -1577,18 +1545,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogMsg.java">
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/KilledPiecesComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.20873123" vertical-offset="306" max-vertical-offset="1241">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30746847" vertical-offset="57" max-vertical-offset="1394">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="1394">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/LogMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04557641" vertical-offset="0" max-vertical-offset="746">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
