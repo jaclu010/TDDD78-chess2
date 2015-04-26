@@ -9,11 +9,10 @@ import javax.swing.*;
 public final class GlobalVars
 {
     private static final int SQUARE_SIDE = 70;
-    //private static final int SQUARE_SIDE = 60;
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
     private static boolean showRegularMoves = true;
-    private static String guiTheme = "troll";
+    private static String guiTheme = "original";
     private static boolean animationRunning = false;
     private static boolean endAnimRunning = false;
 

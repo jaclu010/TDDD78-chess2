@@ -148,8 +148,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawPossibleMoves(Graphics2D g2d){
-	Iterable<Point> possibleMoves = cB.getPossibleMoves();
-	Iterable<Point> abilityMoves = cB.getAbilityMoves();
+	Iterable<Point> possibleMoves = cB.getRC().getPossibleMoves();
+	Iterable<Point> abilityMoves = cB.getRC().getAbilityMoves();
 
 	// Colors the possible places for the selected piece to move
 	if(GlobalVars.isShowRegularMoves()) {

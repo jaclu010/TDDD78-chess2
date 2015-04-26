@@ -76,7 +76,7 @@ public class ChessPiece
         this.hP -= dmg;
     }
 
-    public void doHEAL(int heal){
+    public void doHeal(int heal){
         this.hP += heal;
     }
 
