@@ -21,9 +21,6 @@ public class ChessBoard
     private Point selectedCords;
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private Collection<AnimationListener> animationListeners = new ArrayList<>();
-    //private List<Point> possibleMoves = new ArrayList<>();
-    //private List<Point> healingMoves = new ArrayList<>();
-    //private List<Point> abilityMoves = new ArrayList<>();
     private List<ChessPiece> frozenPieces = new ArrayList<>();
     private List<ChessPiece> killedBlackPieces = new ArrayList<>();
     private List<ChessPiece> killedWhitePieces = new ArrayList<>();

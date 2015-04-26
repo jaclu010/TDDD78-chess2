@@ -16,12 +16,13 @@ public class RuleController
     private List<Point> abilityMoves = new ArrayList<>();
     private Boolean activePlayer;
     private ChessPiece selected;
-    private int selectedY, selectedX, height = GlobalVars.getHeight(), width = GlobalVars.getWidth();
     private ChessPiece[][] chessPieces;
+    private int selectedY, selectedX, height = GlobalVars.getHeight(), width = GlobalVars.getWidth();
+
 
     public void updateVars(ChessPiece[][] chessPieces, ChessPiece selectedPiece, int selectedY, int selectedX, Boolean activePlayer){
 	this.chessPieces = chessPieces;
-	selected = selectedPiece;
+	this.selected = selectedPiece;
 	this.selectedX = selectedX;
 	this.selectedY = selectedY;
 	this.activePlayer = activePlayer;
