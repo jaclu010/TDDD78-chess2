@@ -20,6 +20,7 @@ public class HelpFrame extends JFrame
 
     public HelpFrame() throws HeadlessException {
 	super("Help");
+	assert logger != null: "Internal error: logger not initialised";
 	try {
 	    FileHandler fileHandler = new FileHandler("assets/logs/helplog.txt");
 	    logger .addHandler(fileHandler);
@@ -42,7 +43,7 @@ public class HelpFrame extends JFrame
 
 
     private void writeTextToTextArea(JTextArea textArea){
-	String text = null;
+	String text = "";
 	try {
 	    File file = new File("assets/helpfiles/help.txt");
 	    try (Reader re = new FileReader(file)) {

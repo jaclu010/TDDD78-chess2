@@ -47,8 +47,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     @Override public Dimension getPreferredSize(){
-	/*
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	/*Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
 	int compWidth = (int)(screenSize.getWidth()* percentOfScreenWidth);
 	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
@@ -118,12 +117,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
 			// Creates the healthbars
 			drawHealthbar(g2d, currentPiece, x, y);
-			/*
-			g2d.setColor(Color.LIGHT_GRAY);
-			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, squareSide-squareSide/7, squareSide/9));
-			g2d.setColor(Color.RED);
-			g2d.fill(new Rectangle(squareSide*x+squareSide/10, squareSide*y+squareSide-squareSide/6, ((squareSide-squareSide/7)/5)*currentPiece.getHP(), squareSide/9));
-			*/
 
 			// Create Ability Points symbol
 			g2d.setColor(Color.YELLOW);
@@ -244,7 +237,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
     }
 
-    public String getLetter(int y, int x){
+    private String getLetter(int y, int x){
 	if ((x == 0 || x == GlobalVars.getWidth()-1)){
 	    return Integer.toString(9-y);
 	} else if ((y == 0 || y == GlobalVars.getHeight()-1)){

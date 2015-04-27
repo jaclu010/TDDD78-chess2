@@ -90,13 +90,14 @@ public class AnimateMovement
     private void stopAnimation(){
         if (endAnim != null){
             animateImpact();
+            assert endAnim != null: "Internal error: endAnim was changed to null";
         }
         timer.stop();
         GlobalVars.setAnimationRunning(false);
         selected.setUnderAnimation(false);
     }
 
-    public void animateImpact(){
+    private void animateImpact(){
         GlobalVars.setEndAnimRunning(true);
         endAnim.startAnimation();
     }

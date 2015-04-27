@@ -10,12 +10,11 @@ public class Ability
     private AbilityCharacteristic aC = null;
     private AbilityType aT = null;
 
-
     public Ability(PieceType pT) {
         setVars(pT);
     }
 
-    public void setVars(PieceType pT) {
+    private void setVars(PieceType pT) {
         switch (pT) {
             case PAWN:
                 cost = 2;

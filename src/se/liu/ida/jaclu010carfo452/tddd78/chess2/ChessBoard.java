@@ -22,11 +22,11 @@ public class ChessBoard
     private ChessPiece selected;
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn, targetX, targetY;
-    private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
-    private Collection<AnimationListener> animationListeners = new ArrayList<>();
-    private List<ChessPiece> frozenPieces = new ArrayList<>();
-    private List<ChessPiece> killedBlackPieces = new ArrayList<>();
-    private List<ChessPiece> killedWhitePieces = new ArrayList<>();
+    private Collection<ChessBoardListener> chessBoardListeners;
+    private Collection<AnimationListener> animationListeners;
+    private List<ChessPiece> frozenPieces;
+    private List<ChessPiece> killedBlackPieces;
+    private List<ChessPiece> killedWhitePieces;
     private RuleController rC;
     private static Logger logger = Logger.getLogger(ChessBoard.class.getName());
 
@@ -39,6 +39,11 @@ public class ChessBoard
 	this.selected = null;
 	this.gameOver = false;
 	this.turn = 1;
+	this.chessBoardListeners = new ArrayList<>();
+	this.animationListeners = new ArrayList<>();
+	this.frozenPieces = new ArrayList<>();
+	this.killedBlackPieces = new ArrayList<>();
+	this.killedWhitePieces = new ArrayList<>();
 
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
@@ -57,6 +62,7 @@ public class ChessBoard
 	} catch(IOException e){
 	    logger.log(Level.WARNING, "No file with that name is found", e);
 	}
+	assert logger != null: "Logger was not initialised";
 
 	logger.info("ChessBoard initialised");
     }
@@ -81,7 +87,7 @@ public class ChessBoard
 	rC.clearMoves();
     }
 
-    public void clearKills(){
+    private void clearKills(){
 	killedBlackPieces.clear();
 	killedWhitePieces.clear();
     }
@@ -94,7 +100,7 @@ public class ChessBoard
 	}
     }
 
-    public void testMovement(int mouseY, int mouseX){
+    private void testMovement(int mouseY, int mouseX){
 	if (selected == null && chessPieces[mouseY][mouseX].getpT() != PieceType.EMPTY &&
 	    Objects.equals(chessPieces[mouseY][mouseX].getPlayer(), activePlayer)) {
 	    // Select a chesspiece
@@ -116,7 +122,6 @@ public class ChessBoard
 		clearMoveLists();
 		select(mouseY, mouseX);
 		checkRules();
-
 	    }
 
 	} else if (selected != null && chessPieces[mouseY][mouseX].getpT() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
@@ -126,10 +131,11 @@ public class ChessBoard
 	notifyListeners();
     }
 
-    public void select(int y, int x){
+    private void select(int y, int x){
 	selected = chessPieces[y][x];
 	selectedX = x;
 	selectedY = y;
+	assert selected != null: "Internal error: Selected is null";
 	logger.info("A chess piece was selected");
     }
 
@@ -138,7 +144,7 @@ public class ChessBoard
 	notifyListeners();
     }
 
-    public void useAbility(int y, int x) {
+    private void useAbility(int y, int x) {
 	List<Point> abilityMoves = rC.getAbilityMoves();
 	abilityMoves.stream().filter(possibleAbilityMove -> possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y)
 		.forEach(possibleAbilityMove -> {
@@ -183,7 +189,6 @@ public class ChessBoard
     private void knockBack(int y, int x, int knockBack){
 	int i = 1;
 	if(activePlayer) i = -1;
-
 	chessPieces[y+i*knockBack][x] = chessPieces[y][x];
 	chessPieces[y][x] = new ChessPiece(PieceType.EMPTY);
 
@@ -214,36 +219,35 @@ public class ChessBoard
 	notifyListeners();
     }
 
-    public void payCost(){
-	selected.setaP(-selected.getAbility().getCost());
-    }
-
-    public void healPiece(int y, int x, int heal){
+    private void healPiece(int y, int x, int heal) {
 	chessPieces[y][x].doHeal(heal);
 	printHeal(y, x);
 	changeActivePlayer();
 	notifyListeners();
     }
 
-    public void updateTarget(int y, int x){
+    private void payCost(){
+	selected.setaP(-selected.getAbility().getCost());
+    }
+
+    private void updateTarget(int y, int x){
 	targetX = x;
 	targetY = y;
     }
 
-    public void pieceAction(int y, int x){
+    private void pieceAction(int y, int x){
 	updateTarget(y, x);
 	if(!GlobalVars.isShowRegularMoves()){
 	    useAbility(y, x);
-	    notifyListeners();
-	    return;
+	} else{
+	    List<Point> possibleMoves = rC.getPossibleMoves();
+	    possibleMoves.stream().filter(possibleMove -> possibleMove.getX() == x && possibleMove.getY() == y)
+		    .forEach(possibleMove -> notifyAnimationListeners());
 	}
-	List<Point> possibleMoves = rC.getPossibleMoves();
-	possibleMoves.stream().filter(possibleMove -> possibleMove.getX() == x && possibleMove.getY() == y)
-		.forEach(possibleMove -> notifyAnimationListeners());
 	notifyListeners();
     }
 
-    public void movePiece(int y, int x){
+    private void movePiece(int y, int x){
 	selected.setInitialPos(false);
 	chessPieces[y][x] = selected;
 	chessPieces[selectedY][selectedX] = new ChessPiece(PieceType.EMPTY);
@@ -251,7 +255,7 @@ public class ChessBoard
 	changeActivePlayer();
     }
 
-    public void hurtPiece(int y, int x, int dmg){
+    private void hurtPiece(int y, int x, int dmg){
 	chessPieces[y][x].doDMG(dmg);
 	if(GlobalVars.isShowRegularMoves()){
 	    selected.setaP(1);
@@ -263,12 +267,13 @@ public class ChessBoard
 		killedBlackPieces.add(chessPieces[y][x]);
 	    }
 	    printKill(y, x);
+	    notifyListeners();
 
 	    if(chessPieces[y][x].getpT() == PieceType.KING){
-		//movePiece(y, x);
+		movePiece(y, x);
 	    	gameOver = true;
-	    }
-	    if(selected.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves()) {
+		notifyListeners();
+	    } else if(selected.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves()) {
 		chessPieces[y][x] = new ChessPiece(PieceType.EMPTY);
 		changeActivePlayer();
 	    } else {
@@ -283,6 +288,7 @@ public class ChessBoard
     private void updateFrozenPieces(){
 	// Reduces the freezetime for all frozen chessPieces by 1
 	List<ChessPiece> stillFrozen = new ArrayList<>();
+	assert frozenPieces != null: "Internal error: frozenPieces is null";
 	for (ChessPiece frozenPiece: frozenPieces){
 	    frozenPiece.reduceFreezeTime(1);
 	    if(frozenPiece.getFreezeTime()>0){
@@ -292,42 +298,45 @@ public class ChessBoard
 	frozenPieces = stillFrozen;
     }
 
-    public void printDidDMG(int y, int x, int dmg){
+    private void printDidDMG(int y, int x, int dmg){
 	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y);
 	logger.info((selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y));
     }
 
-    public void printKill(int y, int x){
+    private void printKill(int y, int x){
 	logMsg = (selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
 	logger.info(selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
     }
 
-    public void printPieceMovement(int y, int x){
+    private void printPieceMovement(int y, int x){
 	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
 	logger.info(selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
 
-    public void printProtectionMSG(int y, int x){
+    private void printProtectionMSG(int y, int x){
 	logMsg = (PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
 	logger.info(PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
     }
 
-    public void printFreezeMSG(int y, int x){
+    private void printFreezeMSG(int y, int x){
 	logMsg = (selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
 	logger.info(selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
     }
 
-    public void printKnockBackMSG(int y, int x, int i, int knockBack){
-	logMsg = (selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
-	logger.info(selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
+    private void printKnockBackMSG(int y, int x, int i, int knockBack){
+	logMsg = (selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x) +
+		  (height - 1 - (y + i * knockBack)));
+	logger.info(selected.getpT().name() + " knocked back " + chessPieces[y + i * knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
     }
 
     private void printHeal(int y, int x){
-	logMsg = (selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
-	logger.info(selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
+	logMsg = (selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+
+		  selected.getAbility().getHeal() + " HP");
+	logger.info(
+		selected.getpT().name() + " healed " + chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
     }
 
-    public String getLetter(int n){
+    private String getLetter(int n){
 	n += GlobalVars.getcharadd();
 	char a = (char) n;
 	return Character.toString(a);
@@ -335,8 +344,11 @@ public class ChessBoard
 
     public void fillBoard(){
 	//False = black piece
+	//True = white pieces
 	//Adds the pawns at right position
 
+	assert width > 0: "Internal error: width has been changed";
+	assert height > 0: "Internal error: height has been changed";
 	for (int x = 1; x < width-1; x++) {
 	    chessPieces[2][x] = new ChessPiece(false, PieceType.PAWN);
 	    chessPieces[height-3][x] = new ChessPiece(true, PieceType.PAWN);

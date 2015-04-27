@@ -19,15 +19,16 @@ public class AnimateAbilityImpact
     private static final float OPF = 0.05f;
 
     public AnimateAbilityImpact(ChessComponent gameArea, ChessBoard cB) {
-        animationY = cB.getTargetY()*GlobalVars.getsquareside();
+        animationY = cB.getTargetY() * GlobalVars.getsquareside();
         ability = cB.getSelected().getAbility().getAT().name();
 
-        final Action doEndAnim = new AbstractAction() {
+        final Action doEndAnim = new AbstractAction()
+        {
             public void actionPerformed(ActionEvent e) {
 
-                animationY-=PPF;
+                animationY -= PPF;
 
-                if(opacity-OPF>0) {
+                if (opacity - OPF > 0) {
                     opacity -= OPF;
 
                 } else {
@@ -46,7 +47,7 @@ public class AnimateAbilityImpact
         timer.start();
     }
 
-    public void stopAnimation(){
+    private void stopAnimation(){
         timer.stop();
         GlobalVars.setEndAnimRunning(false);
     }
