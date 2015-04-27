@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import javax.swing.*;
 
@@ -9,12 +9,10 @@ import javax.swing.*;
 public final class GlobalVars
 {
     private static final int SQUARE_SIDE = 70;
-    //private static final int SQUARE_SIDE = 60;
     private static final int CHAR_ADD = 64;
     private static final int WIDTH = 10, HEIGHT = 10;
     private static boolean showRegularMoves = true;
-    private static boolean showAbilityMoves = false;
-    private static String guiTheme = "troll";
+    private static String guiTheme = "original";
     private static boolean animationRunning = false;
     private static boolean endAnimRunning = false;
 
@@ -55,14 +53,6 @@ public final class GlobalVars
         GlobalVars.showRegularMoves = showRegularMoves;
     }
 
-    public static boolean isShowAbilityMoves() {
-        return showAbilityMoves;
-    }
-
-    public static void setShowAbilityMoves(final boolean showAbilityMoves) {
-        GlobalVars.showAbilityMoves = showAbilityMoves;
-    }
-
     public static String getGuiTheme() {
         return guiTheme;
     }
@@ -95,9 +85,7 @@ public final class GlobalVars
         }
         return null;
     }*/
-    public static ImageIcon getIMG(ChessPiece cP){
-        return new ImageIcon("assets/theme/" +guiTheme+"/"+imgPicker(cP)+".png");
-    }
+    public static ImageIcon getIMG(ChessPiece cP){ return new ImageIcon("assets/theme/" + guiTheme + "/" + imgPicker(cP) + ".png"); }
     public static ImageIcon getIMG(String s){
         return new ImageIcon("assets/theme/" +guiTheme+"/"+s+".png");
     }

@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class ChessPiece
         this.hP -= dmg;
     }
 
-    public void doHEAL(int heal){
+    public void doHeal(int heal){
         this.hP += heal;
     }
 

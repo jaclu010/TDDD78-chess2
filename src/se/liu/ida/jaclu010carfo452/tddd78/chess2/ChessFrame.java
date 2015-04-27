@@ -1,8 +1,6 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.*;
 import java.awt.event.*;
 

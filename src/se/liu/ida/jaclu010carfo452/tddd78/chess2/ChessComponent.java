@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -148,8 +148,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawPossibleMoves(Graphics2D g2d){
-	Iterable<Point> possibleMoves = cB.getPossibleMoves();
-	Iterable<Point> abilityMoves = cB.getAbilityMoves();
+	Iterable<Point> possibleMoves = cB.getRC().getPossibleMoves();
+	Iterable<Point> abilityMoves = cB.getRC().getAbilityMoves();
 
 	// Colors the possible places for the selected piece to move
 	if(GlobalVars.isShowRegularMoves()) {
@@ -162,7 +162,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
 
 	// Colors the possible places for the selected piece to use ability on
-	if(GlobalVars.isShowAbilityMoves()) {
+	if(!GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
 		for (Point abilityMove : abilityMoves) {
@@ -205,9 +205,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     private void drawImpactAnimation(Graphics2D g2d){
 	String ability = endAnim.getAbility();
-	int animationY = (int)endAnim.getAnimationY()*squareSide;
+	int animationY = (int)endAnim.getAnimationY();
 
-	//System.out.println(endAnim.getOpacity());
 	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, endAnim.getOpacity()));
 	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
 	g2d.dispose();

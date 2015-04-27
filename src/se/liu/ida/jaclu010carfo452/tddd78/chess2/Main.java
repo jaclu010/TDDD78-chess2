@@ -1,4 +1,4 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 /**
  * Starts the game
@@ -6,8 +6,6 @@ package chess2;
  */
 public final class Main
 {
-    private Main() {}
-
     public static void main(String[] args) {
 	ChessBoard cb = new ChessBoard();
 	cb.fillBoard();

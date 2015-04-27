@@ -1,9 +1,13 @@
-package chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Component that displays killed pieces for the players
+ * @author jaclu010, carfo452
+ */
 public class KilledPiecesComponent extends JComponent implements ChessBoardListener
 {
 
