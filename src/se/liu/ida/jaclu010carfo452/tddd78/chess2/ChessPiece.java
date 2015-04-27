@@ -12,7 +12,7 @@ public class ChessPiece
     private Boolean player = null;
     private boolean underAnimation = false;
     private PieceType pT;
-    private Ability ability;
+    private Ability ability = null;
 
     protected boolean initialPos;
 

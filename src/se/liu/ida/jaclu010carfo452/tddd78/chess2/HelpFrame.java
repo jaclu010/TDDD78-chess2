@@ -16,17 +16,16 @@ import java.util.logging.Logger;
  */
 public class HelpFrame extends JFrame
 {
-    private static final Logger LOGGER = Logger.getLogger(HelpFrame.class.getName());
-
+    private static Logger logger = Logger.getLogger(HelpFrame.class.getName());
 
     public HelpFrame() throws HeadlessException {
 	super("Help");
 	try {
-	    FileHandler fileHandler = new FileHandler("assets/helpfiles/logs/helplog.txt");
-	    LOGGER .addHandler(fileHandler);
-	    LOGGER .setLevel(Level.WARNING);
+	    FileHandler fileHandler = new FileHandler("assets/logs/helplog.txt");
+	    logger .addHandler(fileHandler);
+	    logger .setLevel(Level.ALL);
 	} catch(IOException e){
-	    LOGGER.log(Level.WARNING, "No file with that name is found", e);
+	    logger.log(Level.WARNING, "No file with that name is found", e);
 	}
 	JTextArea textArea = new JTextArea();
 	final int fontSize = 16;
@@ -53,7 +52,7 @@ public class HelpFrame extends JFrame
 		re.close();
 	    }
 	} catch (IOException e){
-	    LOGGER.log(Level.WARNING, "No file with that name is found", e);
+	    logger.log(Level.WARNING, "No file with that name is found", e);
 	    this.dispose();
 	}
 	textArea.setText(text);

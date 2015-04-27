@@ -16,9 +16,8 @@ public class ChessFrame extends JFrame implements MouseListener
 
 
     public ChessFrame(ChessBoard cB) throws HeadlessException {
+	super("Chess 2");
 	this.cB = cB;
-
-	final JFrame frame = new JFrame("Chess 2");
 
 	statusPanel = new StatusPanel(cB);
 	final ChessComponent gameArea = new ChessComponent(cB);
@@ -41,25 +40,24 @@ public class ChessFrame extends JFrame implements MouseListener
 	cB.addAnimationListener(gameArea);
 
 	gameArea.addMouseListener(this);
-	//statusPanel.addMouseListener(this);
 
 	logScroll.createVerticalScrollBar();
 
-	frame.setIconImage(GlobalVars.getIMG("W_ROOK").getImage());
+	this.setIconImage(GlobalVars.getIMG("W_ROOK").getImage());
 
 
-	frame.setLayout(new BorderLayout());
-	frame.add(statusPanel, BorderLayout.EAST);
-	frame.add(topBar, BorderLayout.PAGE_START);
-	frame.add(gameArea, BorderLayout.CENTER);
-	frame.add(killedPiecesArea, BorderLayout.WEST);
+	this.setLayout(new BorderLayout());
+	this.add(statusPanel, BorderLayout.EAST);
+	this.add(topBar, BorderLayout.PAGE_START);
+	this.add(gameArea, BorderLayout.CENTER);
+	this.add(killedPiecesArea, BorderLayout.WEST);
 
-	frame.add(logScroll, BorderLayout.SOUTH);
-	createMenues(frame);
+	this.add(logScroll, BorderLayout.SOUTH);
+	createMenues(this);
 
-	frame.pack();
-	frame.setVisible(true);
-	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	this.pack();
+	this.setVisible(true);
+	this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /**

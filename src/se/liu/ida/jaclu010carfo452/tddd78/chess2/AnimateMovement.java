@@ -16,8 +16,6 @@ public class AnimateMovement
     private Timer timer;
     private AnimateAbilityImpact endAnim;
 
-    private boolean regMo = GlobalVars.isShowRegularMoves();
-
     private static final int DELAY = 50;
     private static final int PPF = 10;
 

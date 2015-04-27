@@ -7,8 +7,8 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 public class Ability
 {
     private int cost, dmg, freezeTime, heal, knockBack;
-    private AbilityCharacteristic aC;
-    private AbilityType aT;
+    private AbilityCharacteristic aC = null;
+    private AbilityType aT = null;
 
 
     public Ability(PieceType pT) {

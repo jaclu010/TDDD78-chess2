@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Prints the log of events
+ * Prints the logs of events
  * @author jaclu010, carfo452
  */
 public class LogComponent extends JTextArea implements ChessBoardListener

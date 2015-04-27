@@ -14,9 +14,9 @@ public class RuleController
     private List<Point> possibleMoves = new ArrayList<>();
     private List<Point> healingMoves = new ArrayList<>();
     private List<Point> abilityMoves = new ArrayList<>();
-    private Boolean activePlayer;
-    private ChessPiece selected;
-    private ChessPiece[][] chessPieces;
+    private Boolean activePlayer = null;
+    private ChessPiece selected = null;
+    private ChessPiece[][] chessPieces = null;
     private int selectedY, selectedX, height = GlobalVars.getHeight(), width = GlobalVars.getWidth();
 
 

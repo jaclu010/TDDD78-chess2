@@ -1,10 +1,14 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.awt.event.MouseEvent;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The engine class that 'is' the game
@@ -18,13 +22,13 @@ public class ChessBoard
     private ChessPiece selected;
     private String logMsg = "";
     private int selectedX, selectedY, height, width, turn, targetX, targetY;
-    private Point selectedCords;
     private Collection<ChessBoardListener> chessBoardListeners = new ArrayList<>();
     private Collection<AnimationListener> animationListeners = new ArrayList<>();
     private List<ChessPiece> frozenPieces = new ArrayList<>();
     private List<ChessPiece> killedBlackPieces = new ArrayList<>();
     private List<ChessPiece> killedWhitePieces = new ArrayList<>();
     private RuleController rC;
+    private static Logger logger = Logger.getLogger(ChessBoard.class.getName());
 
     public ChessBoard() {
 	this.height = GlobalVars.getHeight();
@@ -45,6 +49,16 @@ public class ChessBoard
 		}
 	    }
 	}
+
+	try {
+	    FileHandler fileHandler = new FileHandler("assets/logs/chessBoardlog.txt");
+	    logger.addHandler(fileHandler);
+	    logger.setLevel(Level.ALL);
+	} catch(IOException e){
+	    logger.log(Level.WARNING, "No file with that name is found", e);
+	}
+
+	logger.info("ChessBoard initialised");
     }
 
     public void addAnimationListener(AnimationListener aL){
@@ -88,7 +102,6 @@ public class ChessBoard
 	    select(mouseY, mouseX);
 	    checkRules();
 
-
 	} else if (selected != null && chessPieces[mouseY][mouseX].getpT() == PieceType.EMPTY && !frozenPieces.contains(selected)){
 	    // Press on a empty piece
 	    checkRules();
@@ -103,6 +116,7 @@ public class ChessBoard
 		clearMoveLists();
 		select(mouseY, mouseX);
 		checkRules();
+
 	    }
 
 	} else if (selected != null && chessPieces[mouseY][mouseX].getpT() != PieceType.EMPTY && !frozenPieces.contains(selected)) {
@@ -116,6 +130,7 @@ public class ChessBoard
 	selected = chessPieces[y][x];
 	selectedX = x;
 	selectedY = y;
+	logger.info("A chess piece was selected");
     }
 
     public void checkRules(){
@@ -186,6 +201,7 @@ public class ChessBoard
 
     private void useLaser(){
 	hurtPiece(targetY, targetX, selected.getAbility().getDmg());
+	logger.info("The queen used her laser");
     }
 
     public void spawnProtectionForKing(){
@@ -204,6 +220,7 @@ public class ChessBoard
 
     public void healPiece(int y, int x, int heal){
 	chessPieces[y][x].doHeal(heal);
+	printHeal(y, x);
 	changeActivePlayer();
 	notifyListeners();
     }
@@ -277,27 +294,37 @@ public class ChessBoard
 
     public void printDidDMG(int y, int x, int dmg){
 	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y);
+	logger.info((selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y));
     }
 
     public void printKill(int y, int x){
 	logMsg = (selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
-	notifyListeners();
+	logger.info(selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
     }
 
     public void printPieceMovement(int y, int x){
 	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+	logger.info(selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
     }
 
     public void printProtectionMSG(int y, int x){
 	logMsg = (PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
+	logger.info(PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
     }
 
     public void printFreezeMSG(int y, int x){
 	logMsg = (selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
+	logger.info(selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
     }
 
     public void printKnockBackMSG(int y, int x, int i, int knockBack){
 	logMsg = (selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
+	logger.info(selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
+    }
+
+    private void printHeal(int y, int x){
+	logMsg = (selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
+	logger.info(selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
     }
 
     public String getLetter(int n){
@@ -351,6 +378,7 @@ public class ChessBoard
 	gameOver = false;
 	fillBoard();
 	notifyListeners();
+	logger.info("A new game was started");
     }
 
     public void changeActivePlayer(){

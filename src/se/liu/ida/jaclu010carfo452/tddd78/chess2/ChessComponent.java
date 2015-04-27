@@ -20,8 +20,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     private static final Color RED_TRANSPARENT = new Color(255, 50, 50, 90);
     private static final Color YELLOW_TRANSPARENT = new Color(255, 255, 0, 90);
     private static final Color BLUE_TRANSPARENT = new Color(10, 20, 255, 90);
-    private AnimateMovement animateMovement;
-    private AnimateAbilityImpact endAnim;
+    private AnimateMovement animateMovement = null;
+    private AnimateAbilityImpact endAnim = null;
 
 
     public ChessComponent(final ChessBoard cB) {
