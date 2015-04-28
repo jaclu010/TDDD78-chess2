@@ -6,6 +6,10 @@ import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 
 import java.util.List;
 
+/**
+ * The ability class that represents the freeze ability
+ * @author jaclu010, carfo452
+ */
 public class Freeze extends AbstractAbility
 {
 

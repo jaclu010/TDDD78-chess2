@@ -2,7 +2,6 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
 
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.*;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityCharacteristic;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateAbilityImpact;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateMovement;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
@@ -108,7 +107,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     /**
      * Draws the chess pieces
-     * @param g2d: a graphics2d that draws everything
+     * @param g2d a graphics2d that draws everything
      */
     public void drawPieces(Graphics2D g2d){
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
@@ -182,13 +181,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawAnimation(Graphics2D g2d){
-	/*
-	g2d.setColor(Color.RED);
-	int realXPosition = (int)(animateHandler.getAnimationX()*GlobalVars.getsquareside()) + GlobalVars.getsquareside()/2;
-	int realYPosition = (int)(animateHandler.getAnimationY()*GlobalVars.getsquareside() + GlobalVars.getsquareside()/2);
-	g2d.fill(new Rectangle(realXPosition, realYPosition, squareSide/10, squareSide/10));*/
-
-
 	int realYPosition = (int)(animateMovement.getAnimationY()*squareSide);
 	int realXPosition = (int)(animateMovement.getAnimationX()*squareSide);
 	boolean regMo = GlobalVars.isShowRegularMoves();

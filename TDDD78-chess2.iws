@@ -6,28 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" line="331" />
+    <bookmark url="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" line="339" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityCharacteristic.java" />
+    <list default="true" id="92acc6d8-1125-4975-a352-1c7162c9feb0" name="Default" comment="fising bugs with">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusComponent.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java" afterPath="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.ipr" afterPath="$PROJECT_DIR$/TDDD78-chess2.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TDDD78-chess2.iws" afterPath="$PROJECT_DIR$/TDDD78-chess2.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/logs/chessBoardlog.txt" afterPath="$PROJECT_DIR$/assets/logs/chessBoardlog.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/config/config.properties" afterPath="$PROJECT_DIR$/assets/config/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/helpfiles/help.txt" afterPath="$PROJECT_DIR$/assets/helpfiles/help.txt" />
     </list>
     <ignored path="TDDD78-schack2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,21 +55,61 @@
     <splitter split-orientation="horizontal" split-proportion="0.4182843">
       <split-first>
         <leaf>
-          <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="6422" max-vertical-offset="7429">
-                  <caret line="350" column="26" selection-start-line="350" selection-start-column="26" selection-end-line="350" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.567033" vertical-offset="2467" max-vertical-offset="7581">
+                  <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ChessBoardListener.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoardListener.java">
+          <file leaf-file-name="AnimateAbilityImpact.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                <state vertical-scroll-proportion="-17.034483" vertical-offset="0" max-vertical-offset="1292">
+                  <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AnimateMovement.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateMovement.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="909" max-vertical-offset="2261">
+                  <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-12.862069" vertical-offset="463" max-vertical-offset="4921">
+                  <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="957" max-vertical-offset="1558">
+                  <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="StatusPanel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusPanel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="1149" max-vertical-offset="2565">
+                  <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -90,11 +125,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GlobalVars.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/GlobalVars.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1672">
+                  <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#1262#1263#0" expanded="true" />
+                    <element signature="e#1324#1325#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/config/config.properties">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.2486911" vertical-offset="0" max-vertical-offset="764">
-                  <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -104,11 +152,102 @@
       </split-first>
       <split-second>
         <leaf>
+          <file leaf-file-name="AbilityInterface.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
+                  <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AbstractAbility.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1634">
+                  <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#430#431#0" expanded="true" />
+                    <element signature="e#455#456#0" expanded="true" />
+                    <element signature="e#572#573#0" expanded="true" />
+                    <element signature="e#600#601#0" expanded="true" />
+                    <element signature="e#657#658#0" expanded="true" />
+                    <element signature="e#685#686#0" expanded="true" />
+                    <element signature="e#712#713#0" expanded="true" />
+                    <element signature="e#732#733#0" expanded="true" />
+                    <element signature="e#774#775#0" expanded="true" />
+                    <element signature="e#799#800#0" expanded="true" />
+                    <element signature="e#827#828#0" expanded="true" />
+                    <element signature="e#853#854#0" expanded="true" />
+                    <element signature="e#894#895#0" expanded="true" />
+                    <element signature="e#924#925#0" expanded="true" />
+                    <element signature="e#953#954#0" expanded="true" />
+                    <element signature="e#979#980#0" expanded="true" />
+                    <element signature="e#1016#1017#0" expanded="true" />
+                    <element signature="e#1046#1047#0" expanded="true" />
+                    <element signature="e#1079#1080#0" expanded="true" />
+                    <element signature="e#1111#1112#0" expanded="true" />
+                    <element signature="e#1164#1165#0" expanded="true" />
+                    <element signature="e#1206#1207#0" expanded="true" />
+                    <element signature="e#1234#1235#0" expanded="true" />
+                    <element signature="e#1261#1262#0" expanded="true" />
+                    <element signature="e#1304#1305#0" expanded="true" />
+                    <element signature="e#1336#1337#0" expanded="true" />
+                    <element signature="e#1370#1371#0" expanded="true" />
+                    <element signature="e#1403#1404#0" expanded="true" />
+                    <element signature="e#1458#1459#0" expanded="true" />
+                    <element signature="e#1502#1503#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DoubleDamage.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
+                  <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Heal.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+                  <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Freeze.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+                  <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="KnockBack.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.22967033" vertical-offset="0" max-vertical-offset="910">
+                  <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Laser.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-                  <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="665">
+                  <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
                   <folding />
                 </state>
               </provider>
@@ -117,8 +256,8 @@
           <file leaf-file-name="SummonDefence.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-                  <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+                  <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
@@ -127,68 +266,18 @@
           <file leaf-file-name="RuleController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1261" max-vertical-offset="3800">
-                  <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="3800">
+                  <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ChessComponent.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java">
+          <file leaf-file-name="AbilityType.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityType.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="3256" max-vertical-offset="5073">
-                  <caret line="196" column="83" selection-start-line="196" selection-start-column="83" selection-end-line="196" selection-end-column="83" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="helplog.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/logs/helplog.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="190">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="chessBoardlog.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/assets/logs/chessBoardlog.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="817" max-vertical-offset="817">
-                  <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="help.txt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/assets/helpfiles/help.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4553928" vertical-offset="0" max-vertical-offset="751">
-                  <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StatusComponent.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusComponent.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="724" max-vertical-offset="1634">
-                  <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AnimateAbilityImpact.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1292">
-                  <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+                  <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -243,23 +332,23 @@
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Ability.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/AnimateAbilityImpact.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/AnimateMovement.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityCharacteristic.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusComponent.java" />
         <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java" />
-        <option value="$PROJECT_DIR$/assets/config/config.properties" />
-        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java" />
         <option value="$PROJECT_DIR$/assets/helpfiles/help.txt" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java" />
+        <option value="$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java" />
+        <option value="$PROJECT_DIR$/assets/config/config.properties" />
       </list>
     </option>
   </component>
@@ -337,6 +426,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="chess2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TDDD78-chess2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TDDD78-chess2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chess2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -774,12 +885,6 @@
       <workItem from="1429603981639" duration="6388000" />
       <workItem from="1429786738821" duration="5004000" />
     </task>
-    <task id="LOCAL-00015" summary="hardcoded rules, but interpreter is needed in cB">
-      <created>1425649250089</created>
-      <option name="number" value="00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1425649250089</updated>
-    </task>
     <task id="LOCAL-00016" summary="hardcoded rules, but interpreter is needed in cB">
       <created>1425650619906</created>
       <option name="number" value="00016" />
@@ -1068,7 +1173,13 @@
       <option name="project" value="LOCAL" />
       <updated>1430158771328</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="readding abilityCharacteristic and making it work">
+      <created>1430244856339</created>
+      <option name="number" value="00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1430244856340</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1107,16 +1218,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39880952" sideWeight="0.500271" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298887" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39747635" sideWeight="0.499729" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32837301" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16719243" sideWeight="0.49864498" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16719243" sideWeight="0.49864498" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14872068" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32492113" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3922179" sideWeight="0.49924925" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3911672" sideWeight="0.49924925" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1125,9 +1238,7 @@
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3291829" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39747635" sideWeight="0.499729" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32513967" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1175,7 +1286,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed buttonlistener, added easter egg" />
     <MESSAGE value="chesscomponent now shows AP over piece" />
     <MESSAGE value="you can now set guiTheme in global vars, reference to unique folder with all pics" />
     <MESSAGE value="added freeze/laser ability" />
@@ -1200,11 +1310,12 @@
     <MESSAGE value="added rulecontroller" />
     <MESSAGE value=" added loggers for chessboard and did some clean up" />
     <MESSAGE value="some clean up and adding off assertions" />
-    <option name="LAST_COMMIT_MESSAGE" value="some clean up and adding off assertions" />
+    <MESSAGE value="readding abilityCharacteristic and making it work" />
+    <option name="LAST_COMMIT_MESSAGE" value="readding abilityCharacteristic and making it work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="52" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1316,22 +1427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/GlobalVars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1672">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/PieceType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1026">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessPiece.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="1596">
@@ -1344,106 +1439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8774105" vertical-offset="617" max-vertical-offset="1368">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="418">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7378" max-vertical-offset="8170">
-          <caret line="350" column="26" selection-start-line="350" selection-start-column="26" selection-end-line="350" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityCharacteristic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1045">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-          <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1261" max-vertical-offset="3800">
-          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1471,22 +1466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1292">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3256" max-vertical-offset="5073">
-          <caret line="196" column="83" selection-start-line="196" selection-start-column="83" selection-end-line="196" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/logs/helplog.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="190">
@@ -1503,26 +1482,204 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java">
+    <entry file="file://$PROJECT_DIR$/assets/helpfiles/help.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="532">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/PieceType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1026">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityCharacteristic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbilityType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/AbstractAbility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1634">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+            <element signature="e#953#954#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1234#1235#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1304#1305#0" expanded="true" />
+            <element signature="e#1336#1337#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1458#1459#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/DoubleDamage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Freeze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Laser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="665">
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/SummonDefence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/Heal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateAbilityImpact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.034483" vertical-offset="0" max-vertical-offset="1292">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="957" max-vertical-offset="1558">
+          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/StatusPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1149" max-vertical-offset="2565">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/GlobalVars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1672">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding>
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/animation/AnimateMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="909" max-vertical-offset="2261">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/rules/RuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="3800">
+          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/abilities/KnockBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22967033" vertical-offset="0" max-vertical-offset="910">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/gui/ChessComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.862069" vertical-offset="463" max-vertical-offset="4921">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/config/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2486911" vertical-offset="0" max-vertical-offset="764">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="399">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/helpfiles/help.txt">
+    <entry file="file://$PROJECT_DIR$/src/se/liu/ida/jaclu010carfo452/tddd78/chess2/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4553928" vertical-offset="0" max-vertical-offset="751">
-          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.567033" vertical-offset="2467" max-vertical-offset="7581">
+          <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
           <folding />
         </state>
       </provider>

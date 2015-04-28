@@ -5,6 +5,10 @@ import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 
 import java.util.List;
 
+/**
+ * The ability class that represents the laser ability
+ * @author jaclu010, carfo452
+ */
 public class Laser extends AbstractAbility
 {
     public Laser() {

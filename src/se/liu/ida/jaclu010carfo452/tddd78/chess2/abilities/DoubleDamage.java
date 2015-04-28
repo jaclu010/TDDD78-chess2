@@ -5,9 +5,12 @@ import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 
 import java.util.List;
 
+/**
+ * The ability class that represents the double damage ability
+ * @author jaclu010, carfo452
+  */
 public class DoubleDamage extends AbstractAbility
 {
-
     public DoubleDamage() {
         setDmg(2);
         setCost(2);

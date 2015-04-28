@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-04-28T20:13:12</date>
-  <millis>1430244792561</millis>
+  <date>2015-04-28T21:05:01</date>
+  <millis>1430247901612</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -11,27 +11,5 @@
   <method>&lt;init&gt;</method>
   <thread>1</thread>
   <message>ChessBoard initialised</message>
-</record>
-<record>
-  <date>2015-04-28T20:13:14</date>
-  <millis>1430244794650</millis>
-  <sequence>1</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>16</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-28T20:13:15</date>
-  <millis>1430244795769</millis>
-  <sequence>2</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>16</thread>
-  <message>PAWN from: D2 -&gt; D4</message>
 </record>
 </log>

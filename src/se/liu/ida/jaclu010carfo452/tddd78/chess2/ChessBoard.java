@@ -153,11 +153,19 @@ public class ChessBoard
 
     private void useAbility(int y, int x) {
 	List<Point> abilityMoves = rC.getAbilityMoves();
-	abilityMoves.stream().filter(possibleAbilityMove -> possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y)
+	for (Point abilityMove : abilityMoves) {
+	    if(abilityMove.getX() == x && abilityMove.getY() == y){
+		payCost();
+		notifyAnimationListeners();
+		break;
+	    }
+	}
+	/*abilityMoves.stream().filter(possibleAbilityMove -> possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y)
 		.forEach(possibleAbilityMove -> {
 		    payCost();
 		    notifyAnimationListeners();
 		});
+		*/
 	notifyListeners();
     }
 
@@ -247,7 +255,7 @@ public class ChessBoard
     }
 
     private void checkForKill(int y, int x, int dmg){
-	if (board[y][x].getHP() <= 0){
+	if (board[y][x].getpT() != PieceType.EMPTY && board[y][x].getHP() <= 0){
 	    if (board[y][x].getPlayer()){
 		killedWhitePieces.add(board[y][x]);
 	    } else {

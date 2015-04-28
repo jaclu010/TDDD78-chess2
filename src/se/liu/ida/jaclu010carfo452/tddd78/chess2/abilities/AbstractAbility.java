@@ -1,5 +1,10 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 
+
+/**
+ * The abstract class that represents abilities
+ * @author jaclu010, carfo452
+ */
 public abstract class AbstractAbility implements AbilityInterface
 {
     private int cost, dmg = 0, heal = 0, knockBack = 0, freezeTime = 0;
