@@ -1,16 +1,23 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.DoubleDamage;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Freeze;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Heal;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.KnockBack;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Laser;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.SummonDefence;
+
 /**
  * Creates a Chesspiece with variables depending on PieceType
  * @author jaclu010, carfo452
  */
-public class ChessPiece implements BoardPieceInterface
+public class ChessPiece
 {
     private int hP, aP, freezeTime;
     private Boolean player = null;
     private boolean underAnimation = false;
     private PieceType pT;
-    private Ability ability = null;
+    private AbstractAbility ability = null;
     private boolean initialPos;
 
     /**
@@ -24,7 +31,8 @@ public class ChessPiece implements BoardPieceInterface
         this.hP = decideHP(pT);
         this.aP = GlobalVars.getaP();
         this.initialPos = true;
-        this.ability = Ability.getAbility(pT);
+        this.ability = decideAbility(pT);
+        //this.ability = Ability.getAbility(pT);
         this.freezeTime = 0;
     }
 
@@ -48,6 +56,25 @@ public class ChessPiece implements BoardPieceInterface
             case OUTSIDE: return 0;
             default: return 0;
         }
+    }
+
+    private AbstractAbility decideAbility(PieceType pT){
+        switch(pT){
+            case PAWN: return new DoubleDamage();
+            case BISHOP: return new Heal();
+            case KNIGHT: return new KnockBack();
+            case ROOK: return new Freeze();
+            case QUEEN: return new Laser();
+            case KING: return new SummonDefence();
+            case EMPTY: return null;
+            case OUTSIDE: return null;
+            default: return null;
+        }
+    }
+
+    public void useAbility(int y, int x){
+        ability.use(y,x);
+
     }
 
     public Iterable<Rule> fetchRules(){
@@ -86,11 +113,11 @@ public class ChessPiece implements BoardPieceInterface
         this.hP += heal;
     }
 
-    @Override public void setaP(final int aP) {
+    public void setaP(final int aP) {
         this.aP += aP;
     }
 
-    public Ability getAbility() {
+    public AbstractAbility getAbility() {
         return ability;
     }
 
