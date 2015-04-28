@@ -1,11 +1,14 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbstractAbility;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.DoubleDamage;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Freeze;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Heal;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.KnockBack;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.Laser;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.SummonDefence;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Rule;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.RuleList;
 
 /**
  * Creates a Chesspiece with variables depending on PieceType
@@ -70,11 +73,6 @@ public class ChessPiece
             case OUTSIDE: return null;
             default: return null;
         }
-    }
-
-    public void useAbility(int y, int x){
-        ability.use(y,x);
-
     }
 
     public Iterable<Rule> fetchRules(){

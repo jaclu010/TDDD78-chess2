@@ -1,10 +1,15 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.*;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateAbilityImpact;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateMovement;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-import java.util.Random;
 
 /**
  * The component that paints the Chessboard
@@ -138,14 +143,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawPossibleMoves(Graphics2D g2d){
-	Iterable<Point> possibleMoves = cB.getRC().getPossibleMoves();
-	Iterable<Point> abilityMoves = cB.getRC().getAbilityMoves();
+	Iterable<se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point> possibleMoves = cB.getRC().getPossibleMoves();
+	Iterable<se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point> abilityMoves = cB.getRC().getAbilityMoves();
 
 	// Colors the possible places for the selected piece to move
 	if(GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(GREEN_TRANSPARENT);
 	    if (possibleMoves != null) {
-		for (Point possibleMove : possibleMoves) {
+		for (se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point possibleMove : possibleMoves) {
 		    g2d.fill(new Rectangle(possibleMove.getX() * squareSide, possibleMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
@@ -155,7 +160,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	if(!GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
-		for (Point abilityMove : abilityMoves) {
+		for (se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point abilityMove : abilityMoves) {
 		    g2d.fill(new Rectangle(abilityMove.getX() * squareSide, abilityMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
@@ -187,7 +192,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	boolean regMo = GlobalVars.isShowRegularMoves();
 	ChessPiece selected = cB.getSelected();
 
-	if (regMo || selected.getAbility().getAC() != AbilityCharacteristic.SPECIAL) {
+	if (regMo || selected.getAbility().getAT() != AbilityType.LASER || selected.getAbility().getAT() != AbilityType.SUMMON_DEFENCE) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
 	} else if(selected.getpT() == PieceType.QUEEN){
 	    drawLaser(g2d);

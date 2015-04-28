@@ -1,30 +1,27 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityCharacteristic;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityType;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbstractAbility;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
+
+import java.util.List;
 
 public class DoubleDamage extends AbstractAbility
 {
-    private int dmg;
 
     public DoubleDamage() {
-        this.dmg = 2;
+        setDmg(2);
         setCost(2);
-        setaC(AbilityCharacteristic.OFFENSIVE);
         setaT(AbilityType.DOUBLE_DAMAGE);
     }
 
-    public int getDmg() {
-        return dmg;
-    }
+    @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
+        int y = targetCoords.getY();
+        int x = targetCoords.getX();
+        board[y][x].doDMG(getDmg());
 
-    @Override public void use(int y, int x, ChessPiece[][] board) {
+        setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+" used Double Damage on "+
+               board[y][x].getpT().name());
 
-    }
-
-    @Override public void rule() {
-
+        return board;
     }
 }

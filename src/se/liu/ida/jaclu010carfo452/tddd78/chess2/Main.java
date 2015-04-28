@@ -1,5 +1,7 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.gui.ChessFrame;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

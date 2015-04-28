@@ -1,36 +1,31 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityCharacteristic;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityType;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbstractAbility;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
+
+import java.util.List;
 
 public class KnockBack extends AbstractAbility
 {
-    private int knockBack;
-
     public KnockBack() {
-	this.knockBack = 2;
+	setKnockBack(2);
 	setCost(2);
-	setaC(AbilityCharacteristic.OFFENSIVE);
 	setaT(AbilityType.KNOCK_BACK);
     }
 
-    public int getKnockBack() {
-	return knockBack;
-    }
-
-    @Override public void use(int y, int x, ChessPiece[][] board) {
+    @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
+	int y = targetCoords.getY();
+	int x = targetCoords.getX();
 	int i = 1;
-	if() i = -1;
-	board[y+i*knockBack][x] = board[y][x];
+	if(board[selectedCoords.getY()][selectedCoords.getX()].getPlayer()) i = -1;
+	board[y+i*getKnockBack()][x] = board[y][x];
 	board[y][x] = new ChessPiece(PieceType.EMPTY);
 
-	printKnockBackMSG(y, x, i, knockBack);
-    }
+	setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+ " knocked back "
+	       + board[y+i*getKnockBack()][x].getpT().name()+" to "+ GlobalVars.getLetter(x) + (GlobalVars.getHeight() - 1 - (y + i * getKnockBack())));
 
-    @Override public void rule() {
-
+	return board;
     }
 }

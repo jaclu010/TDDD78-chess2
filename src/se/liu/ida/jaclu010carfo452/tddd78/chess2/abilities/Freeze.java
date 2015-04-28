@@ -1,31 +1,36 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityCharacteristic;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityType;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbstractAbility;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
+
+import java.util.List;
 
 public class Freeze extends AbstractAbility
 {
-    int frezzeTime;
+    int freezeTime;
 
     public Freeze() {
-	this.frezzeTime = 6;
+	this.freezeTime = 6;
 	setCost(2);
-	setaC(AbilityCharacteristic.OFFENSIVE);
 	setaT(AbilityType.FREEZE);
     }
 
-    public int getFrezzeTime() {
-	return frezzeTime;
+    public int getFreezeTime() {
+	return freezeTime;
     }
 
-    @Override public void use(int y, int x, ChessPiece[][] board) {
+    @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
+        int y = targetCoords.getY();
+        int x = targetCoords.getX();
+        board[y][x].setFreezeTime(freezeTime);
 
-    }
+        setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+" froze "+
+                board[y][x].getpT().name()+" for "+freezeTime+" turns at "+ GlobalVars.getLetter(x) + (GlobalVars.getHeight()-1-y));
 
-    @Override public void rule() {
+    	//printFreezeMSG(y, x);
 
+        return board;
     }
 }
 

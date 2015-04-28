@@ -1,4 +1,11 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoardListener;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbstractAbility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +46,7 @@ public class StatusComponent extends JComponent implements ChessBoardListener
 	ChessPiece selected = cB.getSelected();
 
 	if (selected != null) {
-	    Ability selectedAbility = selected.getAbility();
+	    AbstractAbility selectedAbility = selected.getAbility();
 	    final int fontSize = 12;
 	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	    g2d.drawString("Selected Piece: ", squareSide/2, squareSide);

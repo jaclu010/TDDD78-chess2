@@ -10,7 +10,7 @@ public final class GlobalVars
 {
     private static int squareSide = 70;
     private static final int CHAR_ADD = 64;
-    private static int width = 10, height = 10, aP = 0;
+    private static int width = 10, height = 10, abilityPoints = 0;
     private static boolean showRegularMoves = true;
     private static String guiTheme = "original";
     private static boolean animationRunning = false;
@@ -105,10 +105,16 @@ public final class GlobalVars
     }
 
     public static int getaP() {
-        return aP;
+        return abilityPoints;
     }
 
     public static void setaP(final int aP) {
-        GlobalVars.aP = aP;
+        GlobalVars.abilityPoints = aP;
+    }
+
+    public static String getLetter(int n){
+	n += CHAR_ADD;
+        char a = (char) n;
+	return Character.toString(a);
     }
 }

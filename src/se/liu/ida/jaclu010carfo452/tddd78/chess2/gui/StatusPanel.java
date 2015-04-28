@@ -1,4 +1,10 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoardListener;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.Objects;
 
 /**
- * A holder for {@link se.liu.ida.jaclu010carfo452.tddd78.chess2.StatusComponent} and ingame buttons
+ * A holder for {@link StatusComponent} and ingame buttons
  * @author jaclu010, carfo452
  */
 public class StatusPanel extends JPanel implements ChessBoardListener
@@ -55,7 +61,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 		    cB.notifyListeners();
 		}
 	    } else if (event.getSource().equals(useAbility)){
-		cB.spawnProtectionForKing();
+		cB.executeAbilityModifiers();
 	    } else if (event.getSource().equals(changePlayer)){
 		cB.changeActivePlayer();
 	    } else if (event.getSource().equals(showPossible)){

@@ -1,4 +1,9 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.animation;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.gui.ChessComponent;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

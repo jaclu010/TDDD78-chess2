@@ -1,5 +1,9 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.RuleController;
+
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -191,48 +195,18 @@ public class ChessBoard
 	    */
 	}
     }
-    private void executeAbilityModifiers(){
-	board = selected.getAbility().use(targetCoords.getY(), targetCoords.getX(), board)
-    }
-
-    private void knockBack(int y, int x, int knockBack){
-	int i = 1;
-	if(activePlayer) i = -1;
-	board[y+i*knockBack][x] = board[y][x];
-	board[y][x] = new ChessPiece(PieceType.EMPTY);
-
-	printKnockBackMSG(y, x, i, knockBack);
-	changeActivePlayer();
+    public void executeAbilityModifiers(){
+	board = selected.getAbility().use(targetCoords, selectedCoords, board, rC.getAbilityMoves());
+	printAbility();
+	checkForKill(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
+	checkForFreeze();
 	notifyListeners();
     }
 
-    private void freezePiece(int y, int x, int freezeTime){
-	board[y][x].setFreezeTime(freezeTime);
-	frozenPieces.add(board[y][x]);
-	printFreezeMSG(y, x);
-	changeActivePlayer();
-    }
-
-    private void useLaser(){
-	hurtPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
-	logger.info("The queen used her laser");
-    }
-
-    public void spawnProtectionForKing(){
-	List<Point> abilityMoves = rC.getAbilityMoves();
-	for (Point abilityMove : abilityMoves) {
-	    board[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
+    private void checkForFreeze(){
+	if(board[targetCoords.getY()][targetCoords.getX()].getFreezeTime() > 0){
+	    frozenPieces.add(board[targetCoords.getY()][targetCoords.getX()]);
 	}
-	printProtectionMSG(selectedCoords.getY(), selectedCoords.getX());
-	changeActivePlayer();
-	notifyListeners();
-    }
-
-    private void healPiece(int y, int x, int heal) {
-	board[y][x].doHeal(heal);
-	printHeal(y, x);
-	changeActivePlayer();
-	notifyListeners();
     }
 
     private void payCost(){
@@ -269,6 +243,10 @@ public class ChessBoard
 	if(GlobalVars.isShowRegularMoves()){
 	    selected.setaP(1);
 	}
+	checkForKill(y, x, dmg);
+    }
+
+    private void checkForKill(int y, int x, int dmg){
 	if (board[y][x].getHP() <= 0){
 	    if (board[y][x].getPlayer()){
 		killedWhitePieces.add(board[y][x]);
@@ -289,9 +267,12 @@ public class ChessBoard
 		movePiece(y, x);
 	    }
 	} else {
-	    printDidDMG(y, x, dmg);
+	    if (dmg > 0) {
+		printDidDMG(y, x, dmg);
+	    }
 	    changeActivePlayer();
 	}
+
     }
 
     private void updateFrozenPieces(){
@@ -307,47 +288,27 @@ public class ChessBoard
 	frozenPieces = stillFrozen;
     }
 
+    private void printAbility(){
+	logMsg = selected.getAbility().getMsg();
+	logger.info(logMsg);
+	notifyListeners();
+    }
     private void printDidDMG(int y, int x, int dmg){
-	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ board[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y);
+	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ board[y][x].getpT().name())+ " at "+ GlobalVars.getLetter(
+		x) + (height-1-y);
 	logger.info(logMsg);
     }
 
     private void printKill(int y, int x){
-	logMsg = (selected.getpT().name()+ " killed "+ board[y][x].getpT().name());
+	logMsg = (selected.getpT().name()+ " killed "+ board[y][x].getpT().name() + " at "+ GlobalVars.getLetter(
+			x) + (height-1-y));
 	logger.info(logMsg);
     }
 
     private void printPieceMovement(int y, int x){
-	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedCoords.getX())+ (width-1- selectedCoords.getY())+ " -> " + getLetter(x) + (height-1-y));
+	logMsg = (selected.getpT().name()+" from: "+ GlobalVars.getLetter(selectedCoords.getX())+ (width-1- selectedCoords.getY())+ " -> " + GlobalVars.getLetter(
+		x) + (height-1-y));
 	logger.info(logMsg);
-    }
-
-    private void printProtectionMSG(int y, int x){
-	logMsg = (PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
-	logger.info(logMsg);
-    }
-
-    private void printFreezeMSG(int y, int x){
-	logMsg = (selected.getpT().name()+" froze "+ board[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
-	logger.info(logMsg);
-    }
-
-    private void printKnockBackMSG(int y, int x, int i, int knockBack){
-	logMsg = (selected.getpT().name()+" knocked back "+ board[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x) +
-		  (height - 1 - (y + i * knockBack)));
-	logger.info(logMsg);
-    }
-
-    private void printHeal(int y, int x){
-	logMsg = (selected.getpT().name()+" healed "+  board[y][x].getpT().name()+" for "+
-		  selected.getAbility().getHeal() + " HP");
-	logger.info(logMsg);
-    }
-
-    private String getLetter(int n){
-	n += GlobalVars.getcharadd();
-	char a = (char) n;
-	return Character.toString(a);
     }
 
     public void fillBoard(){

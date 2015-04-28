@@ -1,4 +1,9 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.rules;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
 
 import java.util.ArrayList;
 import java.util.Collection;

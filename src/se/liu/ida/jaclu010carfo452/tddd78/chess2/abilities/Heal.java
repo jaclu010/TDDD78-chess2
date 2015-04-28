@@ -1,9 +1,9 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityCharacteristic;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbilityType;
-import se.liu.ida.jaclu010carfo452.tddd78.chess2.AbstractAbility;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
+
+import java.util.List;
 
 public class Heal extends AbstractAbility
 {
@@ -12,7 +12,6 @@ public class Heal extends AbstractAbility
     public Heal() {
 	this.heal = 2;
 	setCost(2);
-	setaC(AbilityCharacteristic.DEFENSIVE);
 	setaT(AbilityType.HEAL);
     }
 
@@ -20,11 +19,14 @@ public class Heal extends AbstractAbility
 	return heal;
     }
 
-    @Override public void use(int y, int x, ChessPiece[][] board) {
+    @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
+        int y = targetCoords.getY();
+        int x = targetCoords.getX();
+        board[y][x].doHeal(heal);
 
-    }
+    	setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+
+               " healed "+  board[y][x].getpT().name()+ " for " + heal + " HP");
 
-    @Override public void rule() {
-
+        return board;
     }
 }

@@ -1,4 +1,4 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.animation;
 
 /**
  * Used to call for an animation, e.g when a piece is to be moved

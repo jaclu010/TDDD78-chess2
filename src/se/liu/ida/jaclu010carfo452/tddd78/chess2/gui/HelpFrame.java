@@ -1,4 +1,4 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
 
 import javax.swing.*;
 import java.awt.*;

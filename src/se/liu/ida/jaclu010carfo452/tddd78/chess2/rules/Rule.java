@@ -1,7 +1,9 @@
-package se.liu.ida.jaclu010carfo452.tddd78.chess2;
+package se.liu.ida.jaclu010carfo452.tddd78.chess2.rules;
+
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
 
 /**
- * Defines a rule for a ChessPiece
+ * Defines a updateMsg for a ChessPiece
  * @author jaclu010, carfo452
  */
 public class Rule
