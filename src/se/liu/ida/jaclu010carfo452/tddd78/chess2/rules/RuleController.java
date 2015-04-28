@@ -65,10 +65,10 @@ public class RuleController
 
     public void checkByAbility(){
 	if(selected.getaP() >= selected.getAbility().getCost() && abilityMoves.isEmpty()) {
-	    switch (selected.getAbility().getAC()) {
+	    switch (selected.getAbility().getaC()) {
 		case OFFENSIVE:
 		    checkByPossibleMoves();
-		    if(selected.getAbility().getAT().equals(AbilityType.KNOCK_BACK)){
+		    if(selected.getAbility().getaT().equals(AbilityType.KNOCK_BACK)){
 			checkForKnockBack();
 		    }
 		    break;

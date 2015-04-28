@@ -12,6 +12,7 @@ public class DoubleDamage extends AbstractAbility
         setDmg(2);
         setCost(2);
         setaT(AbilityType.DOUBLE_DAMAGE);
+        setaC(AbilityCharacteristic.OFFENSIVE);
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {

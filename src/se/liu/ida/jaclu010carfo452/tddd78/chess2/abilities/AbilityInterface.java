@@ -9,7 +9,9 @@ public interface AbilityInterface
 {
     public void setaT(final AbilityType aT);
 
-    public AbilityType getAT();
+    public AbilityCharacteristic getaC();
+
+    public AbilityType getaT();
 
     public int getCost();
 

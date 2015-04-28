@@ -13,6 +13,7 @@ public class Heal extends AbstractAbility
 	this.heal = 2;
 	setCost(2);
 	setaT(AbilityType.HEAL);
+        setaC(AbilityCharacteristic.DEFENSIVE);
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {

@@ -13,6 +13,7 @@ public class Freeze extends AbstractAbility
 	setFreezeTime(6);
 	setCost(2);
 	setaT(AbilityType.FREEZE);
+        setaC(AbilityCharacteristic.OFFENSIVE);
     }
 
 

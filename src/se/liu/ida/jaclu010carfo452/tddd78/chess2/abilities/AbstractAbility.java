@@ -5,13 +5,23 @@ public abstract class AbstractAbility implements AbilityInterface
     private int cost, dmg = 0, heal = 0, knockBack = 0, freezeTime = 0;
     private String msg = "";
     private AbilityType aT = null;
+    private AbilityCharacteristic aC = null;
 
-    public AbilityType getAT() {
-            return aT;
-        }
+    public AbilityType getaT() {
+        return aT;
+    }
+
+    public AbilityCharacteristic getaC() {
+        return aC;
+
+    }
 
     public void setaT(final AbilityType aT) {
         this.aT = aT;
+    }
+
+    public void setaC(final AbilityCharacteristic aC) {
+        this.aC = aC;
     }
 
     public int getCost(){

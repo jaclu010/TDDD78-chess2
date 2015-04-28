@@ -15,8 +15,8 @@
 	on the "Switch move/abilty" button to change to ability mode and then
 	press on one of the light up yellow squares to use the ability.
 
-	You can change the size of the game by changing the static
-	int SQUARE_SIDE in the class GlobalVars.
+	You can change the size of the game by changing the variable
+	gui.squareSide in the configuration file config.properties
 
 	The game ends when you kill the enemy's king.
 

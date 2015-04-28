@@ -11,6 +11,7 @@ public class Laser extends AbstractAbility
 	setDmg(3);
 	setCost(3);
 	setaT(AbilityType.LASER);
+        setaC(AbilityCharacteristic.SPECIAL);
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {

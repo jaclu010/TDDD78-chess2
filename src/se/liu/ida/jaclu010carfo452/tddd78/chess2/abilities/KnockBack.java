@@ -13,6 +13,7 @@ public class KnockBack extends AbstractAbility
 	setKnockBack(2);
 	setCost(2);
 	setaT(AbilityType.KNOCK_BACK);
+	setaC(AbilityCharacteristic.OFFENSIVE);
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {

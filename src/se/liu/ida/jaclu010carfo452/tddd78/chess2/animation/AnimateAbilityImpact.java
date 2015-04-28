@@ -24,7 +24,7 @@ public class AnimateAbilityImpact
 
     public AnimateAbilityImpact(ChessComponent gameArea, ChessBoard cB) {
         animationY = cB.getTargetCoords().getY() * GlobalVars.getsquareside();
-        ability = cB.getSelected().getAbility().getAT().name();
+        ability = cB.getSelected().getAbility().getaT().name();
 
         final Action doEndAnim = new AbstractAction()
         {

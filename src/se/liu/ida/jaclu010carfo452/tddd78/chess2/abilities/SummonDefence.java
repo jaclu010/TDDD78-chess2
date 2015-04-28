@@ -13,6 +13,7 @@ public class SummonDefence extends AbstractAbility
     public SummonDefence() {
 	setCost(3);
 	setaT(AbilityType.SUMMON_DEFENCE);
+        setaC(AbilityCharacteristic.SPECIAL);
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
