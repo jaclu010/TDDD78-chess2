@@ -15,10 +15,6 @@ public class Heal extends AbstractAbility
 	setaT(AbilityType.HEAL);
     }
 
-    public int getHeal() {
-	return heal;
-    }
-
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
         int y = targetCoords.getY();
         int x = targetCoords.getX();

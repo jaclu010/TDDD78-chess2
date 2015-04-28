@@ -5,6 +5,7 @@ import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateAbilityImpact;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateMovement;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 
 import javax.swing.*;
 import java.awt.*;
@@ -143,14 +144,14 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     private void drawPossibleMoves(Graphics2D g2d){
-	Iterable<se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point> possibleMoves = cB.getRC().getPossibleMoves();
-	Iterable<se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point> abilityMoves = cB.getRC().getAbilityMoves();
+	Iterable<Point> possibleMoves = cB.getRC().getPossibleMoves();
+	Iterable<Point> abilityMoves = cB.getRC().getAbilityMoves();
 
 	// Colors the possible places for the selected piece to move
 	if(GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(GREEN_TRANSPARENT);
 	    if (possibleMoves != null) {
-		for (se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point possibleMove : possibleMoves) {
+		for (Point possibleMove : possibleMoves) {
 		    g2d.fill(new Rectangle(possibleMove.getX() * squareSide, possibleMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
@@ -160,7 +161,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	if(!GlobalVars.isShowRegularMoves()) {
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
-		for (se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point abilityMove : abilityMoves) {
+		for (Point abilityMove : abilityMoves) {
 		    g2d.fill(new Rectangle(abilityMove.getX() * squareSide, abilityMove.getY() * squareSide, squareSide, squareSide));
 		}
 	    }
