@@ -21,11 +21,11 @@ public class RuleController
     private int selectedY, selectedX, height = GlobalVars.getHeight(), width = GlobalVars.getWidth();
 
 
-    public void updateVars(ChessPiece[][] chessPieces, ChessPiece selectedPiece, int selectedY, int selectedX, Boolean activePlayer){
+    public void updateVars(ChessPiece[][] chessPieces, ChessPiece selectedPiece, Point selectedCoords, Boolean activePlayer){
 	this.chessPieces = chessPieces;
 	this.selected = selectedPiece;
-	this.selectedX = selectedX;
-	this.selectedY = selectedY;
+	this.selectedX = selectedCoords.getX();
+	this.selectedY = selectedCoords.getY();
 	this.activePlayer = activePlayer;
     }
 
@@ -35,8 +35,8 @@ public class RuleController
 	possibleMoves.clear();
     }
 
-    public void checkRules(ChessPiece[][] chessPieces, ChessPiece selectedPiece, int selectedY, int selectedX, Collection<ChessPiece> frozenPieces, Boolean activePlayer){
-	updateVars(chessPieces, selectedPiece, selectedY, selectedX, activePlayer);
+    public void checkRules(ChessPiece[][] chessPieces, ChessPiece selectedPiece, Point selectedCoords, Collection<ChessPiece> frozenPieces, Boolean activePlayer){
+	updateVars(chessPieces, selectedPiece, selectedCoords, activePlayer);
 
 	if(!frozenPieces.contains(selected)) {
 	    checkByRules();

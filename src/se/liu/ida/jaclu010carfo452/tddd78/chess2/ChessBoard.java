@@ -21,7 +21,9 @@ public class ChessBoard
     private ChessPiece[][] chessPieces;
     private ChessPiece selected;
     private String logMsg = "";
-    private int selectedX, selectedY, height, width, turn, targetX, targetY;
+    private int height, width, turn;
+    private Point selectedCoords = new Point(0,0);
+    private Point targetCoords = new Point(0,0);
     private Collection<ChessBoardListener> chessBoardListeners;
     private Collection<AnimationListener> animationListeners;
     private List<ChessPiece> frozenPieces;
@@ -44,7 +46,6 @@ public class ChessBoard
 	this.frozenPieces = new ArrayList<>();
 	this.killedBlackPieces = new ArrayList<>();
 	this.killedWhitePieces = new ArrayList<>();
-	fillBoard();
 
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
@@ -55,6 +56,7 @@ public class ChessBoard
 		}
 	    }
 	}
+	fillBoard();
 
 	try {
 	    FileHandler fileHandler = new FileHandler("assets/logs/chessBoardlog.txt");
@@ -134,14 +136,14 @@ public class ChessBoard
 
     private void select(int y, int x){
 	selected = chessPieces[y][x];
-	selectedX = x;
-	selectedY = y;
+	selectedCoords.setX(x);
+	selectedCoords.setY(y);
 	assert selected != null: "Internal error: Selected is null";
 	logger.info("A chess piece was selected");
     }
 
     public void checkRules(){
-	rC.checkRules(chessPieces, selected, selectedY, selectedX, frozenPieces, activePlayer);
+	rC.checkRules(chessPieces, selected, selectedCoords, frozenPieces, activePlayer);
 	notifyListeners();
     }
 
@@ -157,24 +159,24 @@ public class ChessBoard
 
     public void chooseEndAction(){
     	if (GlobalVars.isShowRegularMoves()) {
-	    if (chessPieces[targetY][targetX].getpT() == PieceType.EMPTY) {
-		movePiece(targetY, targetX);
+	    if (chessPieces[targetCoords.getY()][targetCoords.getX()].getpT() == PieceType.EMPTY) {
+		movePiece(targetCoords.getY(), targetCoords.getX());
 	    } else {
-		hurtPiece(targetY, targetX, 1);
+		hurtPiece(targetCoords.getY(), targetCoords.getX(), 1);
 	    }
 	} else {
 	    switch (selected.getAbility().getAC()) {
 		case OFFENSIVE:
 		    if (selected.getAbility().getFreezeTime() > 0) {
-			freezePiece(targetY, targetX, selected.getAbility().getFreezeTime());
+			freezePiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getFreezeTime());
 		    } else if (selected.getAbility().getKnockBack() > 0) {
-			knockBack(targetY, targetX, selected.getAbility().getKnockBack());
+			knockBack(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getKnockBack());
 		    } else {
-			hurtPiece(targetY, targetX, selected.getAbility().getDmg());
+			hurtPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
 		    }
 		    break;
 		case DEFENSIVE:
-		    healPiece(targetY, targetX, selected.getAbility().getHeal());
+		    healPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getHeal());
 		    break;
 		case SPECIAL:
 		    if (selected.getpT() == PieceType.KING) {
@@ -206,7 +208,7 @@ public class ChessBoard
     }
 
     private void useLaser(){
-	hurtPiece(targetY, targetX, selected.getAbility().getDmg());
+	hurtPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
 	logger.info("The queen used her laser");
     }
 
@@ -215,7 +217,7 @@ public class ChessBoard
 	for (Point abilityMove : abilityMoves) {
 	    chessPieces[abilityMove.getY()][abilityMove.getX()] = new ChessPiece(activePlayer, PieceType.PAWN);
 	}
-	printProtectionMSG(selectedY, selectedX);
+	printProtectionMSG(selectedCoords.getY(), selectedCoords.getX());
 	changeActivePlayer();
 	notifyListeners();
     }
@@ -232,8 +234,8 @@ public class ChessBoard
     }
 
     private void updateTarget(int y, int x){
-	targetX = x;
-	targetY = y;
+	targetCoords.setY(y);
+	targetCoords.setX(x);
     }
 
     private void pieceAction(int y, int x){
@@ -251,7 +253,7 @@ public class ChessBoard
     private void movePiece(int y, int x){
 	selected.setInitialPos(false);
 	chessPieces[y][x] = selected;
-	chessPieces[selectedY][selectedX] = new ChessPiece(PieceType.EMPTY);
+	chessPieces[selectedCoords.getY()][selectedCoords.getX()] = new ChessPiece(PieceType.EMPTY);
 	printPieceMovement(y, x);
 	changeActivePlayer();
     }
@@ -310,7 +312,7 @@ public class ChessBoard
     }
 
     private void printPieceMovement(int y, int x){
-	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedCoords.getX())+ (width-1- selectedCoords.getY())+ " -> " + getLetter(x) + (height-1-y));
 	logger.info(logMsg);
     }
 
@@ -411,20 +413,12 @@ public class ChessBoard
 	return selected;
     }
 
-    public int getSelectedX() {
-	return selectedX;
+    public Point getSelectedCoords() {
+	return selectedCoords;
     }
 
-    public int getSelectedY() {
-    	return selectedY;
-    }
-
-    public int getTargetX() {
-	return targetX;
-    }
-
-    public int getTargetY() {
-	return targetY;
+    public Point getTargetCoords() {
+	return targetCoords;
     }
 
     public boolean isGameOver() {

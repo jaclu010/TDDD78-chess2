@@ -19,7 +19,7 @@ public class AnimateAbilityImpact
     private static final float OPF = 0.05f;
 
     public AnimateAbilityImpact(ChessComponent gameArea, ChessBoard cB) {
-        animationY = cB.getTargetY() * GlobalVars.getsquareside();
+        animationY = cB.getTargetCoords().getY() * GlobalVars.getsquareside();
         ability = cB.getSelected().getAbility().getAT().name();
 
         final Action doEndAnim = new AbstractAction()

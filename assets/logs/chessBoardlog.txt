@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-04-28T11:27:05</date>
-  <millis>1430213225552</millis>
+  <date>2015-04-28T12:06:22</date>
+  <millis>1430215582102</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -11,5 +11,137 @@
   <method>&lt;init&gt;</method>
   <thread>1</thread>
   <message>ChessBoard initialised</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:24</date>
+  <millis>1430215584483</millis>
+  <sequence>1</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:26</date>
+  <millis>1430215586115</millis>
+  <sequence>2</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:27</date>
+  <millis>1430215587411</millis>
+  <sequence>3</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:28</date>
+  <millis>1430215588123</millis>
+  <sequence>4</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:28</date>
+  <millis>1430215588707</millis>
+  <sequence>5</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:30</date>
+  <millis>1430215590947</millis>
+  <sequence>6</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:32</date>
+  <millis>1430215592213</millis>
+  <sequence>7</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>printPieceMovement</method>
+  <thread>14</thread>
+  <message>PAWN from: E2 -&gt; E4</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:33</date>
+  <millis>1430215593275</millis>
+  <sequence>8</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:34</date>
+  <millis>1430215594539</millis>
+  <sequence>9</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>printPieceMovement</method>
+  <thread>14</thread>
+  <message>PAWN from: D7 -&gt; D5</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:34</date>
+  <millis>1430215594963</millis>
+  <sequence>10</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>14</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:38</date>
+  <millis>1430215598053</millis>
+  <sequence>11</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>printKill</method>
+  <thread>14</thread>
+  <message>PAWN killed PAWN</message>
+</record>
+<record>
+  <date>2015-04-28T12:06:38</date>
+  <millis>1430215598056</millis>
+  <sequence>12</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>printPieceMovement</method>
+  <thread>14</thread>
+  <message>PAWN from: E4 -&gt; D5</message>
 </record>
 </log>

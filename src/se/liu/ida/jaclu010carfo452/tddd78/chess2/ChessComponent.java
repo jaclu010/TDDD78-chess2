@@ -199,15 +199,15 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	int animationY = (int)endAnim.getAnimationY();
 
 	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, endAnim.getOpacity()));
-	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
+	g2d.drawImage((GlobalVars.getIMG(ability)).getImage(), cB.getTargetCoords().getX()*squareSide+squareSide/3, animationY, squareSide/3, squareSide/3, this);
 	g2d.dispose();
     }
 
     private void drawLaser(Graphics2D g2d){
-	int targetY = cB.getTargetY();
-	int targetX = cB.getTargetX();
-	int selectY = cB.getSelectedY();
-	int selectX = cB.getSelectedX();
+	int targetY = cB.getTargetCoords().getY();
+	int targetX = cB.getTargetCoords().getX();
+	int selectY = cB.getSelectedCoords().getY();
+	int selectX = cB.getSelectedCoords().getX();
 
 	g2d.setColor(Color.RED);
 	g2d.fill(new Ellipse2D.Double(targetX * squareSide, targetY * squareSide, squareSide, squareSide));

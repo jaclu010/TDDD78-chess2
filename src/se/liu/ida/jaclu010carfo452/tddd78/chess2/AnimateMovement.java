@@ -24,16 +24,16 @@ public class AnimateMovement
         //final ChessBoard cB1 = cB;
         this.endAnim = endAnim;
 
-        final int selectedX = cB.getSelectedX();
-        final int selectedY = cB.getSelectedY();
+        final int selectedX = cB.getSelectedCoords().getX();
+        final int selectedY = cB.getSelectedCoords().getY();
 
         selected = cB.getSelected();
 
         animationX = selectedX;
         animationY = selectedY;
 
-        targetX = cB.getTargetX();
-        targetY = cB.getTargetY();
+        targetX = cB.getTargetCoords().getX();
+        targetY = cB.getTargetCoords().getY();
 
         moveX = (targetX-(double) selectedX)/ PPF;
         moveY = (targetY-(double) selectedY)/ PPF;
