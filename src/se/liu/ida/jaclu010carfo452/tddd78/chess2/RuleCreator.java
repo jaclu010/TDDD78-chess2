@@ -7,9 +7,9 @@ import java.util.List;
  * Create all the rules for regular movement
  * @author jaclu010, carfo452
  */
-public final class RuleFactory
+public final class RuleCreator
 {
-    private RuleFactory() {}
+    private RuleCreator() {}
 
     public static List<Rule> getRules(){
         List<Rule> ruleList = new ArrayList<>();

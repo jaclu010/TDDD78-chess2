@@ -40,7 +40,7 @@ public class Rule
         return player;
     }
 
-    public boolean getUntilBlockCollission() {
+    public boolean isUntilBlockCollission() {
         return untilBlockCollission;
     }
 

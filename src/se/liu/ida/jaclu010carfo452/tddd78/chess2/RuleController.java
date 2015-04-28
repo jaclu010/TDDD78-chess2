@@ -49,7 +49,7 @@ public class RuleController
 	    for (Rule rule : selected.fetchRules()) {
 		if (selected.getpT() == PieceType.PAWN){
 		    pawnAbleToMove(rule);
-		} else if (rule.getUntilBlockCollission()) {
+		} else if (rule.isUntilBlockCollission()) {
 		    ableToMoveManySteps(rule);
 		} else {
 		    ableToMoveOneStep(rule);

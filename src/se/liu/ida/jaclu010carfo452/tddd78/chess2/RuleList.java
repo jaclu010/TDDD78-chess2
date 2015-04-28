@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Singleton class for the rules of movement
+ * Singleton/Factory class for the rules of movement
  * @author jaclu010, carfo452
  */
 public final class RuleList
@@ -13,7 +13,7 @@ public final class RuleList
     private final List<Rule> ruleList;
 
     private RuleList() {
-        ruleList = RuleFactory.getRules();
+        ruleList = RuleCreator.getRules();
     }
 
     public static RuleList getInstance() {
