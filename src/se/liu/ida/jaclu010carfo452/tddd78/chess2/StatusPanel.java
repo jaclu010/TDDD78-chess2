@@ -1,9 +1,9 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.Objects;
 
 /**
@@ -14,6 +14,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 {
     private ChessBoard cB;
     private int cheatClicks = 0;
+    private boolean cheatsEnabled = GlobalVars.isCheatsEnabled();
     private final JButton useAbility = new JButton("Use ability");
     private final JButton lvlupSelected = new JButton("Upgrade selected");
     private final JButton changePlayer = new JButton("Change player");
@@ -38,8 +39,8 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	buttonPanel.add(changePlayer);
 	buttonPanel.add(useAbility);
 
-	lvlupSelected.setVisible(false);
-	changePlayer.setVisible(false);
+	lvlupSelected.setVisible(cheatsEnabled);
+	changePlayer.setVisible(cheatsEnabled);
 
 	this.add(statusArea);
 	this.add(buttonPanel);
@@ -84,8 +85,8 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     }
 
     public void enterGodMode(){
-	lvlupSelected.setVisible(true);
-	changePlayer.setVisible(true);
+	lvlupSelected.setVisible(cheatsEnabled);
+	changePlayer.setVisible(cheatsEnabled);
     }
 
     @Override
@@ -102,6 +103,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	if(e.getClickCount() > 1 && e.getPoint().getX() < GlobalVars.getsquareside() && e.getPoint().getY() < GlobalVars.getsquareside()){
 	    cheatClicks++;
 	    if(cheatClicks > 8){
+		cheatsEnabled = true;
 		enterGodMode();
 	    }
 	}

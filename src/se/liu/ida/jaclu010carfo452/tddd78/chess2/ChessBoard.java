@@ -1,11 +1,11 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.awt.event.MouseEvent;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,6 +44,7 @@ public class ChessBoard
 	this.frozenPieces = new ArrayList<>();
 	this.killedBlackPieces = new ArrayList<>();
 	this.killedWhitePieces = new ArrayList<>();
+	fillBoard();
 
 	for (int y = 0; y < height; y++) {
 	    for (int x = 0; x < width; x++) {
@@ -300,40 +301,39 @@ public class ChessBoard
 
     private void printDidDMG(int y, int x, int dmg){
 	logMsg = (selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y);
-	logger.info((selected.getpT().name()+ " did "+dmg+" damage to "+ chessPieces[y][x].getpT().name())+ " at "+ getLetter(x) + (height-1-y));
+	logger.info(logMsg);
     }
 
     private void printKill(int y, int x){
 	logMsg = (selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
-	logger.info(selected.getpT().name()+ " killed "+ chessPieces[y][x].getpT().name());
+	logger.info(logMsg);
     }
 
     private void printPieceMovement(int y, int x){
 	logMsg = (selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
-	logger.info(selected.getpT().name()+" from: "+ getLetter(selectedX)+ (width-1-selectedY)+ " -> " + getLetter(x) + (height-1-y));
+	logger.info(logMsg);
     }
 
     private void printProtectionMSG(int y, int x){
 	logMsg = (PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
-	logger.info(PieceType.KING+" activated protection barrier at " + getLetter(x)+ (height-1-y));
+	logger.info(logMsg);
     }
 
     private void printFreezeMSG(int y, int x){
 	logMsg = (selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
-	logger.info(selected.getpT().name()+" froze "+ chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getFreezeTime()+" turns at "+getLetter(x) + (height-1-y));
+	logger.info(logMsg);
     }
 
     private void printKnockBackMSG(int y, int x, int i, int knockBack){
 	logMsg = (selected.getpT().name()+" knocked back "+ chessPieces[y+i*knockBack][x].getpT().name()+" to "+ getLetter(x) +
 		  (height - 1 - (y + i * knockBack)));
-	logger.info(selected.getpT().name() + " knocked back " + chessPieces[y + i * knockBack][x].getpT().name()+" to "+ getLetter(x)+(height-1-(y+i*knockBack)));
+	logger.info(logMsg);
     }
 
     private void printHeal(int y, int x){
 	logMsg = (selected.getpT().name()+" healed "+  chessPieces[y][x].getpT().name()+" for "+
 		  selected.getAbility().getHeal() + " HP");
-	logger.info(
-		selected.getpT().name() + " healed " + chessPieces[y][x].getpT().name()+" for "+selected.getAbility().getHeal()+" HP");
+	logger.info(logMsg);
     }
 
     private String getLetter(int n){

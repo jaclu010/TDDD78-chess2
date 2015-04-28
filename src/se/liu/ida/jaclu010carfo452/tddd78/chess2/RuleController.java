@@ -79,7 +79,6 @@ public class RuleController
 		    break;
 	    }
 	}
-	//notifyListeners();
     }
 
     private void checkTargetForLaser(){
@@ -135,6 +134,7 @@ public class RuleController
 	if (selected.getPlayer().equals(rule.getPlayer())) {
 	    if (chessPieces[y][x].getpT() != PieceType.OUTSIDE && !Objects.equals(chessPieces[y][x].getPlayer(), selected.getPlayer())) {
 
+		// We can't collapse these if brances because their is to many things to check for then
 		if (rule.doRequiresInitialPos() && selected.isInitialPos() && chessPieces[y][x].getpT() == PieceType.EMPTY &&
 		    chessPieces[y - (rule.getPoint().getY() / Math.abs(rule.getPoint().getY()))][x].getpT() == PieceType.EMPTY) {
 		    possibleMoves.add(new Point(y, x));
@@ -148,11 +148,15 @@ public class RuleController
 	}
     }
 
+    private boolean movementLimitations(int y, int x){
+	return (y < height && y > 0 && x < width && x > 0 &&
+		     chessPieces[y][x].getpT() != PieceType.OUTSIDE);
+    }
+
     private void ableToMoveOneStep(Rule rule){
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
-	if (y < height && y > 0 && x < width && x > 0 &&
-	     chessPieces[y][x].getpT() != PieceType.OUTSIDE) {
+	if (movementLimitations(y, x)) {
 	    if (!Objects.equals(chessPieces[y][x].getPlayer(), selected.getPlayer())) {
 		possibleMoves.add(new Point(y, x));
 	    } else {
@@ -164,8 +168,7 @@ public class RuleController
     private void ableToMoveManySteps(Rule rule){
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
-	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
-	       chessPieces[tempY][tempX].getpT() != PieceType.OUTSIDE){
+	while (movementLimitations(tempY, tempX)){
 	    if (chessPieces[tempY][tempX].getPlayer() == null){
 		possibleMoves.add(new Point(tempY, tempX));
 		tempY += rule.getPoint().getY();

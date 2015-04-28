@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-04-28T09:08:21</date>
-  <millis>1430204901585</millis>
+  <date>2015-04-28T11:27:05</date>
+  <millis>1430213225552</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -11,71 +11,5 @@
   <method>&lt;init&gt;</method>
   <thread>1</thread>
   <message>ChessBoard initialised</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:23</date>
-  <millis>1430204903175</millis>
-  <sequence>1</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:24</date>
-  <millis>1430204904315</millis>
-  <sequence>2</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: E2 -&gt; E4</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:27</date>
-  <millis>1430204907431</millis>
-  <sequence>3</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:28</date>
-  <millis>1430204908734</millis>
-  <sequence>4</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: F7 -&gt; F5</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:29</date>
-  <millis>1430204909838</millis>
-  <sequence>5</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-28T09:08:30</date>
-  <millis>1430204910870</millis>
-  <sequence>6</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: D2 -&gt; D4</message>
 </record>
 </log>

@@ -190,7 +190,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	if (regMo || selected.getAbility().getAC() != AbilityCharacteristic.SPECIAL) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
 	} else if(selected.getpT() == PieceType.QUEEN){
-	    drawLaser(realYPosition, realXPosition, g2d);
+	    drawLaser(g2d);
 	}
     }
 
@@ -203,7 +203,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	g2d.dispose();
     }
 
-    private void drawLaser(int realYPosition, int realXPosition, Graphics2D g2d){
+    private void drawLaser(Graphics2D g2d){
 	int targetY = cB.getTargetY();
 	int targetX = cB.getTargetX();
 	int selectY = cB.getSelectedY();
@@ -218,20 +218,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	g2d.setStroke(new BasicStroke((float)squareSide/4));
 	g2d.draw(new Line2D.Double(selectX * squareSide + (double)squareSide / 2, selectY * squareSide + (double)squareSide / 2,
 				  targetX * squareSide + (double)squareSide/2, targetY * squareSide + (double)squareSide/2));
-
 	g2d.setColor(Color.RED);
-
-	Random rnd = new Random();
-	for(int i = 0; i < 10; i++){
-	    int modX = rnd.nextInt(12)-6;
-	    int modY = rnd.nextInt(500)-250;
-	    int modTar = rnd.nextInt(50)-50;
-	    int modTar2 = rnd.nextInt(50)-50;
-	    g2d.fillRect(squareSide/2+realXPosition+modX, squareSide/2+realYPosition+modY, 3,3);
-
-	    g2d.fillRect(squareSide+targetX*squareSide+modTar, squareSide+targetY*squareSide+modTar2, 3,3);
-
-	}
     }
 
     private String getLetter(int y, int x){

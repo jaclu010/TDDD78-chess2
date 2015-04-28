@@ -4,7 +4,7 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2;
  * Creates a Chesspiece with variables depending on PieceType
  * @author jaclu010, carfo452
  */
-public class ChessPiece
+public class ChessPiece implements BoardPieceInterface
 {
     private int hP, aP, freezeTime;
     private Boolean player = null;
@@ -22,7 +22,7 @@ public class ChessPiece
 	this.player = player;
         this.pT = pT;
         this.hP = decideHP(pT);
-        this.aP = 0;
+        this.aP = GlobalVars.getaP();
         this.initialPos = true;
         this.ability = Ability.getAbility(pT);
         this.freezeTime = 0;
@@ -86,7 +86,7 @@ public class ChessPiece
         this.hP += heal;
     }
 
-    public void setaP(final int aP) {
+    @Override public void setaP(final int aP) {
         this.aP += aP;
     }
 

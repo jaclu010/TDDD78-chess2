@@ -8,18 +8,19 @@ import javax.swing.*;
  */
 public final class GlobalVars
 {
-    private static final int SQUARE_SIDE = 70;
+    private static int squareSide = 70;
     private static final int CHAR_ADD = 64;
-    private static final int WIDTH = 10, HEIGHT = 10;
+    private static int width = 10, height = 10, aP = 0;
     private static boolean showRegularMoves = true;
     private static String guiTheme = "original";
     private static boolean animationRunning = false;
     private static boolean endAnimRunning = false;
+    private static boolean cheatsEnabled = false;
 
     private GlobalVars() {}
 
     public static int getsquareside() {
-	return SQUARE_SIDE;
+	return squareSide;
     }
 
     public static int getcharadd() {
@@ -27,11 +28,11 @@ public final class GlobalVars
     }
 
     public static int getWidth() {
-	return WIDTH;
+	return width;
     }
 
     public static int getHeight() {
-	return HEIGHT;
+	return height;
     }
 
     public static String imgPicker(ChessPiece aP){
@@ -81,5 +82,33 @@ public final class GlobalVars
 
     public static void setEndAnimRunning(final boolean endAnimRunning) {
         GlobalVars.endAnimRunning = endAnimRunning;
+    }
+
+    public static void setSquareSide(final int squareSide) {
+        GlobalVars.squareSide = squareSide;
+    }
+
+    public static void setWidth(final int width) {
+        GlobalVars.width = width;
+    }
+
+    public static void setHeight(final int height) {
+        GlobalVars.height = height;
+    }
+
+    public static boolean isCheatsEnabled() {
+        return cheatsEnabled;
+    }
+
+    public static void setCheatsEnabled(final boolean cheatsEnabled) {
+        GlobalVars.cheatsEnabled = cheatsEnabled;
+    }
+
+    public static int getaP() {
+        return aP;
+    }
+
+    public static void setaP(final int aP) {
+        GlobalVars.aP = aP;
     }
 }
