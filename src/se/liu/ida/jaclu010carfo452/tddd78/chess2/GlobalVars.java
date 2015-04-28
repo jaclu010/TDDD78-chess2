@@ -60,32 +60,9 @@ public final class GlobalVars
     public static void setGuiTheme(final String guiTheme) {
         GlobalVars.guiTheme = guiTheme;
     }
-/*
-    public static BufferedImage getImage(ChessPiece cP){
-        try {
-            final BufferedImage image = ImageIO.read(new File("resources/"+imgPicker(cP)+"/.png"));
 
-            return image;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public static BufferedImage getImage(String object){
-        try {
-            final BufferedImage image = ImageIO.read(new File("assets/theme/"+guiTheme+"/"+object+"/.png"));
-
-            return image;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }*/
     public static ImageIcon getIMG(ChessPiece cP){ return new ImageIcon("assets/theme/" + guiTheme + "/" + imgPicker(cP) + ".png"); }
+
     public static ImageIcon getIMG(String s){
         return new ImageIcon("assets/theme/" +guiTheme+"/"+s+".png");
     }

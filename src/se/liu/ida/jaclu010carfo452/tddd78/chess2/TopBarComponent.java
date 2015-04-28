@@ -9,7 +9,6 @@ import java.awt.*;
  */
 public class TopBarComponent extends JTextArea implements ChessBoardListener
 {
-
     private ChessBoard cB;
 
     public TopBarComponent(ChessBoard cB) {

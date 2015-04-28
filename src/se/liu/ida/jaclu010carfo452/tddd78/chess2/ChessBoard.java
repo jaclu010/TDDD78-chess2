@@ -443,15 +443,15 @@ public class ChessBoard
 	return logMsg;
     }
 
-    public List<ChessPiece> getKilledWhitePieces() {
+    public Collection<ChessPiece> getKilledWhitePieces() {
 	return killedWhitePieces;
     }
 
-    public List<ChessPiece> getKilledBlackPieces() {
+    public Collection<ChessPiece> getKilledBlackPieces() {
 	return killedBlackPieces;
     }
 
-    public List<ChessPiece> getFrozenPieces() {
+    public Collection<ChessPiece> getFrozenPieces() {
 	return frozenPieces;
     }
 

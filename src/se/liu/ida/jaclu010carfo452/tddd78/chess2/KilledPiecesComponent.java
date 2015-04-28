@@ -14,7 +14,6 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
     private ChessBoard cB;
     private int squareSide = GlobalVars.getsquareside();
 
-
     public KilledPiecesComponent(ChessBoard cB) {
 	this.cB = cB;
     }
@@ -25,6 +24,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
     }
 
     @Override public Dimension getPreferredSize(){
+	super.getPreferredSize();
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
@@ -50,7 +50,6 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
 		g2d.drawImage(GlobalVars.getIMG(killedWhitePiece).getImage(), squareSide,squareSide/2*i, 2*squareSide/3, 2*squareSide/3, this);
-
 	    }
 	}
 	if (killedBlackPieces != null) {

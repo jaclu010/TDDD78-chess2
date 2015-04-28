@@ -14,12 +14,10 @@ public class ChessFrame extends JFrame implements MouseListener
     private ChessBoard cB;
     private StatusPanel statusPanel;
 
-
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	super("Chess 2");
 	this.cB = cB;
-
-	statusPanel = new StatusPanel(cB);
+	this.statusPanel = new StatusPanel(cB);
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
 	final KilledPiecesComponent killedPiecesArea= new KilledPiecesComponent(cB);
@@ -51,9 +49,9 @@ public class ChessFrame extends JFrame implements MouseListener
 	this.add(topBar, BorderLayout.PAGE_START);
 	this.add(gameArea, BorderLayout.CENTER);
 	this.add(killedPiecesArea, BorderLayout.WEST);
-
 	this.add(logScroll, BorderLayout.SOUTH);
-	createMenues(this);
+
+	createMenues();
 
 	this.pack();
 	this.setVisible(true);
@@ -63,14 +61,13 @@ public class ChessFrame extends JFrame implements MouseListener
     /**
      * Creates the menues
      */
-    private void createMenues(JFrame frame){
+    private void createMenues(){
 	final JMenu file = new JMenu("File");
 	file.setMnemonic(KeyEvent.VK_F);
 	final JMenuItem newGame = new JMenuItem("New Game", KeyEvent.VK_N);
 	final JMenuItem exit = new JMenuItem("Exit", KeyEvent.VK_E);
 	file.add(newGame);
 	file.add(exit);
-
 
 	final JMenu help = new JMenu("Help");
 	help.setMnemonic(KeyEvent.VK_H);
@@ -96,7 +93,7 @@ public class ChessFrame extends JFrame implements MouseListener
 	final JMenuBar menuBar = new JMenuBar();
 	menuBar.add(file);
 	menuBar.add(help);
-	frame.setJMenuBar(menuBar);
+	this.setJMenuBar(menuBar);
     }
 
     @Override

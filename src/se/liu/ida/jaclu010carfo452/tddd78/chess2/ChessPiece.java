@@ -1,7 +1,5 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
-import java.util.List;
-
 /**
  * Creates a Chesspiece with variables depending on PieceType
  * @author jaclu010, carfo452
@@ -13,9 +11,13 @@ public class ChessPiece
     private boolean underAnimation = false;
     private PieceType pT;
     private Ability ability = null;
+    private boolean initialPos;
 
-    protected boolean initialPos;
-
+    /**
+     * Contruktor for all chess pieces except outside and empty
+     * @param player: which team the chess piece belongs to
+     * @param pT: what type of chesspiece it is
+     */
     public ChessPiece(final boolean player, final PieceType pT) {
 	this.player = player;
         this.pT = pT;
@@ -26,6 +28,10 @@ public class ChessPiece
         this.freezeTime = 0;
     }
 
+    /**
+     * Contruktor for outside and empty chess pieces
+     * @param pT: what type of chesspiece it is
+     */
     public ChessPiece(final PieceType pT) {
         this.pT= pT;
     }
@@ -44,7 +50,7 @@ public class ChessPiece
         }
     }
 
-    public List<Rule> fetchRules(){
+    public Iterable<Rule> fetchRules(){
         return RuleList.getInstance().extractRulesFor(pT);
     }
 

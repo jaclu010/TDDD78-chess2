@@ -47,6 +47,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     }
 
     @Override public Dimension getPreferredSize(){
+	super.getPreferredSize();
 	/*Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
 	int compWidth = (int)(screenSize.getWidth()* percentOfScreenWidth);
@@ -98,6 +99,10 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
     }
 
+    /**
+     * Draws the chess pieces
+     * @param g2d: a graphics2d that draws everything
+     */
     public void drawPieces(Graphics2D g2d){
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
@@ -106,14 +111,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves())) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
-			/*
-			try {
-			    URL url = this.getClass().getResource("assets/"+GlobalVars.getGuiTheme()+"/" +GlobalVars.imgPicker(currentPiece)+".png");
-			    final BufferedImage image = ImageIO.read(url);
-			    g2d.drawImage(image, x*squareSide, y*squareSide, squareSide, squareSide, this);
-			} catch (IOException e) {
-			    e.printStackTrace();
-			}*/
 
 			// Creates the healthbars
 			drawHealthbar(g2d, currentPiece, x, y);
@@ -168,6 +165,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
     private void drawHealthbar(Graphics2D g2d, ChessPiece currentPiece, int x, int y){
 	int hp = currentPiece.getHP();
 	if (hp > 5){
+	    // Prevents the drawed healthbar from being to big for the chesspiece
 	    hp = 5;
 	}
 	g2d.setColor(Color.LIGHT_GRAY);
@@ -230,7 +228,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    int modTar = rnd.nextInt(50)-50;
 	    int modTar2 = rnd.nextInt(50)-50;
 	    g2d.fillRect(squareSide/2+realXPosition+modX, squareSide/2+realYPosition+modY, 3,3);
-
 
 	    g2d.fillRect(squareSide+targetX*squareSide+modTar, squareSide+targetY*squareSide+modTar2, 3,3);
 

@@ -25,10 +25,8 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	final JPanel buttonPanel = new JPanel();
 	buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.PAGE_AXIS));
 
-
  	final JButton showPossible = new JButton("Switch move/ability");
  	final JButton changeGUI = new JButton("Switch GUI");
-
 
 	final StatusComponent statusArea = new StatusComponent(cB);
 
@@ -45,39 +43,36 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 
 	this.add(statusArea);
 	this.add(buttonPanel);
-	//this.setLayout(new BorderLayout());
-	//this.add(buttonPanel, BorderLayout.SOUTH);
 
 	useAbility.setVisible(false);
 	this.setVisible(true);
 
 	final ActionListener buttonListener = event -> {
 	    if (event.getSource().equals(lvlupSelected)){
-	   	    if(cB.getSelected() != null) {
-	   		cB.getSelected().setaP(5);
-	   		cB.notifyListeners();
-	   	    }
-	   	} else if (event.getSource().equals(useAbility)){
-			cB.spawnProtectionForKing();
-	   	} else if (event.getSource().equals(changePlayer)){
-	   	    	cB.changeActivePlayer();
-	   	} else if (event.getSource().equals(showPossible)){
-	   	    if(cB.getSelected() != null) {
-	   		if (GlobalVars.isShowRegularMoves()) {
-	   		    GlobalVars.setShowRegularMoves(false);
-	   		} else {
-	   		    GlobalVars.setShowRegularMoves(true);
-
-	   		}
-	   		cB.checkRules();
-	   	    }
-	   	} else if (event.getSource().equals(changeGUI)){
-			if (Objects.equals(GlobalVars.getGuiTheme(), "troll")){
-			    GlobalVars.setGuiTheme("original");
-			} else {
-			    GlobalVars.setGuiTheme("troll");
-			}
-			cB.notifyListeners();
+		if(cB.getSelected() != null) {
+		    cB.getSelected().setaP(5);
+		    cB.notifyListeners();
+		}
+	    } else if (event.getSource().equals(useAbility)){
+		cB.spawnProtectionForKing();
+	    } else if (event.getSource().equals(changePlayer)){
+		cB.changeActivePlayer();
+	    } else if (event.getSource().equals(showPossible)){
+		if(cB.getSelected() != null) {
+		    if (GlobalVars.isShowRegularMoves()) {
+			GlobalVars.setShowRegularMoves(false);
+		    } else {
+			GlobalVars.setShowRegularMoves(true);
+		    }
+		    cB.checkRules();
+		}
+	    } else if (event.getSource().equals(changeGUI)){
+		if (Objects.equals(GlobalVars.getGuiTheme(), "troll")){
+		    GlobalVars.setGuiTheme("original");
+		} else {
+		    GlobalVars.setGuiTheme("troll");
+		}
+		cB.notifyListeners();
 	    }
 	};
 
@@ -93,9 +88,9 @@ public class StatusPanel extends JPanel implements ChessBoardListener
 	changePlayer.setVisible(true);
     }
 
+    @Override
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
-
 	if(selected != null && selected.getpT() == PieceType.KING && !GlobalVars.isShowRegularMoves()){
 	    useAbility.setVisible(true);
 	} else {
@@ -113,6 +108,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     }
 
     @Override public Dimension getPreferredSize(){
+	super.getPreferredSize();
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;

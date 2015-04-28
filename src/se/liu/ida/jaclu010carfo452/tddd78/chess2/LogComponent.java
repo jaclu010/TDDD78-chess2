@@ -34,6 +34,7 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 
 
     @Override public Dimension getPreferredScrollableViewportSize(){
+	super.getPreferredScrollableViewportSize();
 	/*
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;

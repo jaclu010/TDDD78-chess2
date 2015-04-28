@@ -17,7 +17,7 @@ public final class RuleList
         ruleList = RuleFactory.getRules();
     }
 
-    public List<Rule> extractRulesFor(PieceType pT){
+    public Iterable<Rule> extractRulesFor(PieceType pT){
         List<Rule> pieceRules = ruleList.stream().filter(rule -> rule.getpT() == pT).collect(Collectors.toList());
         return pieceRules;
     }

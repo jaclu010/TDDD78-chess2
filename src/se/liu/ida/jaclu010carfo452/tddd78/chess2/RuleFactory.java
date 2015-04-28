@@ -14,6 +14,8 @@ public final class RuleFactory
     public static List<Rule> getRules(){
         List<Rule> ruleList = new ArrayList<>();
 
+        // Rules is defined as Rule(final int x, final int y, final PieceType pT, boolean untilBlockCollission, boolean hurtMove, Boolean player, boolean requiresInitialPos)
+        // or Rule(final int x, final int y, final PieceType pT, boolean untilBlockCollission, boolean hurtMove)
         // White Pawn
         ruleList.add(new Rule(0,-1, PieceType.PAWN, false, false, true, false));
         ruleList.add(new Rule(0,-2, PieceType.PAWN, false, false, true, true));
@@ -69,9 +71,6 @@ public final class RuleFactory
         ruleList.add(new Rule(0,-1, PieceType.QUEEN, true, true));
         ruleList.add(new Rule(1,0, PieceType.QUEEN, true, true));
         ruleList.add(new Rule(-1,0, PieceType.QUEEN, true, true));
-
-        // Special Rules
-        // ToBeContinued..... (e.g castling)
 
         return ruleList;
     }

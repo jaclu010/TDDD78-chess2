@@ -1,6 +1,7 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -34,13 +35,12 @@ public class RuleController
 	possibleMoves.clear();
     }
 
-    public void checkRules(ChessPiece[][] chessPieces, ChessPiece selectedPiece, int selectedY, int selectedX, List<ChessPiece> frozenPieces, Boolean activePlayer){
+    public void checkRules(ChessPiece[][] chessPieces, ChessPiece selectedPiece, int selectedY, int selectedX, Collection<ChessPiece> frozenPieces, Boolean activePlayer){
 	updateVars(chessPieces, selectedPiece, selectedY, selectedX, activePlayer);
 
 	if(!frozenPieces.contains(selected)) {
 	    checkByRules();
 	    checkByAbility();
-	    //notifyListeners();
 	}
     }
 
@@ -56,7 +56,6 @@ public class RuleController
 		}
 	    }
 	}
-	//notifyListeners();
     }
 
     public void checkByAbility(){
@@ -83,7 +82,7 @@ public class RuleController
 	//notifyListeners();
     }
 
-    public void checkTargetForLaser(){
+    private void checkTargetForLaser(){
 	final int laserLenght = 2;
 	int startY = selectedY-laserLenght;
 	int startX = selectedX-laserLenght;
@@ -100,13 +99,13 @@ public class RuleController
 	}
     }
 
-    public void checkByPossibleMoves(){
+    private void checkByPossibleMoves(){
 	abilityMoves.addAll(possibleMoves.stream()
 				    .filter(possibleMove -> chessPieces[possibleMove.getY()][possibleMove.getX()].getPlayer() != null)
 				    .collect(Collectors.toList()));
     }
 
-    public void checkForKnockBack(){
+    private void checkForKnockBack(){
 	Iterable<Point> temp = new ArrayList<>(abilityMoves);
 	abilityMoves.clear();
 	int kB = selected.getAbility().getKnockBack();
@@ -119,17 +118,17 @@ public class RuleController
 	}
     }
 
-    public void checkFreePositionsAroundKing(){
+    private void checkFreePositionsAroundKing(){
 	abilityMoves.addAll(possibleMoves.stream()
 				    .filter(possibleMove -> chessPieces[possibleMove.getY()][possibleMove.getX()].getpT() ==
 							    PieceType.EMPTY).collect(Collectors.toList()));
     }
 
-    public void copyHealingMoves(){
+    private void copyHealingMoves(){
 	abilityMoves = new ArrayList<>(healingMoves);
     }
 
-    public void pawnAbleToMove(Rule rule) {
+    private void pawnAbleToMove(Rule rule) {
 	int y = selectedY + rule.getPoint().getY();
 	int x = selectedX + rule.getPoint().getX();
 
@@ -149,7 +148,7 @@ public class RuleController
 	}
     }
 
-    public void ableToMoveOneStep(Rule rule){
+    private void ableToMoveOneStep(Rule rule){
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (y < height && y > 0 && x < width && x > 0 &&
@@ -162,7 +161,7 @@ public class RuleController
 	}
     }
 
-    public void ableToMoveManySteps(Rule rule){
+    private void ableToMoveManySteps(Rule rule){
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
 	while (tempY < height && tempY > 0 && tempX < width && tempX > 0 &&
