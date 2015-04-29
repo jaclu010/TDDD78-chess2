@@ -114,8 +114,8 @@ public class RuleController
 	abilityMoves.clear();
 	int kB = selected.getAbility().getKnockBack();
 	for (Point tempMove : temp) {
-	    if((activePlayer && chessPieces[tempMove.getY()-kB][tempMove.getX()].getpT() == PieceType.EMPTY)
-	       || (!activePlayer && chessPieces[tempMove.getY()+kB][tempMove.getX()].getpT() == PieceType.EMPTY)){
+	    if((activePlayer && tempMove.getY()-kB >=0  && chessPieces[tempMove.getY()-kB][tempMove.getX()].getpT() == PieceType.EMPTY)
+	       || (!activePlayer && tempMove.getY()+kB < GlobalVars.getHeight() && chessPieces[tempMove.getY()+kB][tempMove.getX()].getpT() == PieceType.EMPTY)){
 
 		abilityMoves.add(tempMove);
 	    }
