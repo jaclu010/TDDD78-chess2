@@ -76,8 +76,8 @@ public class RuleController
 		    copyHealingMoves();
 		    break;
 		case SPECIAL:
-		    if(selected.getpT() == PieceType.KING){
-			checkFreePositionsAroundKing();
+		    if(selected.getAbility().getaT() == AbilityType.SUMMON_DEFENCE){
+			checkFreePositionsAroundSelected();
 		    } else {
 			checkTargetForLaser();
 		    }
@@ -87,7 +87,7 @@ public class RuleController
     }
 
     private void checkTargetForLaser(){
-	final int laserLenght = 2;
+	final int laserLenght = chessPieces[selectedY][selectedX].getAbility().getLaserRadius();
 	int startY = selectedY-laserLenght;
 	int startX = selectedX-laserLenght;
 	int endY = selectedY+laserLenght;
@@ -122,7 +122,7 @@ public class RuleController
 	}
     }
 
-    private void checkFreePositionsAroundKing(){
+    private void checkFreePositionsAroundSelected(){
 	abilityMoves.addAll(possibleMoves.stream()
 				    .filter(possibleMove -> chessPieces[possibleMove.getY()][possibleMove.getX()].getpT() ==
 							    PieceType.EMPTY).collect(Collectors.toList()));

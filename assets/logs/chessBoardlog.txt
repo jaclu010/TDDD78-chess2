@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-04-29T08:27:20</date>
-  <millis>1430288840886</millis>
+  <date>2015-04-29T08:43:28</date>
+  <millis>1430289808434</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -13,861 +13,135 @@
   <message>ChessBoard initialised</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:25</date>
-  <millis>1430288845867</millis>
+  <date>2015-04-29T08:43:30</date>
+  <millis>1430289810215</millis>
   <sequence>1</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>select</method>
-  <thread>14</thread>
+  <thread>17</thread>
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:27</date>
-  <millis>1430288847450</millis>
+  <date>2015-04-29T08:43:32</date>
+  <millis>1430289812037</millis>
   <sequence>2</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: D2 -&gt; D4</message>
+  <thread>17</thread>
+  <message>PAWN from: E2 -&gt; E4</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:27</date>
-  <millis>1430288847643</millis>
+  <date>2015-04-29T08:43:33</date>
+  <millis>1430289813216</millis>
   <sequence>3</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>select</method>
-  <thread>14</thread>
+  <thread>17</thread>
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:28</date>
-  <millis>1430288848611</millis>
+  <date>2015-04-29T08:43:35</date>
+  <millis>1430289815140</millis>
   <sequence>4</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: E7 -&gt; E5</message>
+  <thread>17</thread>
+  <message>PAWN from: D7 -&gt; D5</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:31</date>
-  <millis>1430288851859</millis>
+  <date>2015-04-29T08:43:37</date>
+  <millis>1430289817337</millis>
   <sequence>5</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>select</method>
-  <thread>14</thread>
+  <thread>17</thread>
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:33</date>
-  <millis>1430288853747</millis>
+  <date>2015-04-29T08:43:40</date>
+  <millis>1430289820204</millis>
   <sequence>6</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B1 -&gt; C3</message>
+  <method>select</method>
+  <thread>17</thread>
+  <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:34</date>
-  <millis>1430288854227</millis>
+  <date>2015-04-29T08:43:40</date>
+  <millis>1430289820955</millis>
   <sequence>7</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>select</method>
-  <thread>14</thread>
+  <thread>17</thread>
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:35</date>
-  <millis>1430288855274</millis>
+  <date>2015-04-29T08:43:41</date>
+  <millis>1430289821333</millis>
   <sequence>8</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: G8 -&gt; F6</message>
+  <method>select</method>
+  <thread>17</thread>
+  <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:35</date>
-  <millis>1430288855659</millis>
+  <date>2015-04-29T08:43:42</date>
+  <millis>1430289822426</millis>
   <sequence>9</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>select</method>
-  <thread>14</thread>
+  <thread>17</thread>
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:36</date>
-  <millis>1430288856730</millis>
+  <date>2015-04-29T08:43:45</date>
+  <millis>1430289825494</millis>
   <sequence>10</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: C3 -&gt; D5</message>
+  <method>printAbility</method>
+  <thread>17</thread>
+  <message>PAWN used Double Damage on PAWN</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:37</date>
-  <millis>1430288857074</millis>
+  <date>2015-04-29T08:43:45</date>
+  <millis>1430289825498</millis>
   <sequence>11</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
+  <method>printKill</method>
+  <thread>17</thread>
+  <message>PAWN killed PAWN at D5</message>
 </record>
 <record>
-  <date>2015-04-29T08:27:38</date>
-  <millis>1430288858355</millis>
+  <date>2015-04-29T08:43:45</date>
+  <millis>1430289825501</millis>
   <sequence>12</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: F6 -&gt; E4</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:38</date>
-  <millis>1430288858915</millis>
-  <sequence>13</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:40</date>
-  <millis>1430288860259</millis>
-  <sequence>14</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: D5 -&gt; E7</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:41</date>
-  <millis>1430288861571</millis>
-  <sequence>15</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:42</date>
-  <millis>1430288862777</millis>
-  <sequence>16</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: E4 -&gt; D2</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:43</date>
-  <millis>1430288863867</millis>
-  <sequence>17</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:45</date>
-  <millis>1430288865747</millis>
-  <sequence>18</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: E7 -&gt; G8</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:46</date>
-  <millis>1430288866522</millis>
-  <sequence>19</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:48</date>
-  <millis>1430288868893</millis>
-  <sequence>20</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: D2 -&gt; B1</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:49</date>
-  <millis>1430288869987</millis>
-  <sequence>21</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:27:59</date>
-  <millis>1430288879954</millis>
-  <sequence>22</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: G8 -&gt; E7</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:14</date>
-  <millis>1430288894242</millis>
-  <sequence>23</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:15</date>
-  <millis>1430288895762</millis>
-  <sequence>24</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B1 -&gt; A3</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:17</date>
-  <millis>1430288897299</millis>
-  <sequence>25</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:18</date>
-  <millis>1430288898610</millis>
-  <sequence>26</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: E7 -&gt; G6</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:18</date>
-  <millis>1430288898930</millis>
-  <sequence>27</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:23</date>
-  <millis>1430288903362</millis>
-  <sequence>28</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: A3 -&gt; B5</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:23</date>
-  <millis>1430288903947</millis>
-  <sequence>29</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:28</date>
-  <millis>1430288908113</millis>
-  <sequence>30</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
-  <thread>14</thread>
-  <message>KNIGHT knocked back PAWN to E7</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:30</date>
-  <millis>1430288910099</millis>
-  <sequence>31</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:35</date>
-  <millis>1430288915628</millis>
-  <sequence>32</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
-  <thread>14</thread>
-  <message>KNIGHT knocked back PAWN to D2</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:37</date>
-  <millis>1430288917195</millis>
-  <sequence>33</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:38</date>
-  <millis>1430288918681</millis>
-  <sequence>34</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printDidDMG</method>
-  <thread>14</thread>
-  <message>KNIGHT did 1 damage to ROOK at H8</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:39</date>
-  <millis>1430288919835</millis>
-  <sequence>35</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:41</date>
-  <millis>1430288921554</millis>
-  <sequence>36</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B5 -&gt; D6</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:41</date>
-  <millis>1430288921914</millis>
-  <sequence>37</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:42</date>
-  <millis>1430288922953</millis>
-  <sequence>38</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printDidDMG</method>
-  <thread>14</thread>
-  <message>KNIGHT did 1 damage to ROOK at H8</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:44</date>
-  <millis>1430288924675</millis>
-  <sequence>39</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:46</date>
-  <millis>1430288926074</millis>
-  <sequence>40</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: D6 -&gt; B5</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:46</date>
-  <millis>1430288926371</millis>
-  <sequence>41</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:47</date>
-  <millis>1430288927490</millis>
-  <sequence>42</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printKill</method>
-  <thread>14</thread>
-  <message>KNIGHT killed ROOK at H8</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:47</date>
-  <millis>1430288927493</millis>
-  <sequence>43</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: G6 -&gt; H8</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:50</date>
-  <millis>1430288930347</millis>
-  <sequence>44</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:51</date>
-  <millis>1430288931946</millis>
-  <sequence>45</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B5 -&gt; A3</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:52</date>
-  <millis>1430288932314</millis>
-  <sequence>46</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:53</date>
-  <millis>1430288933786</millis>
-  <sequence>47</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: H8 -&gt; G6</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:54</date>
-  <millis>1430288934355</millis>
-  <sequence>48</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:56</date>
-  <millis>1430288936154</millis>
-  <sequence>49</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: A3 -&gt; B5</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:58</date>
-  <millis>1430288938018</millis>
-  <sequence>50</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:28:59</date>
-  <millis>1430288939834</millis>
-  <sequence>51</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: G6 -&gt; F4</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:01</date>
-  <millis>1430288941291</millis>
-  <sequence>52</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:03</date>
-  <millis>1430288943210</millis>
-  <sequence>53</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: A7 -&gt; A6</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:05</date>
-  <millis>1430288945923</millis>
-  <sequence>54</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:09</date>
-  <millis>1430288949027</millis>
-  <sequence>55</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:17</date>
-  <millis>1430288957491</millis>
-  <sequence>56</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:18</date>
-  <millis>1430288958705</millis>
-  <sequence>57</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: G1 -&gt; F3</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:20</date>
-  <millis>1430288960754</millis>
-  <sequence>58</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:22</date>
-  <millis>1430288962290</millis>
-  <sequence>59</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B8 -&gt; C6</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:24</date>
-  <millis>1430288964690</millis>
-  <sequence>60</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:25</date>
-  <millis>1430288965812</millis>
-  <sequence>61</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: F4 -&gt; H3</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:28</date>
-  <millis>1430288968306</millis>
-  <sequence>62</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:29</date>
-  <millis>1430288969802</millis>
-  <sequence>63</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: B5 -&gt; A7</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:30</date>
-  <millis>1430288970626</millis>
-  <sequence>64</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:31</date>
-  <millis>1430288971714</millis>
-  <sequence>65</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: H3 -&gt; G1</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:33</date>
-  <millis>1430288973282</millis>
-  <sequence>66</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:35</date>
-  <millis>1430288975474</millis>
-  <sequence>67</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: A7 -&gt; B5</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:37</date>
-  <millis>1430288977266</millis>
-  <sequence>68</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:39</date>
-  <millis>1430288979244</millis>
-  <sequence>69</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: F3 -&gt; D4</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:40</date>
-  <millis>1430288980171</millis>
-  <sequence>70</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:44</date>
-  <millis>1430288984603</millis>
-  <sequence>71</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printDidDMG</method>
-  <thread>14</thread>
-  <message>KNIGHT did 1 damage to KNIGHT at D4</message>
-</record>
-<record>
-  <date>2015-04-29T08:29:45</date>
-  <millis>1430288985922</millis>
-  <sequence>72</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:00</date>
-  <millis>1430289000778</millis>
-  <sequence>73</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: D4 -&gt; E6</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:02</date>
-  <millis>1430289002570</millis>
-  <sequence>74</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:05</date>
-  <millis>1430289005306</millis>
-  <sequence>75</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>KNIGHT from: C6 -&gt; D4</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:06</date>
-  <millis>1430289006650</millis>
-  <sequence>76</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:12</date>
-  <millis>1430289012882</millis>
-  <sequence>77</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T08:30:14</date>
-  <millis>1430289014089</millis>
-  <sequence>78</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printDidDMG</method>
-  <thread>14</thread>
-  <message>KNIGHT did 1 damage to QUEEN at D8</message>
+  <thread>17</thread>
+  <message>PAWN from: E4 -&gt; D5</message>
 </record>
 </log>

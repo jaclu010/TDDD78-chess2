@@ -178,29 +178,6 @@ public class ChessBoard
 	    }
 	} else {
 	    executeAbilityModifiers();
-	    /*
-	    switch (selected.getAbility().getAC()) {
-		case OFFENSIVE:
-		    if (selected.getAbility().getFreezeTime() > 0) {
-			freezePiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getFreezeTime());
-		    } else if (selected.getAbility().getKnockBack() > 0) {
-			knockBack(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getKnockBack());
-		    } else {
-			hurtPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
-		    }
-		    break;
-		case DEFENSIVE:
-		    healPiece(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getHeal());
-		    break;
-		case SPECIAL:
-		    if (selected.getpT() == PieceType.KING) {
-			spawnProtectionForKing();
-		    } else {
-			useLaser();
-		    }
-		    break;
-	    }
-	    */
 	}
     }
     public void executeAbilityModifiers(){

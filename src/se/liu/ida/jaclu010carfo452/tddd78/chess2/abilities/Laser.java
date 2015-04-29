@@ -14,6 +14,7 @@ public class Laser extends AbstractAbility
     public Laser() {
 	setDmg(3);
 	setCost(3);
+        setLaserRadius(2);
 	setaT(AbilityType.LASER);
         setaC(AbilityCharacteristic.SPECIAL);
     }

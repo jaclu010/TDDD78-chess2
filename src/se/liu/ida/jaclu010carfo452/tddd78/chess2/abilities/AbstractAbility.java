@@ -7,7 +7,7 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
  */
 public abstract class AbstractAbility implements AbilityInterface
 {
-    private int cost, dmg = 0, heal = 0, knockBack = 0, freezeTime = 0;
+    private int cost, dmg = 0, heal = 0, knockBack = 0, freezeTime = 0, laserRadius = 0;
     private String msg = "";
     private AbilityType aT = null;
     private AbilityCharacteristic aC = null;
@@ -36,7 +36,6 @@ public abstract class AbstractAbility implements AbilityInterface
     public void setCost(final int cost){
 	this.cost = cost;
     }
-
 
     public int getDmg() {
         return dmg;
@@ -76,5 +75,13 @@ public abstract class AbstractAbility implements AbilityInterface
 
     public void setFreezeTime(final int freezeTime) {
         this.freezeTime = freezeTime;
+    }
+
+    public int getLaserRadius() {
+        return laserRadius;
+    }
+
+    public void setLaserRadius(final int laserRadius) {
+        this.laserRadius = laserRadius;
     }
 }
