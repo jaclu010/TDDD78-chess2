@@ -162,11 +162,7 @@ public class RuleController
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
 	if (movementLimitations(y, x)) {
-	    if (!Objects.equals(chessPieces[y][x].getPlayer(), selected.getPlayer())) {
-		possibleMoves.add(new Point(y, x));
-	    } else {
-		healingMoves.add(new Point(y, x));
-	    }
+	    addPointToRightListAtCoords(y, x);
 	}
     }
 
@@ -179,14 +175,18 @@ public class RuleController
 		tempY += rule.getPoint().getY();
 		tempX += rule.getPoint().getX();
 	    } else {
-		if (!Objects.equals(chessPieces[tempY][tempX].getPlayer(), selected.getPlayer())){
-		    possibleMoves.add(new Point(tempY, tempX));
-		} else {
-		    healingMoves.add(new Point(tempY, tempX));
-		}
+		addPointToRightListAtCoords(tempY, tempX);
 		break;
 	    }
 
+	}
+    }
+
+    private void addPointToRightListAtCoords(int y, int x){
+	if (!Objects.equals(chessPieces[y][x].getPlayer(), selected.getPlayer())) {
+	    possibleMoves.add(new Point(y, x));
+	} else {
+	    healingMoves.add(new Point(y, x));
 	}
     }
 

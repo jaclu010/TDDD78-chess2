@@ -18,7 +18,6 @@ public abstract class AbstractAbility implements AbilityInterface
 
     public AbilityCharacteristic getaC() {
         return aC;
-
     }
 
     public void setaT(final AbilityType aT) {

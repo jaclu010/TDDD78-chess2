@@ -1,5 +1,6 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.RuleController;
@@ -160,12 +161,6 @@ public class ChessBoard
 		break;
 	    }
 	}
-	/*abilityMoves.stream().filter(possibleAbilityMove -> possibleAbilityMove.getX() == x && possibleAbilityMove.getY() == y)
-		.forEach(possibleAbilityMove -> {
-		    payCost();
-		    notifyAnimationListeners();
-		});
-		*/
 	notifyListeners();
     }
 
@@ -245,7 +240,7 @@ public class ChessBoard
 		movePiece(y, x);
 	    	gameOver = true;
 		notifyListeners();
-	    } else if(selected.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves()) {
+	    } else if(selected.getAbility().getaT() == AbilityType.LASER && !GlobalVars.isShowRegularMoves()) {
 		board[y][x] = new ChessPiece(PieceType.EMPTY);
 		changeActivePlayer();
 	    } else {

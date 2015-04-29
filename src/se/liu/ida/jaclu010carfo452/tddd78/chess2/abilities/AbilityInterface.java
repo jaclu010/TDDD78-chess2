@@ -17,7 +17,11 @@ public interface AbilityInterface
 
     public AbilityType getaT();
 
+    public void setaC(final AbilityCharacteristic aC);
+
     public int getCost();
+
+    public void setCost(final int cost);
 
     public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves);
 

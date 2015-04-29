@@ -2,6 +2,7 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2.gui;
 
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.*;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityCharacteristic;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateAbilityImpact;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimateMovement;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.animation.AnimationListener;
@@ -114,7 +115,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	    for (int x = 1; x < GlobalVars.getWidth()-1; x++) {
 		ChessPiece currentPiece = cB.getPiece(y, x);
 		if (currentPiece.getpT() != PieceType.EMPTY) {
-		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getpT() == PieceType.QUEEN && !GlobalVars.isShowRegularMoves())) {
+		    if ((currentPiece.getpT() != PieceType.OUTSIDE && !currentPiece.isUnderAnimation()) || (currentPiece.getAbility().getaT() == AbilityType.LASER && !GlobalVars.isShowRegularMoves())) {
 
 			g2d.drawImage((GlobalVars.getIMG(currentPiece)).getImage(), x*squareSide, y*squareSide, squareSide, squareSide, this);
 
@@ -188,7 +189,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
 	if (regMo || selected.getAbility().getaC() != AbilityCharacteristic.SPECIAL) {
 	    g2d.drawImage((GlobalVars.getIMG(selected)).getImage(), realXPosition, realYPosition, squareSide, squareSide, this);
-	} else if(selected.getpT() == PieceType.QUEEN){
+	} else if(selected.getAbility().getaT() == AbilityType.LASER){
 	    drawLaser(g2d);
 	}
     }

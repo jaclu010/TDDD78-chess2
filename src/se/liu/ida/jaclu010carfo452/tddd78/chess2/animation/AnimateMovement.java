@@ -69,14 +69,12 @@ public class AnimateMovement
                         if(animationX >= targetX){
                             stopAnimation();
                             cB.chooseEndAction();
-
                         }
                     }else{
                         // Animation moving to the left
                         if(animationX <= targetX){
                             stopAnimation();
                             cB.chooseEndAction();
-
                         }
                     }
                 }

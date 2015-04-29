@@ -48,9 +48,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	Iterable<ChessPiece> killedBlackPieces = cB.getKilledBlackPieces();
 
 	if (killedWhitePieces != null) {
-	    final int fontSize = 12;
-	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
-	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
+	    setFontAndTextForKilledPieces(g2d);
 	    int i = 0;
 	    for (ChessPiece killedWhitePiece : killedWhitePieces) {
 		i += 1;
@@ -58,9 +56,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	    }
 	}
 	if (killedBlackPieces != null) {
-	    final int fontSize = 12;
-	    g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
-	    g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
+	    setFontAndTextForKilledPieces(g2d);
 	    int i = 0;
 	    for (ChessPiece killedBlackPiece : killedBlackPieces) {
 		i += 1;
@@ -71,5 +67,12 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	int whiteKills = cB.getKilledWhitePieces().size();
 	int blackKills = cB.getKilledBlackPieces().size();
 	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/5,squareSide*GlobalVars.getHeight()-squareSide);
+    }
+
+    private void setFontAndTextForKilledPieces(Graphics g2d){
+	final int fontSize = 12;
+	g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
+	g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
+	int i = 0;
     }
 }
