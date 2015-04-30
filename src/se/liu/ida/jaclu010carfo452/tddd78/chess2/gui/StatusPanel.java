@@ -98,7 +98,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     @Override
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
-	if(selected != null && selected.getpT() == PieceType.KING && !GlobalVars.isShowRegularMoves()){
+	if(selected != null && selected.getpT() == PieceType.KING && !GlobalVars.isShowRegularMoves() && selected.getAbility().getCost() <= selected.getaP()){
 	    useAbility.setVisible(true);
 	} else {
 	    useAbility.setVisible(false);

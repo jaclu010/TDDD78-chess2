@@ -73,6 +73,5 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	final int fontSize = 12;
 	g2d.setFont(new Font("SansSerif", Font.BOLD, fontSize));
 	g2d.drawString("Killed Pieces: ", squareSide/2, squareSide/2);
-	int i = 0;
     }
 }

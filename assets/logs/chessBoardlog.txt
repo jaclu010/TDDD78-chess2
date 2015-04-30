@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-04-29T09:50:51</date>
-  <millis>1430293851098</millis>
+  <date>2015-04-30T10:57:49</date>
+  <millis>1430384269742</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>ChessBoard initialised</message>
 </record>
 <record>
-  <date>2015-04-29T09:50:56</date>
-  <millis>1430293856337</millis>
+  <date>2015-04-30T10:57:53</date>
+  <millis>1430384273446</millis>
   <sequence>1</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -24,19 +24,19 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T09:50:57</date>
-  <millis>1430293857391</millis>
+  <date>2015-04-30T10:57:59</date>
+  <millis>1430384279852</millis>
   <sequence>2</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
+  <method>printAbility</method>
   <thread>14</thread>
-  <message>PAWN from: D2 -&gt; D4</message>
+  <message>BISHOP healed PAWN for 2 HP</message>
 </record>
 <record>
-  <date>2015-04-29T09:50:57</date>
-  <millis>1430293857633</millis>
+  <date>2015-04-30T10:58:03</date>
+  <millis>1430384283213</millis>
   <sequence>3</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -46,344 +46,14 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-04-29T09:50:58</date>
-  <millis>1430293858537</millis>
+  <date>2015-04-30T10:58:08</date>
+  <millis>1430384288151</millis>
   <sequence>4</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>PAWN from: D7 -&gt; D5</message>
-</record>
-<record>
-  <date>2015-04-29T09:50:58</date>
-  <millis>1430293858785</millis>
-  <sequence>5</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:50:59</date>
-  <millis>1430293859648</millis>
-  <sequence>6</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: D1 -&gt; D3</message>
-</record>
-<record>
-  <date>2015-04-29T09:50:59</date>
-  <millis>1430293859984</millis>
-  <sequence>7</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:01</date>
-  <millis>1430293861025</millis>
-  <sequence>8</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: D8 -&gt; D6</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:01</date>
-  <millis>1430293861433</millis>
-  <sequence>9</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:02</date>
-  <millis>1430293862802</millis>
-  <sequence>10</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: D3 -&gt; G3</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:03</date>
-  <millis>1430293863440</millis>
-  <sequence>11</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:04</date>
-  <millis>1430293864577</millis>
-  <sequence>12</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: D6 -&gt; B6</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:05</date>
-  <millis>1430293865400</millis>
-  <sequence>13</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:06</date>
-  <millis>1430293866568</millis>
-  <sequence>14</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: G3 -&gt; C3</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:07</date>
-  <millis>1430293867128</millis>
-  <sequence>15</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:08</date>
-  <millis>1430293868232</millis>
-  <sequence>16</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: B6 -&gt; G6</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:09</date>
-  <millis>1430293869040</millis>
-  <sequence>17</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:09</date>
-  <millis>1430293869984</millis>
-  <sequence>18</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: C3 -&gt; G3</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:11</date>
-  <millis>1430293871489</millis>
-  <sequence>19</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:24</date>
-  <millis>1430293884992</millis>
-  <sequence>20</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: G6 -&gt; G5</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:28</date>
-  <millis>1430293888600</millis>
-  <sequence>21</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:30</date>
-  <millis>1430293890597</millis>
-  <sequence>22</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
-  <thread>14</thread>
-  <message>QUEEN used the Laser</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:30</date>
-  <millis>1430293890599</millis>
-  <sequence>23</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printDidDMG</method>
-  <thread>14</thread>
-  <message>QUEEN did 3 damage to QUEEN at G3</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:40</date>
-  <millis>1430293900809</millis>
-  <sequence>24</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:42</date>
-  <millis>1430293902905</millis>
-  <sequence>25</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:45</date>
-  <millis>1430293905001</millis>
-  <sequence>26</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
-  <thread>14</thread>
-  <message>KING activated protection barrier at E1</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:47</date>
-  <millis>1430293907153</millis>
-  <sequence>27</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:49</date>
-  <millis>1430293909441</millis>
-  <sequence>28</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
-  <thread>14</thread>
-  <message>KING activated protection barrier at E8</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:54</date>
-  <millis>1430293914776</millis>
-  <sequence>29</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:51:57</date>
-  <millis>1430293917160</millis>
-  <sequence>30</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>printAbility</method>
   <thread>14</thread>
   <message>BISHOP healed PAWN for 2 HP</message>
-</record>
-<record>
-  <date>2015-04-29T09:52:00</date>
-  <millis>1430293920432</millis>
-  <sequence>31</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:52:01</date>
-  <millis>1430293921688</millis>
-  <sequence>32</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: G5 -&gt; E5</message>
-</record>
-<record>
-  <date>2015-04-29T09:52:05</date>
-  <millis>1430293925440</millis>
-  <sequence>33</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-04-29T09:52:06</date>
-  <millis>1430293926899</millis>
-  <sequence>34</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printPieceMovement</method>
-  <thread>14</thread>
-  <message>QUEEN from: G3 -&gt; A3</message>
 </record>
 </log>

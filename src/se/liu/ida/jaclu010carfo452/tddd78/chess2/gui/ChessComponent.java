@@ -249,7 +249,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     	if(optionChosen == 0){
             cB.newGame();
-    	} else if(optionChosen == 1){
+    	} else {
             System.exit(0);
         }
     }

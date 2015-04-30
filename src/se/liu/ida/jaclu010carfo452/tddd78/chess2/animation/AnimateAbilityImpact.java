@@ -15,7 +15,7 @@ public class AnimateAbilityImpact
 {
     private int animationY;
     private Timer timer;
-    private float opacity = 0.8f;
+    private float opacity = 1.0f;
     private String ability;
 
     private static final int DELAY = 50;

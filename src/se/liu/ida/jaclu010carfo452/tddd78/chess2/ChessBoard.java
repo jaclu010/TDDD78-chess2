@@ -28,7 +28,7 @@ public class ChessBoard
     private String logMsg = "";
     private int height, width, turn;
     private Point selectedCoords = new Point(0,0);
-    private Point targetCoords = new Point(0,0);
+    private Point targetCoords = new Point(5,5);
     private Collection<ChessBoardListener> chessBoardListeners;
     private Collection<AnimationListener> animationListeners;
     private List<ChessPiece> frozenPieces;
