@@ -153,7 +153,7 @@ public class RuleController
 	}
     }
 
-    private boolean movementLimitations(int y, int x){
+    private boolean isWithinMovementsLimitations(int y, int x){
 	return (y < height && y > 0 && x < width && x > 0 &&
 		     chessPieces[y][x].getpT() != PieceType.OUTSIDE);
     }
@@ -161,7 +161,7 @@ public class RuleController
     private void ableToMoveOneStep(Rule rule){
 	int y = selectedY+rule.getPoint().getY();
 	int x = selectedX+rule.getPoint().getX();
-	if (movementLimitations(y, x)) {
+	if (isWithinMovementsLimitations(y, x)) {
 	    addPointToRightListAtCoords(y, x);
 	}
     }
@@ -169,7 +169,7 @@ public class RuleController
     private void ableToMoveManySteps(Rule rule){
 	int tempY = selectedY+rule.getPoint().getY();
 	int tempX = selectedX+rule.getPoint().getX();
-	while (movementLimitations(tempY, tempX)){
+	while (isWithinMovementsLimitations(tempY, tempX)){
 	    if (chessPieces[tempY][tempX].getPlayer() == null){
 		possibleMoves.add(new Point(tempY, tempX));
 		tempY += rule.getPoint().getY();
