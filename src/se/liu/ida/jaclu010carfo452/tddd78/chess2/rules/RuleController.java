@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * Extended object for ChessBord that houses the methods for checking and updating potential moves
+ * Extended bject for ChessBord that houses the methods for checking and updating potential moves
  * @author jaclu010, carfo452
  */
 public class RuleController

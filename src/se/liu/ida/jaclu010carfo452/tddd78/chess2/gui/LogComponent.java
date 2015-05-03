@@ -33,7 +33,6 @@ public class LogComponent extends JTextArea implements ChessBoardListener
 	if (!oldMsg.equals(latestMsg)){
 	    this.append(latestMsg+"\n");
 	}
-
     }
 
     @Override public Dimension getPreferredScrollableViewportSize(){

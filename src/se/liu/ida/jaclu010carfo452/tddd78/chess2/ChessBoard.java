@@ -61,8 +61,11 @@ public class ChessBoard
 		}
 	    }
 	}
+	loggerInit();
 	fillBoard();
+    }
 
+    private void loggerInit(){
 	try {
 	    FileHandler fileHandler = new FileHandler("assets/logs/chessBoardlog.txt");
 	    logger.addHandler(fileHandler);

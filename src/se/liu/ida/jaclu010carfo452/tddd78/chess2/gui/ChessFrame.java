@@ -23,6 +23,7 @@ public class ChessFrame extends JFrame implements MouseListener
     public ChessFrame(ChessBoard cB) throws HeadlessException {
 	super("Chess 2");
 	this.cB = cB;
+	
 	this.statusPanel = new StatusPanel(cB);
 	final ChessComponent gameArea = new ChessComponent(cB);
 	final LogComponent logArea = new LogComponent(cB);
