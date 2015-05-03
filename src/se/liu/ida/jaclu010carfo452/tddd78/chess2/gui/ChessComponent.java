@@ -55,12 +55,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     @Override public Dimension getPreferredSize(){
 	super.getPreferredSize();
-	/*Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	final double percentOfScreenWidth = 0.35, percentOfScreenHeight = 0.7;
-	int compWidth = (int)(screenSize.getWidth()* percentOfScreenWidth);
-	int compHeight = (int)(screenSize.getHeight()*percentOfScreenHeight);
-	Dimension preferredSize = new Dimension(compWidth, compHeight);
-	return preferredSize;*/
 	return new Dimension(GlobalVars.getWidth()*GlobalVars.getsquareside(), GlobalVars.getHeight()*GlobalVars.getsquareside());
     }
     
@@ -79,6 +73,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	if(GlobalVars.isEndAnimRunning()){
 	    drawImpactAnimation(g2d);
 	}
+	assert g2d != null: "Internal error: Something has changed the Graphics2D to null";
     }
 
     public void drawBG(Graphics2D g2d){

@@ -296,8 +296,8 @@ public class ChessBoard
 	//True = white pieces
 	//Adds the pawns at right position
 
-	assert width > 0: "Internal error: width has been changed";
-	assert height > 0: "Internal error: height has been changed";
+	assert width > 3: "Internal error: width has been changed";
+	assert height > 3: "Internal error: height has been changed";
 	for (int x = 1; x < width-1; x++) {
 	    board[2][x] = new ChessPiece(false, PieceType.PAWN);
 	    board[height-3][x] = new ChessPiece(true, PieceType.PAWN);

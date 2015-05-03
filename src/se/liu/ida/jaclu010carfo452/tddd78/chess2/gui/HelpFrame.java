@@ -28,6 +28,7 @@ public class HelpFrame extends JFrame
 	} catch(IOException e){
 	    logger.log(Level.WARNING, "No file with that name is found", e);
 	}
+	assert logger != null: "Logger was not initialised";
 	JTextArea textArea = new JTextArea();
 	final int fontSize = 16;
 	textArea.setFont(new Font("Sans Serif", Font.PLAIN, fontSize));

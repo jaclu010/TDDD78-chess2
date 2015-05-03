@@ -25,23 +25,21 @@ public final class Main
     private static void loadProperties(){
 	Properties prop = new Properties();
 	InputStream input = null;
-
 	try {
-
-		input = new FileInputStream("assets/config/config.properties");
-		prop.load(input);
-		writeProperties(prop);
+	    input = new FileInputStream("assets/config/config.properties");
+	    prop.load(input);
+	    writeProperties(prop);
 
 	} catch (IOException ex) {
-		ex.printStackTrace();
+	    ex.printStackTrace();
 	} finally {
-		if (input != null) {
-			try {
-				input.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	    if (input != null) {
+		try {
+		    input.close();
+		} catch (IOException e) {
+		    e.printStackTrace();
 		}
+	    }
 	}
     }
 
@@ -53,8 +51,6 @@ public final class Main
 	int startAP = Integer.parseInt(prop.getProperty("mechanics.startAP"));
 	boolean regMo = Boolean.parseBoolean(prop.getProperty("mechanics.showRegularMoves"));
 	boolean cheatsEnabled = Boolean.parseBoolean(prop.getProperty("mechanics.cheatsEnabled"));
-
-
 
 	if(Objects.equals(theme, "troll") || Objects.equals(theme, "original")) {
 	    GlobalVars.setGuiTheme(theme);

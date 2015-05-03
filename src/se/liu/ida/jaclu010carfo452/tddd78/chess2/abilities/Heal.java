@@ -26,7 +26,7 @@ public class Heal extends AbstractAbility
 
     	setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+
                " healed "+  board[y][x].getpT().name()+ " for " + getHeal() + " HP");
-
+        assert board != null: "Internal error: board has been changed to wrong value";
         return board;
     }
 }

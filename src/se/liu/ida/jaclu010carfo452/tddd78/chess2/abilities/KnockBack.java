@@ -30,7 +30,7 @@ public class KnockBack extends AbstractAbility
 
 	setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+ " knocked back "
 	       + board[y+i*getKnockBack()][x].getpT().name()+" to "+ GlobalVars.getLetter(x) + (GlobalVars.getHeight() - 1 - (y + i * getKnockBack())));
-
+	assert board != null: "Internal error: board has been changed to wrong value";
 	return board;
     }
 }

@@ -28,9 +28,7 @@ public class Freeze extends AbstractAbility
 
         setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+" froze "+
                 board[y][x].getpT().name()+" for "+getFreezeTime()+" turns at "+ GlobalVars.getLetter(x) + (GlobalVars.getHeight()-1-y));
-
-    	//printFreezeMSG(y, x);
-
+        assert board != null: "Internal error: board has been changed to wrong value";
         return board;
     }
 }

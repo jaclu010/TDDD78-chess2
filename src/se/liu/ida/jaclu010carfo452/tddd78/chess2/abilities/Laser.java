@@ -25,6 +25,7 @@ public class Laser extends AbstractAbility
         board[y][x].doDMG(getDmg());
 
         setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name() + " used the Laser");
+        assert board != null: "Internal error: board has been changed to wrong value";
         return board;
     }
 }

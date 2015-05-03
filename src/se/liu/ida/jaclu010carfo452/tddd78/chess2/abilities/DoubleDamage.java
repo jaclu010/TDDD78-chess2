@@ -25,7 +25,7 @@ public class DoubleDamage extends AbstractAbility
 
         setMsg(board[selectedCoords.getY()][selectedCoords.getX()].getpT().name()+" used Double Damage on "+
                board[y][x].getpT().name());
-
+        assert board != null: "Internal error: board has been changed to wrong value";
         return board;
     }
 }

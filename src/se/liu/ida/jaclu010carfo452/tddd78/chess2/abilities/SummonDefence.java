@@ -27,6 +27,7 @@ public class SummonDefence extends AbstractAbility
         }
         setMsg(board[y][x].getpT().name() + " activated protection barrier at " +
                GlobalVars.getLetter(x)+ (GlobalVars.getHeight()-1-y));
+        assert board != null: "Internal error: board has been changed to wrong value";
         return board;
     }
 }
