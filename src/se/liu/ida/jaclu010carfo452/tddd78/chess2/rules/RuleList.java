@@ -12,18 +12,18 @@ import java.util.stream.Collectors;
 public final class RuleList
 {
     private static final RuleList INSTANCE = new RuleList();
-    private final List<Rule> ruleList;
+        private final List<Rule> ruleList;
 
-    private RuleList() {
-        ruleList = RuleCreator.getRules();
-    }
+        private RuleList() {
+            ruleList = RuleCreator.getRules();
+        }
 
-    public static RuleList getInstance() {
-	return INSTANCE;
-    }
+        public static RuleList getInstance() {
+    	return INSTANCE;
+        }
 
-    public Iterable<Rule> extractRulesFor(PieceType pT){
-        List<Rule> pieceRules = ruleList.stream().filter(rule -> rule.getpT() == pT).collect(Collectors.toList());
-        return pieceRules;
-    }
+        public Iterable<Rule> extractRulesFor(PieceType pT){
+            List<Rule> pieceRules = ruleList.stream().filter(rule -> rule.getpT() == pT).collect(Collectors.toList());
+            return pieceRules;
+        }
 }
