@@ -121,7 +121,7 @@ public class ChessBoard
 
 	} else if (selected != null && board[mouseY][mouseX].getpT() == PieceType.EMPTY && !frozenPieces.contains(selected)){
 	    // Press on a empty piece
-	    checkRules();
+	    //checkRules();
 	    pieceAction(mouseY, mouseX);
 
 	} else if (selected != null && Objects.equals(board[mouseY][mouseX].getPlayer(), selected.getPlayer())) {

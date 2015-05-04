@@ -152,9 +152,8 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		}
 	    }
 	}
-
-	// Colors the possible places for the selected piece to use ability on
-	if(!GlobalVars.isShowRegularMoves()) {
+	else {
+	    // Colors the possible places for the selected piece to use ability on
 	    g2d.setColor(YELLOW_TRANSPARENT);
 	    if (abilityMoves != null) {
 		for (Point abilityMove : abilityMoves) {
