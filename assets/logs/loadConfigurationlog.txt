@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-05-04T22:35:05</date>
-  <millis>1430771705272</millis>
+  <date>2015-05-04T22:38:47</date>
+  <millis>1430771927991</millis>
   <sequence>0</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.Main</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Configuration of theme done</message>
 </record>
 <record>
-  <date>2015-05-04T22:35:05</date>
-  <millis>1430771705293</millis>
+  <date>2015-05-04T22:38:48</date>
+  <millis>1430771928020</millis>
   <sequence>1</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.Main</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Configuration of squareSide done</message>
 </record>
 <record>
-  <date>2015-05-04T22:35:05</date>
-  <millis>1430771705294</millis>
+  <date>2015-05-04T22:38:48</date>
+  <millis>1430771928020</millis>
   <sequence>2</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.Main</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Configuration of width and height done</message>
 </record>
 <record>
-  <date>2015-05-04T22:35:05</date>
-  <millis>1430771705294</millis>
+  <date>2015-05-04T22:38:48</date>
+  <millis>1430771928021</millis>
   <sequence>3</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.Main</logger>
   <level>INFO</level>
