@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-05-04T12:02:44</date>
-  <millis>1430733764499</millis>
+  <date>2015-05-05T11:00:50</date>
+  <millis>1430816450281</millis>
   <sequence>4</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>ChessBoard initialised</message>
 </record>
 <record>
-  <date>2015-05-04T12:02:58</date>
-  <millis>1430733778265</millis>
+  <date>2015-05-05T11:00:52</date>
+  <millis>1430816452633</millis>
   <sequence>5</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -24,19 +24,19 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:01</date>
-  <millis>1430733781118</millis>
+  <date>2015-05-05T11:00:53</date>
+  <millis>1430816453696</millis>
   <sequence>6</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>printAbility</method>
+  <method>printPieceMovement</method>
   <thread>14</thread>
-  <message>BISHOP healed PAWN for 2 HP</message>
+  <message>PAWN from: E2 -&gt; E4</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:05</date>
-  <millis>1430733785641</millis>
+  <date>2015-05-05T11:01:04</date>
+  <millis>1430816464729</millis>
   <sequence>7</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -46,19 +46,19 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:08</date>
-  <millis>1430733788515</millis>
+  <date>2015-05-05T11:01:08</date>
+  <millis>1430816468957</millis>
   <sequence>8</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
   <method>printAbility</method>
   <thread>14</thread>
-  <message>BISHOP healed PAWN for 2 HP</message>
+  <message>BISHOP activated protection barrier at F1</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:12</date>
-  <millis>1430733792033</millis>
+  <date>2015-05-05T11:01:20</date>
+  <millis>1430816480721</millis>
   <sequence>9</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -68,19 +68,19 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:13</date>
-  <millis>1430733793321</millis>
+  <date>2015-05-05T11:01:21</date>
+  <millis>1430816481666</millis>
   <sequence>10</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
+  <method>printPieceMovement</method>
   <thread>14</thread>
-  <message>A chess piece was selected</message>
+  <message>PAWN from: D3 -&gt; D4</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:14</date>
-  <millis>1430733794681</millis>
+  <date>2015-05-05T11:01:22</date>
+  <millis>1430816482721</millis>
   <sequence>11</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -90,19 +90,19 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:15</date>
-  <millis>1430733795441</millis>
+  <date>2015-05-05T11:01:23</date>
+  <millis>1430816483778</millis>
   <sequence>12</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
+  <method>printPieceMovement</method>
   <thread>14</thread>
-  <message>A chess piece was selected</message>
+  <message>PAWN from: D2 -&gt; D3</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:15</date>
-  <millis>1430733795697</millis>
+  <date>2015-05-05T11:01:25</date>
+  <millis>1430816485193</millis>
   <sequence>13</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -112,146 +112,14 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-04T12:03:16</date>
-  <millis>1430733796409</millis>
+  <date>2015-05-05T11:01:28</date>
+  <millis>1430816488123</millis>
   <sequence>14</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
+  <method>printAbility</method>
   <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:16</date>
-  <millis>1430733796737</millis>
-  <sequence>15</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:17</date>
-  <millis>1430733797033</millis>
-  <sequence>16</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:17</date>
-  <millis>1430733797521</millis>
-  <sequence>17</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:17</date>
-  <millis>1430733797897</millis>
-  <sequence>18</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:18</date>
-  <millis>1430733798273</millis>
-  <sequence>19</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:18</date>
-  <millis>1430733798625</millis>
-  <sequence>20</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:19</date>
-  <millis>1430733799353</millis>
-  <sequence>21</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:19</date>
-  <millis>1430733799697</millis>
-  <sequence>22</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:20</date>
-  <millis>1430733800577</millis>
-  <sequence>23</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:20</date>
-  <millis>1430733800969</millis>
-  <sequence>24</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:22</date>
-  <millis>1430733802001</millis>
-  <sequence>25</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
-</record>
-<record>
-  <date>2015-05-04T12:03:22</date>
-  <millis>1430733802801</millis>
-  <sequence>26</sequence>
-  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
-  <level>INFO</level>
-  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
-  <method>select</method>
-  <thread>14</thread>
-  <message>A chess piece was selected</message>
+  <message>BISHOP activated protection barrier at C1</message>
 </record>
 </log>

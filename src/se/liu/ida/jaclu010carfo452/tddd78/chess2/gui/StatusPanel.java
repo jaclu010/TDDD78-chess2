@@ -5,6 +5,7 @@ import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoardListener;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities.AbilityType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -98,7 +99,7 @@ public class StatusPanel extends JPanel implements ChessBoardListener
     @Override
     public void chessBoardChanged(){
 	ChessPiece selected = cB.getSelected();
-	if(selected != null && selected.getpT() == PieceType.KING && !GlobalVars.isShowRegularMoves() && selected.getAbility().getCost() <= selected.getaP()){
+	if(selected != null && selected.getAbility().getaT() == AbilityType.SUMMON_DEFENCE && !GlobalVars.isShowRegularMoves() && selected.getAbility().getCost() <= selected.getaP()){
 	    useAbility.setVisible(true);
 	} else {
 	    useAbility.setVisible(false);

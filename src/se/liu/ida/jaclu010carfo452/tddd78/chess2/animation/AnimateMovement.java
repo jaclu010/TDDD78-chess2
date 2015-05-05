@@ -26,8 +26,6 @@ public class AnimateMovement
     private static final int PPF = 10;
 
     public AnimateMovement(ChessComponent gameArea, ChessBoard cB, AnimateAbilityImpact endAnim) {
-        //final ChessComponent gameArea1 = gameArea;
-        //final ChessBoard cB1 = cB;
         this.endAnim = endAnim;
 
         final int selectedX = cB.getSelectedCoords().getX();
