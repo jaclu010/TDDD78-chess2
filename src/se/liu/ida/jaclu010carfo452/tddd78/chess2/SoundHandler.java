@@ -48,7 +48,6 @@ public final class SoundHandler
             AudioClip summonDefenceClip = Applet.newAudioClip(url);
             sounds.put("SUMMON_DEFENCE", summonDefenceClip);
 
-
         } catch(MalformedURLException e) {
             e.printStackTrace();
         }

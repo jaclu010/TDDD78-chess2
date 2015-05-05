@@ -92,6 +92,7 @@ public class AnimateMovement
 
         if(endAnim != null){
        	    SoundHandler.getInstance().playSound(selected.getAbility().getaT().name());
+            assert endAnim != null: "Internal error: endAnim was changed to null";
        	}
     }
 
