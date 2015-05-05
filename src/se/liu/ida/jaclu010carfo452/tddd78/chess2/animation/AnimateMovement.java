@@ -3,6 +3,7 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2.animation;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.SoundHandler;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.gui.ChessComponent;
 
 import javax.swing.*;
@@ -88,6 +89,10 @@ public class AnimateMovement
         timer.start();
         GlobalVars.setAnimationRunning(true);
         selected.setUnderAnimation(true);
+
+        if(endAnim != null){
+       	    SoundHandler.getInstance().playSound(selected.getAbility().getaT().name());
+       	}
     }
 
     private void stopAnimation(){

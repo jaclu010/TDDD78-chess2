@@ -182,7 +182,7 @@ public class ChessBoard
 
     public void executeAbilityModifiers() {
 	board = selected.getAbility().use(targetCoords, selectedCoords, board, rC.getAbilityMoves());
-	SoundHandler.getInstance().playSound(selected.getAbility().getaT().toString());
+	//SoundHandler.getInstance().playSound(selected.getAbility().getaT().toString());
 	printAbility();
 	checkForKill(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
 	checkForFreeze();

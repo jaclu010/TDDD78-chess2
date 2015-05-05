@@ -3,6 +3,7 @@ package se.liu.ida.jaclu010carfo452.tddd78.chess2.abilities;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessPiece;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.GlobalVars;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.PieceType;
+import se.liu.ida.jaclu010carfo452.tddd78.chess2.SoundHandler;
 import se.liu.ida.jaclu010carfo452.tddd78.chess2.rules.Point;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public class SummonDefence extends AbstractAbility
     }
 
     @Override public ChessPiece[][] use(Point targetCoords, Point selectedCoords, ChessPiece[][] board, List<Point> moves) {
+
+        SoundHandler.getInstance().playSound(getaT().name());
+
         int y = selectedCoords.getY();
         int x = selectedCoords.getX();
         for (Point move : moves) {

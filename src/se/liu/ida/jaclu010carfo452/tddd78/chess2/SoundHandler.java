@@ -1,9 +1,5 @@
 package se.liu.ida.jaclu010carfo452.tddd78.chess2;
 
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.io.File;
@@ -12,6 +8,10 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A singleton class that imports soundfiles
+ * @author jaclu010, carfo452
+ */
 public final class SoundHandler
 {
     private static final SoundHandler INSTANCE = new SoundHandler();
@@ -32,11 +32,11 @@ public final class SoundHandler
             AudioClip freezeClip = Applet.newAudioClip(url);
             sounds.put("FREEZE", freezeClip);
 
-            url = new File("assets/sounds/gun_fire.wav").toURI().toURL();
+            url = new File("assets/sounds/ddamage.wav").toURI().toURL();
             AudioClip doubleDamageClip = Applet.newAudioClip(url);
             sounds.put("DOUBLE_DAMAGE", doubleDamageClip);
 
-            url = new File("assets/sounds/ambulance.wav").toURI().toURL();
+            url = new File("assets/sounds/heal.wav").toURI().toURL();
             AudioClip healClip = Applet.newAudioClip(url);
             sounds.put("HEAL", healClip);
 
