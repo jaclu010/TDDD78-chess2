@@ -15,7 +15,6 @@ import java.awt.*;
  */
 public class KilledPiecesComponent extends JComponent implements ChessBoardListener
 {
-
     private ChessBoard cB;
     private int squareSide = GlobalVars.getsquareside();
 
@@ -40,6 +39,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	Iterable<ChessPiece> killedWhitePieces = cB.getKilledWhitePieces();
 	Iterable<ChessPiece> killedBlackPieces = cB.getKilledBlackPieces();
 
+	// Paints the killed white pieces
 	if (killedWhitePieces != null) {
 	    setFontAndTextForKilledPieces(g2d);
 	    int i = 0;
@@ -48,6 +48,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 		g2d.drawImage(GlobalVars.getIMG(killedWhitePiece).getImage(), squareSide,squareSide/2*i, 2*squareSide/3, 2*squareSide/3, this);
 	    }
 	}
+	// Paints the killed black pieces
 	if (killedBlackPieces != null) {
 	    setFontAndTextForKilledPieces(g2d);
 	    int i = 0;
@@ -61,6 +62,7 @@ public class KilledPiecesComponent extends JComponent implements ChessBoardListe
 	int blackKills = cB.getKilledBlackPieces().size();
 	g2d.drawString("White Kills: "+whiteKills+", Black Kills: "+blackKills, squareSide/5,squareSide*GlobalVars.getHeight()-squareSide);
     }
+
 
     private void setFontAndTextForKilledPieces(Graphics g2d){
 	final int fontSize = 12;

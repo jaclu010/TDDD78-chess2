@@ -43,6 +43,10 @@ public class HelpFrame extends JFrame
     }
 
 
+    /**
+     * Reads a text from a file and writes it to a textArea
+     * @param textArea a JTextArea that displays how to play the game
+     */
     private void writeTextToTextArea(JTextArea textArea){
 	String text = "";
 	try {

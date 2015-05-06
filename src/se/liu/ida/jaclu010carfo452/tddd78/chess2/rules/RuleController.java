@@ -40,15 +40,25 @@ public class RuleController
 	possibleMoves.clear();
     }
 
+    /**
+     * Checks which rules that applies to the selected piece
+     * @param chessPieces the board
+     * @param selectedPiece the selected piece
+     * @param selectedCoords the selected pieces coordinaties
+     * @param frozenPieces the frozen pieces
+     * @param activePlayer which players turn it is
+     */
     public void checkRules(ChessPiece[][] chessPieces, ChessPiece selectedPiece, Point selectedCoords, Collection<ChessPiece> frozenPieces, Boolean activePlayer){
 	updateVars(chessPieces, selectedPiece, selectedCoords, activePlayer);
-
 	if(!frozenPieces.contains(selected)) {
 	    checkByRules();
 	    checkByAbility();
 	}
     }
 
+    /**
+     * Checks where the selected piece can move depending on which type of piece it is
+     */
     public void checkByRules(){
 	if (possibleMoves.isEmpty()) {
 	    for (Rule rule : selected.fetchRules()) {
@@ -63,6 +73,9 @@ public class RuleController
 	}
     }
 
+    /**
+     * Checks where the selected piece can use its ability
+     */
     public void checkByAbility(){
 	if(selected.getaP() >= selected.getAbility().getCost() && abilityMoves.isEmpty()) {
 	    switch (selected.getAbility().getaC()) {
@@ -103,6 +116,9 @@ public class RuleController
 	}
     }
 
+    /**
+     * Checks where the offensive pieces can move
+     */
     private void checkByPossibleMoves(){
 	abilityMoves.addAll(possibleMoves.stream()
 				    .filter(possibleMove -> chessPieces[possibleMove.getY()][possibleMove.getX()].getPlayer() != null)
@@ -128,6 +144,9 @@ public class RuleController
 							    PieceType.EMPTY).collect(Collectors.toList()));
     }
 
+    /**
+     * Checks where the heal abilty can be used
+     */
     private void copyHealingMoves(){
 	abilityMoves = new ArrayList<>(healingMoves);
     }

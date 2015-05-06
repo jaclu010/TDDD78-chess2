@@ -143,6 +143,11 @@ public class ChessBoard
 	notifyListeners();
     }
 
+    /**
+     * Select a new piece
+     * @param y y-cord for the new selected
+     * @param x x-cord for the new selected
+     */
     private void select(int y, int x) {
 	selected = board[y][x];
 	selectedCoords.setX(x);
@@ -182,7 +187,6 @@ public class ChessBoard
 
     public void executeAbilityModifiers() {
 	board = selected.getAbility().use(targetCoords, selectedCoords, board, rC.getAbilityMoves());
-	//SoundHandler.getInstance().playSound(selected.getAbility().getaT().toString());
 	printAbility();
 	checkForKill(targetCoords.getY(), targetCoords.getX(), selected.getAbility().getDmg());
 	checkForFreeze();

@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2015-05-05T18:34:21</date>
-  <millis>1430843661810</millis>
+  <date>2015-05-06T16:34:50</date>
+  <millis>1430922890928</millis>
   <sequence>4</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>ChessBoard initialised</message>
 </record>
 <record>
-  <date>2015-05-05T18:34:23</date>
-  <millis>1430843663745</millis>
+  <date>2015-05-06T16:34:53</date>
+  <millis>1430922893089</millis>
   <sequence>5</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-05T18:34:24</date>
-  <millis>1430843664485</millis>
+  <date>2015-05-06T16:34:53</date>
+  <millis>1430922893776</millis>
   <sequence>6</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
@@ -35,9 +35,31 @@
   <message>A chess piece was selected</message>
 </record>
 <record>
-  <date>2015-05-05T18:34:24</date>
-  <millis>1430843664947</millis>
+  <date>2015-05-06T16:34:54</date>
+  <millis>1430922894174</millis>
   <sequence>7</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>16</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-05-06T16:34:55</date>
+  <millis>1430922895350</millis>
+  <sequence>8</sequence>
+  <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
+  <level>INFO</level>
+  <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>
+  <method>select</method>
+  <thread>16</thread>
+  <message>A chess piece was selected</message>
+</record>
+<record>
+  <date>2015-05-06T16:34:55</date>
+  <millis>1430922895960</millis>
+  <sequence>9</sequence>
   <logger>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</logger>
   <level>INFO</level>
   <class>se.liu.ida.jaclu010carfo452.tddd78.chess2.ChessBoard</class>

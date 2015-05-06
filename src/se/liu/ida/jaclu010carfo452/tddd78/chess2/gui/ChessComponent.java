@@ -76,8 +76,11 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	assert g2d != null: "Internal error: Something has changed the Graphics2D to null";
     }
 
+    /**
+     * Paints the empty board
+     * @param g2d a Graphics2D to draw with
+     */
     public void drawBG(Graphics2D g2d){
-	// Paints the emptyBoard
 	for (int y = 0; y < GlobalVars.getHeight(); y++) {
 	    for (int x = 0; x < GlobalVars.getWidth(); x++) {
 		if(cB.getPiece(y,x).getpT() == PieceType.OUTSIDE){
@@ -89,7 +92,6 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 		    if ((y != 0 && y != GlobalVars.getHeight()-1) || (x != 0 && x != GlobalVars.getWidth()-1)) {
 			g2d.drawString(getLetter(y, x), x * squareSide + letterCompX, y * squareSide + letterCompY);
 		    }
-
 		}else if ((Math.abs(y) % 2 == 0 && Math.abs(x) % 2 == 0) || (y % 2 != 0 && x % 2 != 0)){
 		    g2d.setColor(Color.LIGHT_GRAY);
 		    g2d.fill(new Rectangle(x*squareSide, y*squareSide, squareSide, squareSide));
@@ -103,7 +105,7 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 
     /**
      * Draws the chess pieces
-     * @param g2d a graphics2d that draws everything
+     * @param g2d a Graphics2d to draw with
      */
     public void drawPieces(Graphics2D g2d){
 	for (int y = 1; y < GlobalVars.getHeight()-1; y++) {
@@ -139,6 +141,10 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	}
     }
 
+    /**
+     * Draws the possible move for the selected piece to move to
+     * @param g2d a Graphics2d to draw with
+     */
     private void drawPossibleMoves(Graphics2D g2d){
 	Iterable<Point> possibleMoves = cB.getRC().getPossibleMoves();
 	Iterable<Point> abilityMoves = cB.getRC().getAbilityMoves();
@@ -226,6 +232,9 @@ public class ChessComponent extends JComponent implements ChessBoardListener, An
 	return "";
     }
 
+    /**
+     * Displays a game over message
+     */
     private void gameOver(){
 	String winner = "White player";
 	if(cB.getActivePlayer()){
